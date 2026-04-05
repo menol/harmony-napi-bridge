@@ -46,3 +46,4 @@ progress:
 - Phase 6 added: Support any type conversion for ArkTS map and list
 - Phase 7 executed and verified.
 - Phase 8 executed and verified.
+- Phase 9 added: 支持抽象类的导出
