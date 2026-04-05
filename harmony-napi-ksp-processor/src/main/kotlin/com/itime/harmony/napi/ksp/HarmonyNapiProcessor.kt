@@ -11,6 +11,7 @@ import com.itime.harmony.napi.ksp.models.HarmonyParameterModel
 import com.itime.harmony.napi.ksp.models.HarmonyTypeModel
 import com.itime.harmony.napi.ksp.models.HarmonyPropertyModel
 import com.google.devtools.ksp.symbol.ClassKind
+import com.google.devtools.ksp.symbol.Modifier
 import com.google.devtools.ksp.getDeclaredProperties
 
 class HarmonyNapiProcessor(
@@ -78,11 +79,13 @@ class HarmonyNapiProcessor(
                     HarmonyExportModel(
                         functionName = funcDecl.simpleName.asString(),
                         parameters = params,
-                        returnType = returnType
+                        returnType = returnType,
+                        isAbstract = funcDecl.isAbstract
                     )
                 }.toList()
 
             val isInterface = classDecl.classKind == ClassKind.INTERFACE
+            val isAbstract = classDecl.modifiers.contains(Modifier.ABSTRACT)
             val typeParameters = classDecl.typeParameters.map { it.name.asString() }
 
             HarmonyModuleModel(
@@ -93,6 +96,7 @@ class HarmonyNapiProcessor(
                 containingFile = classDecl.containingFile,
                 exportFunctions = exportFunctions,
                 isInterface = isInterface,
+                isAbstract = isAbstract,
                 typeParameters = typeParameters
             )
         }

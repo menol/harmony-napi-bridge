@@ -11,6 +11,14 @@ export interface TestInterface {
 export interface DemoInterface<T> {
     sayHello(name: T): string;
 }
+export abstract class DemoAbstract {
+    abstract process(item: Array<string>): Array<string>;
+    sayHello(): string;
+}
+export abstract class TestAbstract<T> {
+    abstract process(item: T): T;
+    sayHello(): string;
+}
 export declare namespace hello_world_plugin {
     function add(a: number, b: number): number;
     function greet(name: string): string;

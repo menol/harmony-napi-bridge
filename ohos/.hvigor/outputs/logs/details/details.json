@@ -8,7 +8,6 @@
       {
         "MODULE_NAME": "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b",
         "API_TYPE": "stageMode",
-        "IS_BYTE_CODE_HAR": true,
         "INCREMENTAL_TASKS": {
           "BUILD_NATIVE_WITH_CMAKE": true,
           "COMPILE_ARKTS": true
@@ -26,27 +25,26 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "PreBuild": 71960292,
-        "ProcessOHPackageJson": 4068292,
-        "ConfigureCmake": 12430250,
-        "ProcessIntegratedHsp": 1521542,
-        "ProcessModulePrivacyProfile": 315208,
-        "BuildNativeWithCmake": 29402000,
-        "ProcessRouterMap": 1051916,
-        "ProcessShareConfig": 363167,
-        "ProcessStartupConfig": 2344291,
-        "ProcessObfuscationFiles": 145125,
-        "BuildNativeWithNinja": 775644500,
-        "ProcessLibs": 11231167,
-        "DoNativeStrip": 70981166,
-        "CacheNativeLibs": 21093292,
-        "HarCompileArkTS": 1296521667,
-        "ProcessHarArtifacts": 116374458,
-        "PackageHar": 111220125,
-        "PackageSignHar": 461958,
-        "PackingCheckHar": 2825417,
-        "CollectDebugSymbol": 309958,
-        "assembleHar": 66792
+        "ProcessOHPackageJson": 467083,
+        "ConfigureCmake": 105405417,
+        "ProcessIntegratedHsp": 208958,
+        "ProcessModulePrivacyProfile": 875584,
+        "BuildNativeWithCmake": 14571000,
+        "ProcessRouterMap": 608958,
+        "ProcessShareConfig": 363583,
+        "ProcessStartupConfig": 2675208,
+        "ProcessObfuscationFiles": 130458,
+        "BuildNativeWithNinja": 948199500,
+        "ProcessLibs": 58153625,
+        "DoNativeStrip": 316683250,
+        "CacheNativeLibs": 136248166,
+        "HarCompileArkTS": 2682437625,
+        "ProcessHarArtifacts": 199310083,
+        "PackageHar": 524707500,
+        "PackageSignHar": 707125,
+        "PackingCheckHar": 2126500,
+        "CollectDebugSymbol": 570833,
+        "assembleHar": 109417
       }
     },
     "APIS": [
@@ -71,7 +69,7 @@
       "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "TOTAL_TIME": 2701390666,
-    "BUILD_ID": "202604052148115870"
+    "TOTAL_TIME": 4064105834,
+    "BUILD_ID": "202604052154406760"
   }
 }

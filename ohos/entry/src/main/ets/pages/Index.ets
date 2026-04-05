@@ -3,7 +3,7 @@ import { Core, Hypium } from '@ohos/hypium';
 import hidebug from '@ohos.hidebug';
 import faultLogger from '@ohos.faultLogger';
 import khnTests from '../test/KhnTest';
-import { DemoInterface, TestInterface, User } from 'khn';
+import { DemoAbstract, DemoInterface, TestInterface, User } from 'khn';
 
 const DOMAIN = 0x0001;
 const TAG = 'KhnDemo';
@@ -34,6 +34,14 @@ class TestCall implements TestInterface {
 }
 
 class DemoCall implements DemoInterface<User> {
+  sayHello(user: User): string {
+    hilog.info(DOMAIN, TAG, '%{public}s', user.name);
+    return `Hello, ${user.name}!`;
+  }
+}
+
+
+class DemoAbsCall extends DemoAbstract {
   sayHello(user: User): string {
     hilog.info(DOMAIN, TAG, '%{public}s', user.name);
     return `Hello, ${user.name}!`;

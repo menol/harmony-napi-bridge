@@ -65,6 +65,12 @@ typedef struct {
 } libsample_plugin_kref_kotlin_ULong;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlin_collections_List;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
@@ -72,9 +78,6 @@ typedef struct {
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_kotlin_collections_Map;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlin_collections_List;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_User;
@@ -170,6 +173,12 @@ typedef struct {
               } generated;
             } napi;
             struct {
+              struct {
+                libsample_plugin_KType* (*_type)(void);
+                libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract (*DemoAbstract)();
+                libsample_plugin_kref_kotlin_collections_List (*process)(libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract thiz, libsample_plugin_kref_kotlin_collections_List item);
+                const char* (*sayHello)(libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract thiz);
+              } DemoAbstract;
               struct {
                 libsample_plugin_KType* (*_type)(void);
                 libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin (*_instance)();

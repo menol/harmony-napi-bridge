@@ -20,6 +20,27 @@ interface DemoInterface<T> {
 }
 
 
+@HarmonyModule(name = "DemoAbstract")
+abstract class DemoAbstract {
+    @HarmonyExport
+    abstract fun process(item: List<String>): List<String>
+    @HarmonyExport
+    fun sayHello(): String {
+        return "Hello from TestAbstract"
+    }
+}
+
+@HarmonyModule(name = "TestAbstract")
+abstract class TestAbstract<T> {
+    @HarmonyExport
+    abstract fun process(item: T): T
+    @HarmonyExport
+    fun sayHello(): String {
+        return "Hello from TestAbstract"
+    }
+}
+
+
 /**
  * 这是一个业务开发者的真实示例模块
  * 业务开发者只需要写这样的纯 Kotlin 代码

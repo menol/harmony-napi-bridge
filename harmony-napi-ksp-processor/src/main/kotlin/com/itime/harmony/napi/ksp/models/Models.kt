@@ -11,13 +11,15 @@ data class HarmonyModuleModel(
     val containingFile: KSFile?,
     val exportFunctions: List<HarmonyExportModel>,
     val isInterface: Boolean = false,
+    val isAbstract: Boolean = false,
     val typeParameters: List<String> = emptyList()
 )
 
 data class HarmonyExportModel(
     val functionName: String,
     val parameters: List<HarmonyParameterModel>,
-    val returnType: HarmonyTypeModel
+    val returnType: HarmonyTypeModel,
+    val isAbstract: Boolean = false
 )
 
 data class HarmonyParameterModel(
