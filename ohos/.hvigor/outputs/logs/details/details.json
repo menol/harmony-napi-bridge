@@ -26,20 +26,27 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "PreBuild": 101596917,
-        "ProcessOHPackageJson": 2620250,
-        "ConfigureCmake": 688875,
-        "ProcessIntegratedHsp": 269583,
-        "ProcessModulePrivacyProfile": 214000,
-        "BuildNativeWithCmake": 3416542,
-        "ProcessRouterMap": 1099541,
-        "ProcessShareConfig": 415459,
-        "ProcessStartupConfig": 1183542,
-        "ProcessObfuscationFiles": 130334,
-        "BuildNativeWithNinja": 456700000,
-        "ProcessLibs": 10110000,
-        "DoNativeStrip": 128890292,
-        "CacheNativeLibs": 1578542
+        "PreBuild": 71960292,
+        "ProcessOHPackageJson": 4068292,
+        "ConfigureCmake": 12430250,
+        "ProcessIntegratedHsp": 1521542,
+        "ProcessModulePrivacyProfile": 315208,
+        "BuildNativeWithCmake": 29402000,
+        "ProcessRouterMap": 1051916,
+        "ProcessShareConfig": 363167,
+        "ProcessStartupConfig": 2344291,
+        "ProcessObfuscationFiles": 145125,
+        "BuildNativeWithNinja": 775644500,
+        "ProcessLibs": 11231167,
+        "DoNativeStrip": 70981166,
+        "CacheNativeLibs": 21093292,
+        "HarCompileArkTS": 1296521667,
+        "ProcessHarArtifacts": 116374458,
+        "PackageHar": 111220125,
+        "PackageSignHar": 461958,
+        "PackingCheckHar": 2825417,
+        "CollectDebugSymbol": 309958,
+        "assembleHar": 66792
       }
     },
     "APIS": [
@@ -50,8 +57,6 @@
       "getAllNodes",
       "getRootNode",
       "getNodeName",
-      "getStartParams",
-      "buildFinished",
       "getNodePath",
       "subNodes",
       "getExtraOption",
@@ -62,20 +67,11 @@
       "getParameter",
       "getProductName",
       "nodesEvaluated",
-      "getCommandEntryTask"
+      "getCommandEntryTask",
+      "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202604052118351320",
-    "ERROR_MESSAGE": [
-      {
-        "CODE": "10505001",
-        "TIMESTAMP": "1775395117679"
-      },
-      {
-        "CODE": "10505001",
-        "TIMESTAMP": "1775395117679"
-      }
-    ],
-    "TOTAL_TIME": 2546825792
+    "TOTAL_TIME": 2701390666,
+    "BUILD_ID": "202604052148115870"
   }
 }

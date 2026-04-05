@@ -3,6 +3,7 @@ import { Core, Hypium } from '@ohos/hypium';
 import hidebug from '@ohos.hidebug';
 import faultLogger from '@ohos.faultLogger';
 import khnTests from '../test/KhnTest';
+import { DemoInterface, TestInterface, User } from 'khn';
 
 const DOMAIN = 0x0001;
 const TAG = 'KhnDemo';
@@ -25,6 +26,20 @@ interface MockArguments {
   parameters: Record<string, string>;
 }
 
+class TestCall implements TestInterface {
+  sayHello(name: string): string {
+    hilog.info(DOMAIN, TAG, '%{public}s', name);
+    return `Hello, ${name}!`;
+  }
+}
+
+class DemoCall implements DemoInterface<User> {
+  sayHello(user: User): string {
+    hilog.info(DOMAIN, TAG, '%{public}s', user.name);
+    return `Hello, ${user.name}!`;
+  }
+}
+
 @Entry
 @Component
 struct Index {
@@ -33,6 +48,7 @@ struct Index {
   @State isRunning: boolean = false;
   
   private testsRegistered: boolean = false;
+  private demoCall = new DemoCall()
 
   async aboutToAppear() {
     try {
@@ -56,6 +72,11 @@ struct Index {
     this.isRunning = true;
     
     this.logText = '';
+    let testResult = this.demoCall.sayHello({
+      name: 'World123123',
+      age: 42
+    })
+    this.appendLog(testResult)
     this.appendLog('Starting tests...');
 
     const startMem = hidebug.getNativeHeapAllocatedSize();

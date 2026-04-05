@@ -89,19 +89,16 @@ typedef struct {
 } libsample_plugin_kref_com_itime_harmony_sample_Role_USER;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_com_itime_harmony_sample_Role_Companion;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlinx_serialization_KSerializer;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlin_Array;
+} libsample_plugin_kref_com_itime_harmony_sample_TestInterface;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_User_$serializer;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_kotlinx_serialization_descriptors_SerialDescriptor;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlin_Array;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_kotlinx_serialization_encoding_Decoder;
@@ -111,6 +108,9 @@ typedef struct {
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_User_Companion;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlinx_serialization_KSerializer;
 
 extern void* InitGeneratedWrappers(void* env, void* exports);
 
@@ -194,14 +194,12 @@ typedef struct {
                 struct {
                   libsample_plugin_kref_com_itime_harmony_sample_Role (*get)(); /* enum entry for USER. */
                 } USER;
-                struct {
-                  libsample_plugin_KType* (*_type)(void);
-                  libsample_plugin_kref_com_itime_harmony_sample_Role_Companion (*_instance)();
-                  libsample_plugin_kref_kotlinx_serialization_KSerializer (*serializer)(libsample_plugin_kref_com_itime_harmony_sample_Role_Companion thiz);
-                  libsample_plugin_kref_kotlinx_serialization_KSerializer (*serializer_)(libsample_plugin_kref_com_itime_harmony_sample_Role_Companion thiz, libsample_plugin_kref_kotlin_Array typeParamsSerializers);
-                } Companion;
                 libsample_plugin_KType* (*_type)(void);
               } Role;
+              struct {
+                libsample_plugin_KType* (*_type)(void);
+                const char* (*sayHello)(libsample_plugin_kref_com_itime_harmony_sample_TestInterface thiz, const char* name);
+              } TestInterface;
               struct {
                 struct {
                   libsample_plugin_KType* (*_type)(void);

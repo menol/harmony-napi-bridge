@@ -5,8 +5,11 @@ export interface User {
     age: number;
 }
 
-export declare namespace TestInterface {
-    function sayHello(name: string): string;
+export interface TestInterface {
+    sayHello(name: string): string;
+}
+export interface DemoInterface<T> {
+    sayHello(name: T): string;
 }
 export declare namespace hello_world_plugin {
     function add(a: number, b: number): number;

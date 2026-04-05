@@ -1,0 +1,3 @@
+import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.google.devtools.ksp.symbol.KSTypeParameter
+// ... just to verify classKind ...

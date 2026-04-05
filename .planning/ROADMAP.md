@@ -67,10 +67,10 @@ Plans:
 
 ### Phase 8: 支持接口类型的导出
 
-**Goal:** [To be planned]
+**Goal:** Support exporting Kotlin interfaces with generics (e.g., interface DemoInterface<T>) to TypeScript interfaces, bypassing NAPI C++ wrapper generation.
 **Requirements**: TBD
 **Depends on:** Phase 7
-**Plans:** 0 plans
+**Plans:** 1/1 complete
 
 Plans:
-- [ ] TBD (run /gsd-plan-phase 8 to break down)
+- [x] 08: Update KSP models and generators to support Kotlin interfaces and generics

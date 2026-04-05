@@ -45,4 +45,4 @@ progress:
 - Phase 5 added: Create real ETS test page for device debugging of khn.har
 - Phase 6 added: Support any type conversion for ArkTS map and list
 - Phase 7 executed and verified.
-- Phase 8 added: 支持接口类型的导出
+- Phase 8 executed and verified.

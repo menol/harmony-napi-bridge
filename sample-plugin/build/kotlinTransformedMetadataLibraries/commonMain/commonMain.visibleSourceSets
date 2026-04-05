@@ -1,0 +1,4 @@
+module org.jetbrains.kotlin:kotlin-stdlib:1.9.24 => commonMain
+project ::harmony-napi-annotations => commonMain
+module org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3 => commonMain
+module org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3 => commonMain

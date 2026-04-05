@@ -28,17 +28,6 @@ import napi.napi_valueVar
 @CName("InitGeneratedWrappers")
 public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_value? {
   memScoped {
-      // Register TestInterface (TestInterface)
-      val TestInterface_obj = alloc<napi_valueVar>()
-      napi_create_object(env, TestInterface_obj.ptr)
-
-      val desc_sayHello = alloc<napi_property_descriptor>()
-      desc_sayHello.utf8name = "sayHello".cstr.ptr
-      desc_sayHello.method = staticCFunction(::TestInterface_sayHello_wrapper)
-      desc_sayHello.attributes = 0u.convert() // napi_default
-      napi_define_properties(env, TestInterface_obj.value, 1u, desc_sayHello.ptr)
-
-      napi_set_named_property(env, exports, "TestInterface", TestInterface_obj.value)
       // Register HelloWorldPlugin (hello_world_plugin)
       val HelloWorldPlugin_obj = alloc<napi_valueVar>()
       napi_create_object(env, HelloWorldPlugin_obj.ptr)
