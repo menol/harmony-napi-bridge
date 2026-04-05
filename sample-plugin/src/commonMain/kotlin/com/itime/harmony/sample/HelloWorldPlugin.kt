@@ -13,6 +13,12 @@ interface TestInterface {
     fun sayHello(name: String): String
 }
 
+@HarmonyModule(name = "DemoInterface")
+interface DemoInterface<T> {
+    @HarmonyExport
+    fun sayHello(name: T): String
+}
+
 
 /**
  * 这是一个业务开发者的真实示例模块
