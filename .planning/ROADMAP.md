@@ -119,7 +119,7 @@ Plans:
 **Goal:** Support exporting normal Kotlin classes to ArkTS, handling direct JS instantiation (`new Class()`) vs Kotlin returned instances via `napi_external` wrapping, mapping primary constructor parameters, and updating TS definitions.
 **Requirements**: TBD
 **Depends on:** Phase 12
-**Plans:** 3/3 complete
+**Plans:** 3/0 plans complete
 
 Plans:
 - [x] 13: Update Domain Models and `NapiUtils.kt` to handle normal classes and `napi_external` pointers
