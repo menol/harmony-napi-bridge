@@ -45,5 +45,6 @@ progress:
 - Phase 5 added: Create real ETS test page for device debugging of khn.har
 - Phase 6 added: Support any type conversion for ArkTS map and list
 - Phase 7 executed and verified.
-- Phase 8 executed and verified.
+- Phase 9 executed and verified.
+- Phase 10 added: 支持密封类的导出
 - Phase 9 added: 支持抽象类的导出

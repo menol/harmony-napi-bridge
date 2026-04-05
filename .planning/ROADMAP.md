@@ -84,3 +84,13 @@ Plans:
 
 Plans:
 - [x] 09: Update KSP models and generators to support Kotlin abstract classes
+
+### Phase 10: 支持密封类
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 9
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd-plan-phase 10 to break down)
