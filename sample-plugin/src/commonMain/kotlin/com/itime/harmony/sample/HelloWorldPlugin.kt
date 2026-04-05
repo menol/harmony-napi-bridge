@@ -3,9 +3,42 @@ package com.itime.harmony.sample
 import com.itime.harmony.napi.annotations.HarmonyExport
 import com.itime.harmony.napi.annotations.HarmonyModule
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 
 @Serializable data class User(val name: String, val age: Int)
 enum class Role { ADMIN, USER }
+
+@Serializable
+sealed class PageState {
+    @Serializable
+    @SerialName("Loading")
+    data class Loading(val isRefreshing: Boolean) : PageState()
+
+    @Serializable
+    @SerialName("Success")
+    data class Success<T>(val data: T) : PageState()
+
+    @Serializable
+    @SerialName("Error")
+    data class Error(val message: String) : PageState()
+}
+
+@Serializable
+sealed class NetworkResult<T>
+
+@Serializable
+@SerialName("Success")
+data class Success<T>(val data: T) : NetworkResult<T>()
+
+@Serializable
+@SerialName("Error")
+data class Error<T>(val message: String) : NetworkResult<T>()
+
+@HarmonyModule(name = "TestSealed")
+sealed class TestSealed<T> {
+    @HarmonyExport
+    abstract fun process(item: T): T
+}
 
 @HarmonyModule(name = "TestInterface")
 interface TestInterface {
@@ -33,7 +66,7 @@ abstract class DemoAbstract {
 abstract class TestAbstract<T> {
     @HarmonyExport
     abstract fun process(item: T): T
-
+    @HarmonyExport
     fun sayHello(): String {
         return "Hello from TestAbstract"
     }
@@ -135,5 +168,13 @@ object HelloWorldPlugin {
     @HarmonyExport
     fun processUser(user: User, role: Role): User {
         return user.copy(name = user.name + "-" + role.name)
+    }
+
+    @HarmonyExport
+    fun processResult(result: NetworkResult<String>): NetworkResult<String> {
+        return when (result) {
+            is Success -> Success(result.data + " processed")
+            is Error -> Error(result.message + " processed")
+        }
     }
 }
