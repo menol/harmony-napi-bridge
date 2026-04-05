@@ -43,17 +43,17 @@ struct Index {
     const startMem = hidebug.getNativeHeapAllocatedSize();
     const startTime = Date.now();
 
-    const mockDelegator: any = {
-      addAbilityMonitor: () => {},
-      removeAbilityMonitor: () => {},
-      waitAbilityMonitor: () => Promise.resolve(),
-      getAppContext: () => null,
-      getAbilityState: () => 0,
-      getCurrentTopAbility: () => Promise.resolve(null),
-      print: (msg: string) => { this.appendLog(msg); },
-      printSync: (msg: string) => { this.appendLog(msg); },
-      executeShellCommand: (cmd: string, timeout: number, callback: any) => { callback(null, { stdResult: '' }); },
-      finishTest: (msg: string, code: number, callback: () => void) => {
+    const mockDelegator: Record<string, Object> = {
+      'addAbilityMonitor': () => {},
+      'removeAbilityMonitor': () => {},
+      'waitAbilityMonitor': () => Promise.resolve(),
+      'getAppContext': () => null,
+      'getAbilityState': () => 0,
+      'getCurrentTopAbility': () => Promise.resolve(null),
+      'print': (msg: string) => { this.appendLog(msg); },
+      'printSync': (msg: string) => { this.appendLog(msg); },
+      'executeShellCommand': (cmd: string, timeout: number, callback: Function) => { callback(null, { stdResult: '' }); },
+      'finishTest': (msg: string, code: number, callback: Function) => {
         this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
         const endMem = hidebug.getNativeHeapAllocatedSize();
         const endTime = Date.now();
@@ -67,9 +67,9 @@ struct Index {
       }
     };
 
-    const mockArguments: any = {
-      bundleName: 'com.example.harmony_napi_bridge',
-      parameters: {
+    const mockArguments: Record<string, Object> = {
+      'bundleName': 'com.example.harmony_napi_bridge',
+      'parameters': {
         '-s class': 'KhnTest'
       }
     };
