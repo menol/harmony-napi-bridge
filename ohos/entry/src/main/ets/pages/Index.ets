@@ -1,5 +1,5 @@
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import { Core } from '@ohos/hypium';
+import { Core, Hypium } from '@ohos/hypium';
 import hidebug from '@ohos.hidebug';
 import faultLogger from '@ohos.faultLogger';
 import khnTests from '../test/KhnTest';
@@ -43,12 +43,7 @@ struct Index {
     const startMem = hidebug.getNativeHeapAllocatedSize();
     const startTime = Date.now();
 
-    if (!this.testsRegistered) {
-      khnTests();
-      this.testsRegistered = true;
-    }
-
-    const mockDelegator = {
+    const mockDelegator: any = {
       addAbilityMonitor: () => {},
       removeAbilityMonitor: () => {},
       waitAbilityMonitor: () => Promise.resolve(),
@@ -57,6 +52,7 @@ struct Index {
       getCurrentTopAbility: () => Promise.resolve(null),
       print: (msg: string) => { this.appendLog(msg); },
       printSync: (msg: string) => { this.appendLog(msg); },
+      executeShellCommand: (cmd: string, timeout: number, callback: any) => { callback(null, { stdResult: '' }); },
       finishTest: (msg: string, code: number, callback: () => void) => {
         this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
         const endMem = hidebug.getNativeHeapAllocatedSize();
@@ -71,7 +67,20 @@ struct Index {
       }
     };
 
-    Core.getInstance().execute(mockDelegator as any);
+    const mockArguments: any = {
+      bundleName: 'com.example.harmony_napi_bridge',
+      parameters: {
+        '-s class': 'KhnTest'
+      }
+    };
+
+    if (!this.testsRegistered) {
+      Hypium.hypiumTest(mockDelegator, mockArguments, khnTests);
+      this.testsRegistered = true;
+    } else {
+      // Re-running tests in Hypium requires execute() since suites are already registered
+      Core.getInstance().execute(mockDelegator);
+    }
   }
 
   build() {
