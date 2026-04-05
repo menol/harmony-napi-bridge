@@ -24,26 +24,26 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "ProcessOHPackageJson": 343542,
-        "ConfigureCmake": 13943875,
-        "ProcessIntegratedHsp": 551708,
-        "ProcessModulePrivacyProfile": 12454875,
-        "BuildNativeWithCmake": 32247834,
-        "ProcessRouterMap": 288334,
-        "ProcessShareConfig": 209250,
-        "ProcessStartupConfig": 980458,
-        "ProcessObfuscationFiles": 1080209,
-        "BuildNativeWithNinja": 444555334,
-        "ProcessLibs": 15006583,
-        "DoNativeStrip": 95411292,
-        "CacheNativeLibs": 102764292,
-        "HarCompileArkTS": 1318233958,
-        "ProcessHarArtifacts": 36344583,
-        "PackageHar": 74210291,
-        "PackageSignHar": 222833,
-        "PackingCheckHar": 2947667,
-        "CollectDebugSymbol": 347000,
-        "assembleHar": 56125
+        "ProcessOHPackageJson": 259417,
+        "ConfigureCmake": 7459375,
+        "ProcessIntegratedHsp": 161583,
+        "ProcessModulePrivacyProfile": 162750,
+        "BuildNativeWithCmake": 2999708,
+        "ProcessRouterMap": 400042,
+        "ProcessShareConfig": 289375,
+        "ProcessStartupConfig": 498667,
+        "ProcessObfuscationFiles": 76209,
+        "HarCompileArkTS": 215281625,
+        "BuildNativeWithNinja": 233892417,
+        "ProcessLibs": 8689125,
+        "DoNativeStrip": 39893250,
+        "CacheNativeLibs": 851458,
+        "ProcessHarArtifacts": 19363584,
+        "PackageHar": 45749042,
+        "PackageSignHar": 202000,
+        "PackingCheckHar": 942250,
+        "CollectDebugSymbol": 182958,
+        "assembleHar": 58834
       }
     },
     "APIS": [
@@ -68,7 +68,7 @@
       "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "TOTAL_TIME": 1667977334,
-    "BUILD_ID": "202604052305045290"
+    "TOTAL_TIME": 438809708,
+    "BUILD_ID": "202604052308228630"
   }
 }

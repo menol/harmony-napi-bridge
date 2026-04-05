@@ -19,7 +19,7 @@ export interface User {
 
 export interface BasePageState {
 }
-export interface PageState {
+export interface PageState extends BasePageState {
 }
 export namespace PageState {
     export interface Error extends PageState {

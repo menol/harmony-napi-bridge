@@ -14,7 +14,8 @@ data class HarmonyModuleModel(
     val isAbstract: Boolean = false,
     val isSealed: Boolean = false,
     val typeParameters: List<String> = emptyList(),
-    val sealedSubclasses: List<HarmonyTypeModel> = emptyList()
+    val sealedSubclasses: List<HarmonyTypeModel> = emptyList(),
+    val superTypes: List<HarmonyTypeModel> = emptyList()
 )
 
 data class HarmonyExportModel(

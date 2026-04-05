@@ -151,6 +151,11 @@ class HarmonyNapiProcessor(
                     )
                 }.toList()
             } else emptyList()
+            
+            val superTypes = classDecl.superTypes
+                .map { resolveType(it) }
+                .filter { it.qualifiedName != "kotlin.Any" && it.simpleName != "Any" }
+                .toList()
 
             HarmonyModuleModel(
                 className = classDecl.simpleName.asString(),
@@ -163,7 +168,8 @@ class HarmonyNapiProcessor(
                 isAbstract = isAbstract,
                 isSealed = isSealed,
                 typeParameters = typeParameters,
-                sealedSubclasses = sealedSubclasses
+                sealedSubclasses = sealedSubclasses,
+                superTypes = superTypes
             )
         }
 

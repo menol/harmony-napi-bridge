@@ -24,7 +24,8 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
 
             fun getTsType(typeModel: HarmonyTypeModel): String {
                 if (typeModel.isTypeParameter) return typeModel.simpleName
-                if (typeModel.isSerializable || typeModel.isEnum || typeModel.isSealed || modules.any { it.className == typeModel.simpleName }) {
+                val matchedModule = modules.find { it.className == typeModel.simpleName }
+                if (typeModel.isSerializable || typeModel.isEnum || typeModel.isSealed || matchedModule != null) {
                     val typeArgs = if (typeModel.arguments.isNotEmpty()) {
                         "<${typeModel.arguments.joinToString(", ") { getTsType(it) }}>"
                     } else ""
@@ -39,11 +40,12 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                     val prefix = if (parentSealedModel != null) {
                         "${parentSealedModel.simpleName}."
                     } else if (parentSealedModule != null) {
-                        "${parentSealedModule.className}."
+                        "${parentSealedModule.moduleName}."
                     } else {
                         ""
                     }
-                    return "$prefix${typeModel.simpleName}$typeArgs"
+                    val baseName = matchedModule?.moduleName ?: typeModel.simpleName
+                    return "$prefix$baseName$typeArgs"
                 }
                 return when (typeModel.simpleName) {
                     "Double", "Int" -> "number"
@@ -151,7 +153,12 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                     val typeParams = if (module.typeParameters.isNotEmpty()) {
                         "<${module.typeParameters.joinToString(", ")}>"
                     } else ""
-                    appendLine("export interface ${module.moduleName}$typeParams {")
+                    
+                    val extendsClause = if (module.superTypes.isNotEmpty()) {
+                        " extends ${module.superTypes.joinToString(", ") { getTsType(it) }}"
+                    } else ""
+                    
+                    appendLine("export interface ${module.moduleName}$typeParams$extendsClause {")
                     
                     module.exportFunctions.forEach { func ->
                         val params = func.parameters.joinToString(", ") { param ->
