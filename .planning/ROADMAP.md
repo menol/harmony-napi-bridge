@@ -97,10 +97,10 @@ Plans:
 
 ### Phase 11: 支持完整的 abstract class (NAPI Object Wrapping)
 
-**Goal:** [To be planned]
+**Goal:** Support exporting Kotlin abstract classes to TypeScript abstract classes, using NAPI Object Wrapping to pass instances by reference instead of copying via JSON serialization.
 **Requirements**: TBD
 **Depends on:** Phase 10
 **Plans:** 1/1 plans complete
 
 Plans:
-- [x] 11: Phase 11: Abstract Class NAPI Object Wrapping
+- [x] 11: Update NAPI runtime and generators to support NAPI object wrapping for abstract classes
