@@ -110,6 +110,7 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 .addParameter("env", ClassName("napi", "napi_env").copy(nullable = true))
                 .addParameter("data", ClassName("kotlinx.cinterop", "COpaquePointer").copy(nullable = true))
                 .addParameter("hint", ClassName("kotlinx.cinterop", "COpaquePointer").copy(nullable = true))
+                .returns(Unit::class)
                 .addCode("data?.asStableRef<Any>()?.dispose()\n")
             fileBuilder.addFunction(finalizeBuilder.build())
 

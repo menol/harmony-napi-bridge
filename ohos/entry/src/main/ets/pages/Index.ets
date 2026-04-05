@@ -3,7 +3,7 @@ import { Core, Hypium } from '@ohos/hypium';
 import hidebug from '@ohos.hidebug';
 import faultLogger from '@ohos.faultLogger';
 import khnTests from '../test/KhnTest';
-import { DemoAbstract } from 'khn';
+import { DemoAbstract, IndexPresenter, IndexView } from 'khn';
 import type { DemoInterface, TestInterface, User } from 'khn';
 
 const DOMAIN = 0x0001;
@@ -50,6 +50,36 @@ class DemoAbsCall extends  DemoAbstract {
 
 }
 
+@ObservedV2
+class IndexViewModel implements IndexView {
+
+  private present: IndexPresenter = new IndexPresenter()
+  @Trace user: User = {
+    name: 'World',
+    age: 30
+  }
+
+  onCreate() {
+    this.present.attach(this)
+  }
+
+  request() {
+    this.present.showUser({
+      name: 'World',
+      age: 42
+    })
+  }
+
+  showUser(name: string): void {
+
+  }
+
+  onDestroy() {
+    this.present.detach()
+  }
+
+}
+
 @Entry
 @Component
 struct Index {
@@ -60,6 +90,7 @@ struct Index {
   private testsRegistered: boolean = false;
   private demoCall = new DemoCall()
   private demoAbsCall = new DemoAbsCall()
+
 
   async aboutToAppear() {
     try {
