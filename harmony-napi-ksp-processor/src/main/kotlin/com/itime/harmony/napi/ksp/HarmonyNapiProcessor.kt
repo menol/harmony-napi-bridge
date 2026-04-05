@@ -30,6 +30,7 @@ class HarmonyNapiProcessor(
         val qualifiedName = resolved.declaration.qualifiedName?.asString() ?: ""
         val isSerializable = resolved.declaration.annotations.any { it.shortName.asString() == "Serializable" }
         val isEnum = (resolved.declaration as? KSClassDeclaration)?.classKind == ClassKind.ENUM_CLASS
+        val isTypeParameter = resolved.declaration is KSTypeParameter
         val properties = if (isSerializable) {
             (resolved.declaration as? KSClassDeclaration)?.getDeclaredProperties()
                 ?.map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type)) }
@@ -43,7 +44,7 @@ class HarmonyNapiProcessor(
                 ?.toList() ?: emptyList()
         } else emptyList()
         
-        return HarmonyTypeModel(simpleName, arguments, qualifiedName, isSerializable, isEnum, properties, enumValues)
+        return HarmonyTypeModel(simpleName, arguments, qualifiedName, isSerializable, isEnum, properties, enumValues, isTypeParameter)
     }
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -81,13 +82,18 @@ class HarmonyNapiProcessor(
                     )
                 }.toList()
 
+            val isInterface = classDecl.classKind == ClassKind.INTERFACE
+            val typeParameters = classDecl.typeParameters.map { it.name.asString() }
+
             HarmonyModuleModel(
                 className = classDecl.simpleName.asString(),
                 moduleName = moduleName,
                 packageName = classDecl.packageName.asString(),
                 classDeclaration = classDecl,
                 containingFile = classDecl.containingFile,
-                exportFunctions = exportFunctions
+                exportFunctions = exportFunctions,
+                isInterface = isInterface,
+                typeParameters = typeParameters
             )
         }
 
