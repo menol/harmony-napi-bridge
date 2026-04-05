@@ -158,7 +158,11 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                         " extends ${module.superTypes.joinToString(", ") { getTsType(it) }}"
                     } else ""
                     
-                    appendLine("export interface ${module.moduleName}$typeParams$extendsClause {")
+                    if (module.isAbstract) {
+                        appendLine("export declare abstract class ${module.moduleName}$typeParams$extendsClause {")
+                    } else {
+                        appendLine("export interface ${module.moduleName}$typeParams$extendsClause {")
+                    }
                     
                     module.exportFunctions.forEach { func ->
                         val params = func.parameters.joinToString(", ") { param ->
@@ -166,7 +170,8 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                             "${param.name}: $tsType"
                         }
                         val tsReturnType = getTsType(func.returnType)
-                        appendLine("    ${func.functionName}($params): $tsReturnType;")
+                        val abstractModifier = if (module.isAbstract && func.isAbstract) "abstract " else ""
+                        appendLine("    $abstractModifier${func.functionName}($params): $tsReturnType;")
                     }
                     appendLine("}")
                     
