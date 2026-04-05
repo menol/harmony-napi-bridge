@@ -9,7 +9,9 @@ data class HarmonyModuleModel(
     val packageName: String,
     val classDeclaration: KSClassDeclaration,
     val containingFile: KSFile?,
-    val exportFunctions: List<HarmonyExportModel>
+    val exportFunctions: List<HarmonyExportModel>,
+    val isInterface: Boolean = false,
+    val typeParameters: List<String> = emptyList()
 )
 
 data class HarmonyExportModel(
@@ -32,7 +34,8 @@ data class HarmonyTypeModel(
     val isSerializable: Boolean = false,
     val isEnum: Boolean = false,
     val properties: List<HarmonyPropertyModel> = emptyList(),
-    val enumValues: List<String> = emptyList()
+    val enumValues: List<String> = emptyList(),
+    val isTypeParameter: Boolean = false
 ) {
     val hasGenerics: Boolean get() = arguments.isNotEmpty()
 }
