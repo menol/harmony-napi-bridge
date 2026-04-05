@@ -13,8 +13,8 @@ import java.io.OutputStreamWriter
 class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
 
     fun generate(module: HarmonyModuleModel) {
-        // 对于接口、抽象类和密封类，不生成 NAPI Wrapper
-        if (module.isInterface || module.isAbstract || module.isSealed) return
+        // 对于接口和密封类，不生成 NAPI Wrapper
+        if (module.isInterface || module.isSealed) return
         val packageName = "com.itime.harmony.napi.generated"
         val fileName = "${module.className}_NapiWrapper"
 
@@ -22,7 +22,7 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
             .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "convert", "refTo", "get")
             .addImport("platform.posix", "size_tVar")
             .addImport("napi", "napi_env", "napi_callback_info", "napi_value", "napi_valueVar", "napi_get_cb_info")
-            .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap")
+            .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap", "unwrapKotlinObject")
             .addImport(module.packageName, module.className)
             .addAnnotation(AnnotationSpec.builder(ClassName("kotlin", "OptIn"))
                 .addMember("kotlinx.cinterop.ExperimentalForeignApi::class")
@@ -44,7 +44,14 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 appendLine("        val argc = alloc<size_tVar>()")
                 appendLine("        argc.value = ${paramCount}u")
                 appendLine("        val argv = allocArray<napi_valueVar>($paramCount)")
-                appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, null, null)")
+                
+                if (module.isAbstract) {
+                    appendLine("        val thisVar = alloc<napi_valueVar>()")
+                    appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)")
+                    appendLine("        val instance = thisVar.value!!.unwrapKotlinObject<${module.className}>(env!!)")
+                } else {
+                    appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, null, null)")
+                }
                 appendLine()
 
                 val args = mutableListOf<String>()
@@ -54,7 +61,11 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                     args.add("arg$index")
                 }
 
-                appendLine("        val result = ${module.className}.${func.functionName}(${args.joinToString(", ")})")
+                if (module.isAbstract) {
+                    appendLine("        val result = instance.${func.functionName}(${args.joinToString(", ")})")
+                } else {
+                    appendLine("        val result = ${module.className}.${func.functionName}(${args.joinToString(", ")})")
+                }
                 val returnMethod = TypeMapper.getKotlinToNapiMethod(func.returnType)
                 if (returnMethod.isNotEmpty()) {
                     appendLine("        result.$returnMethod")
@@ -70,6 +81,28 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
 
             funBuilder.addCode(codeBlock)
             fileBuilder.addFunction(funBuilder.build())
+        }
+
+        if (module.isAbstract) {
+            val constructorBuilder = FunSpec.builder("${module.className}_constructor")
+                .addParameter("env", ClassName("napi", "napi_env").copy(nullable = true))
+                .addParameter("info", ClassName("napi", "napi_callback_info").copy(nullable = true))
+                .returns(ClassName("napi", "napi_value").copy(nullable = true))
+
+            val constructorCode = buildString {
+                appendLine("return try {")
+                appendLine("    memScoped {")
+                appendLine("        val thisVar = alloc<napi_valueVar>()")
+                appendLine("        napi_get_cb_info(env, info, null, null, thisVar.ptr, null)")
+                appendLine("        thisVar.value")
+                appendLine("    }")
+                appendLine("} catch (e: Throwable) {")
+                appendLine("    napi.napi_throw_error(env, null, e.message ?: \"Unknown Kotlin exception\")")
+                appendLine("    null")
+                appendLine("}")
+            }
+            constructorBuilder.addCode(constructorCode)
+            fileBuilder.addFunction(constructorBuilder.build())
         }
 
         val fileSpec = fileBuilder.build()
