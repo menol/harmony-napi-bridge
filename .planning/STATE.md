@@ -43,3 +43,5 @@ progress:
 ### Roadmap Evolution
 
 - Phase 4 added: 1
+- Phase 5 added: Create real ETS test page for device debugging of khn.har
+- Phase 6 added: Support any type conversion for ArkTS map and list
