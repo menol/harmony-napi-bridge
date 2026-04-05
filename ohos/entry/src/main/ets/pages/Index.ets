@@ -92,8 +92,7 @@ struct Index {
 
     if (!this.testsRegistered) {
       this.testsRegistered = true;
-      khnTests();
-      Hypium.hypiumTest(mockDelegator, mockArguments, () => {});
+      Hypium.hypiumTest(mockDelegator, mockArguments, khnTests);
     } else {
       // Re-running tests in Hypium requires execute() since suites are already registered
       Core.getInstance().execute(mockDelegator);
