@@ -1,6 +1,6 @@
 import { describe, it, expect } from '@ohos/hypium';
 import { hello_world_plugin } from 'khn';
-import type { Role } from 'khn';
+import type { Role, NetworkResult } from 'khn';
 
 export default function khnTests() {
   describe('KhnNapiTests', () => {
@@ -67,6 +67,18 @@ export default function khnTests() {
       const result = hello_world_plugin.processUser({ name: "Test", age: 20 }, "ADMIN");
       expect(result.name).assertEqual("Test-ADMIN");
       expect(result.age).assertEqual(20);
+    });
+
+    it('should process sealed classes and discriminated unions', 0, () => {
+      const successInput: NetworkResult.Success<string> = { type: "Success", data: "hello" };
+      const successResult = hello_world_plugin.processResult(successInput);
+      expect(successResult.type).assertEqual("Success");
+      expect((successResult as NetworkResult.Success<string>).data).assertEqual("hello processed");
+
+      const errorInput: NetworkResult<string> = { type: "Error", message: "failed" };
+      const errorResult = hello_world_plugin.processResult(errorInput);
+      expect(errorResult.type).assertEqual("Error");
+      expect((errorResult as NetworkResult.Error<string>).message).assertEqual("failed processed");
     });
 
     it('should support async coroutine returns (placeholder)', 0, async () => {
