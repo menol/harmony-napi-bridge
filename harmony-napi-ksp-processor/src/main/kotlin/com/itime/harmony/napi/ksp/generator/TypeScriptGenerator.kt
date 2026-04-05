@@ -7,10 +7,15 @@ import com.itime.harmony.napi.ksp.models.HarmonyModuleModel
 import com.itime.harmony.napi.ksp.models.HarmonyTypeModel
 import java.io.OutputStreamWriter
 
-class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
+class TypeScriptGenerator(
+    private val codeGenerator: CodeGenerator,
+    private val options: Map<String, String> = emptyMap()
+) {
 
     fun generate(modules: List<HarmonyModuleModel>) {
         if (modules.isEmpty()) return
+
+        val libName = options["harmony.napi.libName"] ?: "libkhn.so"
 
         val tsContent = buildString {
             val allTypes = mutableSetOf<HarmonyTypeModel>()
@@ -149,7 +154,18 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
             }
 
             modules.forEach { module ->
-                if (module.isInterface || module.isAbstract || module.isSealed) {
+                if (module.isFileExtension) {
+                    appendLine("export declare namespace ${module.moduleName} {")
+                    module.exportFunctions.forEach { func ->
+                        val params = func.parameters.joinToString(", ") { "${it.name}: ${getTsType(it.type)}" }
+                        val returnType = getTsType(func.returnType)
+                        appendLine("    function ${func.functionName}($params): $returnType;")
+                    }
+                    appendLine("}")
+                    return@forEach
+                }
+
+                if (module.isInterface || module.isAbstract || module.isSealed || (!module.isObject && !module.isFileExtension)) {
                     val typeParams = if (module.typeParameters.isNotEmpty()) {
                         "<${module.typeParameters.joinToString(", ")}>"
                     } else ""
@@ -160,6 +176,12 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                     
                     if (module.isAbstract) {
                         appendLine("export declare abstract class ${module.moduleName}$typeParams$extendsClause {")
+                    } else if (!module.isObject && !module.isFileExtension && !module.isInterface && !module.isSealed) {
+                        appendLine("export declare class ${module.moduleName}$typeParams$extendsClause {")
+                        val constructorParams = module.primaryConstructorParams.joinToString(", ") { param ->
+                            "${param.name}: ${getTsType(param.type)}"
+                        }
+                        appendLine("    constructor($constructorParams);")
                     } else {
                         appendLine("export interface ${module.moduleName}$typeParams$extendsClause {")
                     }
@@ -212,6 +234,68 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
         val file = codeGenerator.createNewFileByPath(dependencies, "ts/Index", "d.ts")
         OutputStreamWriter(file).use { writer ->
             writer.write(tsContent)
+        }
+
+        // Generate ArkTS exports file
+        val etsContent = buildString {
+            val runtimeValues = mutableSetOf<String>()
+            val typeDefinitions = mutableSetOf<String>()
+
+            modules.forEach { module ->
+                if (module.isInterface || module.isSealed) {
+                    typeDefinitions.add(module.moduleName)
+                } else {
+                    runtimeValues.add(module.moduleName)
+                }
+            }
+
+            // `allTypes` includes pure types like Enum, Serializable Data/Sealed Classes
+            val allTypes = mutableSetOf<HarmonyTypeModel>()
+            fun collectTypes(type: HarmonyTypeModel) {
+                if (allTypes.add(type)) {
+                    type.arguments.forEach { collectTypes(it) }
+                    type.properties.forEach { collectTypes(it.type) }
+                    type.sealedSubclasses.forEach { collectTypes(it) }
+                }
+            }
+            modules.forEach { module ->
+                module.sealedSubclasses.forEach { collectTypes(it) }
+                module.exportFunctions.forEach { func ->
+                    func.parameters.forEach { collectTypes(it.type) }
+                    collectTypes(func.returnType)
+                }
+            }
+
+            val allSealedSubclasses = mutableSetOf<String>()
+            allTypes.filter { it.isSealed }.forEach { type -> allSealedSubclasses.addAll(type.sealedSubclasses.map { it.qualifiedName }) }
+            modules.filter { it.isSealed }.forEach { mod -> allSealedSubclasses.addAll(mod.sealedSubclasses.map { it.qualifiedName }) }
+
+            allTypes.filter { it.isEnum || it.isSerializable }.forEach { type ->
+                val isModule = modules.any { it.className == type.simpleName }
+                if (!isModule && type.qualifiedName !in allSealedSubclasses) {
+                    typeDefinitions.add(type.simpleName)
+                }
+            }
+
+            if (runtimeValues.isNotEmpty()) {
+                appendLine("import { ${runtimeValues.joinToString(", ")} } from '$libName';")
+            }
+            if (typeDefinitions.isNotEmpty()) {
+                appendLine("import type { ${typeDefinitions.joinToString(", ")} } from '$libName';")
+            }
+            appendLine()
+
+            if (runtimeValues.isNotEmpty()) {
+                appendLine("export { ${runtimeValues.joinToString(", ")} };")
+            }
+            if (typeDefinitions.isNotEmpty()) {
+                appendLine("export type { ${typeDefinitions.joinToString(", ")} };")
+            }
+        }
+
+        val etsFile = codeGenerator.createNewFileByPath(dependencies, "ts/GeneratedExports", "ets")
+        OutputStreamWriter(etsFile).use { writer ->
+            writer.write(etsContent)
         }
     }
 }
