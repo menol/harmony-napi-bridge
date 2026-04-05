@@ -25,12 +25,22 @@
 - Test execution generates a readable and parsable test report.
 - The end-to-end pipeline (build Kotlin -> deploy -> run tests) can be executed via a single script.
 
-### Phase 4: 1
+### Phase 4: Advanced Testing
 
-**Goal:** [To be planned]
-**Requirements**: TBD
+**Goal:** Implement memory leak detection and performance benchmarking
+**Requirements**: ADV-01, ADV-02
 **Depends on:** Phase 3
 **Plans:** 0 plans
 
 Plans:
 - [ ] TBD (run /gsd-plan-phase 4 to break down)
+
+### Phase 5: Create real ETS test page for device debugging of khn.har
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 4
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd-plan-phase 5 to break down)
