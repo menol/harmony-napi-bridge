@@ -19,5 +19,8 @@
 
 ## Accumulated Context
 
+### Pending Todos
+- [ ] 2026-04-05-support-async-coroutine.md: 支持协程异步返回
+
 ### Roadmap Evolution
 - Phase 4 added: 1
