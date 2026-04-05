@@ -12,6 +12,7 @@ import com.itime.harmony.napi.ksp.models.HarmonyTypeModel
 import com.itime.harmony.napi.ksp.models.HarmonyPropertyModel
 import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.Modifier
+import com.google.devtools.ksp.isPublic
 import com.google.devtools.ksp.getDeclaredProperties
 
 class HarmonyNapiProcessor(
@@ -60,7 +61,7 @@ class HarmonyNapiProcessor(
                 serialName = subSerialName
             )
         }?.toList() ?: emptyList()
-        
+
         val properties = if (isSerializable) {
             (resolved.declaration as? KSClassDeclaration)?.getDeclaredProperties()
                 ?.map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type)) }
@@ -73,7 +74,7 @@ class HarmonyNapiProcessor(
                 ?.map { it.simpleName.asString() }
                 ?.toList() ?: emptyList()
         } else emptyList()
-        
+
         return HarmonyTypeModel(
             simpleName = simpleName,
             arguments = arguments,
@@ -109,7 +110,12 @@ class HarmonyNapiProcessor(
                 .arguments.first { it.name?.asString() == "name" }.value as String
 
             val exportFunctions = classDecl.getAllFunctions()
-                .filter { it.annotations.any { ann -> ann.shortName.asString() == "HarmonyExport" } }
+                .filter { funcDecl ->
+                    val isHarmonyExport = funcDecl.annotations.any { ann -> ann.shortName.asString() == "HarmonyExport" }
+                    val isAnyMethod = funcDecl.simpleName.asString() in listOf("equals", "hashCode", "toString", "<init>")
+                    val isPublic = funcDecl.isPublic()
+                    isHarmonyExport || (!isAnyMethod && isPublic)
+                }
                 .map { funcDecl ->
                     val params = funcDecl.parameters.map { param ->
                         HarmonyParameterModel(
@@ -118,7 +124,7 @@ class HarmonyNapiProcessor(
                         )
                     }
                     val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
-                    
+
                     HarmonyExportModel(
                         functionName = funcDecl.simpleName.asString(),
                         parameters = params,
@@ -130,8 +136,16 @@ class HarmonyNapiProcessor(
             val isInterface = classDecl.classKind == ClassKind.INTERFACE
             val isAbstract = classDecl.modifiers.contains(Modifier.ABSTRACT)
             val isSealed = classDecl.modifiers.contains(Modifier.SEALED)
+            val isObject = classDecl.classKind == ClassKind.OBJECT
             val typeParameters = classDecl.typeParameters.map { it.name.asString() }
-            
+
+            val primaryConstructorParams = classDecl.primaryConstructor?.parameters?.map { param ->
+                HarmonyParameterModel(
+                    name = param.name?.asString() ?: "arg",
+                    type = resolveType(param.type)
+                )
+            } ?: emptyList()
+
             val sealedSubclasses = if (isSealed) {
                 classDecl.getSealedSubclasses().map { subclass ->
                     val subSimpleName = subclass.simpleName.asString()
@@ -157,7 +171,7 @@ class HarmonyNapiProcessor(
                     )
                 }.toList()
             } else emptyList()
-            
+
             val superTypes = classDecl.superTypes
                 .map { resolveType(it) }
                 .filter { it.qualifiedName != "kotlin.Any" && it.simpleName != "Any" }
@@ -173,6 +187,8 @@ class HarmonyNapiProcessor(
                 isInterface = isInterface,
                 isAbstract = isAbstract,
                 isSealed = isSealed,
+                isObject = isObject,
+                primaryConstructorParams = primaryConstructorParams,
                 typeParameters = typeParameters,
                 sealedSubclasses = sealedSubclasses,
                 superTypes = superTypes
@@ -182,12 +198,12 @@ class HarmonyNapiProcessor(
         // 调用生成器
         val kotlinWrapperGenerator = KotlinWrapperGenerator(codeGenerator)
         val initEntryGenerator = InitEntryGenerator(codeGenerator)
-        val typeScriptGenerator = TypeScriptGenerator(codeGenerator)
+        val typeScriptGenerator = TypeScriptGenerator(codeGenerator, options)
 
         modules.forEach { module ->
             kotlinWrapperGenerator.generate(module)
         }
-        
+
         initEntryGenerator.generate(modules)
         typeScriptGenerator.generate(modules)
 

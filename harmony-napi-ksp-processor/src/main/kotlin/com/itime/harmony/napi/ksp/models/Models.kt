@@ -13,6 +13,8 @@ data class HarmonyModuleModel(
     val isInterface: Boolean = false,
     val isAbstract: Boolean = false,
     val isSealed: Boolean = false,
+    val isObject: Boolean = false,
+    val primaryConstructorParams: List<HarmonyParameterModel> = emptyList(),
     val typeParameters: List<String> = emptyList(),
     val sealedSubclasses: List<HarmonyTypeModel> = emptyList(),
     val superTypes: List<HarmonyTypeModel> = emptyList()
