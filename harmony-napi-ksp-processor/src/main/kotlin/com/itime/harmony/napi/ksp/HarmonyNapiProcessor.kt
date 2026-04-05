@@ -112,8 +112,8 @@ class HarmonyNapiProcessor(
 
         val modules = moduleSymbols.map { classDecl ->
             val moduleName = classDecl.annotations
-                .first { it.shortName.asString() == "HarmonyModule" }
-                .arguments.first { it.name?.asString() == "name" }.value as String
+                .firstOrNull { it.shortName.asString() == "HarmonyModule" }
+                ?.arguments?.firstOrNull { it.name?.asString() == "name" }?.value as? String ?: classDecl.simpleName.asString()
 
             val exportFunctions = classDecl.getAllFunctions()
                 .filter { funcDecl ->
@@ -188,7 +188,6 @@ class HarmonyNapiProcessor(
                     }
                     
                     val utilsName = "${classDecl.simpleName.asString()}Utils"
-                    
                     val existingExtensionModule = extensionModules.find { it.className == utilsName }
                     if (existingExtensionModule != null) {
                         existingExtensionModule.exportFunctions.addAll(extensionFunctions)
@@ -277,8 +276,8 @@ class HarmonyNapiProcessor(
 
         extensionFileSymbols.forEach { fileDecl ->
             val exportName = fileDecl.annotations
-                .first { it.shortName.asString() == "HarmonyExtensions" }
-                .arguments.first { it.name?.asString() == "exportName" }.value as String
+                .firstOrNull { it.shortName.asString() == "HarmonyExtensions" }
+                ?.arguments?.firstOrNull { it.name?.asString() == "name" }?.value as? String ?: fileDecl.fileName.removeSuffix(".kt")
 
             val exportFunctions = fileDecl.declarations
                 .filterIsInstance<KSFunctionDeclaration>()

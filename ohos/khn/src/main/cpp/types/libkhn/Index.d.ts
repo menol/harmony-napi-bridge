@@ -24,6 +24,12 @@ export interface BaseView {
 export interface IndexView extends BaseView {
     showUser(name: string): void;
 }
+export declare class IndexPresenter {
+    constructor();
+    attach(view: IndexView): void;
+    showUser(user: User): void;
+    detach(): void;
+}
 export interface PageState extends BasePageState {
 }
 export namespace PageState {
@@ -79,6 +85,6 @@ export declare namespace hello_world_plugin {
     function processResult(result: NetworkResult<string>): NetworkResult<string>;
     function getTestClass(): TestClass;
 }
-export declare namespace UserUtils {
+export declare namespace UserUtilsV2 {
     function getFullName(receiver: User): string;
 }

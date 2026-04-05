@@ -98,6 +98,9 @@ typedef struct {
 } libsample_plugin_kref_com_itime_harmony_sample_Role;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_IndexPresenter;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_IndexView;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
@@ -217,6 +220,11 @@ typedef struct {
                 void* (*HelloWorldPlugin_processStringDoubleMap_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processStringIntMap_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processUser_wrapper)(void* env, void* info);
+                void* (*IndexPresenter_attach_wrapper)(void* env, void* info);
+                void* (*IndexPresenter_constructor)(void* env, void* info);
+                void* (*IndexPresenter_detach_wrapper)(void* env, void* info);
+                void (*IndexPresenter_finalize)(void* env, void* data, void* hint);
+                void* (*IndexPresenter_showUser_wrapper)(void* env, void* info);
                 void* (*InitGeneratedWrappers_)(void* env, void* exports);
                 void* (*TestAbstract_constructor)(void* env, void* info);
                 void (*TestAbstract_finalize)(void* env, void* data, void* hint);
@@ -226,7 +234,7 @@ typedef struct {
                 void* (*TestClass_fetchValue_wrapper)(void* env, void* info);
                 void (*TestClass_finalize)(void* env, void* data, void* hint);
                 void* (*TestClass_increment_wrapper)(void* env, void* info);
-                void* (*UserUtils_getFullName_wrapper)(void* env, void* info);
+                void* (*UserUtilsV2_getFullName_wrapper)(void* env, void* info);
               } generated;
             } napi;
             struct {
@@ -261,6 +269,13 @@ typedef struct {
                 libsample_plugin_kref_kotlin_collections_Map (*processStringIntMap)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_Map data);
                 libsample_plugin_kref_com_itime_harmony_sample_User (*processUser)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_com_itime_harmony_sample_User user, libsample_plugin_kref_com_itime_harmony_sample_Role role);
               } HelloWorldPlugin;
+              struct {
+                libsample_plugin_KType* (*_type)(void);
+                libsample_plugin_kref_com_itime_harmony_sample_IndexPresenter (*IndexPresenter)();
+                void (*attach)(libsample_plugin_kref_com_itime_harmony_sample_IndexPresenter thiz, libsample_plugin_kref_com_itime_harmony_sample_IndexView view);
+                void (*detach)(libsample_plugin_kref_com_itime_harmony_sample_IndexPresenter thiz);
+                void (*showUser)(libsample_plugin_kref_com_itime_harmony_sample_IndexPresenter thiz, libsample_plugin_kref_com_itime_harmony_sample_User user);
+              } IndexPresenter;
               struct {
                 libsample_plugin_KType* (*_type)(void);
                 void (*showUser)(libsample_plugin_kref_com_itime_harmony_sample_IndexView thiz, const char* name);

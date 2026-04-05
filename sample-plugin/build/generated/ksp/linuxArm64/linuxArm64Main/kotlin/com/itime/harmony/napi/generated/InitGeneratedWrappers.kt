@@ -18,6 +18,8 @@ import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.staticCFunction
+import napi.NAPI_AUTO_LENGTH
+import napi.napi_create_function
 import napi.napi_create_object
 import napi.napi_create_reference
 import napi.napi_create_string_utf8
@@ -27,12 +29,34 @@ import napi.napi_env
 import napi.napi_property_descriptor
 import napi.napi_refVar
 import napi.napi_set_named_property
+import napi.napi_set_property
 import napi.napi_value
 import napi.napi_valueVar
 
 @CName("InitGeneratedWrappers")
 public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_value? {
   memScoped {
+      // Register Class IndexPresenter (IndexPresenter)
+      val IndexPresenter_constructorVar = alloc<napi_valueVar>()
+      val IndexPresenter_descArray = allocArray<napi_property_descriptor>(3)
+      IndexPresenter_descArray[0].utf8name = "attach".cstr.ptr
+      IndexPresenter_descArray[0].method = staticCFunction(::IndexPresenter_attach_wrapper)
+      IndexPresenter_descArray[0].attributes = 0u.convert() // napi_default
+      IndexPresenter_descArray[1].utf8name = "showUser".cstr.ptr
+      IndexPresenter_descArray[1].method = staticCFunction(::IndexPresenter_showUser_wrapper)
+      IndexPresenter_descArray[1].attributes = 0u.convert() // napi_default
+      IndexPresenter_descArray[2].utf8name = "detach".cstr.ptr
+      IndexPresenter_descArray[2].method = staticCFunction(::IndexPresenter_detach_wrapper)
+      IndexPresenter_descArray[2].attributes = 0u.convert() // napi_default
+      napi_define_class(env, "IndexPresenter", napi.NAPI_AUTO_LENGTH.convert(),
+      staticCFunction(::IndexPresenter_constructor), null, 3u.convert(), IndexPresenter_descArray,
+      IndexPresenter_constructorVar.ptr)
+      val IndexPresenter_refVar = alloc<napi_refVar>()
+      napi_create_reference(env, IndexPresenter_constructorVar.value, 1u.convert(),
+      IndexPresenter_refVar.ptr)
+      com.itime.harmony.napi.runtime.utils.ConstructorRegistry.refs["IndexPresenter"] =
+      IndexPresenter_refVar.value!!
+      napi_set_named_property(env, exports, "IndexPresenter", IndexPresenter_constructorVar.value)
       // Register Class DemoAbstract (DemoAbstract)
       val DemoAbstract_constructorVar = alloc<napi_valueVar>()
       val DemoAbstract_descArray = allocArray<napi_property_descriptor>(2)
@@ -185,20 +209,20 @@ public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_val
       napi_define_properties(env, HelloWorldPlugin_obj.value, 1u, desc_getTestClass.ptr)
 
       napi_set_named_property(env, exports, "hello_world_plugin", HelloWorldPlugin_obj.value)
-      val obj_UserUtils = alloc<napi_valueVar>()
-      napi.napi_create_object(env, obj_UserUtils.ptr)
-      val str_UserUtils_getFullName = alloc<napi_valueVar>()
-      napi.napi_create_string_utf8(env, "getFullName", napi.NAPI_AUTO_LENGTH,
-      str_UserUtils_getFullName.ptr)
-      val fn_UserUtils_getFullName = alloc<napi_valueVar>()
-      napi.napi_create_function(env, "getFullName", napi.NAPI_AUTO_LENGTH,
-      staticCFunction(::UserUtils_getFullName_wrapper), null, fn_UserUtils_getFullName.ptr)
-      napi.napi_set_property(env, obj_UserUtils.value, str_UserUtils_getFullName.value,
-      fn_UserUtils_getFullName.value)
-      val str_export_UserUtils = alloc<napi_valueVar>()
-      napi.napi_create_string_utf8(env, "UserUtils", napi.NAPI_AUTO_LENGTH,
-      str_export_UserUtils.ptr)
-      napi.napi_set_property(env, exports, str_export_UserUtils.value, obj_UserUtils.value)
+      val obj_UserUtilsV2 = alloc<napi_valueVar>()
+      napi_create_object(env, obj_UserUtilsV2.ptr)
+      val str_UserUtilsV2_getFullName = alloc<napi_valueVar>()
+      napi_create_string_utf8(env, "getFullName", NAPI_AUTO_LENGTH.convert(),
+      str_UserUtilsV2_getFullName.ptr)
+      val fn_UserUtilsV2_getFullName = alloc<napi_valueVar>()
+      napi_create_function(env, "getFullName", NAPI_AUTO_LENGTH.convert(),
+      staticCFunction(::UserUtilsV2_getFullName_wrapper), null, fn_UserUtilsV2_getFullName.ptr)
+      napi_set_property(env, obj_UserUtilsV2.value, str_UserUtilsV2_getFullName.value,
+      fn_UserUtilsV2_getFullName.value)
+      val str_export_UserUtilsV2 = alloc<napi_valueVar>()
+      napi_create_string_utf8(env, "UserUtilsV2", NAPI_AUTO_LENGTH.convert(),
+      str_export_UserUtilsV2.ptr)
+      napi_set_property(env, exports, str_export_UserUtilsV2.value, obj_UserUtilsV2.value)
 
   }
   return exports

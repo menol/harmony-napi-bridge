@@ -1,4 +1,4 @@
-@file:HarmonyExtensions(exportName = "UserUtils")
+@file:HarmonyExtensions(name = "UserUtilsV2")
 
 package com.itime.harmony.sample
 
@@ -45,6 +45,25 @@ interface IndexView: BaseView {
 
 }
 
+
+@HarmonyModule(name = "IndexPresenter")
+class IndexPresenter {
+
+    private var view: IndexView? = null
+
+    fun attach(view: IndexView) {
+        this.view = view
+    }
+
+    fun showUser(user: User) {
+        view?.showUser(user.getFullName())
+    }
+
+    fun detach() {
+        this.view = null
+    }
+
+}
 
 
 @HarmonyModule(name = "PageState")

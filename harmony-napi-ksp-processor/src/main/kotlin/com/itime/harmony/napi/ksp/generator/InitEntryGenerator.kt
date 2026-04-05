@@ -20,7 +20,7 @@ class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
 
         val fileBuilder = FileSpec.builder(packageName, fileName)
             .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "staticCFunction", "convert", "reinterpret", "cstr", "get")
-            .addImport("napi", "napi_env", "napi_value", "napi_valueVar", "napi_property_descriptor", "napi_define_properties", "napi_create_string_utf8", "napi_set_named_property", "napi_create_object", "napi_define_class", "napi_create_reference", "napi_refVar")
+            .addImport("napi", "napi_env", "napi_value", "napi_valueVar", "napi_property_descriptor", "napi_define_properties", "napi_create_string_utf8", "napi_set_named_property", "napi_create_object", "napi_define_class", "napi_create_reference", "napi_refVar", "napi_set_property", "napi_create_function", "NAPI_AUTO_LENGTH")
             .addAnnotation(AnnotationSpec.builder(ClassName("kotlin", "OptIn"))
                 .addMember("kotlinx.cinterop.ExperimentalForeignApi::class")
                 .addMember("kotlin.experimental.ExperimentalNativeApi::class")
@@ -39,18 +39,18 @@ class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
             validModules.forEach { module ->
                 if (module.isFileExtension) {
                     appendLine("    val obj_${module.className} = alloc<napi_valueVar>()")
-                    appendLine("    napi.napi_create_object(env, obj_${module.className}.ptr)")
+                    appendLine("    napi_create_object(env, obj_${module.className}.ptr)")
                     module.exportFunctions.forEach { func ->
                         val wrapperFuncName = "${module.className}_${func.functionName}_wrapper"
                         appendLine("    val str_${module.className}_${func.functionName} = alloc<napi_valueVar>()")
-                        appendLine("    napi.napi_create_string_utf8(env, \"${func.functionName}\", napi.NAPI_AUTO_LENGTH, str_${module.className}_${func.functionName}.ptr)")
+                        appendLine("    napi_create_string_utf8(env, \"${func.functionName}\", NAPI_AUTO_LENGTH.convert(), str_${module.className}_${func.functionName}.ptr)")
                         appendLine("    val fn_${module.className}_${func.functionName} = alloc<napi_valueVar>()")
-                        appendLine("    napi.napi_create_function(env, \"${func.functionName}\", napi.NAPI_AUTO_LENGTH, staticCFunction(::$wrapperFuncName), null, fn_${module.className}_${func.functionName}.ptr)")
-                        appendLine("    napi.napi_set_property(env, obj_${module.className}.value, str_${module.className}_${func.functionName}.value, fn_${module.className}_${func.functionName}.value)")
+                        appendLine("    napi_create_function(env, \"${func.functionName}\", NAPI_AUTO_LENGTH.convert(), staticCFunction(::$wrapperFuncName), null, fn_${module.className}_${func.functionName}.ptr)")
+                        appendLine("    napi_set_property(env, obj_${module.className}.value, str_${module.className}_${func.functionName}.value, fn_${module.className}_${func.functionName}.value)")
                     }
                     appendLine("    val str_export_${module.className} = alloc<napi_valueVar>()")
-                    appendLine("    napi.napi_create_string_utf8(env, \"${module.moduleName}\", napi.NAPI_AUTO_LENGTH, str_export_${module.className}.ptr)")
-                    appendLine("    napi.napi_set_property(env, exports, str_export_${module.className}.value, obj_${module.className}.value)")
+                    appendLine("    napi_create_string_utf8(env, \"${module.moduleName}\", NAPI_AUTO_LENGTH.convert(), str_export_${module.className}.ptr)")
+                    appendLine("    napi_set_property(env, exports, str_export_${module.className}.value, obj_${module.className}.value)")
                     appendLine()
                     return@forEach
                 }

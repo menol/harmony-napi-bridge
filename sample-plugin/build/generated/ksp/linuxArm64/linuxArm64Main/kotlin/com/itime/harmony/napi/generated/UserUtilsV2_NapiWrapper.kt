@@ -58,7 +58,7 @@ import napi.napi_valuetype
 import napi.napi_wrap
 import platform.posix.size_tVar
 
-public fun UserUtils_getFullName_wrapper(env: napi_env?, info: napi_callback_info?): napi_value? =
+public fun UserUtilsV2_getFullName_wrapper(env: napi_env?, info: napi_callback_info?): napi_value? =
     try {
     memScoped {
         val argc = alloc<size_tVar>()
