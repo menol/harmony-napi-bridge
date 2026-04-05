@@ -65,6 +65,9 @@ typedef struct {
 } libsample_plugin_kref_kotlin_ULong;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_BasePageState;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
@@ -204,6 +207,9 @@ typedef struct {
               } generated;
             } napi;
             struct {
+              struct {
+                libsample_plugin_KType* (*_type)(void);
+              } BasePageState;
               struct {
                 libsample_plugin_KType* (*_type)(void);
                 libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract (*DemoAbstract)();

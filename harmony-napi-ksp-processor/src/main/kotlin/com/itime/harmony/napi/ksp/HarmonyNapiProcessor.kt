@@ -127,6 +127,30 @@ class HarmonyNapiProcessor(
             val isAbstract = classDecl.modifiers.contains(Modifier.ABSTRACT)
             val isSealed = classDecl.modifiers.contains(Modifier.SEALED)
             val typeParameters = classDecl.typeParameters.map { it.name.asString() }
+            
+            val sealedSubclasses = if (isSealed) {
+                classDecl.getSealedSubclasses().map { subclass ->
+                    val subSimpleName = subclass.simpleName.asString()
+                    val subQualifiedName = subclass.qualifiedName?.asString() ?: ""
+                    val subIsSerializable = subclass.annotations.any { it.shortName.asString() == "Serializable" }
+                    val subSerialName = subclass.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
+                        ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
+                    val subTypeParams = subclass.typeParameters.map { it.name.asString() }
+                    val subProps = if (subIsSerializable) {
+                        subclass.getDeclaredProperties()
+                            .map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type)) }
+                            .toList()
+                    } else emptyList()
+                    HarmonyTypeModel(
+                        simpleName = subSimpleName,
+                        qualifiedName = subQualifiedName,
+                        isSerializable = subIsSerializable,
+                        properties = subProps,
+                        typeParameters = subTypeParams,
+                        serialName = subSerialName
+                    )
+                }.toList()
+            } else emptyList()
 
             HarmonyModuleModel(
                 className = classDecl.simpleName.asString(),
@@ -138,7 +162,8 @@ class HarmonyNapiProcessor(
                 isInterface = isInterface,
                 isAbstract = isAbstract,
                 isSealed = isSealed,
-                typeParameters = typeParameters
+                typeParameters = typeParameters,
+                sealedSubclasses = sealedSubclasses
             )
         }
 

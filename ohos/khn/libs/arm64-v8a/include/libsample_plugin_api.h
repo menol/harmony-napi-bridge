@@ -65,6 +65,9 @@ typedef struct {
 } libsample_plugin_kref_kotlin_ULong;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_BasePageState;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
@@ -80,10 +83,55 @@ typedef struct {
 } libsample_plugin_kref_kotlin_collections_Map;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_NetworkResult;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_User;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_Role;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlinx_serialization_internal_SerializationConstructorMarker;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState_Companion;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlinx_serialization_KSerializer;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlin_Array;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState_Error;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_$serializer;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlinx_serialization_descriptors_SerialDescriptor;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlinx_serialization_encoding_Decoder;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_kotlinx_serialization_encoding_Encoder;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_Companion;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_$serializer;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_Companion;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_Role_ADMIN;
@@ -98,22 +146,7 @@ typedef struct {
 } libsample_plugin_kref_com_itime_harmony_sample_User_$serializer;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlinx_serialization_descriptors_SerialDescriptor;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlin_Array;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlinx_serialization_encoding_Decoder;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlinx_serialization_encoding_Encoder;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_User_Companion;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_kotlinx_serialization_KSerializer;
 
 extern void* InitGeneratedWrappers(void* env, void* exports);
 
@@ -165,6 +198,7 @@ typedef struct {
                 void* (*HelloWorldPlugin_processIntList_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processList_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processMap_wrapper)(void* env, void* info);
+                void* (*HelloWorldPlugin_processResult_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processStringBooleanMap_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processStringDoubleMap_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processStringIntMap_wrapper)(void* env, void* info);
@@ -173,6 +207,9 @@ typedef struct {
               } generated;
             } napi;
             struct {
+              struct {
+                libsample_plugin_KType* (*_type)(void);
+              } BasePageState;
               struct {
                 libsample_plugin_KType* (*_type)(void);
                 libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract (*DemoAbstract)();
@@ -191,11 +228,69 @@ typedef struct {
                 libsample_plugin_kref_kotlin_collections_List (*processIntList)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_List items);
                 libsample_plugin_kref_kotlin_collections_List (*processList)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_List items);
                 libsample_plugin_kref_kotlin_collections_Map (*processMap)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_Map data);
+                libsample_plugin_kref_com_itime_harmony_sample_NetworkResult (*processResult)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_com_itime_harmony_sample_NetworkResult result);
                 libsample_plugin_kref_kotlin_collections_Map (*processStringBooleanMap)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_Map data);
                 libsample_plugin_kref_kotlin_collections_Map (*processStringDoubleMap)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_Map data);
                 libsample_plugin_kref_kotlin_collections_Map (*processStringIntMap)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_Map data);
                 libsample_plugin_kref_com_itime_harmony_sample_User (*processUser)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_com_itime_harmony_sample_User user, libsample_plugin_kref_com_itime_harmony_sample_Role role);
               } HelloWorldPlugin;
+              struct {
+                struct {
+                  libsample_plugin_KType* (*_type)(void);
+                  libsample_plugin_kref_com_itime_harmony_sample_PageState_Companion (*_instance)();
+                  libsample_plugin_kref_kotlinx_serialization_KSerializer (*serializer)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Companion thiz);
+                  libsample_plugin_kref_kotlinx_serialization_KSerializer (*serializer_)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Companion thiz, libsample_plugin_kref_kotlin_Array typeParamsSerializers);
+                } Companion;
+                struct {
+                  struct {
+                    libsample_plugin_KType* (*_type)(void);
+                    libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_$serializer (*_instance)();
+                    libsample_plugin_kref_kotlinx_serialization_descriptors_SerialDescriptor (*get_descriptor)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_$serializer thiz);
+                    libsample_plugin_kref_kotlin_Array (*childSerializers)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_$serializer thiz);
+                    libsample_plugin_kref_com_itime_harmony_sample_PageState_Error (*deserialize)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_$serializer thiz, libsample_plugin_kref_kotlinx_serialization_encoding_Decoder decoder);
+                    void (*serialize)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_$serializer thiz, libsample_plugin_kref_kotlinx_serialization_encoding_Encoder encoder, libsample_plugin_kref_com_itime_harmony_sample_PageState_Error value);
+                  } $serializer;
+                  struct {
+                    libsample_plugin_KType* (*_type)(void);
+                    libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_Companion (*_instance)();
+                    libsample_plugin_kref_kotlinx_serialization_KSerializer (*serializer)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error_Companion thiz);
+                  } Companion;
+                  libsample_plugin_KType* (*_type)(void);
+                  libsample_plugin_kref_com_itime_harmony_sample_PageState_Error (*Error)(const char* message);
+                  const char* (*get_message)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error thiz);
+                  const char* (*component1)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error thiz);
+                  libsample_plugin_kref_com_itime_harmony_sample_PageState_Error (*copy)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error thiz, const char* message);
+                  libsample_plugin_KBoolean (*equals)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error thiz, libsample_plugin_kref_kotlin_Any other);
+                  libsample_plugin_KInt (*hashCode)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error thiz);
+                  const char* (*toString)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Error thiz);
+                } Error;
+                struct {
+                  struct {
+                    libsample_plugin_KType* (*_type)(void);
+                    libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_$serializer (*_instance)();
+                    libsample_plugin_kref_kotlinx_serialization_descriptors_SerialDescriptor (*get_descriptor)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_$serializer thiz);
+                    libsample_plugin_kref_kotlin_Array (*childSerializers)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_$serializer thiz);
+                    libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading (*deserialize)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_$serializer thiz, libsample_plugin_kref_kotlinx_serialization_encoding_Decoder decoder);
+                    void (*serialize)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_$serializer thiz, libsample_plugin_kref_kotlinx_serialization_encoding_Encoder encoder, libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading value);
+                  } $serializer;
+                  struct {
+                    libsample_plugin_KType* (*_type)(void);
+                    libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_Companion (*_instance)();
+                    libsample_plugin_kref_kotlinx_serialization_KSerializer (*serializer)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading_Companion thiz);
+                  } Companion;
+                  libsample_plugin_KType* (*_type)(void);
+                  libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading (*Loading)(libsample_plugin_KBoolean isRefreshing);
+                  libsample_plugin_KBoolean (*get_isRefreshing)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading thiz);
+                  libsample_plugin_KBoolean (*component1)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading thiz);
+                  libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading (*copy)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading thiz, libsample_plugin_KBoolean isRefreshing);
+                  libsample_plugin_KBoolean (*equals)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading thiz, libsample_plugin_kref_kotlin_Any other);
+                  libsample_plugin_KInt (*hashCode)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading thiz);
+                  const char* (*toString)(libsample_plugin_kref_com_itime_harmony_sample_PageState_Loading thiz);
+                } Loading;
+                libsample_plugin_KType* (*_type)(void);
+                libsample_plugin_kref_com_itime_harmony_sample_PageState (*PageState)(libsample_plugin_KInt seen1, libsample_plugin_kref_kotlinx_serialization_internal_SerializationConstructorMarker serializationConstructorMarker);
+                libsample_plugin_kref_com_itime_harmony_sample_PageState (*PageState_)();
+              } PageState;
               struct {
                 struct {
                   libsample_plugin_kref_com_itime_harmony_sample_Role (*get)(); /* enum entry for ADMIN. */

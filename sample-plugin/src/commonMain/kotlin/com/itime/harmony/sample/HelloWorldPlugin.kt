@@ -8,8 +8,14 @@ import kotlinx.serialization.SerialName
 @Serializable data class User(val name: String, val age: Int)
 enum class Role { ADMIN, USER }
 
+@HarmonyModule(name = "BasePageState")
+interface BasePageState {
+
+}
+
+@HarmonyModule(name = "PageState")
 @Serializable
-sealed class PageState {
+sealed class PageState : BasePageState {
     @Serializable
     @SerialName("Loading")
     data class Loading(val isRefreshing: Boolean) : PageState()

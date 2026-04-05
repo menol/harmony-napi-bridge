@@ -1,22 +1,40 @@
 export type Role = "ADMIN" | "USER";
 
-export type NetworkResult<T> = Error<T> | Success<T>;
+export type NetworkResult<T> = NetworkResult.Error<T> | NetworkResult.Success<T>;
+export namespace NetworkResult {
+    export interface Error<T> {
+        type: "Error";
+        message: string;
+    }
+    export interface Success<T> {
+        type: "Success";
+        data: T;
+    }
+}
 
 export interface User {
     name: string;
     age: number;
 }
 
-export interface Error<T> {
-    type: "Error";
-    message: string;
+export interface BasePageState {
 }
-
-export interface Success<T> {
-    type: "Success";
-    data: T;
+export interface PageState {
 }
-
+export namespace PageState {
+    export interface Error extends PageState {
+        type: "Error";
+        message: string;
+    }
+    export interface Loading extends PageState {
+        type: "Loading";
+        isRefreshing: boolean;
+    }
+    export interface Success<T> extends PageState {
+        type: "Success";
+        data: T;
+    }
+}
 export interface TestSealed<T> {
     process(item: T): T;
 }
@@ -31,6 +49,7 @@ export interface DemoAbstract {
 }
 export interface TestAbstract<T> {
     process(item: T): T;
+    sayHello(): string;
 }
 export declare namespace hello_world_plugin {
     function add(a: number, b: number): number;

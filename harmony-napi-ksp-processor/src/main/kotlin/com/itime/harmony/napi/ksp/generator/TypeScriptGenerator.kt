@@ -22,7 +22,50 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                 }
             }
 
+            fun getTsType(typeModel: HarmonyTypeModel): String {
+                if (typeModel.isTypeParameter) return typeModel.simpleName
+                if (typeModel.isSerializable || typeModel.isEnum || typeModel.isSealed || modules.any { it.className == typeModel.simpleName }) {
+                    val typeArgs = if (typeModel.arguments.isNotEmpty()) {
+                        "<${typeModel.arguments.joinToString(", ") { getTsType(it) }}>"
+                    } else ""
+                    
+                    val parentSealedModel = allTypes.find { parent ->
+                        parent.isSealed && parent.sealedSubclasses.any { sub -> sub.qualifiedName == typeModel.qualifiedName }
+                    }
+                    val parentSealedModule = modules.find { parent ->
+                        parent.isSealed && parent.sealedSubclasses.any { sub -> sub.qualifiedName == typeModel.qualifiedName }
+                    }
+                    
+                    val prefix = if (parentSealedModel != null) {
+                        "${parentSealedModel.simpleName}."
+                    } else if (parentSealedModule != null) {
+                        "${parentSealedModule.className}."
+                    } else {
+                        ""
+                    }
+                    return "$prefix${typeModel.simpleName}$typeArgs"
+                }
+                return when (typeModel.simpleName) {
+                    "Double", "Int" -> "number"
+                    "String" -> "string"
+                    "Boolean" -> "boolean"
+                    "Unit" -> "void"
+                    "Any" -> "unknown"
+                    "List", "Array" -> {
+                        val elementTsType = typeModel.arguments.firstOrNull()?.let { getTsType(it) } ?: "unknown"
+                        "Array<$elementTsType>"
+                    }
+                    "Map" -> {
+                        val keyTsType = typeModel.arguments.getOrNull(0)?.let { getTsType(it) } ?: "unknown"
+                        val valueTsType = typeModel.arguments.getOrNull(1)?.let { getTsType(it) } ?: "unknown"
+                        "Record<$keyTsType, $valueTsType>"
+                    }
+                    else -> "unknown"
+                }
+            }
+
             modules.forEach { module ->
+                module.sealedSubclasses.forEach { collectTypes(it) }
                 module.exportFunctions.forEach { func ->
                     func.parameters.forEach { collectTypes(it.type) }
                     collectTypes(func.returnType)
@@ -34,9 +77,17 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                 appendLine()
             }
 
+            val allSealedSubclasses = mutableSetOf<String>()
+            allTypes.filter { it.isSealed }.forEach { type -> allSealedSubclasses.addAll(type.sealedSubclasses.map { it.qualifiedName }) }
+            modules.filter { it.isSealed }.forEach { mod -> allSealedSubclasses.addAll(mod.sealedSubclasses.map { it.qualifiedName }) }
+
             val serializableTypes = allTypes.filter { it.isSerializable }
 
             serializableTypes.filter { it.isSealed }.forEach { type ->
+                // 如果这个 sealed class 同时也是一个 HarmonyModule，那么我们跳过它，交给模块处理逻辑去生成 interface 和 namespace
+                val isModule = modules.any { it.className == type.simpleName }
+                if (isModule) return@forEach
+
                 val typeParams = if (type.typeParameters.isNotEmpty()) {
                     "<${type.typeParameters.joinToString(", ")}>"
                 } else ""
@@ -46,17 +97,33 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                         val subTypeParams = if (sub.typeParameters.isNotEmpty()) {
                             "<${sub.typeParameters.joinToString(", ")}>"
                         } else ""
-                        "${sub.simpleName}$subTypeParams"
+                        "${type.simpleName}.${sub.simpleName}$subTypeParams"
                     }
                 } else {
                     "never"
                 }
-                
                 appendLine("export type ${type.simpleName}$typeParams = $subclassesStr;")
+
+                appendLine("export namespace ${type.simpleName} {")
+                type.sealedSubclasses.forEach { sub ->
+                    val subTypeParams = if (sub.typeParameters.isNotEmpty()) {
+                        "<${sub.typeParameters.joinToString(", ")}>"
+                    } else ""
+                    val extendsClause = ""
+                    
+                    appendLine("    export interface ${sub.simpleName}$subTypeParams$extendsClause {")
+                    val discriminator = sub.serialName ?: sub.simpleName
+                    appendLine("        type: \"$discriminator\";")
+                    sub.properties.forEach { prop ->
+                        appendLine("        ${prop.name}: ${getTsType(prop.type)};")
+                    }
+                    appendLine("    }")
+                }
+                appendLine("}")
                 appendLine()
             }
 
-            serializableTypes.filter { !it.isSealed }.forEach { type ->
+            serializableTypes.filter { !it.isSealed && it.qualifiedName !in allSealedSubclasses }.forEach { type ->
                 val typeParams = if (type.typeParameters.isNotEmpty()) {
                     "<${type.typeParameters.joinToString(", ")}>"
                 } else ""
@@ -73,7 +140,7 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                 }
                 
                 type.properties.forEach { prop ->
-                    appendLine("    ${prop.name}: ${TypeMapper.getTsType(prop.type)};")
+                    appendLine("    ${prop.name}: ${getTsType(prop.type)};")
                 }
                 appendLine("}")
                 appendLine()
@@ -86,29 +153,42 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                     } else ""
                     appendLine("export interface ${module.moduleName}$typeParams {")
                     
-                    val funcsToExport = if (module.isAbstract && !module.isInterface) {
-                        module.exportFunctions.filter { it.isAbstract }
-                    } else {
-                        module.exportFunctions
-                    }
-                    
-                    funcsToExport.forEach { func ->
+                    module.exportFunctions.forEach { func ->
                         val params = func.parameters.joinToString(", ") { param ->
-                            val tsType = TypeMapper.getTsType(param.type)
+                            val tsType = getTsType(param.type)
                             "${param.name}: $tsType"
                         }
-                        val tsReturnType = TypeMapper.getTsType(func.returnType)
+                        val tsReturnType = getTsType(func.returnType)
                         appendLine("    ${func.functionName}($params): $tsReturnType;")
                     }
                     appendLine("}")
+                    
+                    if (module.isSealed && module.sealedSubclasses.isNotEmpty()) {
+                        appendLine("export namespace ${module.moduleName} {")
+                        module.sealedSubclasses.forEach { sub ->
+                            val subTypeParams = if (sub.typeParameters.isNotEmpty()) {
+                                "<${sub.typeParameters.joinToString(", ")}>"
+                            } else ""
+                            val extendsClause = " extends ${module.moduleName}$typeParams"
+                            
+                            appendLine("    export interface ${sub.simpleName}$subTypeParams$extendsClause {")
+                            val discriminator = sub.serialName ?: sub.simpleName
+                            appendLine("        type: \"$discriminator\";")
+                            sub.properties.forEach { prop ->
+                                appendLine("        ${prop.name}: ${getTsType(prop.type)};")
+                            }
+                            appendLine("    }")
+                        }
+                        appendLine("}")
+                    }
                 } else {
                     appendLine("export declare namespace ${module.moduleName} {")
                     module.exportFunctions.forEach { func ->
                         val params = func.parameters.joinToString(", ") { param ->
-                            val tsType = TypeMapper.getTsType(param.type)
+                            val tsType = getTsType(param.type)
                             "${param.name}: $tsType"
                         }
-                        val tsReturnType = TypeMapper.getTsType(func.returnType)
+                        val tsReturnType = getTsType(func.returnType)
                         appendLine("    function ${func.functionName}($params): $tsReturnType;")
                     }
                     appendLine("}")
