@@ -607,10 +607,28 @@ fun napi_value.toJsonString(env: napi_env): String {
 }
 
 @OptIn(ExperimentalForeignApi::class)
-inline fun <reified T> napi_value.toKotlinObject(env: napi_env): T = Json.decodeFromString<T>(this.toJsonString(env))
+inline fun <reified T> napi_value.toKotlinObject(env: napi_env): T {
+    val jsonStr = this.toJsonString(env)
+    try {
+        return Json { ignoreUnknownKeys = true }.decodeFromString<T>(jsonStr)
+    } catch (e: Throwable) {
+        val errorMsg = "toKotlinObject failed for JSON: $jsonStr, Error: ${e.message}"
+        println(errorMsg)
+        throw e
+    }
+}
 
 @OptIn(ExperimentalForeignApi::class)
-inline fun <reified T> T.toNapiObject(env: napi_env): napi_value = Json.encodeToString(this).toNapiObject(env)
+inline fun <reified T> T.toNapiObject(env: napi_env): napi_value {
+    try {
+        val jsonStr = Json { ignoreUnknownKeys = true }.encodeToString(this)
+        return jsonStr.toNapiObject(env)
+    } catch (e: Throwable) {
+        val errorMsg = "toNapiObject failed for object: $this, Error: ${e.message}"
+        println(errorMsg)
+        throw e
+    }
+}
 
 @OptIn(ExperimentalForeignApi::class)
 inline fun <reified T : Enum<T>> napi_value.toKotlinEnum(env: napi_env): T = enumValueOf<T>(this.toKotlinString(env))

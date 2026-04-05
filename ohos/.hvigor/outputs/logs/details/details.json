@@ -3,17 +3,15 @@
     "MODULES": [
       {
         "MODULE_NAME": "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf",
-        "API_TYPE": "stageMode",
-        "INCREMENTAL_TASKS": {
-          "COMPILE_ARKTS": true
-        }
+        "API_TYPE": "stageMode"
       },
       {
         "MODULE_NAME": "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b",
         "API_TYPE": "stageMode",
         "IS_BYTE_CODE_HAR": true,
         "INCREMENTAL_TASKS": {
-          "BUILD_NATIVE_WITH_CMAKE": true
+          "BUILD_NATIVE_WITH_CMAKE": true,
+          "COMPILE_ARKTS": true
         }
       }
     ],
@@ -28,31 +26,27 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "PreBuild": 196753958,
-        "ConfigureCmake": 9887625,
-        "BuildNativeWithCmake": 90056583,
-        "BuildNativeWithNinja": 542786334
-      },
-      "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
-        "CreateModuleInfo": 242459,
-        "PreCheckSyscap": 292917,
-        "ProcessIntegratedHsp": 1811625,
-        "SyscapTransform": 3400417,
-        "ConfigureCmake": 188166,
-        "BuildNativeWithCmake": 219834,
-        "ProcessStartupConfig": 4120125,
-        "BuildJS": 4854125,
-        "BuildNativeWithNinja": 191292,
-        "ProcessLibs": 164980500,
-        "DoNativeStrip": 344049042,
-        "CacheNativeLibs": 116549083,
-        "CompileArkTS": 2431097500,
-        "ProcessCompiledResources": 219750,
-        "PackageHap": 40400417,
-        "PackingCheck": 1977833,
-        "SignHap": 329375,
-        "CollectDebugSymbol": 185541,
-        "assembleHap": 58083
+        "PreBuild": 113748000,
+        "ProcessOHPackageJson": 11026041,
+        "ConfigureCmake": 23484917,
+        "ProcessIntegratedHsp": 633708,
+        "ProcessModulePrivacyProfile": 2545875,
+        "BuildNativeWithCmake": 49997458,
+        "ProcessRouterMap": 3362917,
+        "ProcessShareConfig": 504833,
+        "ProcessStartupConfig": 1744917,
+        "ProcessObfuscationFiles": 132833,
+        "BuildNativeWithNinja": 713848417,
+        "ProcessLibs": 38451542,
+        "DoNativeStrip": 362204875,
+        "CacheNativeLibs": 133934833,
+        "HarCompileArkTS": 3339846875,
+        "ProcessHarArtifacts": 35815208,
+        "PackageHar": 111842334,
+        "PackageSignHar": 1264083,
+        "PackingCheckHar": 2292584,
+        "CollectDebugSymbol": 1532083,
+        "assembleHar": 96416
       }
     },
     "APIS": [
@@ -77,7 +71,7 @@
       "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "TOTAL_TIME": 4128792083,
-    "BUILD_ID": "202604052324133870"
+    "TOTAL_TIME": 4954287667,
+    "BUILD_ID": "202604052329172120"
   }
 }

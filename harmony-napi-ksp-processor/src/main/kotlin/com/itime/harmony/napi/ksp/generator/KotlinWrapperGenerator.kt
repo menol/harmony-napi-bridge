@@ -39,25 +39,32 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 .returns(ClassName("napi", "napi_value").copy(nullable = true))
 
             val codeBlock = buildString {
-                appendLine("return memScoped {")
-                appendLine("    val argc = alloc<size_tVar>()")
-                appendLine("    argc.value = ${paramCount}u")
-                appendLine("    val argv = allocArray<napi_valueVar>($paramCount)")
-                appendLine("    napi_get_cb_info(env, info, argc.ptr, argv, null, null)")
+                appendLine("return try {")
+                appendLine("    memScoped {")
+                appendLine("        val argc = alloc<size_tVar>()")
+                appendLine("        argc.value = ${paramCount}u")
+                appendLine("        val argv = allocArray<napi_valueVar>($paramCount)")
+                appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, null, null)")
                 appendLine()
 
                 val args = mutableListOf<String>()
                 params.forEachIndexed { index, param ->
                     val convertMethod = TypeMapper.getNapiToKotlinMethod(param.type)
-                    appendLine("    val arg$index = argv[$index]!!.$convertMethod")
+                    appendLine("        val arg$index = argv[$index]!!.$convertMethod")
                     args.add("arg$index")
                 }
 
-                appendLine("    val result = ${module.className}.${func.functionName}(${args.joinToString(", ")})")
+                appendLine("        val result = ${module.className}.${func.functionName}(${args.joinToString(", ")})")
                 val returnMethod = TypeMapper.getKotlinToNapiMethod(func.returnType)
                 if (returnMethod.isNotEmpty()) {
-                    appendLine("    result.$returnMethod")
+                    appendLine("        result.$returnMethod")
+                } else {
+                    appendLine("        null")
                 }
+                appendLine("    }")
+                appendLine("} catch (e: Throwable) {")
+                appendLine("    napi.napi_throw_error(env, null, e.message ?: \"Unknown Kotlin exception\")")
+                appendLine("    null")
                 appendLine("}")
             }
 
