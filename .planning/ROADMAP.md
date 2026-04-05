@@ -77,10 +77,10 @@ Plans:
 
 ### Phase 9: 支持抽象类的导出
 
-**Goal:** [To be planned]
+**Goal:** Support exporting Kotlin abstract classes with generics to TypeScript abstract classes.
 **Requirements**: TBD
 **Depends on:** Phase 8
-**Plans:** 0 plans
+**Plans:** 1/1 complete
 
 Plans:
-- [ ] TBD (run /gsd-plan-phase 9 to break down)
+- [x] 09: Update KSP models and generators to support Kotlin abstract classes

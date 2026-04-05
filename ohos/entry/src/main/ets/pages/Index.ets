@@ -42,9 +42,12 @@ class DemoCall implements DemoInterface<User> {
 
 
 class DemoAbsCall extends DemoAbstract {
-  sayHello(user: User): string {
-    hilog.info(DOMAIN, TAG, '%{public}s', user.name);
-    return `Hello, ${user.name}!`;
+  process(item: string[]): string[] {
+    hilog.info(DOMAIN, TAG, '%{public}s', JSON.stringify(item));
+    return item
+  }
+  sayHello(): string {
+    return "Hello from DemoAbsCall"
   }
 }
 
@@ -57,6 +60,7 @@ struct Index {
   
   private testsRegistered: boolean = false;
   private demoCall = new DemoCall()
+  private demoAbsCall = new DemoAbsCall()
 
   async aboutToAppear() {
     try {
@@ -84,7 +88,9 @@ struct Index {
       name: 'World123123',
       age: 42
     })
+
     this.appendLog(testResult)
+    this.appendLog(JSON.stringify(this.demoAbsCall.sayHello()))
     this.appendLog('Starting tests...');
 
     const startMem = hidebug.getNativeHeapAllocatedSize();
