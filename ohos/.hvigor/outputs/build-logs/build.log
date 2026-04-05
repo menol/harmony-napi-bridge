@@ -2412,3 +2412,1423 @@ Require stack:
 [2026-04-05T22:01:36.346] [DEBUG] debug-file - session manager: send message to worker process.
 [2026-04-05T22:01:36.350] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2026-04-05T22:01:36.350] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-04-05T22:05:51.386] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2026-04-05T22:05:51.408] [DEBUG] debug-file - env: daemon=true
+[2026-04-05T22:05:51.386] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-04-05T22:05:51.896] [DEBUG] debug-file - session manager: set active socket. socketId=DoRTPVfvsn-Q0EwGAAAV
+[2026-04-05T22:05:51.901] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-04-05T22:05:51.908] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2026-04-05T22:05:51.915] [DEBUG] debug-file - Cache service initialization finished in 8 ms 
+[2026-04-05T22:05:51.918] [DEBUG] debug-file - hvigorfile, resolving /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+[2026-04-05T22:05:51.927] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-04-05T22:05:51.927] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-04-05T22:05:51.933] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-04-05T22:05:51.933] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-04-05T22:05:51.934] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-04-05T22:05:51.934] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-04-05T22:05:51.934] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-04-05T22:05:51.946] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-04-05T22:05:51.952] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-04-05T22:05:52.000] [DEBUG] debug-file - Sdk init in 54 ms 
+[2026-04-05T22:05:52.004] [DEBUG] debug-file - Project task initialization takes 3 ms 
+[2026-04-05T22:05:52.004] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2026-04-05T22:05:52.004] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+[2026-04-05T22:05:52.004] [DEBUG] debug-file - hvigorfile, resolve finished /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+[2026-04-05T22:05:52.004] [DEBUG] debug-file - hvigorfile, resolving /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/hvigorfile.ts
+[2026-04-05T22:05:52.008] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-04-05T22:05:52.008] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-04-05T22:05:52.009] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-04-05T22:05:52.011] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:05:52.013] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:05:52.013] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-04-05T22:05:52.013] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-04-05T22:05:52.013] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-04-05T22:05:52.013] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-04-05T22:05:52.013] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:05:52.014] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:05:52.014] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-04-05T22:05:52.014] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-04-05T22:05:52.014] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-04-05T22:05:52.014] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-04-05T22:05:52.015] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2026-04-05T22:05:52.015] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2026-04-05T22:05:52.015] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/hvigorfile.ts
+[2026-04-05T22:05:52.015] [DEBUG] debug-file - hvigorfile, resolve finished /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/hvigorfile.ts
+[2026-04-05T22:05:52.015] [DEBUG] debug-file - hvigorfile, resolving /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/hvigorfile.ts
+[2026-04-05T22:05:52.017] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-04-05T22:05:52.017] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-04-05T22:05:52.017] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-04-05T22:05:52.017] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=khn, buildMode=debug
+[2026-04-05T22:05:52.017] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:05:52.018] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:05:52.018] [DEBUG] debug-file - Module 'khn' target 'default' build option initialized
+[2026-04-05T22:05:52.018] [DEBUG] debug-file - Module 'khn' target 'ohosTest' build option initialized
+[2026-04-05T22:05:52.018] [DEBUG] debug-file - End initialize module-target build option map, moduleName=khn
+[2026-04-05T22:05:52.018] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=khn, buildMode=release
+[2026-04-05T22:05:52.018] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:05:52.018] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Module 'khn' target 'default' build option initialized
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Module 'khn' target 'ohosTest' build option initialized
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - End initialize module-target build option map, moduleName=khn
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=khn, buildMode=debug
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Module 'khn' target 'default' build option initialized
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Module 'khn' target 'ohosTest' build option initialized
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - End initialize module-target build option map, moduleName=khn
+[2026-04-05T22:05:52.019] [DEBUG] debug-file - Obtain build option for module 'khn' target 'default'in this build.
+[2026-04-05T22:05:52.020] [DEBUG] debug-file - Module khn task initialization takes 1 ms 
+[2026-04-05T22:05:52.020] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2026-04-05T22:05:52.020] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/hvigorfile.ts
+[2026-04-05T22:05:52.020] [DEBUG] debug-file - hvigorfile, resolve finished /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/hvigorfile.ts
+[2026-04-05T22:05:52.298] [DEBUG] debug-file - ninja: Entering directory `/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/arm64-v8a'
+
+[2026-04-05T22:05:52.115] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 95 ms 
+[2026-04-05T22:05:52.115] [DEBUG] debug-file - project has submodules:entry,khn
+[2026-04-05T22:05:52.115] [DEBUG] debug-file - module:khn no need to execute packageHap
+[2026-04-05T22:05:52.120] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-04-05T22:05:52.137] [DEBUG] debug-file - load to the disk finished
+[2026-04-05T22:05:52.138] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-04-05T22:05:52.142] [DEBUG] debug-file - Module ohos Collected Dependency: /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn,/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types/libkhn
+[2026-04-05T22:05:52.142] [DEBUG] debug-file - Module ohos's total dependency: 2
+[2026-04-05T22:05:52.144] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-04-05T22:05:52.145] [DEBUG] debug-file - Module entry Collected Dependency: /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn,/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types/libkhn
+[2026-04-05T22:05:52.145] [DEBUG] debug-file - Module entry's total dependency: 2
+[2026-04-05T22:05:52.147] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-04-05T22:05:52.148] [DEBUG] debug-file - Module khn Collected Dependency: /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types/libkhn
+[2026-04-05T22:05:52.148] [DEBUG] debug-file - Module khn's total dependency: 1
+[2026-04-05T22:05:52.150] [DEBUG] debug-file - Configuration phase cost:235 ms 
+[2026-04-05T22:05:52.151] [DEBUG] debug-file - Configuration task cost before running: 247 ms 
+[2026-04-05T22:05:52.152] [DEBUG] debug-file - Executing task :khn:default@PreBuild
+[2026-04-05T22:05:52.152] [DEBUG] debug-file - Task 'khn:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.153] [DEBUG] debug-file - Incremental task khn:default@PreBuild pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.153] [DEBUG] debug-file - khn : default@PreBuild cost memory 0.20660400390625
+[2026-04-05T22:05:52.153] [INFO] debug-file - UP-TO-DATE :khn:default@PreBuild...  
+[2026-04-05T22:05:52.154] [DEBUG] debug-file - Executing task :khn:default@ProcessOHPackageJson
+[2026-04-05T22:05:52.154] [DEBUG] debug-file - jsonObjWithoutAtModule {"name":"khn","version":"1.0.0","description":"Please describe the basic information.","author":"","license":"Apache-2.0","dependencies":{"libkhn.so":"file:./src/main/cpp/types/libkhn"},"types":"Index.d.ets","artifactType":"obfuscation","metadata":{"byteCodeHar":true}}
+[2026-04-05T22:05:52.155] [DEBUG] debug-file - khn : default@ProcessOHPackageJson cost memory 0.03814697265625
+[2026-04-05T22:05:52.157] [DEBUG] debug-file - runTaskFromQueue task cost before running: 254 ms 
+[2026-04-05T22:05:52.157] [INFO] debug-file - Finished :khn:default@ProcessOHPackageJson... after 3 ms 
+[2026-04-05T22:05:52.169] [DEBUG] debug-file - Executing task :khn:default@CreateHarBuildProfile
+[2026-04-05T22:05:52.169] [DEBUG] debug-file - Task 'khn:default@CreateHarBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.169] [DEBUG] debug-file - Incremental task khn:default@CreateHarBuildProfile pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.169] [DEBUG] debug-file - khn : default@CreateHarBuildProfile cost memory 0.08138275146484375
+[2026-04-05T22:05:52.169] [INFO] debug-file - UP-TO-DATE :khn:default@CreateHarBuildProfile...  
+[2026-04-05T22:05:52.169] [DEBUG] debug-file - Executing task :khn:default@CreateHarModuleInfo
+[2026-04-05T22:05:52.169] [DEBUG] debug-file - Task 'khn:default@CreateHarModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.170] [DEBUG] debug-file - Incremental task khn:default@CreateHarModuleInfo pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.170] [DEBUG] debug-file - khn : default@CreateHarModuleInfo cost memory 0.062530517578125
+[2026-04-05T22:05:52.170] [INFO] debug-file - UP-TO-DATE :khn:default@CreateHarModuleInfo...  
+[2026-04-05T22:05:52.170] [DEBUG] debug-file - Executing task :khn:default@ConfigureCmake
+[2026-04-05T22:05:52.200] [DEBUG] debug-file - khn : default@ConfigureCmake cost memory -0.9170684814453125
+[2026-04-05T22:05:52.200] [DEBUG] debug-file - runTaskFromQueue task cost before running: 297 ms 
+[2026-04-05T22:05:52.200] [INFO] debug-file - Finished :khn:default@ConfigureCmake... after 31 ms 
+[2026-04-05T22:05:52.201] [DEBUG] debug-file - Executing task :khn:default@MergeProfile
+[2026-04-05T22:05:52.201] [DEBUG] debug-file - Task 'khn:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.209] [DEBUG] debug-file - Incremental task khn:default@MergeProfile pre-execution cost: 9 ms .
+[2026-04-05T22:05:52.209] [DEBUG] debug-file - khn : default@MergeProfile cost memory 0.10604095458984375
+[2026-04-05T22:05:52.210] [INFO] debug-file - UP-TO-DATE :khn:default@MergeProfile...  
+[2026-04-05T22:05:52.211] [DEBUG] debug-file - Executing task :khn:default@ProcessIntegratedHsp
+[2026-04-05T22:05:52.212] [DEBUG] debug-file - khn:default@ProcessIntegratedHsp is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build/cache/default/integrated_hsp/integratedHspCache.json' does not exist.
+[2026-04-05T22:05:52.212] [DEBUG] debug-file - Incremental task khn:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.212] [DEBUG] debug-file - khn : default@ProcessIntegratedHsp cost memory 0.06212615966796875
+[2026-04-05T22:05:52.212] [DEBUG] debug-file - runTaskFromQueue task cost before running: 309 ms 
+[2026-04-05T22:05:52.212] [INFO] debug-file - Finished :khn:default@ProcessIntegratedHsp... after 1 ms 
+[2026-04-05T22:05:52.213] [DEBUG] debug-file - Executing task :khn:default@ProcessModulePrivacyProfile
+[2026-04-05T22:05:52.213] [DEBUG] debug-file - khn:default@ProcessModulePrivacyProfile is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/privacy_profile/default/pac.json5' does not exist.
+[2026-04-05T22:05:52.213] [DEBUG] debug-file - Incremental task khn:default@ProcessModulePrivacyProfile pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.214] [DEBUG] debug-file - khn : default@ProcessModulePrivacyProfile cost memory 0.05078125
+[2026-04-05T22:05:52.214] [DEBUG] debug-file - runTaskFromQueue task cost before running: 310 ms 
+[2026-04-05T22:05:52.214] [INFO] debug-file - Finished :khn:default@ProcessModulePrivacyProfile... after 1 ms 
+[2026-04-05T22:05:52.214] [DEBUG] debug-file - Executing task :khn:default@BuildNativeWithCmake
+[2026-04-05T22:05:52.219] [DEBUG] debug-file - Use tool [Cmake]
+ [
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native/build-tools/cmake/bin/cmake',
+  '-H/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp',
+  '-B/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/arm64-v8a',
+  '-DOHOS_ARCH=arm64-v8a',
+  '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a',
+  '-DCMAKE_BUILD_TYPE=Debug',
+  '-DOHOS_SDK_NATIVE=/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native',
+  '-DCMAKE_SYSTEM_NAME=OHOS',
+  '-DCMAKE_OHOS_ARCH_ABI=arm64-v8a',
+  '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON',
+  '-DCMAKE_TOOLCHAIN_FILE=/Applications/DevEco-Studio.app/Contents/sdk/default/hms/native/build/cmake/hmos.toolchain.bisheng.cmake',
+  '-GNinja',
+  '-DCMAKE_MAKE_PROGRAM=/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native/build-tools/cmake/bin/ninja',
+  '-DCMAKE_FIND_ROOT_PATH=/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/hvigor/arm64-v8a',
+  '-DPACKAGE_FIND_FILE=/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/hvigor/arm64-v8a/summary.cmake',
+  '--no-warn-unused-cli',
+  '-DHMOS_SDK_NATIVE=/Applications/DevEco-Studio.app/Contents/sdk/default/hms/native'
+]
+[2026-04-05T22:05:52.237] [DEBUG] debug-file - CMake configuration was up-to-date
+[2026-04-05T22:05:52.240] [DEBUG] debug-file - khn : default@BuildNativeWithCmake cost memory -13.751167297363281
+[2026-04-05T22:05:52.240] [DEBUG] debug-file - runTaskFromQueue task cost before running: 337 ms 
+[2026-04-05T22:05:52.240] [INFO] debug-file - Finished :khn:default@BuildNativeWithCmake... after 27 ms 
+[2026-04-05T22:05:52.241] [DEBUG] debug-file - Executing task :khn:default@BuildNativeWithNinja
+[2026-04-05T22:05:52.241] [DEBUG] debug-file - Use tool [Ninja]
+ [
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native/build-tools/cmake/bin/ninja',
+  '-C',
+  '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/arm64-v8a'
+]
+[2026-04-05T22:05:52.241] [DEBUG] debug-file - default@BuildNativeWithNinja work[38] is submitted.
+[2026-04-05T22:05:52.241] [DEBUG] debug-file - default@BuildNativeWithNinja work[38] is pushed to ready queue.
+[2026-04-05T22:05:52.242] [DEBUG] debug-file - default@BuildNativeWithNinja work[38] is not dispatched.
+[2026-04-05T22:05:52.246] [DEBUG] debug-file - OHOS_STL is c++_shared
+[2026-04-05T22:05:52.246] [DEBUG] debug-file - Copy STL libc++_shared.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a due to OHOS_STL is 'c++_shared'
+[2026-04-05T22:05:52.247] [DEBUG] debug-file - khn : default@BuildNativeWithNinja cost memory 1.051116943359375
+[2026-04-05T22:05:52.248] [DEBUG] debug-file - Executing task :khn:default@GeneratePkgContextInfo
+[2026-04-05T22:05:52.253] [DEBUG] debug-file - Task 'khn:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.254] [DEBUG] debug-file - Incremental task khn:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.254] [DEBUG] debug-file - khn : default@GeneratePkgContextInfo cost memory 1.5100250244140625
+[2026-04-05T22:05:52.254] [INFO] debug-file - UP-TO-DATE :khn:default@GeneratePkgContextInfo...  
+[2026-04-05T22:05:52.254] [DEBUG] debug-file - Executing task :khn:default@ProcessProfile
+[2026-04-05T22:05:52.255] [DEBUG] debug-file - Task 'khn:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.255] [DEBUG] debug-file - Incremental task khn:default@ProcessProfile pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.256] [DEBUG] debug-file - khn : default@ProcessProfile cost memory 0.09561920166015625
+[2026-04-05T22:05:52.256] [INFO] debug-file - UP-TO-DATE :khn:default@ProcessProfile...  
+[2026-04-05T22:05:52.256] [DEBUG] debug-file - Executing task :khn:default@ProcessRouterMap
+[2026-04-05T22:05:52.256] [DEBUG] debug-file - khn:default@ProcessRouterMap is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/router_map/default/temp-router-map.json' does not exist.
+[2026-04-05T22:05:52.256] [DEBUG] debug-file - Incremental task khn:default@ProcessRouterMap pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - khn : default@ProcessRouterMap cost memory 0.12176513671875
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - runTaskFromQueue task cost before running: 353 ms 
+[2026-04-05T22:05:52.257] [INFO] debug-file - Finished :khn:default@ProcessRouterMap... after 1 ms 
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - Executing task :khn:default@ProcessShareConfig
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - khn:default@ProcessShareConfig is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/share_config/default/temp-share-config.json' does not exist.
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - Incremental task khn:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - khn : default@ProcessShareConfig cost memory 0.12014007568359375
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - runTaskFromQueue task cost before running: 354 ms 
+[2026-04-05T22:05:52.257] [INFO] debug-file - Finished :khn:default@ProcessShareConfig... after 1 ms 
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - Executing task :khn:default@ProcessStartupConfig
+[2026-04-05T22:05:52.257] [DEBUG] debug-file - Task 'khn:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.258] [DEBUG] debug-file - khn:default@ProcessStartupConfig is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/startup/default/startup_config.json' does not exist.
+[2026-04-05T22:05:52.258] [DEBUG] debug-file - Incremental task khn:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.258] [DEBUG] debug-file - khn : default@ProcessStartupConfig cost memory 0.14220428466796875
+[2026-04-05T22:05:52.258] [DEBUG] debug-file - runTaskFromQueue task cost before running: 355 ms 
+[2026-04-05T22:05:52.258] [INFO] debug-file - Finished :khn:default@ProcessStartupConfig... after 1 ms 
+[2026-04-05T22:05:52.259] [DEBUG] debug-file - restool module names: khn,entry; moduleName=khn, taskName=default@ProcessResource
+[2026-04-05T22:05:52.259] [DEBUG] debug-file - Executing task :khn:default@ProcessResource
+[2026-04-05T22:05:52.259] [DEBUG] debug-file - Task 'khn:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.259] [DEBUG] debug-file - Incremental task khn:default@ProcessResource pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.259] [DEBUG] debug-file - khn : default@ProcessResource cost memory 0.1294403076171875
+[2026-04-05T22:05:52.260] [INFO] debug-file - UP-TO-DATE :khn:default@ProcessResource...  
+[2026-04-05T22:05:52.261] [DEBUG] debug-file - Executing task :khn:default@GenerateLoaderJson
+[2026-04-05T22:05:52.261] [DEBUG] debug-file - Task 'khn:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.263] [DEBUG] debug-file - Incremental task khn:default@GenerateLoaderJson pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.263] [DEBUG] debug-file - khn : default@GenerateLoaderJson cost memory 0.3616943359375
+[2026-04-05T22:05:52.264] [INFO] debug-file - UP-TO-DATE :khn:default@GenerateLoaderJson...  
+[2026-04-05T22:05:52.264] [DEBUG] debug-file - restool module names: khn,entry; moduleName=khn, taskName=default@CompileResource
+[2026-04-05T22:05:52.264] [DEBUG] debug-file - Executing task :khn:default@CompileResource
+[2026-04-05T22:05:52.266] [DEBUG] debug-file - Incremental task khn:default@CompileResource pre-execution cost: 3 ms .
+[2026-04-05T22:05:52.266] [DEBUG] debug-file - khn : default@CompileResource cost memory 0.19136810302734375
+[2026-04-05T22:05:52.267] [INFO] debug-file - UP-TO-DATE :khn:default@CompileResource...  
+[2026-04-05T22:05:52.267] [DEBUG] debug-file - Executing task :khn:default@ProcessObfuscationFiles
+[2026-04-05T22:05:52.267] [DEBUG] debug-file - khn : default@ProcessObfuscationFiles cost memory 0.0166473388671875
+[2026-04-05T22:05:52.267] [DEBUG] debug-file - runTaskFromQueue task cost before running: 364 ms 
+[2026-04-05T22:05:52.267] [INFO] debug-file - Finished :khn:default@ProcessObfuscationFiles... after 1 ms 
+[2026-04-05T22:05:52.267] [DEBUG] debug-file - Executing task :khn:default@HarCompileArkTS
+[2026-04-05T22:05:52.267] [DEBUG] debug-file - obfuscationOptions: undefined
+[2026-04-05T22:05:52.270] [DEBUG] debug-file - Task 'khn:default@HarCompileArkTS' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.273] [DEBUG] debug-file - khn:default@HarCompileArkTS is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types' has been changed.
+[2026-04-05T22:05:52.273] [DEBUG] debug-file - Incremental task khn:default@HarCompileArkTS pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.279] [DEBUG] debug-file - build config:
+[2026-04-05T22:05:52.279] [DEBUG] debug-file - {
+  moduleType: 'har',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/resources/base/profile',
+  etsLoaderPath: '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader',
+  modulePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos',
+  compileSdkVersion: 21,
+  compatibleSdkVersion: 21,
+  originCompatibleSdkVersion: '6.0.1(21)',
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***n',
+  etsLoaderVersion: '6.0.1.112',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/modules.ap',
+  entryModuleName: 'khn',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'khn',
+  allModuleNameHash: 'c91e730d3f9ed28e20112257f10624f77e072dad56269a4c4677b73e4ebc2d22',
+  externalApiPaths: [ '/Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/generated/profile/default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 21,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  buildDir: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build',
+  deviceTypes: [ 'default' ],
+  pkgContextInfo: {
+    'libkhn.so': {
+      packageName: 'libkhn.so',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: 'Index',
+      isSO: true,
+      dependencyAlias: ''
+    },
+    khn: {
+      packageName: 'khn',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'Index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hypium': {
+      packageName: '@ohos/hypium',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.24',
+      entryPath: 'index.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hamock': {
+      packageName: '@ohos/hamock',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    'libsample_plugin.so': {
+      packageName: 'libsample_plugin.so',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: '',
+      isSO: true,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: { requestPermissions: undefined, definePermissions: undefined },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    lazyImportExclude: '',
+    lazyImportInclude: '',
+    ignoreCrossplatformCheck: false,
+    isHarDeduplicateEnabled: false,
+    enableStrictCheckOHModule: false,
+    useDeclarationFileSignature: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  arkCompileCachePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@HarCompileArkTS/esmodule',
+  autoLazyFilter: undefined,
+  isHarDeduplicateEnabled: false,
+  intermediateHarDuplicateDirPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/har_duplicate/default',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  lazyImportExclude: '',
+  lazyImportInclude: '',
+  ignoreCrossplatformCheck: false,
+  enableStrictCheckOHModule: false,
+  useDeclarationFileSignature: false,
+  isPreloadSoEnabled: false,
+  strictMode: {
+    caseSensitiveCheck: true,
+    useNormalizedOHMUrl: true,
+    noExternalImportByPath: true
+  },
+  useNormalizedOHMUrl: true,
+  caseSensitiveCheck: true,
+  aceModuleJsonPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ark_module.json',
+  appResource: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ResourceTable.txt',
+  rawFileResource: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/resources/rawfile',
+  resourceTableHash: '00b650c8c0cda5acd27626b2fd0ed99db63906a65758821010e28c3e12bd53e4',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:21:6.0.1.112:Release',
+  aceModuleRoot: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/supervisual',
+  aceBuildJson: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/loader.json',
+  cachePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@HarCompileArkTS/esmodule/debug',
+  aceModuleBuild: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/ets',
+  supportChunks: true,
+  declaredFilesPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/etsFortgz/khn',
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    khn: {
+      pkgRoot: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'khn'
+    }
+  },
+  projectModel: {
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/src/main': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/src/ohosTest/ets': {
+      moduleName: 'entry_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/src/ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main': {
+      moduleName: 'khn',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/src/ohosTest/ets': {
+      moduleName: 'khn_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/ohosTest': {
+      moduleName: 'khn_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn': {
+      moduleName: 'khn',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos': {
+      moduleName: 'ohos',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    }
+  },
+  pkgJsonFileHash: 'fcd2e9d3330af22896f5c8684bee6f389e226d26f4ccdcc705d4a45f2e5e1efc',
+  allModulePaths: [
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn'
+  ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [ 'khn', '@ohos/hypium', '@ohos/hamock', 'libkhn.so' ],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: undefined,
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: false,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: true,
+  sdkPath: '/Applications/DevEco-Studio.app/Contents/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/preload/default/preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    'khn/*': [ '../*', '../../../build/default/generated/profile/default/*' ]
+  },
+  collectImportersConfig: undefined,
+  byteCodeHar: true,
+  obfuscate: undefined,
+  skipBuildEnd: false
+}
+[2026-04-05T22:05:52.279] [DEBUG] debug-file - Compile arkts with external api path: /Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets
+[2026-04-05T22:05:52.279] [DEBUG] debug-file - default@HarCompileArkTS work[39] is submitted.
+[2026-04-05T22:05:52.283] [DEBUG] debug-file - default@HarCompileArkTS work[39] is pushed to ready queue.
+[2026-04-05T22:05:52.283] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.283] [DEBUG] debug-file - default@BuildNativeWithNinja work[38] has been dispatched to worker[10].
+[2026-04-05T22:05:52.283] [DEBUG] debug-file - default@HarCompileArkTS work[39] is dispatched.
+[2026-04-05T22:05:52.283] [DEBUG] debug-file - khn : default@HarCompileArkTS cost memory 1.3022842407226562
+[2026-04-05T22:05:52.653] [DEBUG] debug-file - [1/1] Linking CXX shared library /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libkhn.so
+
+[2026-04-05T22:05:52.654] [DEBUG] debug-file - worker[10] has one work done.
+[2026-04-05T22:05:52.657] [DEBUG] debug-file - default@BuildNativeWithNinja work[38] done.
+[2026-04-05T22:05:52.657] [INFO] debug-file - Finished :khn:default@BuildNativeWithNinja... after 377 ms 
+[2026-04-05T22:05:52.657] [DEBUG] debug-file - Executing task :khn:default@ProcessLibs
+[2026-04-05T22:05:52.660] [DEBUG] debug-file - Check content hash for /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libkhn.so
+[2026-04-05T22:05:52.662] [DEBUG] debug-file - Check content hash for /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libc++_shared.so
+[2026-04-05T22:05:52.672] [DEBUG] debug-file - khn:default@ProcessLibs is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/libs' has been changed.
+[2026-04-05T22:05:52.672] [DEBUG] debug-file - Incremental task khn:default@ProcessLibs pre-execution cost: 2 ms .
+[2026-04-05T22:05:52.673] [DEBUG] debug-file - Worker dispatch failed, running processLibs on main thread.
+[2026-04-05T22:05:52.677] [DEBUG] debug-file - Link /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libkhn.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default/arm64-v8a/libkhn.so successfully.
+[2026-04-05T22:05:52.678] [DEBUG] debug-file - Link /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libc++_shared.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default/arm64-v8a/libc++_shared.so successfully.
+[2026-04-05T22:05:52.679] [DEBUG] debug-file - Link /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/libs/arm64-v8a/libsample_plugin.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default/arm64-v8a/libsample_plugin.so successfully.
+[2026-04-05T22:05:52.679] [DEBUG] debug-file - khn : default@ProcessLibs cost memory 1.80218505859375
+[2026-04-05T22:05:52.679] [DEBUG] debug-file - runTaskFromQueue task cost before running: 776 ms 
+[2026-04-05T22:05:52.679] [INFO] debug-file - Finished :khn:default@ProcessLibs... after 22 ms 
+[2026-04-05T22:05:52.680] [DEBUG] debug-file - Executing task :khn:default@DoNativeStrip
+[2026-04-05T22:05:52.680] [DEBUG] debug-file - Task 'khn:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.680] [DEBUG] debug-file - khn:default@DoNativeStrip is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default' has been changed.
+[2026-04-05T22:05:52.680] [DEBUG] debug-file - Incremental task khn:default@DoNativeStrip pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.682] [DEBUG] debug-file - default@DoNativeStrip work[40] is submitted.
+[2026-04-05T22:05:52.683] [DEBUG] debug-file - default@DoNativeStrip work[40] is pushed to ready queue.
+[2026-04-05T22:05:52.683] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.683] [DEBUG] debug-file - default@DoNativeStrip work[40] has been dispatched to worker[10].
+[2026-04-05T22:05:52.683] [DEBUG] debug-file - default@DoNativeStrip work[40] is dispatched.
+[2026-04-05T22:05:52.683] [DEBUG] debug-file - khn : default@DoNativeStrip cost memory 0.21807098388671875
+[2026-04-05T22:05:52.692] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 182501376,
+  heapTotal: 56803328,
+  heapUsed: 54182832,
+  external: 3960325,
+  arrayBuffers: 86279
+} os memoryUsage :23.6856689453125
+[2026-04-05T22:05:52.698] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 182616064,
+  heapTotal: 56803328,
+  heapUsed: 54275192,
+  external: 3960325,
+  arrayBuffers: 86279
+} os memoryUsage :23.738113403320312
+[2026-04-05T22:05:52.734] [DEBUG] debug-file - worker[10] has one work done.
+[2026-04-05T22:05:52.734] [DEBUG] debug-file - default@DoNativeStrip work[40] done.
+[2026-04-05T22:05:52.734] [INFO] debug-file - Finished :khn:default@DoNativeStrip... after 55 ms 
+[2026-04-05T22:05:52.735] [DEBUG] debug-file - Executing task :khn:default@CacheNativeLibs
+[2026-04-05T22:05:52.736] [DEBUG] debug-file - Task 'khn:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:52.736] [DEBUG] debug-file - khn:default@CacheNativeLibs is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default' has been changed.
+[2026-04-05T22:05:52.736] [DEBUG] debug-file - Incremental task khn:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2026-04-05T22:05:52.736] [DEBUG] debug-file - default@CacheNativeLibs work[41] is submitted.
+[2026-04-05T22:05:52.737] [DEBUG] debug-file - default@CacheNativeLibs work[41] is pushed to ready queue.
+[2026-04-05T22:05:52.737] [DEBUG] debug-file - default@CacheNativeLibs work[41] is not dispatched.
+[2026-04-05T22:05:52.737] [DEBUG] debug-file - khn : default@CacheNativeLibs cost memory 0.138916015625
+[2026-04-05T22:05:52.837] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.837] [DEBUG] debug-file - default@CacheNativeLibs work[41] has been dispatched to worker[10].
+[2026-04-05T22:05:52.839] [DEBUG] debug-file - worker[10] has one work done.
+[2026-04-05T22:05:52.840] [DEBUG] debug-file - default@CacheNativeLibs work[41] done.
+[2026-04-05T22:05:52.841] [INFO] debug-file - Finished :khn:default@CacheNativeLibs... after 4 ms 
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2026-04-05T22:05:52.948] [DEBUG] debug-file - default@HarCompileArkTS work[39] has been dispatched to worker[4].
+[2026-04-05T22:05:53.141] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2026-04-05T22:05:53.291] [DEBUG] debug-file - worker[4] has one work done.
+[2026-04-05T22:05:53.291] [DEBUG] debug-file - default@HarCompileArkTS work[39] done.
+[2026-04-05T22:05:53.291] [INFO] debug-file - Finished :khn:default@HarCompileArkTS... after 357 ms 
+[2026-04-05T22:05:53.292] [DEBUG] debug-file - Executing task :khn:default@ProcessHarArtifacts
+[2026-04-05T22:05:53.292] [DEBUG] debug-file - File: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/resources/base/profile/insight_intent.json' from 'insightIntentJsonPath' is not exists, just ignore.
+[2026-04-05T22:05:53.292] [DEBUG] debug-file - File: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/preload/default/preload.json' from 'preloadSoFilePath' is not exists, just ignore.
+[2026-04-05T22:05:53.292] [DEBUG] debug-file - Task 'khn:default@ProcessHarArtifacts' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:05:53.294] [DEBUG] debug-file - khn:default@ProcessHarArtifacts is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn' has been changed.
+[2026-04-05T22:05:53.294] [DEBUG] debug-file - Incremental task khn:default@ProcessHarArtifacts pre-execution cost: 2 ms .
+[2026-04-05T22:05:53.315] [DEBUG] debug-file - khn : default@ProcessHarArtifacts cost memory -9.432968139648438
+[2026-04-05T22:05:53.315] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 412 ms 
+[2026-04-05T22:05:53.315] [INFO] debug-file - Finished :khn:default@ProcessHarArtifacts... after 23 ms 
+[2026-04-05T22:05:53.315] [DEBUG] debug-file - Executing task :khn:default@PackageHar
+[2026-04-05T22:05:53.316] [DEBUG] debug-file - khn:default@PackageHar is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar' has been changed.
+[2026-04-05T22:05:53.316] [DEBUG] debug-file - Incremental task khn:default@PackageHar pre-execution cost: 1 ms .
+[2026-04-05T22:05:53.364] [DEBUG] debug-file - khn : default@PackageHar cost memory 1.1690216064453125
+[2026-04-05T22:05:53.364] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 461 ms 
+[2026-04-05T22:05:53.364] [INFO] debug-file - Finished :khn:default@PackageHar... after 49 ms 
+[2026-04-05T22:05:53.364] [DEBUG] debug-file - Executing task :khn:default@PackageSignHar
+[2026-04-05T22:05:53.364] [WARN] debug-file - Will skip sign 'har'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build-profile.json5.
+[2026-04-05T22:05:53.364] [DEBUG] debug-file - khn : default@PackageSignHar cost memory 0.053802490234375
+[2026-04-05T22:05:53.364] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 461 ms 
+[2026-04-05T22:05:53.364] [INFO] debug-file - Finished :khn:default@PackageSignHar... after 1 ms 
+[2026-04-05T22:05:53.365] [DEBUG] debug-file - Executing task :khn:default@PackingCheckHar
+[2026-04-05T22:05:53.367] [DEBUG] debug-file - khn : default@PackingCheckHar cost memory 0.23310089111328125
+[2026-04-05T22:05:53.367] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 464 ms 
+[2026-04-05T22:05:53.367] [INFO] debug-file - Finished :khn:default@PackingCheckHar... after 3 ms 
+[2026-04-05T22:05:53.368] [DEBUG] debug-file - Executing task :khn:default@CollectDebugSymbol
+[2026-04-05T22:05:53.368] [DEBUG] debug-file - khn : default@CollectDebugSymbol cost memory 0.09387969970703125
+[2026-04-05T22:05:53.368] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 465 ms 
+[2026-04-05T22:05:53.368] [INFO] debug-file - Finished :khn:default@CollectDebugSymbol... after 1 ms 
+[2026-04-05T22:05:53.368] [DEBUG] debug-file - Executing task :khn:assembleHar
+[2026-04-05T22:05:53.369] [DEBUG] debug-file - khn : assembleHar cost memory 0.01360321044921875
+[2026-04-05T22:05:53.369] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 466 ms 
+[2026-04-05T22:05:53.369] [INFO] debug-file - Finished :khn:assembleHar... after 1 ms 
+[2026-04-05T22:05:53.369] [INFO] debug-file - BUILD SUCCESSFUL in 1 s 466 ms 
+[2026-04-05T22:05:53.369] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@PreBuild is up-to-date.
+[2026-04-05T22:05:53.369] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@CreateHarBuildProfile is up-to-date.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@CreateHarModuleInfo is up-to-date.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@MergeProfile is up-to-date.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessIntegratedHsp output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build/cache/default/integrated_hsp/integratedHspCache.json cache.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Incremental task khn:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessModulePrivacyProfile output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/privacy_profile/default/pac.json5 cache.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Incremental task khn:default@ProcessModulePrivacyProfile post-execution cost:1 ms .
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@GeneratePkgContextInfo is up-to-date.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@ProcessProfile is up-to-date.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/oh-package.json5 cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/oh-package.json5 cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/module.json5 cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/router_map/default/temp-router-map.json cache.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/router_map/default/loader-router-map.json cache.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Incremental task khn:default@ProcessRouterMap post-execution cost:1 ms .
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/oh-package.json5 cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/oh-package.json5 cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/module.json5 cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/share_config/default/temp-share-config.json cache.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Incremental task khn:default@ProcessShareConfig post-execution cost:1 ms .
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessStartupConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Update task khn:default@ProcessStartupConfig output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/startup/default/startup_config.json cache.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - Incremental task khn:default@ProcessStartupConfig post-execution cost:1 ms .
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@ProcessResource is up-to-date.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@GenerateLoaderJson is up-to-date.
+[2026-04-05T22:05:53.370] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@CompileResource is up-to-date.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/ets cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/Index.ets cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types cache from map.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/BuildProfile.ets cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/ets cache.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Incremental task khn:default@HarCompileArkTS post-execution cost:1 ms .
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@ProcessLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/libs cache from map.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@ProcessLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build-profile.json5 cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@ProcessLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build-profile.json5 cache by regenerate.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@ProcessLibs output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Incremental task khn:default@ProcessLibs post-execution cost:1 ms .
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@DoNativeStrip input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache from map.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@DoNativeStrip output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default cache.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Incremental task khn:default@DoNativeStrip post-execution cost:1 ms .
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@CacheNativeLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default cache from map.
+[2026-04-05T22:05:53.371] [DEBUG] debug-file - Update task khn:default@CacheNativeLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache by regenerate.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@CacheNativeLibs output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/patch/default/base_native_libs.json cache.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Incremental task khn:default@CacheNativeLibs post-execution cost:1 ms .
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/process_profile/default cache by regenerate.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn cache from map.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/generated/pm/default cache by regenerate.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar cache.
+[2026-04-05T22:05:53.372] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar/pac.json5 cache.
+[2026-04-05T22:05:53.373] [DEBUG] debug-file - Incremental task khn:default@ProcessHarArtifacts post-execution cost:1 ms .
+[2026-04-05T22:05:53.373] [DEBUG] debug-file - Update task khn:default@PackageHar output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar cache.
+[2026-04-05T22:05:53.373] [DEBUG] debug-file - Update task khn:default@PackageHar output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/default cache.
+[2026-04-05T22:05:53.373] [DEBUG] debug-file - Incremental task khn:default@PackageHar post-execution cost:1 ms .
+[2026-04-05T22:05:53.373] [DEBUG] debug-file - Update task khn:default@PackageSignHar input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar cache by regenerate.
+[2026-04-05T22:05:53.374] [DEBUG] debug-file - Update task khn:default@PackageSignHar input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageSignHar cache by regenerate.
+[2026-04-05T22:05:53.374] [DEBUG] debug-file - Update task khn:default@PackageSignHar output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/default/khn-signed.har cache.
+[2026-04-05T22:05:53.374] [DEBUG] debug-file - Incremental task khn:default@PackageSignHar post-execution cost:1 ms .
+[2026-04-05T22:05:53.374] [DEBUG] debug-file - Update task khn:default@CollectDebugSymbol input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/ets/sourceMaps.map cache by regenerate.
+[2026-04-05T22:05:53.374] [DEBUG] debug-file - Update task khn:default@CollectDebugSymbol input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache by regenerate.
+[2026-04-05T22:05:53.374] [DEBUG] debug-file - Update task khn:default@CollectDebugSymbol output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/default/symbol cache.
+[2026-04-05T22:05:53.374] [DEBUG] debug-file - Incremental task khn:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-04-05T22:05:53.381] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-04-05T22:05:53.383] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-04-05T22:05:53.383] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-04-05T22:05:53.383] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-04-05T22:05:53.383] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-04-05T22:06:23.166] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2026-04-05T22:06:23.210] [DEBUG] debug-file - env: daemon=true
+[2026-04-05T22:06:23.167] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '6.0.1',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2026-04-05T22:06:23.691] [DEBUG] debug-file - session manager: set active socket. socketId=xr3quQdhr3gLX_cpAAAX
+[2026-04-05T22:06:23.695] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-04-05T22:06:23.706] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2026-04-05T22:06:23.717] [DEBUG] debug-file - Cache service initialization finished in 12 ms 
+[2026-04-05T22:06:23.718] [DEBUG] debug-file - hvigorfile, resolving /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+[2026-04-05T22:06:23.722] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-04-05T22:06:23.722] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-04-05T22:06:23.733] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-04-05T22:06:23.733] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-04-05T22:06:23.733] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-04-05T22:06:23.733] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-04-05T22:06:23.733] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-04-05T22:06:23.744] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-04-05T22:06:23.748] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-04-05T22:06:23.778] [DEBUG] debug-file - Sdk init in 34 ms 
+[2026-04-05T22:06:23.778] [DEBUG] debug-file - Project task initialization takes 1 ms 
+[2026-04-05T22:06:23.778] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2026-04-05T22:06:23.778] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+[2026-04-05T22:06:23.778] [DEBUG] debug-file - hvigorfile, resolve finished /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+[2026-04-05T22:06:23.779] [DEBUG] debug-file - hvigorfile, resolving /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/hvigorfile.ts
+[2026-04-05T22:06:23.785] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-04-05T22:06:23.785] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-04-05T22:06:23.785] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-04-05T22:06:23.786] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-04-05T22:06:23.786] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:06:23.786] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:06:23.786] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-04-05T22:06:23.786] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-04-05T22:06:23.786] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-04-05T22:06:23.792] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-04-05T22:06:23.799] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:06:23.807] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-04-05T22:06:23.808] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-04-05T22:06:23.814] [DEBUG] debug-file - Module entry task initialization takes 2 ms 
+[2026-04-05T22:06:23.814] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2026-04-05T22:06:23.815] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/hvigorfile.ts
+[2026-04-05T22:06:23.815] [DEBUG] debug-file - hvigorfile, resolve finished /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/hvigorfile.ts
+[2026-04-05T22:06:23.815] [DEBUG] debug-file - hvigorfile, resolving /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/hvigorfile.ts
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=khn, buildMode=debug
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - Module 'khn' target 'default' build option initialized
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - Module 'khn' target 'ohosTest' build option initialized
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - End initialize module-target build option map, moduleName=khn
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=khn, buildMode=release
+[2026-04-05T22:06:23.823] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Module 'khn' target 'default' build option initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Module 'khn' target 'ohosTest' build option initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - End initialize module-target build option map, moduleName=khn
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=khn, buildMode=debug
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Target 'default' config initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Module 'khn' target 'default' build option initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Module 'khn' target 'ohosTest' build option initialized
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - End initialize module-target build option map, moduleName=khn
+[2026-04-05T22:06:23.824] [DEBUG] debug-file - Obtain build option for module 'khn' target 'default'in this build.
+[2026-04-05T22:06:23.825] [DEBUG] debug-file - Module khn task initialization takes 1 ms 
+[2026-04-05T22:06:23.825] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2026-04-05T22:06:23.825] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/hvigorfile.ts
+[2026-04-05T22:06:23.825] [DEBUG] debug-file - hvigorfile, resolve finished /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/hvigorfile.ts
+[2026-04-05T22:06:24.099] [DEBUG] debug-file - ninja: Entering directory `/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/arm64-v8a'
+
+[2026-04-05T22:06:23.934] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 110 ms 
+[2026-04-05T22:06:23.935] [DEBUG] debug-file - project has submodules:entry,khn
+[2026-04-05T22:06:23.936] [DEBUG] debug-file - module:khn no need to execute packageHap
+[2026-04-05T22:06:23.937] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-04-05T22:06:23.941] [DEBUG] debug-file - load to the disk finished
+[2026-04-05T22:06:23.941] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-04-05T22:06:23.946] [DEBUG] debug-file - Module ohos Collected Dependency: /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn,/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types/libkhn
+[2026-04-05T22:06:23.946] [DEBUG] debug-file - Module ohos's total dependency: 2
+[2026-04-05T22:06:23.947] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-04-05T22:06:23.947] [DEBUG] debug-file - Module entry Collected Dependency: /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn,/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types/libkhn
+[2026-04-05T22:06:23.947] [DEBUG] debug-file - Module entry's total dependency: 2
+[2026-04-05T22:06:23.950] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-04-05T22:06:23.950] [DEBUG] debug-file - Module khn Collected Dependency: /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types/libkhn
+[2026-04-05T22:06:23.950] [DEBUG] debug-file - Module khn's total dependency: 1
+[2026-04-05T22:06:23.951] [DEBUG] debug-file - Configuration phase cost:234 ms 
+[2026-04-05T22:06:23.954] [DEBUG] debug-file - Configuration task cost before running: 256 ms 
+[2026-04-05T22:06:23.955] [DEBUG] debug-file - Executing task :khn:default@PreBuild
+[2026-04-05T22:06:23.956] [DEBUG] debug-file - Task 'khn:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:23.957] [DEBUG] debug-file - Incremental task khn:default@PreBuild pre-execution cost: 1 ms .
+[2026-04-05T22:06:23.957] [DEBUG] debug-file - khn : default@PreBuild cost memory 0.1988067626953125
+[2026-04-05T22:06:23.957] [INFO] debug-file - UP-TO-DATE :khn:default@PreBuild...  
+[2026-04-05T22:06:23.957] [DEBUG] debug-file - Executing task :khn:default@ProcessOHPackageJson
+[2026-04-05T22:06:23.957] [DEBUG] debug-file - jsonObjWithoutAtModule {"name":"khn","version":"1.0.0","description":"Please describe the basic information.","author":"","license":"Apache-2.0","dependencies":{"libkhn.so":"file:./src/main/cpp/types/libkhn"},"types":"Index.d.ets","artifactType":"obfuscation","metadata":{"byteCodeHar":true}}
+[2026-04-05T22:06:23.958] [DEBUG] debug-file - khn : default@ProcessOHPackageJson cost memory 0.04456329345703125
+[2026-04-05T22:06:23.958] [DEBUG] debug-file - runTaskFromQueue task cost before running: 260 ms 
+[2026-04-05T22:06:23.958] [INFO] debug-file - Finished :khn:default@ProcessOHPackageJson... after 1 ms 
+[2026-04-05T22:06:23.958] [DEBUG] debug-file - Executing task :khn:default@CreateHarBuildProfile
+[2026-04-05T22:06:23.958] [DEBUG] debug-file - Task 'khn:default@CreateHarBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:23.958] [DEBUG] debug-file - Incremental task khn:default@CreateHarBuildProfile pre-execution cost: 1 ms .
+[2026-04-05T22:06:23.958] [DEBUG] debug-file - khn : default@CreateHarBuildProfile cost memory 0.08110809326171875
+[2026-04-05T22:06:23.959] [INFO] debug-file - UP-TO-DATE :khn:default@CreateHarBuildProfile...  
+[2026-04-05T22:06:23.959] [DEBUG] debug-file - Executing task :khn:default@CreateHarModuleInfo
+[2026-04-05T22:06:23.959] [DEBUG] debug-file - Task 'khn:default@CreateHarModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:23.959] [DEBUG] debug-file - Incremental task khn:default@CreateHarModuleInfo pre-execution cost: 1 ms .
+[2026-04-05T22:06:23.959] [DEBUG] debug-file - khn : default@CreateHarModuleInfo cost memory 0.06235504150390625
+[2026-04-05T22:06:23.959] [INFO] debug-file - UP-TO-DATE :khn:default@CreateHarModuleInfo...  
+[2026-04-05T22:06:23.960] [DEBUG] debug-file - Executing task :khn:default@ConfigureCmake
+[2026-04-05T22:06:24.005] [DEBUG] debug-file - khn : default@ConfigureCmake cost memory -0.40926361083984375
+[2026-04-05T22:06:24.005] [DEBUG] debug-file - runTaskFromQueue task cost before running: 307 ms 
+[2026-04-05T22:06:24.005] [INFO] debug-file - Finished :khn:default@ConfigureCmake... after 46 ms 
+[2026-04-05T22:06:24.020] [DEBUG] debug-file - Executing task :khn:default@MergeProfile
+[2026-04-05T22:06:24.020] [DEBUG] debug-file - Task 'khn:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.021] [DEBUG] debug-file - Incremental task khn:default@MergeProfile pre-execution cost: 2 ms .
+[2026-04-05T22:06:24.021] [DEBUG] debug-file - khn : default@MergeProfile cost memory 0.10565185546875
+[2026-04-05T22:06:24.021] [INFO] debug-file - UP-TO-DATE :khn:default@MergeProfile...  
+[2026-04-05T22:06:24.023] [DEBUG] debug-file - Executing task :khn:default@ProcessIntegratedHsp
+[2026-04-05T22:06:24.023] [DEBUG] debug-file - khn:default@ProcessIntegratedHsp is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build/cache/default/integrated_hsp/integratedHspCache.json' does not exist.
+[2026-04-05T22:06:24.023] [DEBUG] debug-file - Incremental task khn:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.024] [DEBUG] debug-file - khn : default@ProcessIntegratedHsp cost memory 0.06169891357421875
+[2026-04-05T22:06:24.024] [DEBUG] debug-file - runTaskFromQueue task cost before running: 326 ms 
+[2026-04-05T22:06:24.024] [INFO] debug-file - Finished :khn:default@ProcessIntegratedHsp... after 1 ms 
+[2026-04-05T22:06:24.024] [DEBUG] debug-file - Executing task :khn:default@ProcessModulePrivacyProfile
+[2026-04-05T22:06:24.024] [DEBUG] debug-file - khn:default@ProcessModulePrivacyProfile is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/privacy_profile/default/pac.json5' does not exist.
+[2026-04-05T22:06:24.024] [DEBUG] debug-file - Incremental task khn:default@ProcessModulePrivacyProfile pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.024] [DEBUG] debug-file - khn : default@ProcessModulePrivacyProfile cost memory 0.051483154296875
+[2026-04-05T22:06:24.024] [DEBUG] debug-file - runTaskFromQueue task cost before running: 327 ms 
+[2026-04-05T22:06:24.025] [INFO] debug-file - Finished :khn:default@ProcessModulePrivacyProfile... after 1 ms 
+[2026-04-05T22:06:24.025] [DEBUG] debug-file - Executing task :khn:default@BuildNativeWithCmake
+[2026-04-05T22:06:24.025] [DEBUG] debug-file - Use tool [Cmake]
+ [
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native/build-tools/cmake/bin/cmake',
+  '-H/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp',
+  '-B/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/arm64-v8a',
+  '-DOHOS_ARCH=arm64-v8a',
+  '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a',
+  '-DCMAKE_BUILD_TYPE=Debug',
+  '-DOHOS_SDK_NATIVE=/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native',
+  '-DCMAKE_SYSTEM_NAME=OHOS',
+  '-DCMAKE_OHOS_ARCH_ABI=arm64-v8a',
+  '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON',
+  '-DCMAKE_TOOLCHAIN_FILE=/Applications/DevEco-Studio.app/Contents/sdk/default/hms/native/build/cmake/hmos.toolchain.bisheng.cmake',
+  '-GNinja',
+  '-DCMAKE_MAKE_PROGRAM=/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native/build-tools/cmake/bin/ninja',
+  '-DCMAKE_FIND_ROOT_PATH=/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/hvigor/arm64-v8a',
+  '-DPACKAGE_FIND_FILE=/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/hvigor/arm64-v8a/summary.cmake',
+  '--no-warn-unused-cli',
+  '-DHMOS_SDK_NATIVE=/Applications/DevEco-Studio.app/Contents/sdk/default/hms/native'
+]
+[2026-04-05T22:06:24.068] [DEBUG] debug-file - CMake configuration was up-to-date
+[2026-04-05T22:06:24.073] [DEBUG] debug-file - khn : default@BuildNativeWithCmake cost memory -17.282203674316406
+[2026-04-05T22:06:24.073] [DEBUG] debug-file - runTaskFromQueue task cost before running: 375 ms 
+[2026-04-05T22:06:24.073] [INFO] debug-file - Finished :khn:default@BuildNativeWithCmake... after 49 ms 
+[2026-04-05T22:06:24.074] [DEBUG] debug-file - Executing task :khn:default@BuildNativeWithNinja
+[2026-04-05T22:06:24.077] [DEBUG] debug-file - Use tool [Ninja]
+ [
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native/build-tools/cmake/bin/ninja',
+  '-C',
+  '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.cxx/default/default/debug/arm64-v8a'
+]
+[2026-04-05T22:06:24.077] [DEBUG] debug-file - default@BuildNativeWithNinja work[42] is submitted.
+[2026-04-05T22:06:24.077] [DEBUG] debug-file - default@BuildNativeWithNinja work[42] is pushed to ready queue.
+[2026-04-05T22:06:24.077] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.077] [DEBUG] debug-file - default@BuildNativeWithNinja work[42] has been dispatched to worker[10].
+[2026-04-05T22:06:24.077] [DEBUG] debug-file - default@BuildNativeWithNinja work[42] is dispatched.
+[2026-04-05T22:06:24.083] [DEBUG] debug-file - OHOS_STL is c++_shared
+[2026-04-05T22:06:24.084] [DEBUG] debug-file - Copy STL libc++_shared.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a due to OHOS_STL is 'c++_shared'
+[2026-04-05T22:06:24.085] [DEBUG] debug-file - khn : default@BuildNativeWithNinja cost memory 1.0540695190429688
+[2026-04-05T22:06:24.085] [DEBUG] debug-file - Executing task :khn:default@GeneratePkgContextInfo
+[2026-04-05T22:06:24.091] [DEBUG] debug-file - Task 'khn:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.091] [DEBUG] debug-file - Incremental task khn:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.091] [DEBUG] debug-file - khn : default@GeneratePkgContextInfo cost memory 1.4761581420898438
+[2026-04-05T22:06:24.091] [INFO] debug-file - UP-TO-DATE :khn:default@GeneratePkgContextInfo...  
+[2026-04-05T22:06:24.096] [DEBUG] debug-file - Executing task :khn:default@ProcessProfile
+[2026-04-05T22:06:24.100] [DEBUG] debug-file - Task 'khn:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.100] [DEBUG] debug-file - Incremental task khn:default@ProcessProfile pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.100] [DEBUG] debug-file - khn : default@ProcessProfile cost memory 0.09206390380859375
+[2026-04-05T22:06:24.101] [INFO] debug-file - UP-TO-DATE :khn:default@ProcessProfile...  
+[2026-04-05T22:06:24.102] [DEBUG] debug-file - Executing task :khn:default@ProcessRouterMap
+[2026-04-05T22:06:24.102] [DEBUG] debug-file - khn:default@ProcessRouterMap is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/router_map/default/temp-router-map.json' does not exist.
+[2026-04-05T22:06:24.103] [DEBUG] debug-file - Incremental task khn:default@ProcessRouterMap pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.103] [DEBUG] debug-file - khn : default@ProcessRouterMap cost memory 0.1214141845703125
+[2026-04-05T22:06:24.103] [DEBUG] debug-file - runTaskFromQueue task cost before running: 405 ms 
+[2026-04-05T22:06:24.103] [INFO] debug-file - Finished :khn:default@ProcessRouterMap... after 1 ms 
+[2026-04-05T22:06:24.104] [DEBUG] debug-file - Executing task :khn:default@ProcessShareConfig
+[2026-04-05T22:06:24.104] [DEBUG] debug-file - khn:default@ProcessShareConfig is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/share_config/default/temp-share-config.json' does not exist.
+[2026-04-05T22:06:24.104] [DEBUG] debug-file - Incremental task khn:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.104] [DEBUG] debug-file - khn : default@ProcessShareConfig cost memory 0.12232208251953125
+[2026-04-05T22:06:24.104] [DEBUG] debug-file - runTaskFromQueue task cost before running: 406 ms 
+[2026-04-05T22:06:24.104] [INFO] debug-file - Finished :khn:default@ProcessShareConfig... after 1 ms 
+[2026-04-05T22:06:24.105] [DEBUG] debug-file - Executing task :khn:default@ProcessStartupConfig
+[2026-04-05T22:06:24.105] [DEBUG] debug-file - Task 'khn:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.105] [DEBUG] debug-file - khn:default@ProcessStartupConfig is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/startup/default/startup_config.json' does not exist.
+[2026-04-05T22:06:24.105] [DEBUG] debug-file - Incremental task khn:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.105] [DEBUG] debug-file - khn : default@ProcessStartupConfig cost memory 0.1420135498046875
+[2026-04-05T22:06:24.107] [DEBUG] debug-file - runTaskFromQueue task cost before running: 409 ms 
+[2026-04-05T22:06:24.107] [INFO] debug-file - Finished :khn:default@ProcessStartupConfig... after 3 ms 
+[2026-04-05T22:06:24.108] [DEBUG] debug-file - restool module names: khn,entry; moduleName=khn, taskName=default@ProcessResource
+[2026-04-05T22:06:24.108] [DEBUG] debug-file - Executing task :khn:default@ProcessResource
+[2026-04-05T22:06:24.108] [DEBUG] debug-file - Task 'khn:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.110] [DEBUG] debug-file - Incremental task khn:default@ProcessResource pre-execution cost: 2 ms .
+[2026-04-05T22:06:24.110] [DEBUG] debug-file - khn : default@ProcessResource cost memory 0.11226654052734375
+[2026-04-05T22:06:24.110] [INFO] debug-file - UP-TO-DATE :khn:default@ProcessResource...  
+[2026-04-05T22:06:24.111] [DEBUG] debug-file - Executing task :khn:default@GenerateLoaderJson
+[2026-04-05T22:06:24.111] [DEBUG] debug-file - Task 'khn:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.116] [DEBUG] debug-file - Incremental task khn:default@GenerateLoaderJson pre-execution cost: 5 ms .
+[2026-04-05T22:06:24.116] [DEBUG] debug-file - khn : default@GenerateLoaderJson cost memory 0.3581695556640625
+[2026-04-05T22:06:24.116] [INFO] debug-file - UP-TO-DATE :khn:default@GenerateLoaderJson...  
+[2026-04-05T22:06:24.116] [DEBUG] debug-file - restool module names: khn,entry; moduleName=khn, taskName=default@CompileResource
+[2026-04-05T22:06:24.116] [DEBUG] debug-file - Executing task :khn:default@CompileResource
+[2026-04-05T22:06:24.117] [DEBUG] debug-file - Incremental task khn:default@CompileResource pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.117] [DEBUG] debug-file - khn : default@CompileResource cost memory 0.1898956298828125
+[2026-04-05T22:06:24.117] [INFO] debug-file - UP-TO-DATE :khn:default@CompileResource...  
+[2026-04-05T22:06:24.118] [DEBUG] debug-file - Executing task :khn:default@ProcessObfuscationFiles
+[2026-04-05T22:06:24.118] [DEBUG] debug-file - khn : default@ProcessObfuscationFiles cost memory 0.0165863037109375
+[2026-04-05T22:06:24.118] [DEBUG] debug-file - runTaskFromQueue task cost before running: 420 ms 
+[2026-04-05T22:06:24.118] [INFO] debug-file - Finished :khn:default@ProcessObfuscationFiles... after 1 ms 
+[2026-04-05T22:06:24.118] [DEBUG] debug-file - Executing task :khn:default@HarCompileArkTS
+[2026-04-05T22:06:24.118] [DEBUG] debug-file - obfuscationOptions: undefined
+[2026-04-05T22:06:24.121] [DEBUG] debug-file - Task 'khn:default@HarCompileArkTS' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.122] [DEBUG] debug-file - khn:default@HarCompileArkTS is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types' has been changed.
+[2026-04-05T22:06:24.122] [DEBUG] debug-file - Incremental task khn:default@HarCompileArkTS pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.129] [DEBUG] debug-file - build config:
+[2026-04-05T22:06:24.130] [DEBUG] debug-file - {
+  moduleType: 'har',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/resources/base/profile',
+  etsLoaderPath: '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader',
+  modulePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos',
+  compileSdkVersion: 21,
+  compatibleSdkVersion: 21,
+  originCompatibleSdkVersion: '6.0.1(21)',
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***n',
+  etsLoaderVersion: '6.0.1.112',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/modules.ap',
+  entryModuleName: 'khn',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'khn',
+  allModuleNameHash: 'c91e730d3f9ed28e20112257f10624f77e072dad56269a4c4677b73e4ebc2d22',
+  externalApiPaths: [ '/Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/generated/profile/default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 21,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  buildDir: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build',
+  deviceTypes: [ 'default' ],
+  pkgContextInfo: {
+    'libkhn.so': {
+      packageName: 'libkhn.so',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: 'Index',
+      isSO: true,
+      dependencyAlias: ''
+    },
+    khn: {
+      packageName: 'khn',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'Index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hypium': {
+      packageName: '@ohos/hypium',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.24',
+      entryPath: 'index.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hamock': {
+      packageName: '@ohos/hamock',
+      bundleName: '*****',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    'libsample_plugin.so': {
+      packageName: 'libsample_plugin.so',
+      bundleName: '*****',
+      moduleName: '',
+      version: '',
+      entryPath: '',
+      isSO: true,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: { requestPermissions: undefined, definePermissions: undefined },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    lazyImportExclude: '',
+    lazyImportInclude: '',
+    ignoreCrossplatformCheck: false,
+    isHarDeduplicateEnabled: false,
+    enableStrictCheckOHModule: false,
+    useDeclarationFileSignature: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  arkCompileCachePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@HarCompileArkTS/esmodule',
+  autoLazyFilter: undefined,
+  isHarDeduplicateEnabled: false,
+  intermediateHarDuplicateDirPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/har_duplicate/default',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  lazyImportExclude: '',
+  lazyImportInclude: '',
+  ignoreCrossplatformCheck: false,
+  enableStrictCheckOHModule: false,
+  useDeclarationFileSignature: false,
+  isPreloadSoEnabled: false,
+  strictMode: {
+    caseSensitiveCheck: true,
+    useNormalizedOHMUrl: true,
+    noExternalImportByPath: true
+  },
+  useNormalizedOHMUrl: true,
+  caseSensitiveCheck: true,
+  aceModuleJsonPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ark_module.json',
+  appResource: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ResourceTable.txt',
+  rawFileResource: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/resources/rawfile',
+  resourceTableHash: '00b650c8c0cda5acd27626b2fd0ed99db63906a65758821010e28c3e12bd53e4',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:21:6.0.1.112:Release',
+  aceModuleRoot: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/supervisual',
+  aceBuildJson: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/loader.json',
+  cachePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@HarCompileArkTS/esmodule/debug',
+  aceModuleBuild: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/ets',
+  supportChunks: true,
+  declaredFilesPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/etsFortgz/khn',
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    khn: {
+      pkgRoot: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'khn'
+    }
+  },
+  projectModel: {
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/src/main': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/src/ohosTest/ets': {
+      moduleName: 'entry_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/src/ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main': {
+      moduleName: 'khn',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/src/ohosTest/ets': {
+      moduleName: 'khn_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/ohosTest': {
+      moduleName: 'khn_test',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn': {
+      moduleName: 'khn',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    },
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos': {
+      moduleName: 'ohos',
+      modulePkgPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos',
+      belongProjectPath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos'
+    }
+  },
+  pkgJsonFileHash: 'fcd2e9d3330af22896f5c8684bee6f389e226d26f4ccdcc705d4a45f2e5e1efc',
+  allModulePaths: [
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry',
+    '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn'
+  ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [ 'khn', '@ohos/hypium', '@ohos/hamock', 'libkhn.so' ],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: undefined,
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: false,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: true,
+  sdkPath: '/Applications/DevEco-Studio.app/Contents/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/preload/default/preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    'khn/*': [ '../*', '../../../build/default/generated/profile/default/*' ]
+  },
+  collectImportersConfig: undefined,
+  byteCodeHar: true,
+  obfuscate: undefined,
+  skipBuildEnd: false
+}
+[2026-04-05T22:06:24.130] [DEBUG] debug-file - Compile arkts with external api path: /Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets
+[2026-04-05T22:06:24.131] [DEBUG] debug-file - default@HarCompileArkTS work[43] is submitted.
+[2026-04-05T22:06:24.131] [DEBUG] debug-file - default@HarCompileArkTS work[43] is pushed to ready queue.
+[2026-04-05T22:06:24.131] [DEBUG] debug-file - default@HarCompileArkTS work[43] is not dispatched.
+[2026-04-05T22:06:24.131] [DEBUG] debug-file - khn : default@HarCompileArkTS cost memory 1.2979888916015625
+[2026-04-05T22:06:24.483] [DEBUG] debug-file - [1/1] Linking CXX shared library /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libkhn.so
+
+[2026-04-05T22:06:24.484] [DEBUG] debug-file - worker[10] has one work done.
+[2026-04-05T22:06:24.491] [DEBUG] debug-file - default@BuildNativeWithNinja work[42] done.
+[2026-04-05T22:06:24.491] [INFO] debug-file - Finished :khn:default@BuildNativeWithNinja... after 410 ms 
+[2026-04-05T22:06:24.492] [DEBUG] debug-file - Executing task :khn:default@ProcessLibs
+[2026-04-05T22:06:24.495] [DEBUG] debug-file - Check content hash for /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libkhn.so
+[2026-04-05T22:06:24.526] [DEBUG] debug-file - Check content hash for /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libc++_shared.so
+[2026-04-05T22:06:24.545] [DEBUG] debug-file - khn:default@ProcessLibs is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/libs' has been changed.
+[2026-04-05T22:06:24.546] [DEBUG] debug-file - Incremental task khn:default@ProcessLibs pre-execution cost: 5 ms .
+[2026-04-05T22:06:24.548] [DEBUG] debug-file - Worker dispatch failed, running processLibs on main thread.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.549] [DEBUG] debug-file - default@HarCompileArkTS work[43] has been dispatched to worker[4].
+[2026-04-05T22:06:24.550] [DEBUG] debug-file - Link /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libkhn.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default/arm64-v8a/libkhn.so successfully.
+[2026-04-05T22:06:24.556] [DEBUG] debug-file - Link /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/cmake/default/obj/arm64-v8a/libc++_shared.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default/arm64-v8a/libc++_shared.so successfully.
+[2026-04-05T22:06:24.563] [DEBUG] debug-file - Link /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/libs/arm64-v8a/libsample_plugin.so to /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default/arm64-v8a/libsample_plugin.so successfully.
+[2026-04-05T22:06:24.563] [DEBUG] debug-file - khn : default@ProcessLibs cost memory 1.9123687744140625
+[2026-04-05T22:06:24.563] [DEBUG] debug-file - runTaskFromQueue task cost before running: 865 ms 
+[2026-04-05T22:06:24.563] [INFO] debug-file - Finished :khn:default@ProcessLibs... after 72 ms 
+[2026-04-05T22:06:24.563] [DEBUG] debug-file - Executing task :khn:default@DoNativeStrip
+[2026-04-05T22:06:24.567] [DEBUG] debug-file - Task 'khn:default@DoNativeStrip' cost while wrapping incremental declarations: 2 ms 
+[2026-04-05T22:06:24.572] [DEBUG] debug-file - khn:default@DoNativeStrip is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default' has been changed.
+[2026-04-05T22:06:24.573] [DEBUG] debug-file - Incremental task khn:default@DoNativeStrip pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.582] [DEBUG] debug-file - default@DoNativeStrip work[44] is submitted.
+[2026-04-05T22:06:24.582] [DEBUG] debug-file - default@DoNativeStrip work[44] is pushed to ready queue.
+[2026-04-05T22:06:24.582] [DEBUG] debug-file - default@DoNativeStrip work[44] is not dispatched.
+[2026-04-05T22:06:24.582] [DEBUG] debug-file - khn : default@DoNativeStrip cost memory 0.1986083984375
+[2026-04-05T22:06:24.798] [DEBUG] debug-file - default@DoNativeStrip work[44] has been dispatched to worker[10].
+[2026-04-05T22:06:24.808] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 570687488,
+  heapTotal: 57065472,
+  heapUsed: 54533824,
+  external: 3970053,
+  arrayBuffers: 106758
+} os memoryUsage :23.9034423828125
+[2026-04-05T22:06:24.819] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 570802176,
+  heapTotal: 57065472,
+  heapUsed: 54626136,
+  external: 3970053,
+  arrayBuffers: 106758
+} os memoryUsage :23.900283813476562
+[2026-04-05T22:06:24.869] [DEBUG] debug-file - worker[10] has one work done.
+[2026-04-05T22:06:24.869] [DEBUG] debug-file - default@DoNativeStrip work[44] done.
+[2026-04-05T22:06:24.869] [INFO] debug-file - Finished :khn:default@DoNativeStrip... after 89 ms 
+[2026-04-05T22:06:24.869] [DEBUG] debug-file - Executing task :khn:default@CacheNativeLibs
+[2026-04-05T22:06:24.870] [DEBUG] debug-file - Task 'khn:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:24.870] [DEBUG] debug-file - khn:default@CacheNativeLibs is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default' has been changed.
+[2026-04-05T22:06:24.870] [DEBUG] debug-file - Incremental task khn:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2026-04-05T22:06:24.870] [DEBUG] debug-file - default@CacheNativeLibs work[45] is submitted.
+[2026-04-05T22:06:24.870] [DEBUG] debug-file - default@CacheNativeLibs work[45] is pushed to ready queue.
+[2026-04-05T22:06:24.870] [DEBUG] debug-file - default@CacheNativeLibs work[45] is not dispatched.
+[2026-04-05T22:06:24.870] [DEBUG] debug-file - khn : default@CacheNativeLibs cost memory 0.1277618408203125
+[2026-04-05T22:06:24.994] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2026-04-05T22:06:24.994] [DEBUG] debug-file - default@CacheNativeLibs work[45] has been dispatched to worker[10].
+[2026-04-05T22:06:25.008] [DEBUG] debug-file - worker[10] has one work done.
+[2026-04-05T22:06:25.027] [DEBUG] debug-file - default@CacheNativeLibs work[45] done.
+[2026-04-05T22:06:25.028] [INFO] debug-file - Finished :khn:default@CacheNativeLibs... after 14 ms 
+[2026-04-05T22:06:25.116] [DEBUG] debug-file - worker[4] has one work done.
+[2026-04-05T22:06:25.117] [DEBUG] debug-file - default@HarCompileArkTS work[43] done.
+[2026-04-05T22:06:25.119] [INFO] debug-file - Finished :khn:default@HarCompileArkTS... after 569 ms 
+[2026-04-05T22:06:25.120] [DEBUG] debug-file - Executing task :khn:default@ProcessHarArtifacts
+[2026-04-05T22:06:25.121] [DEBUG] debug-file - File: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/resources/base/profile/insight_intent.json' from 'insightIntentJsonPath' is not exists, just ignore.
+[2026-04-05T22:06:25.121] [DEBUG] debug-file - File: '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/preload/default/preload.json' from 'preloadSoFilePath' is not exists, just ignore.
+[2026-04-05T22:06:25.121] [DEBUG] debug-file - Task 'khn:default@ProcessHarArtifacts' cost while wrapping incremental declarations: 1 ms 
+[2026-04-05T22:06:25.125] [DEBUG] debug-file - khn:default@ProcessHarArtifacts is not up-to-date, since the input file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn' has been changed.
+[2026-04-05T22:06:25.126] [DEBUG] debug-file - Incremental task khn:default@ProcessHarArtifacts pre-execution cost: 5 ms .
+[2026-04-05T22:06:25.424] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2026-04-05T22:06:25.484] [DEBUG] debug-file - khn : default@ProcessHarArtifacts cost memory -9.389472961425781
+[2026-04-05T22:06:25.484] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 787 ms 
+[2026-04-05T22:06:25.491] [INFO] debug-file - Finished :khn:default@ProcessHarArtifacts... after 365 ms 
+[2026-04-05T22:06:25.494] [DEBUG] debug-file - Executing task :khn:default@PackageHar
+[2026-04-05T22:06:25.517] [DEBUG] debug-file - khn:default@PackageHar is not up-to-date, since the output file '/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar' has been changed.
+[2026-04-05T22:06:25.517] [DEBUG] debug-file - Incremental task khn:default@PackageHar pre-execution cost: 4 ms .
+[2026-04-05T22:06:25.725] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2026-04-05T22:06:25.887] [DEBUG] debug-file - khn : default@PackageHar cost memory 1.0837860107421875
+[2026-04-05T22:06:25.887] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 189 ms 
+[2026-04-05T22:06:25.887] [INFO] debug-file - Finished :khn:default@PackageHar... after 394 ms 
+[2026-04-05T22:06:25.889] [DEBUG] debug-file - Executing task :khn:default@PackageSignHar
+[2026-04-05T22:06:25.889] [WARN] debug-file - Will skip sign 'har'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in /Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build-profile.json5.
+[2026-04-05T22:06:25.889] [DEBUG] debug-file - khn : default@PackageSignHar cost memory 0.0508270263671875
+[2026-04-05T22:06:25.889] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 191 ms 
+[2026-04-05T22:06:25.889] [INFO] debug-file - Finished :khn:default@PackageSignHar... after 1 ms 
+[2026-04-05T22:06:25.889] [DEBUG] debug-file - Executing task :khn:default@PackingCheckHar
+[2026-04-05T22:06:25.893] [DEBUG] debug-file - khn : default@PackingCheckHar cost memory 0.2318115234375
+[2026-04-05T22:06:25.893] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 196 ms 
+[2026-04-05T22:06:25.894] [INFO] debug-file - Finished :khn:default@PackingCheckHar... after 5 ms 
+[2026-04-05T22:06:25.894] [DEBUG] debug-file - Executing task :khn:default@CollectDebugSymbol
+[2026-04-05T22:06:25.894] [DEBUG] debug-file - khn : default@CollectDebugSymbol cost memory 0.09122467041015625
+[2026-04-05T22:06:25.894] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 196 ms 
+[2026-04-05T22:06:25.894] [INFO] debug-file - Finished :khn:default@CollectDebugSymbol... after 1 ms 
+[2026-04-05T22:06:25.894] [DEBUG] debug-file - Executing task :khn:assembleHar
+[2026-04-05T22:06:25.894] [DEBUG] debug-file - khn : assembleHar cost memory 0.01607513427734375
+[2026-04-05T22:06:25.895] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 197 ms 
+[2026-04-05T22:06:25.895] [INFO] debug-file - Finished :khn:assembleHar... after 1 ms 
+[2026-04-05T22:06:25.895] [INFO] debug-file - BUILD SUCCESSFUL in 2 s 197 ms 
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@PreBuild is up-to-date.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@CreateHarBuildProfile is up-to-date.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@CreateHarModuleInfo is up-to-date.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@MergeProfile is up-to-date.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - Update task khn:default@ProcessIntegratedHsp output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build/cache/default/integrated_hsp/integratedHspCache.json cache.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - Incremental task khn:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - Update task khn:default@ProcessModulePrivacyProfile output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/privacy_profile/default/pac.json5 cache.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - Incremental task khn:default@ProcessModulePrivacyProfile post-execution cost:1 ms .
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@GeneratePkgContextInfo is up-to-date.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@ProcessProfile is up-to-date.
+[2026-04-05T22:06:25.896] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/oh-package.json5 cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/oh-package.json5 cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/module.json5 cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/router_map/default/temp-router-map.json cache.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessRouterMap output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/router_map/default/loader-router-map.json cache.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Incremental task khn:default@ProcessRouterMap post-execution cost:1 ms .
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/oh-package.json5 cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/oh-package.json5 cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/module.json5 cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Update task khn:default@ProcessShareConfig output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/share_config/default/temp-share-config.json cache.
+[2026-04-05T22:06:25.897] [DEBUG] debug-file - Incremental task khn:default@ProcessShareConfig post-execution cost:1 ms .
+[2026-04-05T22:06:25.898] [DEBUG] debug-file - Update task khn:default@ProcessStartupConfig input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:06:25.898] [DEBUG] debug-file - Update task khn:default@ProcessStartupConfig output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/startup/default/startup_config.json cache.
+[2026-04-05T22:06:25.898] [DEBUG] debug-file - Incremental task khn:default@ProcessStartupConfig post-execution cost:1 ms .
+[2026-04-05T22:06:25.898] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@ProcessResource is up-to-date.
+[2026-04-05T22:06:25.898] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@GenerateLoaderJson is up-to-date.
+[2026-04-05T22:06:25.898] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task khn:default@CompileResource is up-to-date.
+[2026-04-05T22:06:25.898] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default cache by regenerate.
+[2026-04-05T22:06:25.899] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-04-05T22:06:25.899] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-04-05T22:06:25.899] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/ets cache by regenerate.
+[2026-04-05T22:06:25.939] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/Index.ets cache by regenerate.
+[2026-04-05T22:06:25.941] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/cpp/types cache from map.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/BuildProfile.ets cache by regenerate.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@HarCompileArkTS output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/ets cache.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Incremental task khn:default@HarCompileArkTS post-execution cost:46 ms .
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@ProcessLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/libs cache from map.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@ProcessLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build-profile.json5 cache by regenerate.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@ProcessLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build-profile.json5 cache by regenerate.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@ProcessLibs output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Incremental task khn:default@ProcessLibs post-execution cost:1 ms .
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@DoNativeStrip input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache from map.
+[2026-04-05T22:06:25.943] [DEBUG] debug-file - Update task khn:default@DoNativeStrip output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default cache.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Incremental task khn:default@DoNativeStrip post-execution cost:1 ms .
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@CacheNativeLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default cache from map.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@CacheNativeLibs input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache by regenerate.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@CacheNativeLibs output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/patch/default/base_native_libs.json cache.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Incremental task khn:default@CacheNativeLibs post-execution cost:1 ms .
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/process_profile/default cache by regenerate.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn cache from map.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/generated/pm/default cache by regenerate.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/pkgContextInfo.json cache by regenerate.
+[2026-04-05T22:06:25.944] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar cache.
+[2026-04-05T22:06:25.945] [DEBUG] debug-file - Update task khn:default@ProcessHarArtifacts output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar/pac.json5 cache.
+[2026-04-05T22:06:25.945] [DEBUG] debug-file - Incremental task khn:default@ProcessHarArtifacts post-execution cost:2 ms .
+[2026-04-05T22:06:25.945] [DEBUG] debug-file - Update task khn:default@PackageHar output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar cache.
+[2026-04-05T22:06:25.946] [DEBUG] debug-file - Update task khn:default@PackageHar output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/default cache.
+[2026-04-05T22:06:25.946] [DEBUG] debug-file - Incremental task khn:default@PackageHar post-execution cost:2 ms .
+[2026-04-05T22:06:25.947] [DEBUG] debug-file - Update task khn:default@PackageSignHar input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageHar cache by regenerate.
+[2026-04-05T22:06:25.947] [DEBUG] debug-file - Update task khn:default@PackageSignHar input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@PackageSignHar cache by regenerate.
+[2026-04-05T22:06:25.947] [DEBUG] debug-file - Update task khn:default@PackageSignHar output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/default/khn-signed.har cache.
+[2026-04-05T22:06:25.947] [DEBUG] debug-file - Incremental task khn:default@PackageSignHar post-execution cost:1 ms .
+[2026-04-05T22:06:25.948] [DEBUG] debug-file - Update task khn:default@CollectDebugSymbol input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default/ets/sourceMaps.map cache by regenerate.
+[2026-04-05T22:06:25.948] [DEBUG] debug-file - Update task khn:default@CollectDebugSymbol input file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/libs/default cache by regenerate.
+[2026-04-05T22:06:25.948] [DEBUG] debug-file - Update task khn:default@CollectDebugSymbol output file:/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/default/symbol cache.
+[2026-04-05T22:06:25.948] [DEBUG] debug-file - Incremental task khn:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-04-05T22:06:25.959] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-04-05T22:06:25.965] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-04-05T22:06:25.965] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-04-05T22:06:25.966] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-04-05T22:06:25.966] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.

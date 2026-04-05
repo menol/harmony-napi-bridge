@@ -41,7 +41,7 @@ class DemoCall implements DemoInterface<User> {
 }
 
 
-class DemoAbsCall extends DemoAbstract {
+class DemoAbsCall implements DemoAbstract {
   process(item: string[]): string[] {
     hilog.info(DOMAIN, TAG, '%{public}s', JSON.stringify(item));
     return item

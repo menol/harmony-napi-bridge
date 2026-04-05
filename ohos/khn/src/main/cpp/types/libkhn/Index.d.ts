@@ -13,11 +13,9 @@ export interface DemoInterface<T> {
 }
 export interface DemoAbstract {
     process(item: Array<string>): Array<string>;
-    sayHello(): string;
 }
 export interface TestAbstract<T> {
     process(item: T): T;
-    sayHello(): string;
 }
 export declare namespace hello_world_plugin {
     function add(a: number, b: number): number;

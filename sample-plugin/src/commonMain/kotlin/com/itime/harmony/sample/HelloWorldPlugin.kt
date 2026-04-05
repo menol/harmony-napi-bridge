@@ -24,7 +24,6 @@ interface DemoInterface<T> {
 abstract class DemoAbstract {
     @HarmonyExport
     abstract fun process(item: List<String>): List<String>
-    @HarmonyExport
     fun sayHello(): String {
         return "Hello from TestAbstract"
     }
@@ -34,7 +33,7 @@ abstract class DemoAbstract {
 abstract class TestAbstract<T> {
     @HarmonyExport
     abstract fun process(item: T): T
-    @HarmonyExport
+
     fun sayHello(): String {
         return "Hello from TestAbstract"
     }

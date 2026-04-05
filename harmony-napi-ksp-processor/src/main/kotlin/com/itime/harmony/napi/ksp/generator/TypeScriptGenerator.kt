@@ -48,7 +48,14 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                         "<${module.typeParameters.joinToString(", ")}>"
                     } else ""
                     appendLine("export interface ${module.moduleName}$typeParams {")
-                    module.exportFunctions.forEach { func ->
+                    
+                    val funcsToExport = if (module.isAbstract && !module.isInterface) {
+                        module.exportFunctions.filter { it.isAbstract }
+                    } else {
+                        module.exportFunctions
+                    }
+                    
+                    funcsToExport.forEach { func ->
                         val params = func.parameters.joinToString(", ") { param ->
                             val tsType = TypeMapper.getTsType(param.type)
                             "${param.name}: $tsType"
