@@ -19,11 +19,22 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
         val fileName = "${module.className}_NapiWrapper"
 
         val fileBuilder = FileSpec.builder(packageName, fileName)
-            .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "convert", "refTo", "get")
+            .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "convert", "refTo", "get", "COpaquePointer", "asStableRef", "staticCFunction", "StableRef")
             .addImport("platform.posix", "size_tVar")
-            .addImport("napi", "napi_env", "napi_callback_info", "napi_value", "napi_valueVar", "napi_get_cb_info")
+            .addImport("napi", "napi_env", "napi_callback_info", "napi_value", "napi_valueVar", "napi_get_cb_info", "napi_wrap", "napi_get_value_external", "napi_typeof", "napi_valuetype")
             .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap", "unwrapKotlinObject")
-            .addImport(module.packageName, module.className)
+            .apply {
+                if (module.packageName.isNotEmpty() && !module.isFileExtension) {
+                    addImport(module.packageName, module.className)
+                }
+                if (module.isFileExtension) {
+                    module.exportFunctions.forEach { func ->
+                        if (func.isExtension) {
+                            addImport(module.packageName, func.functionName)
+                        }
+                    }
+                }
+            }
             .addAnnotation(AnnotationSpec.builder(ClassName("kotlin", "OptIn"))
                 .addMember("kotlinx.cinterop.ExperimentalForeignApi::class")
                 .build())
@@ -45,7 +56,7 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 appendLine("        argc.value = ${paramCount}u")
                 appendLine("        val argv = allocArray<napi_valueVar>($paramCount)")
                 
-                if (module.isAbstract) {
+                if (!module.isObject && !func.isExtension) {
                     val typeArgs = if (module.typeParameters.isNotEmpty()) {
                         "<${module.typeParameters.joinToString(", ") { "Any?" }}>"
                     } else ""
@@ -64,8 +75,12 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                     args.add("arg$index")
                 }
 
-                if (module.isAbstract) {
+                if (!module.isObject && !func.isExtension) {
                     appendLine("        val result = instance.${func.functionName}(${args.joinToString(", ")})")
+                } else if (func.isExtension) {
+                    val receiverArg = args.first()
+                    val otherArgs = args.drop(1)
+                    appendLine("        val result = $receiverArg.${func.functionName}(${otherArgs.joinToString(", ")})")
                 } else {
                     appendLine("        val result = ${module.className}.${func.functionName}(${args.joinToString(", ")})")
                 }
@@ -86,18 +101,60 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
             fileBuilder.addFunction(funBuilder.build())
         }
 
-        if (module.isAbstract) {
+        if (!module.isObject && !module.isFileExtension) {
+            val finalizeBuilder = FunSpec.builder("${module.className}_finalize")
+                .addParameter("env", ClassName("napi", "napi_env").copy(nullable = true))
+                .addParameter("data", ClassName("kotlinx.cinterop", "COpaquePointer").copy(nullable = true))
+                .addParameter("hint", ClassName("kotlinx.cinterop", "COpaquePointer").copy(nullable = true))
+                .addCode("data?.asStableRef<Any>()?.dispose()\n")
+            fileBuilder.addFunction(finalizeBuilder.build())
+
             val constructorBuilder = FunSpec.builder("${module.className}_constructor")
                 .addParameter("env", ClassName("napi", "napi_env").copy(nullable = true))
                 .addParameter("info", ClassName("napi", "napi_callback_info").copy(nullable = true))
                 .returns(ClassName("napi", "napi_value").copy(nullable = true))
 
+            val paramCount = module.primaryConstructorParams.size
             val constructorCode = buildString {
                 appendLine("return try {")
                 appendLine("    memScoped {")
+                appendLine("        val argc = alloc<size_tVar>()")
+                appendLine("        argc.value = ${paramCount.coerceAtLeast(1)}u")
+                appendLine("        val argv = allocArray<napi_valueVar>(${paramCount.coerceAtLeast(1)})")
                 appendLine("        val thisVar = alloc<napi_valueVar>()")
-                appendLine("        napi_get_cb_info(env, info, null, null, thisVar.ptr, null)")
-                appendLine("        thisVar.value")
+                appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)")
+                appendLine()
+                appendLine("        val typeVar = alloc<napi_valuetype.Var>()")
+                appendLine("        if (argc.value > 0u) {")
+                appendLine("            napi_typeof(env, argv[0], typeVar.ptr)")
+                appendLine("        }")
+                appendLine()
+                appendLine("        if (argc.value > 0u && typeVar.value == napi.napi_valuetype.napi_external) {")
+                appendLine("            // Called from Kotlin toNapiWrappedObject")
+                appendLine("            val externalPtr = alloc<kotlinx.cinterop.COpaquePointerVar>()")
+                appendLine("            napi_get_value_external(env, argv[0], externalPtr.ptr)")
+                appendLine("            napi_wrap(env, thisVar.value, externalPtr.value, staticCFunction(::${module.className}_finalize), null, null)")
+                appendLine("            return@memScoped thisVar.value")
+                appendLine("        }")
+                appendLine()
+                if (module.isAbstract) {
+                    appendLine("        throw IllegalStateException(\"Cannot instantiate abstract class ${module.className} from JS\")")
+                } else {
+                    appendLine("        // Called from JS 'new'")
+                    val args = mutableListOf<String>()
+                    module.primaryConstructorParams.forEachIndexed { index, param ->
+                        val convertMethod = TypeMapper.getNapiToKotlinMethod(param.type)
+                        appendLine("        val arg$index = argv[$index]!!.$convertMethod")
+                        args.add("arg$index")
+                    }
+                    val typeArgs = if (module.typeParameters.isNotEmpty()) {
+                        "<${module.typeParameters.joinToString(", ") { "Any?" }}>"
+                    } else ""
+                    appendLine("        val instance = ${module.className}$typeArgs(${args.joinToString(", ")})")
+                    appendLine("        val stableRef = StableRef.create(instance)")
+                    appendLine("        napi_wrap(env, thisVar.value, stableRef.asCPointer(), staticCFunction(::${module.className}_finalize), null, null)")
+                    appendLine("        thisVar.value")
+                }
                 appendLine("    }")
                 appendLine("} catch (e: Throwable) {")
                 appendLine("    napi.napi_throw_error(env, null, e.message ?: \"Unknown Kotlin exception\")")
