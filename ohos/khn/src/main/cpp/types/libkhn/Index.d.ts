@@ -44,11 +44,11 @@ export interface TestInterface {
 export interface DemoInterface<T> {
     sayHello(name: T): string;
 }
-export interface DemoAbstract {
-    process(item: Array<string>): Array<string>;
+export declare abstract class DemoAbstract {
+    abstract process(item: Array<string>): Array<string>;
 }
-export interface TestAbstract<T> {
-    process(item: T): T;
+export declare abstract class TestAbstract<T> {
+    abstract process(item: T): T;
     sayHello(): string;
 }
 export declare namespace hello_world_plugin {

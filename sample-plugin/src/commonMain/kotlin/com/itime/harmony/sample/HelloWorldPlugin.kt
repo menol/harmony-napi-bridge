@@ -13,6 +13,21 @@ interface BasePageState {
 
 }
 
+@HarmonyModule(name = "BaseView")
+interface BaseView {
+
+}
+
+@HarmonyModule(name = "IndexView")
+interface IndexView: BaseView {
+
+    @HarmonyExport
+    fun showUser(name: String)
+
+}
+
+
+
 @HarmonyModule(name = "PageState")
 @Serializable
 sealed class PageState : BasePageState {

@@ -3,7 +3,8 @@ import { Core, Hypium } from '@ohos/hypium';
 import hidebug from '@ohos.hidebug';
 import faultLogger from '@ohos.faultLogger';
 import khnTests from '../test/KhnTest';
-import { DemoAbstract, DemoInterface, TestInterface, User } from 'khn';
+import { DemoAbstract } from 'khn';
+import type { DemoInterface, TestInterface, User } from 'khn';
 
 const DOMAIN = 0x0001;
 const TAG = 'KhnDemo';
@@ -41,14 +42,12 @@ class DemoCall implements DemoInterface<User> {
 }
 
 
-class DemoAbsCall implements DemoAbstract {
+class DemoAbsCall extends  DemoAbstract {
+
   process(item: string[]): string[] {
-    hilog.info(DOMAIN, TAG, '%{public}s', JSON.stringify(item));
-    return item
+    return item.map(item => item.toUpperCase());
   }
-  sayHello(): string {
-    return "Hello from DemoAbsCall"
-  }
+
 }
 
 @Entry
@@ -84,13 +83,13 @@ struct Index {
     this.isRunning = true;
     
     this.logText = '';
-    // let testResult = this.demoCall.sayHello({
-    //   name: 'World123123',
-    //   age: 42
-    // })
+    let testResult = this.demoCall.sayHello({
+      name: 'World123123',
+      age: 42
+    })
 
-    // this.appendLog(testResult)
-    // this.appendLog(JSON.stringify(this.demoAbsCall.sayHello()))
+    this.appendLog(testResult)
+    this.appendLog(JSON.stringify(this.demoAbsCall.process(['asdff', 'asdf'])))
     this.appendLog('Starting tests...');
 
     const startMem = hidebug.getNativeHeapAllocatedSize();

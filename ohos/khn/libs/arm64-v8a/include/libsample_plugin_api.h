@@ -189,6 +189,8 @@ typedef struct {
           struct {
             struct {
               struct {
+                void* (*DemoAbstract_constructor)(void* env, void* info);
+                void* (*DemoAbstract_process_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_add_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_greet_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processAnyMap_wrapper)(void* env, void* info);
@@ -204,6 +206,9 @@ typedef struct {
                 void* (*HelloWorldPlugin_processStringIntMap_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processUser_wrapper)(void* env, void* info);
                 void* (*InitGeneratedWrappers_)(void* env, void* exports);
+                void* (*TestAbstract_constructor)(void* env, void* info);
+                void* (*TestAbstract_process_wrapper)(void* env, void* info);
+                void* (*TestAbstract_sayHello_wrapper)(void* env, void* info);
               } generated;
             } napi;
             struct {
