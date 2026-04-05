@@ -43,7 +43,7 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
             }
 
             modules.forEach { module ->
-                if (module.isInterface) {
+                if (module.isInterface || module.isAbstract) {
                     val typeParams = if (module.typeParameters.isNotEmpty()) {
                         "<${module.typeParameters.joinToString(", ")}>"
                     } else ""
@@ -55,25 +55,6 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                         }
                         val tsReturnType = TypeMapper.getTsType(func.returnType)
                         appendLine("    ${func.functionName}($params): $tsReturnType;")
-                    }
-                    appendLine("}")
-                } else if (module.isAbstract) {
-                    val typeParams = if (module.typeParameters.isNotEmpty()) {
-                        "<${module.typeParameters.joinToString(", ")}>"
-                    } else ""
-                    appendLine("export abstract class ${module.moduleName}$typeParams {")
-                    module.exportFunctions.forEach { func ->
-                        val params = func.parameters.joinToString(", ") { param ->
-                            val tsType = TypeMapper.getTsType(param.type)
-                            "${param.name}: $tsType"
-                        }
-                        val tsReturnType = TypeMapper.getTsType(func.returnType)
-                        
-                        if (func.isAbstract) {
-                            appendLine("    abstract ${func.functionName}($params): $tsReturnType;")
-                        } else {
-                            appendLine("    ${func.functionName}($params): $tsReturnType;")
-                        }
                     }
                     appendLine("}")
                 } else {

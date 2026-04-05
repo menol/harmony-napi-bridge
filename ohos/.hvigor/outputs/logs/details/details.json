@@ -3,17 +3,15 @@
     "MODULES": [
       {
         "MODULE_NAME": "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf",
-        "API_TYPE": "stageMode",
-        "INCREMENTAL_TASKS": {
-          "COMPILE_ARKTS": true
-        }
+        "API_TYPE": "stageMode"
       },
       {
         "MODULE_NAME": "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b",
         "API_TYPE": "stageMode",
         "IS_BYTE_CODE_HAR": true,
         "INCREMENTAL_TASKS": {
-          "BUILD_NATIVE_WITH_CMAKE": true
+          "BUILD_NATIVE_WITH_CMAKE": true,
+          "COMPILE_ARKTS": true
         }
       }
     ],
@@ -28,24 +26,27 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "PreBuild": 69240000,
-        "ConfigureCmake": 270041,
-        "BuildNativeWithCmake": 5408958,
-        "BuildNativeWithNinja": 196956792
-      },
-      "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
-        "CreateModuleInfo": 428000,
-        "PreCheckSyscap": 268208,
-        "ProcessIntegratedHsp": 224417,
-        "SyscapTransform": 1992000,
-        "ConfigureCmake": 78083,
-        "BuildNativeWithCmake": 97500,
-        "ProcessStartupConfig": 954542,
-        "BuildJS": 779500,
-        "BuildNativeWithNinja": 469750,
-        "ProcessLibs": 37477958,
-        "DoNativeStrip": 358351166,
-        "CacheNativeLibs": 132185583
+        "PreBuild": 35809041,
+        "ProcessOHPackageJson": 982792,
+        "ConfigureCmake": 5956917,
+        "ProcessIntegratedHsp": 332291,
+        "ProcessModulePrivacyProfile": 221208,
+        "BuildNativeWithCmake": 34800875,
+        "ProcessRouterMap": 342833,
+        "ProcessShareConfig": 249792,
+        "ProcessStartupConfig": 752625,
+        "ProcessObfuscationFiles": 81916,
+        "BuildNativeWithNinja": 561417541,
+        "ProcessLibs": 46729625,
+        "DoNativeStrip": 77661500,
+        "CacheNativeLibs": 99795125,
+        "HarCompileArkTS": 1390738458,
+        "ProcessHarArtifacts": 33564834,
+        "PackageHar": 143543125,
+        "PackageSignHar": 255458,
+        "PackingCheckHar": 1286084,
+        "CollectDebugSymbol": 213625,
+        "assembleHar": 81041
       }
     },
     "APIS": [
@@ -70,13 +71,7 @@
       "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "TOTAL_TIME": 3222045750,
-    "BUILD_ID": "202604052159142760",
-    "ERROR_MESSAGE": [
-      {
-        "CODE": "10605051",
-        "TIMESTAMP": "1775397557496"
-      }
-    ]
+    "TOTAL_TIME": 1916074791,
+    "BUILD_ID": "202604052201344070"
   }
 }
