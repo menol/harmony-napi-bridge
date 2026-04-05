@@ -107,10 +107,20 @@ Plans:
 
 ### Phase 12: 自动生成 ArkTS 的 Index 导出层 (Auto-generate ArkTS Index.ets exports)
 
-**Goal:** [To be planned]
+**Goal:** Automate the generation of an `ets` file containing the exports for ArkTS and seamlessly integrate it into the HarmonyOS project.
 **Requirements**: TBD
 **Depends on:** Phase 11
+**Plans:** 1/1 complete
+
+Plans:
+- [x] 12: Auto-generate ArkTS Index.ets exports
+
+### Phase 13: 支持普通 Class 的导出 (Support normal class export)
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 12
 **Plans:** 0 plans
 
 Plans:
-- [ ] TBD (run /gsd-plan-phase 12 to break down)
+- [ ] TBD (run /gsd-plan-phase 13 to break down)
