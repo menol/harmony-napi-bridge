@@ -7,6 +7,24 @@ import khnTests from '../test/KhnTest';
 const DOMAIN = 0x0001;
 const TAG = 'KhnDemo';
 
+interface MockDelegator {
+  addAbilityMonitor: () => void;
+  removeAbilityMonitor: () => void;
+  waitAbilityMonitor: () => Promise<void>;
+  getAppContext: () => Object | null;
+  getAbilityState: () => number;
+  getCurrentTopAbility: () => Promise<Object | null>;
+  print: (msg: string) => void;
+  printSync: (msg: string) => void;
+  executeShellCommand: (cmd: string, timeout: number, callback: Function) => void;
+  finishTest: (msg: string, code: number, callback: Function) => void;
+}
+
+interface MockArguments {
+  bundleName: string;
+  parameters: Record<string, string>;
+}
+
 @Entry
 @Component
 struct Index {
@@ -43,17 +61,17 @@ struct Index {
     const startMem = hidebug.getNativeHeapAllocatedSize();
     const startTime = Date.now();
 
-    const mockDelegator: Record<string, Object> = {
-      'addAbilityMonitor': () => {},
-      'removeAbilityMonitor': () => {},
-      'waitAbilityMonitor': () => Promise.resolve(),
-      'getAppContext': () => null,
-      'getAbilityState': () => 0,
-      'getCurrentTopAbility': () => Promise.resolve(null),
-      'print': (msg: string) => { this.appendLog(msg); },
-      'printSync': (msg: string) => { this.appendLog(msg); },
-      'executeShellCommand': (cmd: string, timeout: number, callback: Function) => { callback(null, { stdResult: '' }); },
-      'finishTest': (msg: string, code: number, callback: Function) => {
+    const mockDelegator: MockDelegator = {
+      addAbilityMonitor: () => {},
+      removeAbilityMonitor: () => {},
+      waitAbilityMonitor: () => Promise.resolve(),
+      getAppContext: () => null,
+      getAbilityState: () => 0,
+      getCurrentTopAbility: () => Promise.resolve(null),
+      print: (msg: string) => { this.appendLog(msg); },
+      printSync: (msg: string) => { this.appendLog(msg); },
+      executeShellCommand: (cmd: string, timeout: number, callback: Function) => { callback(null, { stdResult: '' }); },
+      finishTest: (msg: string, code: number, callback: Function) => {
         this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
         const endMem = hidebug.getNativeHeapAllocatedSize();
         const endTime = Date.now();
@@ -67,11 +85,11 @@ struct Index {
       }
     };
 
-    const mockArguments: Record<string, Object> = {
-      'bundleName': 'com.example.harmony_napi_bridge',
-      'parameters': {
-        '-s class': 'KhnTest'
-      }
+    const param: Record<string, string> = {};
+
+    const mockArguments: MockArguments = {
+      bundleName: 'com.example.harmony_napi_bridge',
+      parameters: param
     };
 
     if (!this.testsRegistered) {
