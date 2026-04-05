@@ -21,37 +21,37 @@
   },
   "HVIGOR": {
     "IS_INCREMENTAL": true,
-    "IS_DAEMON": false,
+    "IS_DAEMON": true,
     "IS_PARALLEL": true,
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
-        "CreateModuleInfo": 347417,
-        "PreCheckSyscap": 158042,
-        "ProcessIntegratedHsp": 297125,
-        "SyscapTransform": 16760916,
-        "ConfigureCmake": 193750,
-        "BuildNativeWithCmake": 73792,
-        "ProcessStartupConfig": 5308542,
-        "BuildJS": 1413292,
-        "BuildNativeWithNinja": 2696417,
-        "ProcessLibs": 134974500,
-        "DoNativeStrip": 144149084,
-        "CacheNativeLibs": 52989958,
-        "CompileArkTS": 6613123042,
-        "ProcessCompiledResources": 163250,
-        "PackageHap": 41442000,
-        "PackingCheck": 2963375,
-        "SignHap": 506875,
-        "CollectDebugSymbol": 261500,
-        "assembleHap": 53416
+        "CreateModuleInfo": 391667,
+        "PreCheckSyscap": 208041,
+        "ProcessIntegratedHsp": 470834,
+        "SyscapTransform": 10538125,
+        "ConfigureCmake": 130666,
+        "BuildNativeWithCmake": 313583,
+        "ProcessStartupConfig": 882583,
+        "BuildJS": 2804875,
+        "BuildNativeWithNinja": 283625,
+        "ProcessLibs": 46360333,
+        "DoNativeStrip": 152758042,
+        "CacheNativeLibs": 115837958,
+        "CompileArkTS": 6846777667,
+        "ProcessCompiledResources": 775250,
+        "PackageHap": 47014500,
+        "PackingCheck": 3678708,
+        "SignHap": 647584,
+        "CollectDebugSymbol": 1377042,
+        "assembleHap": 232083
       },
       "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "ConfigureCmake": 10327750,
-        "BuildNativeWithCmake": 19758167,
-        "BuildNativeWithNinja": 2027645083,
-        "ProcessLibs": 98489500,
-        "DoNativeStrip": 262209625
+        "ConfigureCmake": 154977875,
+        "BuildNativeWithCmake": 14786625,
+        "BuildNativeWithNinja": 1604357750,
+        "ProcessLibs": 41955917,
+        "DoNativeStrip": 298085292
       }
     },
     "APIS": [
@@ -77,7 +77,7 @@
       "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202604052315443870",
-    "TOTAL_TIME": 8261444709
+    "BUILD_ID": "202604052320078200",
+    "TOTAL_TIME": 8929415041
   }
 }

@@ -84,13 +84,13 @@ struct Index {
     this.isRunning = true;
     
     this.logText = '';
-    let testResult = this.demoCall.sayHello({
-      name: 'World123123',
-      age: 42
-    })
+    // let testResult = this.demoCall.sayHello({
+    //   name: 'World123123',
+    //   age: 42
+    // })
 
-    this.appendLog(testResult)
-    this.appendLog(JSON.stringify(this.demoAbsCall.sayHello()))
+    // this.appendLog(testResult)
+    // this.appendLog(JSON.stringify(this.demoAbsCall.sayHello()))
     this.appendLog('Starting tests...');
 
     const startMem = hidebug.getNativeHeapAllocatedSize();
