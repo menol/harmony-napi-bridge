@@ -41,11 +41,20 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| **ENV-01** | Phase 1 | Not Started |
+| **ENV-02** | Phase 1 | Not Started |
+| **ENV-03** | Phase 1 | Not Started |
+| **TEST-01** | Phase 2 | Not Started |
+| **TEST-02** | Phase 2 | Not Started |
+| **TEST-03** | Phase 2 | Not Started |
+| **TEST-04** | Phase 2 | Not Started |
+| **AUTO-01** | Phase 3 | Not Started |
+| **AUTO-02** | Phase 3 | Not Started |
 
 **Coverage:**
 - v1 requirements: 9 total
-- Mapped to phases: 0
-- Unmapped: 9 ⚠️
+- Mapped to phases: 9
+- Unmapped: 0 ✅
 
 ---
 *Requirements defined: 2026-04-05*
