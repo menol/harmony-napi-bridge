@@ -32,6 +32,32 @@ class HarmonyNapiProcessor(
         val isSerializable = resolved.declaration.annotations.any { it.shortName.asString() == "Serializable" }
         val isEnum = (resolved.declaration as? KSClassDeclaration)?.classKind == ClassKind.ENUM_CLASS
         val isTypeParameter = resolved.declaration is KSTypeParameter
+        val isSealed = (resolved.declaration as? KSClassDeclaration)?.modifiers?.contains(Modifier.SEALED) == true
+        val serialName = resolved.declaration.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
+            ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
+        val typeParameters = (resolved.declaration as? KSClassDeclaration)?.typeParameters?.map { it.name.asString() } ?: emptyList()
+        val sealedSubclasses = (resolved.declaration as? KSClassDeclaration)?.getSealedSubclasses()?.map { subclass ->
+            val subSimpleName = subclass.simpleName.asString()
+            val subQualifiedName = subclass.qualifiedName?.asString() ?: ""
+            val subIsSerializable = subclass.annotations.any { it.shortName.asString() == "Serializable" }
+            val subSerialName = subclass.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
+                ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
+            val subTypeParams = subclass.typeParameters.map { it.name.asString() }
+            val subProps = if (subIsSerializable) {
+                subclass.getDeclaredProperties()
+                    .map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type)) }
+                    .toList()
+            } else emptyList()
+            HarmonyTypeModel(
+                simpleName = subSimpleName,
+                qualifiedName = subQualifiedName,
+                isSerializable = subIsSerializable,
+                properties = subProps,
+                typeParameters = subTypeParams,
+                serialName = subSerialName
+            )
+        }?.toList() ?: emptyList()
+        
         val properties = if (isSerializable) {
             (resolved.declaration as? KSClassDeclaration)?.getDeclaredProperties()
                 ?.map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type)) }
@@ -45,7 +71,20 @@ class HarmonyNapiProcessor(
                 ?.toList() ?: emptyList()
         } else emptyList()
         
-        return HarmonyTypeModel(simpleName, arguments, qualifiedName, isSerializable, isEnum, properties, enumValues, isTypeParameter)
+        return HarmonyTypeModel(
+            simpleName = simpleName,
+            arguments = arguments,
+            qualifiedName = qualifiedName,
+            isSerializable = isSerializable,
+            isEnum = isEnum,
+            properties = properties,
+            enumValues = enumValues,
+            isTypeParameter = isTypeParameter,
+            isSealed = isSealed,
+            sealedSubclasses = sealedSubclasses,
+            typeParameters = typeParameters,
+            serialName = serialName
+        )
     }
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -86,6 +125,7 @@ class HarmonyNapiProcessor(
 
             val isInterface = classDecl.classKind == ClassKind.INTERFACE
             val isAbstract = classDecl.modifiers.contains(Modifier.ABSTRACT)
+            val isSealed = classDecl.modifiers.contains(Modifier.SEALED)
             val typeParameters = classDecl.typeParameters.map { it.name.asString() }
 
             HarmonyModuleModel(
@@ -97,6 +137,7 @@ class HarmonyNapiProcessor(
                 exportFunctions = exportFunctions,
                 isInterface = isInterface,
                 isAbstract = isAbstract,
+                isSealed = isSealed,
                 typeParameters = typeParameters
             )
         }
