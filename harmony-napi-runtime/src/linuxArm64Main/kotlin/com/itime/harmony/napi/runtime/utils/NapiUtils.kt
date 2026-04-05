@@ -636,3 +636,49 @@ inline fun <reified T : Enum<T>> napi_value.toKotlinEnum(env: napi_env): T = enu
 @OptIn(ExperimentalForeignApi::class)
 inline fun <reified T : Enum<T>> T.toNapiString(env: napi_env): napi_value = this.name.toNapiValue(env)
 
+@OptIn(ExperimentalForeignApi::class)
+object ConstructorRegistry {
+    val refs = mutableMapOf<String, napi_ref>()
+}
+
+@OptIn(ExperimentalForeignApi::class)
+fun Any.toNapiWrappedObject(env: napi_env, className: String): napi_value {
+    memScoped {
+        val constructorRef = ConstructorRegistry.refs[className] 
+            ?: throw IllegalArgumentException("Constructor for $className not found")
+        val constructorVar = alloc<napi_valueVar>()
+        napi_get_reference_value(env, constructorRef, constructorVar.ptr)
+        
+        val jsInstanceVar = alloc<napi_valueVar>()
+        napi_new_instance(env, constructorVar.value!!, 0u.convert(), null, jsInstanceVar.ptr)
+        val jsInstance = jsInstanceVar.value!!
+        
+        val stableRef = StableRef.create(this@toNapiWrappedObject)
+        
+        napi_wrap(
+            env, 
+            jsInstance, 
+            stableRef.asCPointer(), 
+            staticCFunction { _, finalizeData, _ ->
+                val ref = finalizeData?.asStableRef<Any>()
+                ref?.dispose()
+            }, 
+            null, 
+            null
+        )
+        return jsInstance
+    }
+}
+
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T : Any> napi_value.unwrapKotlinObject(env: napi_env): T {
+    memScoped {
+        val nativeObjVar = alloc<COpaquePointerVar>()
+        napi_unwrap(env, this@unwrapKotlinObject, nativeObjVar.ptr)
+        val nativeObj = nativeObjVar.value 
+            ?: throw IllegalArgumentException("napi_unwrap failed: native object is null")
+        val stableRef = nativeObj.asStableRef<T>()
+        return stableRef.get()
+    }
+}
+
