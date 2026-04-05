@@ -12,7 +12,8 @@ import java.io.OutputStreamWriter
 class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
 
     fun generate(modules: List<HarmonyModuleModel>) {
-        if (modules.isEmpty()) return
+        val validModules = modules.filter { !it.isInterface }
+        if (validModules.isEmpty()) return
 
         val packageName = "com.itime.harmony.napi.generated"
         val fileName = "InitGeneratedWrappers"
@@ -35,7 +36,7 @@ class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
 
         val codeBlock = buildString {
             appendLine("memScoped {")
-            modules.forEach { module ->
+            validModules.forEach { module ->
                 appendLine("    // Register ${module.className} (${module.moduleName})")
                 appendLine("    val ${module.className}_obj = alloc<napi_valueVar>()")
                 appendLine("    napi_create_object(env, ${module.className}_obj.ptr)")
@@ -62,7 +63,7 @@ class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
         fileBuilder.addFunction(funBuilder.build())
 
         val fileSpec = fileBuilder.build()
-        val dependencies = Dependencies(false, *modules.mapNotNull { it.containingFile }.toTypedArray())
+        val dependencies = Dependencies(false, *validModules.mapNotNull { it.containingFile }.toTypedArray())
         val file = codeGenerator.createNewFile(dependencies, packageName, fileName)
         OutputStreamWriter(file).use { writer ->
             fileSpec.writeTo(writer)

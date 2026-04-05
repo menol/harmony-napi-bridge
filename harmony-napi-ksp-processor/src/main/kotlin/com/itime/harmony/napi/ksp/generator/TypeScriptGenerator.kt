@@ -43,16 +43,32 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
             }
 
             modules.forEach { module ->
-                appendLine("export declare namespace ${module.moduleName} {")
-                module.exportFunctions.forEach { func ->
-                    val params = func.parameters.joinToString(", ") { param ->
-                        val tsType = TypeMapper.getTsType(param.type)
-                        "${param.name}: $tsType"
+                if (module.isInterface) {
+                    val typeParams = if (module.typeParameters.isNotEmpty()) {
+                        "<${module.typeParameters.joinToString(", ")}>"
+                    } else ""
+                    appendLine("export interface ${module.moduleName}$typeParams {")
+                    module.exportFunctions.forEach { func ->
+                        val params = func.parameters.joinToString(", ") { param ->
+                            val tsType = TypeMapper.getTsType(param.type)
+                            "${param.name}: $tsType"
+                        }
+                        val tsReturnType = TypeMapper.getTsType(func.returnType)
+                        appendLine("    ${func.functionName}($params): $tsReturnType;")
                     }
-                    val tsReturnType = TypeMapper.getTsType(func.returnType)
-                    appendLine("    function ${func.functionName}($params): $tsReturnType;")
+                    appendLine("}")
+                } else {
+                    appendLine("export declare namespace ${module.moduleName} {")
+                    module.exportFunctions.forEach { func ->
+                        val params = func.parameters.joinToString(", ") { param ->
+                            val tsType = TypeMapper.getTsType(param.type)
+                            "${param.name}: $tsType"
+                        }
+                        val tsReturnType = TypeMapper.getTsType(func.returnType)
+                        appendLine("    function ${func.functionName}($params): $tsReturnType;")
+                    }
+                    appendLine("}")
                 }
-                appendLine("}")
             }
         }
 

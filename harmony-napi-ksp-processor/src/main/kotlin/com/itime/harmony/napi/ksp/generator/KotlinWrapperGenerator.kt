@@ -13,6 +13,7 @@ import java.io.OutputStreamWriter
 class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
 
     fun generate(module: HarmonyModuleModel) {
+        if (module.isInterface) return
         val packageName = "com.itime.harmony.napi.generated"
         val fileName = "${module.className}_NapiWrapper"
 

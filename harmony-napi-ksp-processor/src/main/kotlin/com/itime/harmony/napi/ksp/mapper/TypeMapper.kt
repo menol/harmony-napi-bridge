@@ -58,6 +58,7 @@ object TypeMapper {
      * 将 Kotlin 类型转换为 TypeScript 中的类型声明
      */
     fun getTsType(typeModel: HarmonyTypeModel): String {
+        if (typeModel.isTypeParameter) return typeModel.simpleName
         if (typeModel.isSerializable || typeModel.isEnum) return typeModel.simpleName
         return when (typeModel.simpleName) {
             "Double", "Int" -> "number"
