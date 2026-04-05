@@ -1,4 +1,4 @@
-# Harmony NAPI Bridge
+# Harmony NAPI Bridge - ohos module unit tests
 
 ## What This Is
 
@@ -25,6 +25,7 @@ The generated NAPI glue code must seamlessly bridge Kotlin Native and HarmonyOS 
 - [ ] Create a HarmonyOS module (`ohos`) for testing purposes.
 - [ ] Configure the build system to package the Kotlin Native shared library (`.so`) and generated C++ glue code into the `ohos` module.
 - [ ] Write unit/integration tests in the `ohos` module to verify the generated bindings.
+- [ ] Test ALL methods exported by KHN (Kotlin Native) to ensure they can be called correctly from the HarmonyOS side.
 - [ ] Ensure the tests can be executed successfully in a HarmonyOS environment (emulator or device).
 
 ### Out of Scope
@@ -38,7 +39,6 @@ The generated NAPI glue code must seamlessly bridge Kotlin Native and HarmonyOS 
 
 - The project relies on Kotlin Symbol Processing (KSP) to analyze Kotlin Native code and generate corresponding C++ NAPI wrappers.
 - The output needs to be consumed by a HarmonyOS ArkTS/C++ environment.
-- The codebase already has an `ohos` directory, which likely serves as the target HarmonyOS module for these tests.
 - Testing requires bridging the generated C++ with HarmonyOS's native build system (CMake/Hvigor).
 
 ## Constraints
