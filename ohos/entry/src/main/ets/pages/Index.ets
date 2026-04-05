@@ -85,16 +85,15 @@ struct Index {
       }
     };
 
-    const param: Record<string, string> = {};
-
     const mockArguments: MockArguments = {
       bundleName: 'com.example.harmony_napi_bridge',
-      parameters: param
+      parameters: {}
     };
 
     if (!this.testsRegistered) {
-      Hypium.hypiumTest(mockDelegator, mockArguments, khnTests);
       this.testsRegistered = true;
+      khnTests();
+      Hypium.hypiumTest(mockDelegator, mockArguments, () => {});
     } else {
       // Re-running tests in Hypium requires execute() since suites are already registered
       Core.getInstance().execute(mockDelegator);
