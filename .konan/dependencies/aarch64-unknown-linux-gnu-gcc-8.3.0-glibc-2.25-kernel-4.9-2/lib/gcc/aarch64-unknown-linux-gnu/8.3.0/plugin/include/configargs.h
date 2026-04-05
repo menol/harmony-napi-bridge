@@ -1,0 +1,7 @@
+/* Generated automatically. */
+static const char configuration_arguments[] = "/home/ct/build-aarch64-unknown-linux-gnu/.build/aarch64-unknown-linux-gnu/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=aarch64-unknown-linux-gnu --prefix=/home/ct/x-tools/aarch64-unknown-linux-gnu --with-sysroot=/home/ct/x-tools/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot --enable-languages=c,c++ --with-pkgversion='crosstool-NG 1.24.0-dirty' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/ct/build-aarch64-unknown-linux-gnu/.build/aarch64-unknown-linux-gnu/buildtools --with-mpfr=/home/ct/build-aarch64-unknown-linux-gnu/.build/aarch64-unknown-linux-gnu/buildtools --with-mpc=/home/ct/build-aarch64-unknown-linux-gnu/.build/aarch64-unknown-linux-gnu/buildtools --with-isl=/home/ct/build-aarch64-unknown-linux-gnu/.build/aarch64-unknown-linux-gnu/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/home/ct/x-tools/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot --enable-long-long";
+static const char thread_model[] = "posix";
+
+static const struct {
+  const char *name, *value;
+} configure_default_options[] = { { NULL, NULL} };

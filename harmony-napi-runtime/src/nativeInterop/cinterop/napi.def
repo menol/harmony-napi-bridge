@@ -1,0 +1,2 @@
+headers = napi/native_api.h napi/common.h
+package = napi

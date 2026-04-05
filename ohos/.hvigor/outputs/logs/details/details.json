@@ -1,0 +1,81 @@
+{
+  "HVIGOR_OHOS_PLUGIN": {
+    "MODULES": [
+      {
+        "MODULE_NAME": "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf",
+        "API_TYPE": "stageMode"
+      },
+      {
+        "MODULE_NAME": "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b",
+        "API_TYPE": "stageMode",
+        "IS_BYTE_CODE_HAR": true,
+        "INCREMENTAL_TASKS": {
+          "BUILD_NATIVE_WITH_CMAKE": true,
+          "COMPILE_ARKTS": true
+        }
+      }
+    ],
+    "NATIVE_COMPILER": "BiSheng",
+    "BUILD_MODE": "debug",
+    "USE_NORMALIZED_OHMURL": true
+  },
+  "HVIGOR": {
+    "IS_INCREMENTAL": true,
+    "IS_DAEMON": true,
+    "IS_PARALLEL": true,
+    "IS_HVIGORFILE_TYPE_CHECK": false,
+    "TASK_TIME": {
+      "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
+        "PreBuild": 101596917,
+        "ProcessOHPackageJson": 2620250,
+        "ConfigureCmake": 688875,
+        "ProcessIntegratedHsp": 269583,
+        "ProcessModulePrivacyProfile": 214000,
+        "BuildNativeWithCmake": 3416542,
+        "ProcessRouterMap": 1099541,
+        "ProcessShareConfig": 415459,
+        "ProcessStartupConfig": 1183542,
+        "ProcessObfuscationFiles": 130334,
+        "BuildNativeWithNinja": 456700000,
+        "ProcessLibs": 10110000,
+        "DoNativeStrip": 128890292,
+        "CacheNativeLibs": 1578542
+      }
+    },
+    "APIS": [
+      "getHvigorConfig",
+      "getRootNodeDescriptor",
+      "getChildNode",
+      "getNodeByName",
+      "getAllNodes",
+      "getRootNode",
+      "getNodeName",
+      "getStartParams",
+      "buildFinished",
+      "getNodePath",
+      "subNodes",
+      "getExtraOption",
+      "getExtParam",
+      "getExtParams",
+      "getProperty",
+      "getProperties",
+      "getParameter",
+      "getProductName",
+      "nodesEvaluated",
+      "getCommandEntryTask"
+    ],
+    "CONFIG_PROPERTIES": {},
+    "BUILD_ID": "202604052118351320",
+    "ERROR_MESSAGE": [
+      {
+        "CODE": "10505001",
+        "TIMESTAMP": "1775395117679"
+      },
+      {
+        "CODE": "10505001",
+        "TIMESTAMP": "1775395117679"
+      }
+    ],
+    "TOTAL_TIME": 2546825792
+  }
+}

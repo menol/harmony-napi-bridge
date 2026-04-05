@@ -1,0 +1,1 @@
+{"basePath":"/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/.hvigor/dependencyMap/dependencyMap.json5","rootDependency":"./oh-package.json5","dependencyMap":{"entry":"./entry/oh-package.json5","khn":"./khn/oh-package.json5"},"modules":[{"name":"entry","srcPath":"../../../entry"},{"name":"khn","srcPath":"../../../khn"}]}

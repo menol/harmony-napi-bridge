@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "khn",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

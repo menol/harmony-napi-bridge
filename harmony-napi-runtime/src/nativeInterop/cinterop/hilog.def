@@ -1,0 +1,2 @@
+headers = hilog/log.h
+package = hilog

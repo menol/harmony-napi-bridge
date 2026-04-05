@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="harmony-napi-annotations-jvm">
+    <output-path>$PROJECT_DIR$/harmony-napi-annotations/build/libs</output-path>
+    <root id="archive" name="harmony-napi-annotations-jvm.jar">
+      <element id="module-output" name="harmony-napi-bridge.harmony-napi-annotations.jvmMain" />
+    </root>
+  </artifact>
+</component>
