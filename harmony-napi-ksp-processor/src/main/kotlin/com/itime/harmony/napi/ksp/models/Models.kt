@@ -42,6 +42,7 @@ data class HarmonyTypeModel(
     val enumValues: List<String> = emptyList(),
     val isTypeParameter: Boolean = false,
     val isSealed: Boolean = false,
+    val isAbstract: Boolean = false,
     val sealedSubclasses: List<HarmonyTypeModel> = emptyList(),
     val typeParameters: List<String> = emptyList(),
     val serialName: String? = null

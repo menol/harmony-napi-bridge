@@ -17,6 +17,7 @@ object TypeMapper {
      * 将 Kotlin 类型转换为从 JS 取值 (napi_value) 到 Kotlin 的扩展方法名
      */
     fun getNapiToKotlinMethod(typeModel: HarmonyTypeModel): String {
+        if (typeModel.isAbstract) return "unwrapKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
         if (typeModel.isSealed || typeModel.isSerializable) return "toKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
         if (typeModel.isEnum) return "toKotlinEnum<${getKotlinTypeString(typeModel)}>(env!!)"
         return when (typeModel.simpleName) {
@@ -42,6 +43,7 @@ object TypeMapper {
      * 将 Kotlin 类型转换为从 Kotlin 到 JS (napi_value) 的转换扩展名
      */
     fun getKotlinToNapiMethod(typeModel: HarmonyTypeModel): String {
+        if (typeModel.isAbstract) return "toNapiWrappedObject(env!!, \"${typeModel.simpleName}\")"
         if (typeModel.isSealed || typeModel.isSerializable) return "toNapiObject(env!!)"
         if (typeModel.isEnum) return "toNapiString(env!!)"
         return when (typeModel.simpleName) {
@@ -68,7 +70,7 @@ object TypeMapper {
      */
     fun getTsType(typeModel: HarmonyTypeModel): String {
         if (typeModel.isTypeParameter) return typeModel.simpleName
-        if (typeModel.isSerializable || typeModel.isEnum) {
+        if (typeModel.isAbstract || typeModel.isSerializable || typeModel.isEnum) {
             val typeArgs = if (typeModel.arguments.isNotEmpty()) {
                 "<${typeModel.arguments.joinToString(", ") { getTsType(it) }}>"
             } else ""

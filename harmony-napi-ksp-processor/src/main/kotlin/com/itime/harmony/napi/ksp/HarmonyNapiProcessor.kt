@@ -33,6 +33,7 @@ class HarmonyNapiProcessor(
         val isEnum = (resolved.declaration as? KSClassDeclaration)?.classKind == ClassKind.ENUM_CLASS
         val isTypeParameter = resolved.declaration is KSTypeParameter
         val isSealed = (resolved.declaration as? KSClassDeclaration)?.modifiers?.contains(Modifier.SEALED) == true
+        val isAbstract = (resolved.declaration as? KSClassDeclaration)?.modifiers?.contains(Modifier.ABSTRACT) == true
         val serialName = resolved.declaration.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
             ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
         val typeParameters = (resolved.declaration as? KSClassDeclaration)?.typeParameters?.map { it.name.asString() } ?: emptyList()
@@ -40,6 +41,7 @@ class HarmonyNapiProcessor(
             val subSimpleName = subclass.simpleName.asString()
             val subQualifiedName = subclass.qualifiedName?.asString() ?: ""
             val subIsSerializable = subclass.annotations.any { it.shortName.asString() == "Serializable" }
+            val subIsAbstract = subclass.modifiers.contains(Modifier.ABSTRACT)
             val subSerialName = subclass.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
                 ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
             val subTypeParams = subclass.typeParameters.map { it.name.asString() }
@@ -52,6 +54,7 @@ class HarmonyNapiProcessor(
                 simpleName = subSimpleName,
                 qualifiedName = subQualifiedName,
                 isSerializable = subIsSerializable,
+                isAbstract = subIsAbstract,
                 properties = subProps,
                 typeParameters = subTypeParams,
                 serialName = subSerialName
@@ -81,6 +84,7 @@ class HarmonyNapiProcessor(
             enumValues = enumValues,
             isTypeParameter = isTypeParameter,
             isSealed = isSealed,
+            isAbstract = isAbstract,
             sealedSubclasses = sealedSubclasses,
             typeParameters = typeParameters,
             serialName = serialName
@@ -133,6 +137,7 @@ class HarmonyNapiProcessor(
                     val subSimpleName = subclass.simpleName.asString()
                     val subQualifiedName = subclass.qualifiedName?.asString() ?: ""
                     val subIsSerializable = subclass.annotations.any { it.shortName.asString() == "Serializable" }
+                    val subIsAbstract = subclass.modifiers.contains(Modifier.ABSTRACT)
                     val subSerialName = subclass.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
                         ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
                     val subTypeParams = subclass.typeParameters.map { it.name.asString() }
@@ -145,6 +150,7 @@ class HarmonyNapiProcessor(
                         simpleName = subSimpleName,
                         qualifiedName = subQualifiedName,
                         isSerializable = subIsSerializable,
+                        isAbstract = subIsAbstract,
                         properties = subProps,
                         typeParameters = subTypeParams,
                         serialName = subSerialName
