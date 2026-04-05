@@ -90,7 +90,7 @@ Plans:
 **Goal:** Support exporting Kotlin sealed classes with generics to TypeScript discriminated union types.
 **Requirements**: TBD
 **Depends on:** Phase 9
-**Plans:** 1/1 complete
+**Plans:** 1/1 plans complete
 
 Plans:
 - [x] 10: Update KSP models and generators to support Kotlin sealed classes
