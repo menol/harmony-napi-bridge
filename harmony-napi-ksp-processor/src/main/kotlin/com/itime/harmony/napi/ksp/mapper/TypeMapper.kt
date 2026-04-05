@@ -59,7 +59,12 @@ object TypeMapper {
      */
     fun getTsType(typeModel: HarmonyTypeModel): String {
         if (typeModel.isTypeParameter) return typeModel.simpleName
-        if (typeModel.isSerializable || typeModel.isEnum) return typeModel.simpleName
+        if (typeModel.isSerializable || typeModel.isEnum) {
+            val typeArgs = if (typeModel.arguments.isNotEmpty()) {
+                "<${typeModel.arguments.joinToString(", ") { getTsType(it) }}>"
+            } else ""
+            return "${typeModel.simpleName}$typeArgs"
+        }
         return when (typeModel.simpleName) {
             "Double", "Int" -> "number"
             "String" -> "string"

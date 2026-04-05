@@ -18,6 +18,7 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                 if (allTypes.add(type)) {
                     type.arguments.forEach { collectTypes(it) }
                     type.properties.forEach { collectTypes(it.type) }
+                    type.sealedSubclasses.forEach { collectTypes(it) }
                 }
             }
 
@@ -33,8 +34,44 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
                 appendLine()
             }
 
-            allTypes.filter { it.isSerializable }.forEach { type ->
-                appendLine("export interface ${type.simpleName} {")
+            val serializableTypes = allTypes.filter { it.isSerializable }
+
+            serializableTypes.filter { it.isSealed }.forEach { type ->
+                val typeParams = if (type.typeParameters.isNotEmpty()) {
+                    "<${type.typeParameters.joinToString(", ")}>"
+                } else ""
+                
+                val subclassesStr = if (type.sealedSubclasses.isNotEmpty()) {
+                    type.sealedSubclasses.joinToString(" | ") { sub ->
+                        val subTypeParams = if (sub.typeParameters.isNotEmpty()) {
+                            "<${sub.typeParameters.joinToString(", ")}>"
+                        } else ""
+                        "${sub.simpleName}$subTypeParams"
+                    }
+                } else {
+                    "never"
+                }
+                
+                appendLine("export type ${type.simpleName}$typeParams = $subclassesStr;")
+                appendLine()
+            }
+
+            serializableTypes.filter { !it.isSealed }.forEach { type ->
+                val typeParams = if (type.typeParameters.isNotEmpty()) {
+                    "<${type.typeParameters.joinToString(", ")}>"
+                } else ""
+                
+                appendLine("export interface ${type.simpleName}$typeParams {")
+                
+                // 查找当前类是否为某个 sealed class 的子类
+                val parentSealed = allTypes.find { parent ->
+                    parent.isSealed && parent.sealedSubclasses.any { sub -> sub.qualifiedName == type.qualifiedName }
+                }
+                if (parentSealed != null) {
+                    val discriminator = type.serialName ?: type.qualifiedName
+                    appendLine("    type: \"$discriminator\";")
+                }
+                
                 type.properties.forEach { prop ->
                     appendLine("    ${prop.name}: ${TypeMapper.getTsType(prop.type)};")
                 }
@@ -43,7 +80,7 @@ class TypeScriptGenerator(private val codeGenerator: CodeGenerator) {
             }
 
             modules.forEach { module ->
-                if (module.isInterface || module.isAbstract) {
+                if (module.isInterface || module.isAbstract || module.isSealed) {
                     val typeParams = if (module.typeParameters.isNotEmpty()) {
                         "<${module.typeParameters.joinToString(", ")}>"
                     } else ""
