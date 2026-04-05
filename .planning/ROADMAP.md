@@ -85,12 +85,12 @@ Plans:
 Plans:
 - [x] 09: Update KSP models and generators to support Kotlin abstract classes
 
-### Phase 10: 支持密封类
+### Phase 10: 支持密封类的导出
 
-**Goal:** [To be planned]
+**Goal:** Support exporting Kotlin sealed classes with generics to TypeScript discriminated union types.
 **Requirements**: TBD
 **Depends on:** Phase 9
-**Plans:** 0 plans
+**Plans:** 1/1 complete
 
 Plans:
-- [ ] TBD (run /gsd-plan-phase 10 to break down)
+- [x] 10: Update KSP models and generators to support Kotlin sealed classes

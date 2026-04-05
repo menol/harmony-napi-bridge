@@ -205,3 +205,16 @@ public fun HelloWorldPlugin_processUser_wrapper(env: napi_env?, info: napi_callb
     val result = HelloWorldPlugin.processUser(arg0, arg1)
     result.toNapiObject(env!!)
 }
+
+public fun HelloWorldPlugin_processResult_wrapper(env: napi_env?, info: napi_callback_info?):
+    napi_value? = memScoped {
+    val argc = alloc<size_tVar>()
+    argc.value = 1u
+    val argv = allocArray<napi_valueVar>(1)
+    napi_get_cb_info(env, info, argc.ptr, argv, null, null)
+
+    val arg0 =
+    argv[0]!!.toKotlinObject<com.itime.harmony.sample.NetworkResult<kotlin.String>>(env!!)
+    val result = HelloWorldPlugin.processResult(arg0)
+    result.toNapiObject(env!!)
+}

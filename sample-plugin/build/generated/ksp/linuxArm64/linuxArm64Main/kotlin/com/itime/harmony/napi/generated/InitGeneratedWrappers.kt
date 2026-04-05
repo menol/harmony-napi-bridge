@@ -114,6 +114,12 @@ public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_val
       desc_processUser.attributes = 0u.convert() // napi_default
       napi_define_properties(env, HelloWorldPlugin_obj.value, 1u, desc_processUser.ptr)
 
+      val desc_processResult = alloc<napi_property_descriptor>()
+      desc_processResult.utf8name = "processResult".cstr.ptr
+      desc_processResult.method = staticCFunction(::HelloWorldPlugin_processResult_wrapper)
+      desc_processResult.attributes = 0u.convert() // napi_default
+      napi_define_properties(env, HelloWorldPlugin_obj.value, 1u, desc_processResult.ptr)
+
       napi_set_named_property(env, exports, "hello_world_plugin", HelloWorldPlugin_obj.value)
   }
   return exports

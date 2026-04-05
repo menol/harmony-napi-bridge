@@ -1,10 +1,25 @@
 export type Role = "ADMIN" | "USER";
 
+export type NetworkResult<T> = Error<T> | Success<T>;
+
 export interface User {
     name: string;
     age: number;
 }
 
+export interface Error<T> {
+    type: "Error";
+    message: string;
+}
+
+export interface Success<T> {
+    type: "Success";
+    data: T;
+}
+
+export interface TestSealed<T> {
+    process(item: T): T;
+}
 export interface TestInterface {
     sayHello(name: string): string;
 }
@@ -31,4 +46,5 @@ export declare namespace hello_world_plugin {
     function processStringDoubleMap(data: Record<string, number>): Record<string, number>;
     function processStringBooleanMap(data: Record<string, boolean>): Record<string, boolean>;
     function processUser(user: User, role: Role): User;
+    function processResult(result: NetworkResult<string>): NetworkResult<string>;
 }

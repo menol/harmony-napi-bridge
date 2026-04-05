@@ -4,12 +4,21 @@ import com.itime.harmony.napi.ksp.models.HarmonyTypeModel
 
 object TypeMapper {
 
+    private fun getKotlinTypeString(typeModel: HarmonyTypeModel): String {
+        if (typeModel.isTypeParameter) return typeModel.simpleName
+        val typeArgs = if (typeModel.arguments.isNotEmpty()) {
+            "<${typeModel.arguments.joinToString(", ") { getKotlinTypeString(it) }}>"
+        } else ""
+        val name = if (typeModel.qualifiedName.isNotEmpty()) typeModel.qualifiedName else typeModel.simpleName
+        return "$name$typeArgs"
+    }
+
     /**
      * 将 Kotlin 类型转换为从 JS 取值 (napi_value) 到 Kotlin 的扩展方法名
      */
     fun getNapiToKotlinMethod(typeModel: HarmonyTypeModel): String {
-        if (typeModel.isSerializable) return "toKotlinObject<${typeModel.qualifiedName}>(env!!)"
-        if (typeModel.isEnum) return "toKotlinEnum<${typeModel.qualifiedName}>(env!!)"
+        if (typeModel.isSerializable) return "toKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
+        if (typeModel.isEnum) return "toKotlinEnum<${getKotlinTypeString(typeModel)}>(env!!)"
         return when (typeModel.simpleName) {
             "Double" -> "toKotlinDouble(env!!)"
             "Int" -> "toKotlinInt(env!!)"

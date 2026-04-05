@@ -15,8 +15,7 @@
       }
     ],
     "NATIVE_COMPILER": "BiSheng",
-    "BUILD_MODE": "debug",
-    "USE_NORMALIZED_OHMURL": true
+    "BUILD_MODE": "debug"
   },
   "HVIGOR": {
     "IS_INCREMENTAL": true,
@@ -25,26 +24,26 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "ProcessOHPackageJson": 329958,
-        "ConfigureCmake": 45405625,
-        "ProcessIntegratedHsp": 763417,
-        "ProcessModulePrivacyProfile": 274459,
-        "BuildNativeWithCmake": 48534208,
-        "ProcessRouterMap": 1159000,
-        "ProcessShareConfig": 784958,
-        "ProcessStartupConfig": 2689375,
-        "ProcessObfuscationFiles": 108750,
-        "BuildNativeWithNinja": 417264875,
-        "ProcessLibs": 71280250,
-        "DoNativeStrip": 305620583,
-        "CacheNativeLibs": 158035791,
-        "HarCompileArkTS": 1000699750,
-        "ProcessHarArtifacts": 367571959,
-        "PackageHar": 393211000,
-        "PackageSignHar": 438541,
-        "PackingCheckHar": 4139333,
-        "CollectDebugSymbol": 236083,
-        "assembleHar": 559959
+        "ProcessOHPackageJson": 4183541,
+        "ConfigureCmake": 170901000,
+        "ProcessIntegratedHsp": 288167,
+        "ProcessModulePrivacyProfile": 251750,
+        "BuildNativeWithCmake": 4563458,
+        "ProcessRouterMap": 465250,
+        "ProcessShareConfig": 611416,
+        "ProcessStartupConfig": 726417,
+        "ProcessObfuscationFiles": 122959,
+        "BuildNativeWithNinja": 626540625,
+        "ProcessLibs": 13473375,
+        "DoNativeStrip": 123595958,
+        "CacheNativeLibs": 1778375,
+        "HarCompileArkTS": 2010954917,
+        "ProcessHarArtifacts": 19396291,
+        "PackageHar": 47967625,
+        "PackageSignHar": 316083,
+        "PackingCheckHar": 973333,
+        "CollectDebugSymbol": 228166,
+        "assembleHar": 74583
       }
     },
     "APIS": [
@@ -55,6 +54,8 @@
       "getAllNodes",
       "getRootNode",
       "getNodeName",
+      "getStartParams",
+      "buildFinished",
       "getNodePath",
       "subNodes",
       "getExtraOption",
@@ -65,11 +66,10 @@
       "getParameter",
       "getProductName",
       "nodesEvaluated",
-      "getCommandEntryTask",
-      "getStartParams"
+      "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "TOTAL_TIME": 2196947083,
-    "BUILD_ID": "202604052206236980"
+    "BUILD_ID": "202604052211442470",
+    "TOTAL_TIME": 3759320250
   }
 }
