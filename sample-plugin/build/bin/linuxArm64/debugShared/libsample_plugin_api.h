@@ -223,8 +223,8 @@ typedef struct {
                 void* (*TestAbstract_process_wrapper)(void* env, void* info);
                 void* (*TestAbstract_sayHello_wrapper)(void* env, void* info);
                 void* (*TestClass_constructor)(void* env, void* info);
+                void* (*TestClass_fetchValue_wrapper)(void* env, void* info);
                 void (*TestClass_finalize)(void* env, void* data, void* hint);
-                void* (*TestClass_getValue_wrapper)(void* env, void* info);
                 void* (*TestClass_increment_wrapper)(void* env, void* info);
                 void* (*UserUtils_getFullName_wrapper)(void* env, void* info);
               } generated;
@@ -334,7 +334,7 @@ typedef struct {
               struct {
                 libsample_plugin_KType* (*_type)(void);
                 libsample_plugin_kref_com_itime_harmony_sample_TestClass (*TestClass)(libsample_plugin_KInt value);
-                libsample_plugin_KInt (*getValue)(libsample_plugin_kref_com_itime_harmony_sample_TestClass thiz);
+                libsample_plugin_KInt (*fetchValue)(libsample_plugin_kref_com_itime_harmony_sample_TestClass thiz);
                 void (*increment)(libsample_plugin_kref_com_itime_harmony_sample_TestClass thiz);
               } TestClass;
               struct {
@@ -365,6 +365,7 @@ typedef struct {
                 libsample_plugin_KBoolean (*equals)(libsample_plugin_kref_com_itime_harmony_sample_User thiz, libsample_plugin_kref_kotlin_Any other);
                 const char* (*getGreeting)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
                 libsample_plugin_KInt (*hashCode)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
+                const char* (*sayHi)(libsample_plugin_kref_com_itime_harmony_sample_User thiz, const char* to);
                 const char* (*toString)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
               } User;
               const char* (*getFullName)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);

@@ -59,7 +59,7 @@ export declare abstract class TestAbstract<T> {
 }
 export declare class TestClass {
     constructor(value: number);
-    getValue(): number;
+    fetchValue(): number;
     increment(): void;
 }
 export declare namespace hello_world_plugin {

@@ -143,9 +143,11 @@ class TypeScriptGenerator(
                 // 查找当前类是否为某个 sealed class 的子类
                 val parentSealed = allTypes.find { parent ->
                     parent.isSealed && parent.sealedSubclasses.any { sub -> sub.qualifiedName == type.qualifiedName }
+                } ?: modules.find { parent ->
+                    parent.isSealed && parent.sealedSubclasses.any { sub -> sub.qualifiedName == type.qualifiedName }
                 }
                 if (parentSealed != null) {
-                    val discriminator = type.serialName ?: type.qualifiedName
+                    val discriminator = type.serialName ?: type.simpleName
                     appendLine("    type: \"$discriminator\";")
                 }
                 

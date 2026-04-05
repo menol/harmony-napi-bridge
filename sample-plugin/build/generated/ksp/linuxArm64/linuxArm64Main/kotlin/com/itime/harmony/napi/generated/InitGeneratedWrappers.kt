@@ -72,8 +72,8 @@ public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_val
       // Register Class TestClass (TestClass)
       val TestClass_constructorVar = alloc<napi_valueVar>()
       val TestClass_descArray = allocArray<napi_property_descriptor>(2)
-      TestClass_descArray[0].utf8name = "getValue".cstr.ptr
-      TestClass_descArray[0].method = staticCFunction(::TestClass_getValue_wrapper)
+      TestClass_descArray[0].utf8name = "fetchValue".cstr.ptr
+      TestClass_descArray[0].method = staticCFunction(::TestClass_fetchValue_wrapper)
       TestClass_descArray[0].attributes = 0u.convert() // napi_default
       TestClass_descArray[1].utf8name = "increment".cstr.ptr
       TestClass_descArray[1].method = staticCFunction(::TestClass_increment_wrapper)

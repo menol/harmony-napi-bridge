@@ -10,8 +10,14 @@ import kotlinx.serialization.SerialName
 import com.itime.harmony.napi.annotations.HarmonyExtensions
 
 @Serializable data class User(val name: String, val age: Int) {
+    @HarmonyExport
     fun getGreeting(): String {
         return "Hi, I am $name, $age years old"
+    }
+
+    @HarmonyExport
+    fun sayHi(to: String): String {
+        return "Hi $to, I am $name"
     }
 }
 

@@ -58,8 +58,8 @@ import napi.napi_valuetype
 import napi.napi_wrap
 import platform.posix.size_tVar
 
-public fun TestClass_getValue_wrapper(env: napi_env?, info: napi_callback_info?): napi_value? = try
-    {
+public fun TestClass_fetchValue_wrapper(env: napi_env?, info: napi_callback_info?): napi_value? =
+    try {
     memScoped {
         val argc = alloc<size_tVar>()
         argc.value = 0u
@@ -68,7 +68,7 @@ public fun TestClass_getValue_wrapper(env: napi_env?, info: napi_callback_info?)
         napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)
         val instance = thisVar.value!!.unwrapKotlinObject<TestClass>(env!!)
 
-        val result = instance.getValue()
+        val result = instance.fetchValue()
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
