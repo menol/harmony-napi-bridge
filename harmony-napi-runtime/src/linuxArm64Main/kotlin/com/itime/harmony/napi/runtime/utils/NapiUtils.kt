@@ -649,24 +649,17 @@ fun Any.toNapiWrappedObject(env: napi_env, className: String): napi_value {
         val constructorVar = alloc<napi_valueVar>()
         napi_get_reference_value(env, constructorRef, constructorVar.ptr)
         
-        val jsInstanceVar = alloc<napi_valueVar>()
-        napi_new_instance(env, constructorVar.value!!, 0u.convert(), null, jsInstanceVar.ptr)
-        val jsInstance = jsInstanceVar.value!!
-        
         val stableRef = StableRef.create(this@toNapiWrappedObject)
+        val externalPtr = alloc<napi_valueVar>()
+        napi_create_external(env, stableRef.asCPointer(), null, null, externalPtr.ptr)
         
-        napi_wrap(
-            env, 
-            jsInstance, 
-            stableRef.asCPointer(), 
-            staticCFunction { _, finalizeData, _ ->
-                val ref = finalizeData?.asStableRef<Any>()
-                ref?.dispose()
-            }, 
-            null, 
-            null
-        )
-        return jsInstance
+        val args = allocArray<napi_valueVar>(1)
+        args[0] = externalPtr.value!!
+        
+        val jsInstanceVar = alloc<napi_valueVar>()
+        napi_new_instance(env, constructorVar.value!!, 1u.convert(), args, jsInstanceVar.ptr)
+        
+        return jsInstanceVar.value!!
     }
 }
 
