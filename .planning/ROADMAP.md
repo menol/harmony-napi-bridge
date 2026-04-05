@@ -94,3 +94,13 @@ Plans:
 
 Plans:
 - [x] 10: Update KSP models and generators to support Kotlin sealed classes
+
+### Phase 11: 支持完整的 abstract class (NAPI Object Wrapping)
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 10
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd-plan-phase 11 to break down)

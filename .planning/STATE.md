@@ -48,4 +48,5 @@ progress:
 - Phase 7 executed and verified.
 - Phase 9 executed and verified.
 - Phase 10 executed and verified.
+- Phase 11 added: 支持完整的 abstract class (NAPI Object Wrapping)
 - Phase 9 added: 支持抽象类的导出
