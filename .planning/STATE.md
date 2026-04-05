@@ -49,5 +49,6 @@ progress:
 - Phase 9 executed and verified.
 - Phase 10 executed and verified.
 - Phase 11 executed and verified.
+- Phase 12 added: 自动生成 ArkTS 的 Index 导出层 (Auto-generate ArkTS Index.ets exports)
 - Phase 11 planned.
 - Phase 9 added: 支持抽象类的导出
