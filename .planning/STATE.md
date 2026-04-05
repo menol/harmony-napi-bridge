@@ -16,3 +16,8 @@
 ## Phase 3: Automation & Reporting
 - [ ] **AUTO-01**: Run test suite via command line (`hdc` or `hvigorw`) without UI interaction
 - [ ] **AUTO-02**: Generate test report
+
+## Accumulated Context
+
+### Roadmap Evolution
+- Phase 4 added: 1
