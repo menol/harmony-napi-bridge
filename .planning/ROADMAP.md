@@ -64,3 +64,13 @@ Plans:
 
 Plans:
 - [x] 07: Implement JSON bridge for complex objects
+
+### Phase 8: 支持接口类型的导出
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 7
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd-plan-phase 8 to break down)
