@@ -37,8 +37,26 @@ class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
         val codeBlock = buildString {
             appendLine("memScoped {")
             validModules.forEach { module ->
-                if (module.isAbstract) {
-                    appendLine("    // Register Abstract Class ${module.className} (${module.moduleName})")
+                if (module.isFileExtension) {
+                    appendLine("    val obj_${module.className} = alloc<napi_valueVar>()")
+                    appendLine("    napi.napi_create_object(env, obj_${module.className}.ptr)")
+                    module.exportFunctions.forEach { func ->
+                        val wrapperFuncName = "${module.className}_${func.functionName}_wrapper"
+                        appendLine("    val str_${module.className}_${func.functionName} = alloc<napi_valueVar>()")
+                        appendLine("    napi.napi_create_string_utf8(env, \"${func.functionName}\", napi.NAPI_AUTO_LENGTH, str_${module.className}_${func.functionName}.ptr)")
+                        appendLine("    val fn_${module.className}_${func.functionName} = alloc<napi_valueVar>()")
+                        appendLine("    napi.napi_create_function(env, \"${func.functionName}\", napi.NAPI_AUTO_LENGTH, staticCFunction(::$wrapperFuncName), null, fn_${module.className}_${func.functionName}.ptr)")
+                        appendLine("    napi.napi_set_property(env, obj_${module.className}.value, str_${module.className}_${func.functionName}.value, fn_${module.className}_${func.functionName}.value)")
+                    }
+                    appendLine("    val str_export_${module.className} = alloc<napi_valueVar>()")
+                    appendLine("    napi.napi_create_string_utf8(env, \"${module.moduleName}\", napi.NAPI_AUTO_LENGTH, str_export_${module.className}.ptr)")
+                    appendLine("    napi.napi_set_property(env, exports, str_export_${module.className}.value, obj_${module.className}.value)")
+                    appendLine()
+                    return@forEach
+                }
+
+                if (!module.isObject) {
+                    appendLine("    // Register Class ${module.className} (${module.moduleName})")
                     appendLine("    val ${module.className}_constructorVar = alloc<napi_valueVar>()")
                     if (module.exportFunctions.isNotEmpty()) {
                         appendLine("    val ${module.className}_descArray = allocArray<napi_property_descriptor>(${module.exportFunctions.size})")
