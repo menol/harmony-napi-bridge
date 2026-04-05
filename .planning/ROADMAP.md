@@ -114,13 +114,14 @@ Plans:
 
 Plans:
 - [x] 12: Auto-generate ArkTS Index.ets exports
-
 ### Phase 13: 支持普通 Class 的导出 (Support normal class export)
 
-**Goal:** [To be planned]
+**Goal:** Support exporting normal Kotlin classes to ArkTS, handling direct JS instantiation (`new Class()`) vs Kotlin returned instances via `napi_external` wrapping, mapping primary constructor parameters, and updating TS definitions.
 **Requirements**: TBD
 **Depends on:** Phase 12
-**Plans:** 0 plans
+**Plans:** 3/3 complete
 
 Plans:
-- [ ] TBD (run /gsd-plan-phase 13 to break down)
+- [x] 13: Update Domain Models and `NapiUtils.kt` to handle normal classes and `napi_external` pointers
+- [x] 13: Update KSP generators (InitEntry, KotlinWrapper, TypeScript) for normal class lifecycle
+- [x] 13: Implement end-to-end testing for normal classes in HelloWorldPlugin
