@@ -36,8 +36,7 @@ object TypeMapper {
                 "toKotlin${keyType}${valueType}Map(env!!)"
             }
             else -> {
-                if (typeModel.isAbstract) "unwrapKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
-                else throw IllegalArgumentException("Unsupported type ${typeModel.simpleName} in KSP mapper")
+                "unwrapKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
             }
         }
     }
@@ -65,8 +64,7 @@ object TypeMapper {
             }
             "Unit" -> ""
             else -> {
-                if (typeModel.isAbstract) "toNapiWrappedObject(env!!, \"${typeModel.simpleName}\")"
-                else throw IllegalArgumentException("Unsupported type ${typeModel.simpleName} in KSP mapper")
+                "toNapiWrappedObject(env!!, \"${typeModel.simpleName}\")"
             }
         }
     }
@@ -97,7 +95,7 @@ object TypeMapper {
                 val valueTsType = typeModel.arguments.getOrNull(1)?.let { getTsType(it) } ?: "unknown"
                 "Record<$keyTsType, $valueTsType>"
             }
-            else -> "unknown"
+            else -> typeModel.simpleName
         }
     }
 }

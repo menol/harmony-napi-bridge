@@ -33,14 +33,17 @@ import napi.napi_valueVar
 @CName("InitGeneratedWrappers")
 public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_value? {
   memScoped {
-      // Register Abstract Class DemoAbstract (DemoAbstract)
+      // Register Class DemoAbstract (DemoAbstract)
       val DemoAbstract_constructorVar = alloc<napi_valueVar>()
-      val DemoAbstract_descArray = allocArray<napi_property_descriptor>(1)
+      val DemoAbstract_descArray = allocArray<napi_property_descriptor>(2)
       DemoAbstract_descArray[0].utf8name = "process".cstr.ptr
       DemoAbstract_descArray[0].method = staticCFunction(::DemoAbstract_process_wrapper)
       DemoAbstract_descArray[0].attributes = 0u.convert() // napi_default
+      DemoAbstract_descArray[1].utf8name = "sayHello".cstr.ptr
+      DemoAbstract_descArray[1].method = staticCFunction(::DemoAbstract_sayHello_wrapper)
+      DemoAbstract_descArray[1].attributes = 0u.convert() // napi_default
       napi_define_class(env, "DemoAbstract", napi.NAPI_AUTO_LENGTH.convert(),
-      staticCFunction(::DemoAbstract_constructor), null, 1u.convert(), DemoAbstract_descArray,
+      staticCFunction(::DemoAbstract_constructor), null, 2u.convert(), DemoAbstract_descArray,
       DemoAbstract_constructorVar.ptr)
       val DemoAbstract_refVar = alloc<napi_refVar>()
       napi_create_reference(env, DemoAbstract_constructorVar.value, 1u.convert(),
@@ -48,7 +51,7 @@ public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_val
       com.itime.harmony.napi.runtime.utils.ConstructorRegistry.refs["DemoAbstract"] =
       DemoAbstract_refVar.value!!
       napi_set_named_property(env, exports, "DemoAbstract", DemoAbstract_constructorVar.value)
-      // Register Abstract Class TestAbstract (TestAbstract)
+      // Register Class TestAbstract (TestAbstract)
       val TestAbstract_constructorVar = alloc<napi_valueVar>()
       val TestAbstract_descArray = allocArray<napi_property_descriptor>(2)
       TestAbstract_descArray[0].utf8name = "process".cstr.ptr
@@ -66,6 +69,23 @@ public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_val
       com.itime.harmony.napi.runtime.utils.ConstructorRegistry.refs["TestAbstract"] =
       TestAbstract_refVar.value!!
       napi_set_named_property(env, exports, "TestAbstract", TestAbstract_constructorVar.value)
+      // Register Class TestClass (TestClass)
+      val TestClass_constructorVar = alloc<napi_valueVar>()
+      val TestClass_descArray = allocArray<napi_property_descriptor>(2)
+      TestClass_descArray[0].utf8name = "getValue".cstr.ptr
+      TestClass_descArray[0].method = staticCFunction(::TestClass_getValue_wrapper)
+      TestClass_descArray[0].attributes = 0u.convert() // napi_default
+      TestClass_descArray[1].utf8name = "increment".cstr.ptr
+      TestClass_descArray[1].method = staticCFunction(::TestClass_increment_wrapper)
+      TestClass_descArray[1].attributes = 0u.convert() // napi_default
+      napi_define_class(env, "TestClass", napi.NAPI_AUTO_LENGTH.convert(),
+      staticCFunction(::TestClass_constructor), null, 2u.convert(), TestClass_descArray,
+      TestClass_constructorVar.ptr)
+      val TestClass_refVar = alloc<napi_refVar>()
+      napi_create_reference(env, TestClass_constructorVar.value, 1u.convert(), TestClass_refVar.ptr)
+      com.itime.harmony.napi.runtime.utils.ConstructorRegistry.refs["TestClass"] =
+      TestClass_refVar.value!!
+      napi_set_named_property(env, exports, "TestClass", TestClass_constructorVar.value)
       // Register HelloWorldPlugin (hello_world_plugin)
       val HelloWorldPlugin_obj = alloc<napi_valueVar>()
       napi_create_object(env, HelloWorldPlugin_obj.ptr)
@@ -158,7 +178,28 @@ public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_val
       desc_processResult.attributes = 0u.convert() // napi_default
       napi_define_properties(env, HelloWorldPlugin_obj.value, 1u, desc_processResult.ptr)
 
+      val desc_getTestClass = alloc<napi_property_descriptor>()
+      desc_getTestClass.utf8name = "getTestClass".cstr.ptr
+      desc_getTestClass.method = staticCFunction(::HelloWorldPlugin_getTestClass_wrapper)
+      desc_getTestClass.attributes = 0u.convert() // napi_default
+      napi_define_properties(env, HelloWorldPlugin_obj.value, 1u, desc_getTestClass.ptr)
+
       napi_set_named_property(env, exports, "hello_world_plugin", HelloWorldPlugin_obj.value)
+      val obj_UserUtils = alloc<napi_valueVar>()
+      napi.napi_create_object(env, obj_UserUtils.ptr)
+      val str_UserUtils_getFullName = alloc<napi_valueVar>()
+      napi.napi_create_string_utf8(env, "getFullName", napi.NAPI_AUTO_LENGTH,
+      str_UserUtils_getFullName.ptr)
+      val fn_UserUtils_getFullName = alloc<napi_valueVar>()
+      napi.napi_create_function(env, "getFullName", napi.NAPI_AUTO_LENGTH,
+      staticCFunction(::UserUtils_getFullName_wrapper), null, fn_UserUtils_getFullName.ptr)
+      napi.napi_set_property(env, obj_UserUtils.value, str_UserUtils_getFullName.value,
+      fn_UserUtils_getFullName.value)
+      val str_export_UserUtils = alloc<napi_valueVar>()
+      napi.napi_create_string_utf8(env, "UserUtils", napi.NAPI_AUTO_LENGTH,
+      str_export_UserUtils.ptr)
+      napi.napi_set_property(env, exports, str_export_UserUtils.value, obj_UserUtils.value)
+
   }
   return exports
 }

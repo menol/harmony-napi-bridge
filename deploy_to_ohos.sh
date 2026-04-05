@@ -47,6 +47,18 @@ else
     echo "export const greet: (name: string) => string;" >> "$OHOS_MODULE_DIR/src/main/cpp/types/libkhn/Index.d.ts"
 fi
 
+# 2.3 Copy ArkTS Exports (GeneratedExports.ets)
+mkdir -p "$OHOS_MODULE_DIR/src/main/ets/generated"
+echo "Searching for generated GeneratedExports.ets..."
+ETS_GENERATED_PATH=$(find "$KMP_MODULE_DIR/build/generated/ksp" -name "GeneratedExports.ets" | head -n 1)
+
+if [ -n "$ETS_GENERATED_PATH" ] && [ -f "$ETS_GENERATED_PATH" ]; then
+    echo "Found ArkTS exports at: $ETS_GENERATED_PATH"
+    cp "$ETS_GENERATED_PATH" "$OHOS_MODULE_DIR/src/main/ets/generated/"
+else
+    echo "KSP generated GeneratedExports.ets not found yet."
+fi
+
 echo "Artifacts copied successfully."
 
 # 3. Build HarmonyOS HAR

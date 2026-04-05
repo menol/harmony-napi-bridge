@@ -92,7 +92,7 @@ class TypeScriptGenerator(
 
             serializableTypes.filter { it.isSealed }.forEach { type ->
                 // 如果这个 sealed class 同时也是一个 HarmonyModule，那么我们跳过它，交给模块处理逻辑去生成 interface 和 namespace
-                val isModule = modules.any { it.className == type.simpleName }
+                val isModule = modules.any { it.className == type.simpleName && !it.isFileExtension }
                 if (isModule) return@forEach
 
                 val typeParams = if (type.typeParameters.isNotEmpty()) {
@@ -131,6 +131,9 @@ class TypeScriptGenerator(
             }
 
             serializableTypes.filter { !it.isSealed && it.qualifiedName !in allSealedSubclasses }.forEach { type ->
+                val isModule = modules.any { it.className == type.simpleName && !it.isFileExtension }
+                if (isModule) return@forEach
+
                 val typeParams = if (type.typeParameters.isNotEmpty()) {
                     "<${type.typeParameters.joinToString(", ")}>"
                 } else ""
@@ -165,7 +168,7 @@ class TypeScriptGenerator(
                     return@forEach
                 }
 
-                if (module.isInterface || module.isAbstract || module.isSealed || (!module.isObject && !module.isFileExtension)) {
+                if (module.isInterface || module.isAbstract || module.isSealed || module.isData || (!module.isObject && !module.isFileExtension)) {
                     val typeParams = if (module.typeParameters.isNotEmpty()) {
                         "<${module.typeParameters.joinToString(", ")}>"
                     } else ""
@@ -176,6 +179,11 @@ class TypeScriptGenerator(
                     
                     if (module.isAbstract) {
                         appendLine("export declare abstract class ${module.moduleName}$typeParams$extendsClause {")
+                    } else if (module.isData) {
+                        appendLine("export interface ${module.moduleName}$typeParams$extendsClause {")
+                        module.primaryConstructorParams.forEach { param ->
+                            appendLine("    ${param.name}: ${getTsType(param.type)};")
+                        }
                     } else if (!module.isObject && !module.isFileExtension && !module.isInterface && !module.isSealed) {
                         appendLine("export declare class ${module.moduleName}$typeParams$extendsClause {")
                         val constructorParams = module.primaryConstructorParams.joinToString(", ") { param ->
@@ -242,9 +250,9 @@ class TypeScriptGenerator(
             val typeDefinitions = mutableSetOf<String>()
 
             modules.forEach { module ->
-                if (module.isInterface || module.isSealed) {
+                if (module.isInterface || module.isSealed || module.isData) {
                     typeDefinitions.add(module.moduleName)
-                } else {
+                } else if (!module.isFileExtension) {
                     runtimeValues.add(module.moduleName)
                 }
             }
@@ -271,7 +279,7 @@ class TypeScriptGenerator(
             modules.filter { it.isSealed }.forEach { mod -> allSealedSubclasses.addAll(mod.sealedSubclasses.map { it.qualifiedName }) }
 
             allTypes.filter { it.isEnum || it.isSerializable }.forEach { type ->
-                val isModule = modules.any { it.className == type.simpleName }
+                val isModule = modules.any { m -> m.className == type.simpleName && !m.isFileExtension }
                 if (!isModule && type.qualifiedName !in allSealedSubclasses) {
                     typeDefinitions.add(type.simpleName)
                 }

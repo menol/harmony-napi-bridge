@@ -30,23 +30,32 @@ import com.itime.harmony.napi.runtime.utils.toNapiValueStringAnyMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringBooleanMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringDoubleMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringIntMap
+import com.itime.harmony.napi.runtime.utils.toNapiWrappedObject
 import com.itime.harmony.napi.runtime.utils.unwrapKotlinObject
 import com.itime.harmony.sample.DemoAbstract
 import kotlin.OptIn
+import kotlinx.cinterop.COpaquePointer
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.`get`
 import kotlinx.cinterop.`value`
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.allocArray
+import kotlinx.cinterop.asStableRef
 import kotlinx.cinterop.convert
 import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.refTo
+import kotlinx.cinterop.staticCFunction
 import napi.napi_callback_info
 import napi.napi_env
 import napi.napi_get_cb_info
+import napi.napi_get_value_external
+import napi.napi_typeof
 import napi.napi_value
 import napi.napi_valueVar
+import napi.napi_valuetype
+import napi.napi_wrap
 import platform.posix.size_tVar
 
 public fun DemoAbstract_process_wrapper(env: napi_env?, info: napi_callback_info?): napi_value? =
@@ -68,11 +77,55 @@ public fun DemoAbstract_process_wrapper(env: napi_env?, info: napi_callback_info
     null
 }
 
+public fun DemoAbstract_sayHello_wrapper(env: napi_env?, info: napi_callback_info?): napi_value? =
+    try {
+    memScoped {
+        val argc = alloc<size_tVar>()
+        argc.value = 0u
+        val argv = allocArray<napi_valueVar>(0)
+        val thisVar = alloc<napi_valueVar>()
+        napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)
+        val instance = thisVar.value!!.unwrapKotlinObject<DemoAbstract>(env!!)
+
+        val result = instance.sayHello()
+        result.toNapiValue(env!!)
+    }
+} catch (e: Throwable) {
+    napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
+    null
+}
+
+public fun DemoAbstract_finalize(
+  env: napi_env?,
+  `data`: COpaquePointer?,
+  hint: COpaquePointer?,
+) {
+  data?.asStableRef<Any>()?.dispose()
+}
+
 public fun DemoAbstract_constructor(env: napi_env?, info: napi_callback_info?): napi_value? = try {
     memScoped {
+        val argc = alloc<size_tVar>()
+        argc.value = 1u
+        val argv = allocArray<napi_valueVar>(1)
         val thisVar = alloc<napi_valueVar>()
-        napi_get_cb_info(env, info, null, null, thisVar.ptr, null)
-        thisVar.value
+        napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)
+
+        val typeVar = alloc<napi_valuetype.Var>()
+        if (argc.value > 0u) {
+            napi_typeof(env, argv[0], typeVar.ptr)
+        }
+
+        if (argc.value > 0u && typeVar.value == napi.napi_valuetype.napi_external) {
+            // Called from Kotlin toNapiWrappedObject
+            val externalPtr = alloc<kotlinx.cinterop.COpaquePointerVar>()
+            napi_get_value_external(env, argv[0], externalPtr.ptr)
+            napi_wrap(env, thisVar.value, externalPtr.value,
+    staticCFunction(::DemoAbstract_finalize), null, null)
+            return@memScoped thisVar.value
+        }
+
+        throw IllegalStateException("Cannot instantiate abstract class DemoAbstract from JS")
     }
 } catch (e: Throwable) {
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")

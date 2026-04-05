@@ -100,7 +100,11 @@ class HarmonyNapiProcessor(
             .filterIsInstance<KSClassDeclaration>()
             .toList()
 
-        if (moduleSymbols.isEmpty()) {
+        val extensionFileSymbols = resolver.getSymbolsWithAnnotation("com.itime.harmony.napi.annotations.HarmonyExtensions")
+            .filterIsInstance<KSFile>()
+            .toList()
+
+        if (moduleSymbols.isEmpty() && extensionFileSymbols.isEmpty()) {
             return emptyList()
         }
 
@@ -112,7 +116,7 @@ class HarmonyNapiProcessor(
             val exportFunctions = classDecl.getAllFunctions()
                 .filter { funcDecl ->
                     val isHarmonyExport = funcDecl.annotations.any { ann -> ann.shortName.asString() == "HarmonyExport" }
-                    val isAnyMethod = funcDecl.simpleName.asString() in listOf("equals", "hashCode", "toString", "<init>")
+                    val isAnyMethod = funcDecl.simpleName.asString() in listOf("equals", "hashCode", "toString", "<init>", "copy", "component1", "component2", "component3", "component4", "component5")
                     val isPublic = funcDecl.isPublic()
                     isHarmonyExport || (!isAnyMethod && isPublic)
                 }
@@ -136,7 +140,9 @@ class HarmonyNapiProcessor(
             val isInterface = classDecl.classKind == ClassKind.INTERFACE
             val isAbstract = classDecl.modifiers.contains(Modifier.ABSTRACT)
             val isSealed = classDecl.modifiers.contains(Modifier.SEALED)
+            val isData = classDecl.modifiers.contains(Modifier.DATA)
             val isObject = classDecl.classKind == ClassKind.OBJECT
+            val isClass = classDecl.classKind == ClassKind.CLASS && !isAbstract && !isSealed && !isData
             val typeParameters = classDecl.typeParameters.map { it.name.asString() }
 
             val primaryConstructorParams = classDecl.primaryConstructor?.parameters?.map { param ->
@@ -187,13 +193,74 @@ class HarmonyNapiProcessor(
                 isInterface = isInterface,
                 isAbstract = isAbstract,
                 isSealed = isSealed,
+                isData = isData,
                 isObject = isObject,
+                isClass = isClass,
                 primaryConstructorParams = primaryConstructorParams,
                 typeParameters = typeParameters,
                 sealedSubclasses = sealedSubclasses,
                 superTypes = superTypes
             )
+        }.toMutableList()
+
+        val extensionModules = extensionFileSymbols.map { fileDecl ->
+            val exportName = fileDecl.annotations
+                .first { it.shortName.asString() == "HarmonyExtensions" }
+                .arguments.first { it.name?.asString() == "exportName" }.value as String
+
+            val exportFunctions = fileDecl.declarations
+                .filterIsInstance<KSFunctionDeclaration>()
+                .filter { funcDecl ->
+                    val isHarmonyExport = funcDecl.annotations.any { ann -> ann.shortName.asString() == "HarmonyExport" }
+                    val isPublic = funcDecl.isPublic()
+                    isHarmonyExport || isPublic
+                }
+                .map { funcDecl ->
+                    val params = mutableListOf<HarmonyParameterModel>()
+                    // Add receiver as the first parameter
+                    funcDecl.extensionReceiver?.let { receiver ->
+                        params.add(
+                            HarmonyParameterModel(
+                                name = "receiver",
+                                type = resolveType(receiver)
+                            )
+                        )
+                    }
+                    // Add other parameters
+                    params.addAll(funcDecl.parameters.map { param ->
+                        HarmonyParameterModel(
+                            name = param.name?.asString() ?: "arg",
+                            type = resolveType(param.type)
+                        )
+                    })
+
+                    val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
+
+                    HarmonyExportModel(
+                        functionName = funcDecl.simpleName.asString(),
+                        parameters = params,
+                        returnType = returnType,
+                        isAbstract = false,
+                        isExtension = true
+                    )
+                }.toList()
+
+            HarmonyModuleModel(
+                className = exportName,
+                moduleName = exportName,
+                packageName = fileDecl.packageName.asString(),
+                classDeclaration = null,
+                containingFile = fileDecl,
+                exportFunctions = exportFunctions,
+                isInterface = false,
+                isAbstract = false,
+                isSealed = false,
+                isObject = false,
+                isFileExtension = true
+            )
         }
+        
+        modules.addAll(extensionModules)
 
         // 调用生成器
         val kotlinWrapperGenerator = KotlinWrapperGenerator(codeGenerator)

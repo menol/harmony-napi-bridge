@@ -1,9 +1,2 @@
-// 因为 C++ addon (libkhn.so) 本身并不包含 TS 类型，所以我们需要手动定义或依赖生成的 d.ts
-import { hello_world_plugin, DemoAbstract, TestAbstract } from 'libkhn.so'
-// 我们将所有的纯 TS 声明从 d.ts 里手动暴露出来给使用者
-import type { User, Role, TestInterface, DemoInterface, NetworkResult, BasePageState, PageState, TestSealed } from 'libkhn.so'
-
+export * from './src/main/ets/generated/GeneratedExports'
 export * from './src/main/ets/components/LogicKn'
-
-export { hello_world_plugin, DemoAbstract, TestAbstract }
-export type { User, Role, TestInterface, DemoInterface, NetworkResult, BasePageState, PageState, TestSealed }

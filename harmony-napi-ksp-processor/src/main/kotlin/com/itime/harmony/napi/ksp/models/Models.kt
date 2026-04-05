@@ -7,24 +7,28 @@ data class HarmonyModuleModel(
     val className: String,
     val moduleName: String,
     val packageName: String,
-    val classDeclaration: KSClassDeclaration,
+    val classDeclaration: KSClassDeclaration?,
     val containingFile: KSFile?,
     val exportFunctions: List<HarmonyExportModel>,
     val isInterface: Boolean = false,
     val isAbstract: Boolean = false,
     val isSealed: Boolean = false,
+    val isData: Boolean = false,
     val isObject: Boolean = false,
+    val isClass: Boolean = false,
     val primaryConstructorParams: List<HarmonyParameterModel> = emptyList(),
     val typeParameters: List<String> = emptyList(),
     val sealedSubclasses: List<HarmonyTypeModel> = emptyList(),
-    val superTypes: List<HarmonyTypeModel> = emptyList()
+    val superTypes: List<HarmonyTypeModel> = emptyList(),
+    val isFileExtension: Boolean = false
 )
 
 data class HarmonyExportModel(
     val functionName: String,
     val parameters: List<HarmonyParameterModel>,
     val returnType: HarmonyTypeModel,
-    val isAbstract: Boolean = false
+    val isAbstract: Boolean = false,
+    val isExtension: Boolean = false
 )
 
 data class HarmonyParameterModel(

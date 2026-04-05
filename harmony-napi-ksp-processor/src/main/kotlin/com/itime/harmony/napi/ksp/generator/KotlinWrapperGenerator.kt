@@ -14,7 +14,7 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
 
     fun generate(module: HarmonyModuleModel) {
         // 对于接口和密封类，不生成 NAPI Wrapper
-        if (module.isInterface || module.isSealed) return
+        if (module.isInterface || module.isSealed || module.isData) return
         val packageName = "com.itime.harmony.napi.generated"
         val fileName = "${module.className}_NapiWrapper"
 
@@ -22,7 +22,7 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
             .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "convert", "refTo", "get", "COpaquePointer", "asStableRef", "staticCFunction", "StableRef")
             .addImport("platform.posix", "size_tVar")
             .addImport("napi", "napi_env", "napi_callback_info", "napi_value", "napi_valueVar", "napi_get_cb_info", "napi_wrap", "napi_get_value_external", "napi_typeof", "napi_valuetype")
-            .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap", "unwrapKotlinObject")
+            .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap", "unwrapKotlinObject", "toNapiWrappedObject")
             .apply {
                 if (module.packageName.isNotEmpty() && !module.isFileExtension) {
                     addImport(module.packageName, module.className)
@@ -78,9 +78,13 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 if (!module.isObject && !func.isExtension) {
                     appendLine("        val result = instance.${func.functionName}(${args.joinToString(", ")})")
                 } else if (func.isExtension) {
-                    val receiverArg = args.first()
-                    val otherArgs = args.drop(1)
-                    appendLine("        val result = $receiverArg.${func.functionName}(${otherArgs.joinToString(", ")})")
+                    if (args.isNotEmpty() && params.first().name == "receiver") {
+                        val receiverArg = args.first()
+                        val otherArgs = args.drop(1)
+                        appendLine("        val result = $receiverArg.${func.functionName}(${otherArgs.joinToString(", ")})")
+                    } else {
+                        appendLine("        val result = ${func.functionName}(${args.joinToString(", ")})")
+                    }
                 } else {
                     appendLine("        val result = ${module.className}.${func.functionName}(${args.joinToString(", ")})")
                 }

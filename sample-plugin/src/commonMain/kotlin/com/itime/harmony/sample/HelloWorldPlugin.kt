@@ -1,3 +1,5 @@
+@file:HarmonyExtensions(exportName = "UserUtils")
+
 package com.itime.harmony.sample
 
 import com.itime.harmony.napi.annotations.HarmonyExport
@@ -5,7 +7,18 @@ import com.itime.harmony.napi.annotations.HarmonyModule
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
 
-@Serializable data class User(val name: String, val age: Int)
+import com.itime.harmony.napi.annotations.HarmonyExtensions
+
+@Serializable data class User(val name: String, val age: Int) {
+    fun getGreeting(): String {
+        return "Hi, I am $name, $age years old"
+    }
+}
+
+@HarmonyExport
+fun User.getFullName(): String {
+    return "${this.name} (${this.age})"
+}
 enum class Role { ADMIN, USER }
 
 @HarmonyModule(name = "BasePageState")
@@ -98,6 +111,19 @@ abstract class TestAbstract<T> {
  * 这是一个业务开发者的真实示例模块
  * 业务开发者只需要写这样的纯 Kotlin 代码
  */
+@HarmonyModule(name = "TestClass")
+class TestClass(private var value: Int) {
+    @HarmonyExport
+    fun fetchValue(): Int {
+        return value
+    }
+
+    @HarmonyExport
+    fun increment() {
+        value++
+    }
+}
+
 @HarmonyModule(name = "hello_world_plugin")
 object HelloWorldPlugin {
 
@@ -197,5 +223,10 @@ object HelloWorldPlugin {
             is Success -> Success(result.data + " processed")
             is Error -> Error(result.message + " processed")
         }
+    }
+
+    @HarmonyExport
+    fun getTestClass(): TestClass {
+        return TestClass(42)
     }
 }

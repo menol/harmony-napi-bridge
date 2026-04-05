@@ -12,7 +12,7 @@ import java.io.OutputStreamWriter
 class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
 
     fun generate(modules: List<HarmonyModuleModel>) {
-        val validModules = modules.filter { !it.isInterface && !it.isSealed }
+        val validModules = modules.filter { !it.isInterface && !it.isSealed && !it.isData }
         if (validModules.isEmpty()) return
 
         val packageName = "com.itime.harmony.napi.generated"

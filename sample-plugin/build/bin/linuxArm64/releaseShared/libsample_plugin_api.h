@@ -65,7 +65,13 @@ typedef struct {
 } libsample_plugin_kref_kotlin_ULong;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_User;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_BasePageState;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_BaseView;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract;
@@ -77,6 +83,9 @@ typedef struct {
 } libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_com_itime_harmony_sample_TestClass;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_kotlin_Any;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
@@ -86,10 +95,10 @@ typedef struct {
 } libsample_plugin_kref_com_itime_harmony_sample_NetworkResult;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_com_itime_harmony_sample_User;
+} libsample_plugin_kref_com_itime_harmony_sample_Role;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_com_itime_harmony_sample_Role;
+} libsample_plugin_kref_com_itime_harmony_sample_IndexView;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_PageState;
@@ -190,8 +199,11 @@ typedef struct {
             struct {
               struct {
                 void* (*DemoAbstract_constructor)(void* env, void* info);
+                void (*DemoAbstract_finalize)(void* env, void* data, void* hint);
                 void* (*DemoAbstract_process_wrapper)(void* env, void* info);
+                void* (*DemoAbstract_sayHello_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_add_wrapper)(void* env, void* info);
+                void* (*HelloWorldPlugin_getTestClass_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_greet_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processAnyMap_wrapper)(void* env, void* info);
                 void* (*HelloWorldPlugin_processAny_wrapper)(void* env, void* info);
@@ -207,14 +219,23 @@ typedef struct {
                 void* (*HelloWorldPlugin_processUser_wrapper)(void* env, void* info);
                 void* (*InitGeneratedWrappers_)(void* env, void* exports);
                 void* (*TestAbstract_constructor)(void* env, void* info);
+                void (*TestAbstract_finalize)(void* env, void* data, void* hint);
                 void* (*TestAbstract_process_wrapper)(void* env, void* info);
                 void* (*TestAbstract_sayHello_wrapper)(void* env, void* info);
+                void* (*TestClass_constructor)(void* env, void* info);
+                void (*TestClass_finalize)(void* env, void* data, void* hint);
+                void* (*TestClass_getValue_wrapper)(void* env, void* info);
+                void* (*TestClass_increment_wrapper)(void* env, void* info);
+                void* (*UserUtils_getFullName_wrapper)(void* env, void* info);
               } generated;
             } napi;
             struct {
               struct {
                 libsample_plugin_KType* (*_type)(void);
               } BasePageState;
+              struct {
+                libsample_plugin_KType* (*_type)(void);
+              } BaseView;
               struct {
                 libsample_plugin_KType* (*_type)(void);
                 libsample_plugin_kref_com_itime_harmony_sample_DemoAbstract (*DemoAbstract)();
@@ -225,6 +246,7 @@ typedef struct {
                 libsample_plugin_KType* (*_type)(void);
                 libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin (*_instance)();
                 libsample_plugin_KDouble (*add)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_KDouble a, libsample_plugin_KDouble b);
+                libsample_plugin_kref_com_itime_harmony_sample_TestClass (*getTestClass)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz);
                 const char* (*greet)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, const char* name);
                 libsample_plugin_kref_kotlin_Any (*processAny)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_Any value);
                 libsample_plugin_kref_kotlin_collections_Map (*processAnyMap)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_Map data);
@@ -239,6 +261,10 @@ typedef struct {
                 libsample_plugin_kref_kotlin_collections_Map (*processStringIntMap)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_kotlin_collections_Map data);
                 libsample_plugin_kref_com_itime_harmony_sample_User (*processUser)(libsample_plugin_kref_com_itime_harmony_sample_HelloWorldPlugin thiz, libsample_plugin_kref_com_itime_harmony_sample_User user, libsample_plugin_kref_com_itime_harmony_sample_Role role);
               } HelloWorldPlugin;
+              struct {
+                libsample_plugin_KType* (*_type)(void);
+                void (*showUser)(libsample_plugin_kref_com_itime_harmony_sample_IndexView thiz, const char* name);
+              } IndexView;
               struct {
                 struct {
                   libsample_plugin_KType* (*_type)(void);
@@ -307,6 +333,12 @@ typedef struct {
               } Role;
               struct {
                 libsample_plugin_KType* (*_type)(void);
+                libsample_plugin_kref_com_itime_harmony_sample_TestClass (*TestClass)(libsample_plugin_KInt value);
+                libsample_plugin_KInt (*getValue)(libsample_plugin_kref_com_itime_harmony_sample_TestClass thiz);
+                void (*increment)(libsample_plugin_kref_com_itime_harmony_sample_TestClass thiz);
+              } TestClass;
+              struct {
+                libsample_plugin_KType* (*_type)(void);
                 const char* (*sayHello)(libsample_plugin_kref_com_itime_harmony_sample_TestInterface thiz, const char* name);
               } TestInterface;
               struct {
@@ -331,9 +363,11 @@ typedef struct {
                 libsample_plugin_KInt (*component2)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
                 libsample_plugin_kref_com_itime_harmony_sample_User (*copy)(libsample_plugin_kref_com_itime_harmony_sample_User thiz, const char* name, libsample_plugin_KInt age);
                 libsample_plugin_KBoolean (*equals)(libsample_plugin_kref_com_itime_harmony_sample_User thiz, libsample_plugin_kref_kotlin_Any other);
+                const char* (*getGreeting)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
                 libsample_plugin_KInt (*hashCode)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
                 const char* (*toString)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
               } User;
+              const char* (*getFullName)(libsample_plugin_kref_com_itime_harmony_sample_User thiz);
             } sample;
           } harmony;
         } itime;

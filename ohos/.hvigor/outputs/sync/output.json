@@ -9,18 +9,18 @@
           "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/src/main/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/outputs/default",
-          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates",
-          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/loader_out/default",
-          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/loader_out_lite/default",
-          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/res/default",
-          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/res/default/resources/base/profile",
-          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/cache/default/default@CompileArkTS/esmodule",
-          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/cache/default/default@CompileJS/jsbundle",
-          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/loader/default/loader.json",
-          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/manifest/default",
-          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
-          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/source_map/default"
+          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/source_map/default"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -32,18 +32,18 @@
           "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/src/ohosTest/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/outputs/ohosTest",
-          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates",
-          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/loader_out/ohosTest",
-          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/loader_out_lite/ohosTest",
-          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/res/ohosTest",
-          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/res/ohosTest/resources/base/profile",
-          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
-          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
-          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/loader/ohosTest/loader.json",
-          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/manifest/ohosTest",
-          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
-          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/build/default/intermediates/source_map/ohosTest"
+          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/outputs/ohosTest",
+          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/loader_out/ohosTest",
+          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/loader_out_lite/ohosTest",
+          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/res/ohosTest",
+          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/res/ohosTest/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/loader/ohosTest/loader.json",
+          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/manifest/ohosTest",
+          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry/.test/default/intermediates/source_map/ohosTest"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -57,7 +57,8 @@
         "nativeCompiler": "BiSheng",
         "strictMode": {
           "caseSensitiveCheck": true,
-          "useNormalizedOHMUrl": true
+          "useNormalizedOHMUrl": true,
+          "noExternalImportByPath": true
         },
         "resOptions": {
           "copyCodeResource": {
@@ -124,18 +125,18 @@
           "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/main/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/default",
-          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates",
-          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/default",
-          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out_lite/default",
-          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default",
-          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/default/resources/base/profile",
-          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@HarCompileArkTS/esmodule",
-          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/default/default@HarCompileJS/jsbundle",
-          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/default/loader.json",
-          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/manifest/default",
-          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/hap_metadata/default/output_metadata.json",
-          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/source_map/default"
+          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/cache/default/default@HarCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/cache/default/default@HarCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/source_map/default"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -147,18 +148,18 @@
           "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/src/ohosTest/resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/outputs/ohosTest",
-          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates",
-          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out/ohosTest",
-          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader_out_lite/ohosTest",
-          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/ohosTest",
-          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/res/ohosTest/resources/base/profile",
-          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
-          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
-          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/loader/ohosTest/loader.json",
-          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/manifest/ohosTest",
-          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
-          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/build/default/intermediates/source_map/ohosTest"
+          "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/outputs/ohosTest",
+          "INTERMEDIA_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/loader_out/ohosTest",
+          "JS_LITE_ASSETS_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/loader_out_lite/ohosTest",
+          "RES_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/res/ohosTest",
+          "RES_PROFILE_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/res/ohosTest/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/loader/ohosTest/loader.json",
+          "MANIFEST_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/manifest/ohosTest",
+          "OUTPUT_METADATA_JSON": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn/.test/default/intermediates/source_map/ohosTest"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -172,7 +173,8 @@
         "nativeCompiler": "BiSheng",
         "strictMode": {
           "caseSensitiveCheck": true,
-          "useNormalizedOHMUrl": true
+          "useNormalizedOHMUrl": true,
+          "noExternalImportByPath": true
         },
         "externalNativeOptions": {
           "path": "./src/main/cpp/CMakeLists.txt",
@@ -240,90 +242,6 @@
         }
       ]
     },
-    "BUILD_CACHE_DIR": ""
-  },
-  "ohos-project": {
-    "SELECT_PRODUCT_NAME": "default",
-    "MODULE_BUILD_DIR": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build",
-    "BUNDLE_NAME": "com.wistom.myapplication",
-    "BUILD_PATH": {
-      "OUTPUT_PATH": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/build/outputs/default"
-    },
-    "MODULES": [
-      {
-        "name": "entry",
-        "srcPath": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/entry",
-        "targets": [
-          {
-            "name": "default",
-            "applyToProducts": [
-              "default"
-            ]
-          }
-        ],
-        "belongProjectPath": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos"
-      },
-      {
-        "name": "khn",
-        "srcPath": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos/khn",
-        "belongProjectPath": "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos"
-      }
-    ],
-    "PROFILE_OPT": {
-      "app": {
-        "signingConfigs": [],
-        "products": [
-          {
-            "name": "default",
-            "signingConfig": "default",
-            "targetSdkVersion": "6.0.1(21)",
-            "compatibleSdkVersion": "6.0.1(21)",
-            "runtimeOS": "HarmonyOS",
-            "buildOption": {
-              "nativeCompiler": "BiSheng",
-              "strictMode": {
-                "caseSensitiveCheck": true,
-                "useNormalizedOHMUrl": true
-              }
-            }
-          }
-        ],
-        "buildModeSet": [
-          {
-            "name": "debug"
-          },
-          {
-            "name": "release"
-          }
-        ]
-      },
-      "modules": [
-        {
-          "name": "entry",
-          "srcPath": "./entry",
-          "targets": [
-            {
-              "name": "default",
-              "applyToProducts": [
-                "default"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "khn",
-          "srcPath": "./khn"
-        }
-      ]
-    },
-    "CONFIG_PROPERTIES": {
-      "enableSignTask": true,
-      "skipNativeIncremental": false,
-      "hvigor.keepDependency": true
-    },
-    "OVERALL_PROJECT_PATHS": [
-      "/Users/api/Desktop/itime-rust/harmony-napi-bridge/ohos"
-    ],
     "BUILD_CACHE_DIR": ""
   },
   "version": 1

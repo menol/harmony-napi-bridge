@@ -19,6 +19,11 @@ export interface User {
 
 export interface BasePageState {
 }
+export interface BaseView {
+}
+export interface IndexView extends BaseView {
+    showUser(name: string): void;
+}
 export interface PageState extends BasePageState {
 }
 export namespace PageState {
@@ -46,10 +51,16 @@ export interface DemoInterface<T> {
 }
 export declare abstract class DemoAbstract {
     abstract process(item: Array<string>): Array<string>;
+    sayHello(): string;
 }
 export declare abstract class TestAbstract<T> {
     abstract process(item: T): T;
     sayHello(): string;
+}
+export declare class TestClass {
+    constructor(value: number);
+    getValue(): number;
+    increment(): void;
 }
 export declare namespace hello_world_plugin {
     function add(a: number, b: number): number;
@@ -66,4 +77,8 @@ export declare namespace hello_world_plugin {
     function processStringBooleanMap(data: Record<string, boolean>): Record<string, boolean>;
     function processUser(user: User, role: Role): User;
     function processResult(result: NetworkResult<string>): NetworkResult<string>;
+    function getTestClass(): TestClass;
+}
+export declare namespace UserUtils {
+    function getFullName(receiver: User): string;
 }
