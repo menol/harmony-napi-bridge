@@ -46,9 +46,12 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 appendLine("        val argv = allocArray<napi_valueVar>($paramCount)")
                 
                 if (module.isAbstract) {
+                    val typeArgs = if (module.typeParameters.isNotEmpty()) {
+                        "<${module.typeParameters.joinToString(", ") { "Any?" }}>"
+                    } else ""
                     appendLine("        val thisVar = alloc<napi_valueVar>()")
                     appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)")
-                    appendLine("        val instance = thisVar.value!!.unwrapKotlinObject<${module.className}>(env!!)")
+                    appendLine("        val instance = thisVar.value!!.unwrapKotlinObject<${module.className}$typeArgs>(env!!)")
                 } else {
                     appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, null, null)")
                 }

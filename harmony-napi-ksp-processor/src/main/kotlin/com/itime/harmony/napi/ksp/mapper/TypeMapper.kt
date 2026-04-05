@@ -17,7 +17,7 @@ object TypeMapper {
      * 将 Kotlin 类型转换为从 JS 取值 (napi_value) 到 Kotlin 的扩展方法名
      */
     fun getNapiToKotlinMethod(typeModel: HarmonyTypeModel): String {
-        if (typeModel.isAbstract) return "unwrapKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
+        if (typeModel.isTypeParameter) return "toKotlinAny(env!!)"
         if (typeModel.isSealed || typeModel.isSerializable) return "toKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
         if (typeModel.isEnum) return "toKotlinEnum<${getKotlinTypeString(typeModel)}>(env!!)"
         return when (typeModel.simpleName) {
@@ -35,7 +35,10 @@ object TypeMapper {
                 val valueType = typeModel.arguments.getOrNull(1)?.simpleName ?: "Any"
                 "toKotlin${keyType}${valueType}Map(env!!)"
             }
-            else -> throw IllegalArgumentException("Unsupported type ${typeModel.simpleName} in KSP mapper")
+            else -> {
+                if (typeModel.isAbstract) "unwrapKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
+                else throw IllegalArgumentException("Unsupported type ${typeModel.simpleName} in KSP mapper")
+            }
         }
     }
 
@@ -43,7 +46,7 @@ object TypeMapper {
      * 将 Kotlin 类型转换为从 Kotlin 到 JS (napi_value) 的转换扩展名
      */
     fun getKotlinToNapiMethod(typeModel: HarmonyTypeModel): String {
-        if (typeModel.isAbstract) return "toNapiWrappedObject(env!!, \"${typeModel.simpleName}\")"
+        if (typeModel.isTypeParameter) return "toNapiValue(env!!)"
         if (typeModel.isSealed || typeModel.isSerializable) return "toNapiObject(env!!)"
         if (typeModel.isEnum) return "toNapiString(env!!)"
         return when (typeModel.simpleName) {
@@ -61,7 +64,10 @@ object TypeMapper {
                 "toNapiValue${keyType}${valueType}Map(env!!)"
             }
             "Unit" -> ""
-            else -> throw IllegalArgumentException("Unsupported type ${typeModel.simpleName} in KSP mapper")
+            else -> {
+                if (typeModel.isAbstract) "toNapiWrappedObject(env!!, \"${typeModel.simpleName}\")"
+                else throw IllegalArgumentException("Unsupported type ${typeModel.simpleName} in KSP mapper")
+            }
         }
     }
 

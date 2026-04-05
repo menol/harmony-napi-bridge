@@ -30,6 +30,7 @@ import com.itime.harmony.napi.runtime.utils.toNapiValueStringAnyMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringBooleanMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringDoubleMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringIntMap
+import com.itime.harmony.napi.runtime.utils.unwrapKotlinObject
 import com.itime.harmony.sample.HelloWorldPlugin
 import kotlin.OptIn
 import kotlinx.cinterop.ExperimentalForeignApi
