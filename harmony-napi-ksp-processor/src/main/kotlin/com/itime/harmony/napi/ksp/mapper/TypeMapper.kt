@@ -17,7 +17,7 @@ object TypeMapper {
      * 将 Kotlin 类型转换为从 JS 取值 (napi_value) 到 Kotlin 的扩展方法名
      */
     fun getNapiToKotlinMethod(typeModel: HarmonyTypeModel): String {
-        if (typeModel.isSerializable) return "toKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
+        if (typeModel.isSealed || typeModel.isSerializable) return "toKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
         if (typeModel.isEnum) return "toKotlinEnum<${getKotlinTypeString(typeModel)}>(env!!)"
         return when (typeModel.simpleName) {
             "Double" -> "toKotlinDouble(env!!)"
@@ -42,7 +42,7 @@ object TypeMapper {
      * 将 Kotlin 类型转换为从 Kotlin 到 JS (napi_value) 的转换扩展名
      */
     fun getKotlinToNapiMethod(typeModel: HarmonyTypeModel): String {
-        if (typeModel.isSerializable) return "toNapiObject(env!!)"
+        if (typeModel.isSealed || typeModel.isSerializable) return "toNapiObject(env!!)"
         if (typeModel.isEnum) return "toNapiString(env!!)"
         return when (typeModel.simpleName) {
             "Double", "Int", "String", "Boolean" -> "toNapiValue(env!!)"
