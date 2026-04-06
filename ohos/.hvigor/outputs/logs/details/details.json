@@ -11,7 +11,6 @@
       {
         "MODULE_NAME": "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b",
         "API_TYPE": "stageMode",
-        "IS_BYTE_CODE_HAR": true,
         "INCREMENTAL_TASKS": {
           "BUILD_NATIVE_WITH_CMAKE": true
         }
@@ -27,32 +26,28 @@
     "IS_PARALLEL": true,
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
-      "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "PreBuild": 129199917,
-        "ConfigureCmake": 1604667,
-        "BuildNativeWithCmake": 10458375,
-        "BuildNativeWithNinja": 345415958
-      },
       "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
-        "CreateModuleInfo": 686916,
-        "PreCheckSyscap": 931500,
-        "ProcessIntegratedHsp": 984000,
-        "SyscapTransform": 6408958,
-        "ConfigureCmake": 95208,
-        "BuildNativeWithCmake": 216125,
-        "ProcessStartupConfig": 1573375,
-        "BuildJS": 1073875,
-        "BuildNativeWithNinja": 200834,
-        "ProcessLibs": 17642041,
-        "DoNativeStrip": 43112917,
-        "CacheNativeLibs": 2054834,
-        "CompileArkTS": 2337453083,
-        "ProcessCompiledResources": 215583,
-        "PackageHap": 41982750,
-        "PackingCheck": 2002709,
-        "SignHap": 844250,
-        "CollectDebugSymbol": 312167,
-        "assembleHap": 74333
+        "CreateModuleInfo": 155916,
+        "PreCheckSyscap": 80250,
+        "ProcessIntegratedHsp": 272709,
+        "SyscapTransform": 634791,
+        "ConfigureCmake": 85042,
+        "BuildNativeWithCmake": 73917,
+        "ProcessStartupConfig": 289792,
+        "BuildJS": 425750,
+        "BuildNativeWithNinja": 133625,
+        "CompileArkTS": 306025292,
+        "ProcessCompiledResources": 202875,
+        "PackageHap": 45593000,
+        "PackingCheck": 1352625,
+        "SignHap": 480250,
+        "CollectDebugSymbol": 217917,
+        "assembleHap": 75958
+      },
+      "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
+        "ConfigureCmake": 12478666,
+        "BuildNativeWithCmake": 2936833,
+        "BuildNativeWithNinja": 20521125
       }
     },
     "APIS": [
@@ -63,8 +58,6 @@
       "getAllNodes",
       "getRootNode",
       "getNodeName",
-      "getStartParams",
-      "buildFinished",
       "getNodePath",
       "subNodes",
       "getExtraOption",
@@ -75,10 +68,11 @@
       "getParameter",
       "getProductName",
       "nodesEvaluated",
-      "getCommandEntryTask"
+      "getCommandEntryTask",
+      "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202604061553512540",
-    "TOTAL_TIME": 3487985125
+    "TOTAL_TIME": 476118584,
+    "BUILD_ID": "202604061613566010"
   }
 }

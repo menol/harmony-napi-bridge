@@ -125,3 +125,14 @@ Plans:
 - [x] 13: Update Domain Models and `NapiUtils.kt` to handle normal classes and `napi_external` pointers
 - [x] 13: Update KSP generators (InitEntry, KotlinWrapper, TypeScript) for normal class lifecycle
 - [x] 13: Implement end-to-end testing for normal classes in HelloWorldPlugin
+
+## Backlog
+
+### Phase 999.1: 方案三：终极形态 —— 在 KSP 层自动生成 ArkUI V2 包装类 (探索方向) (BACKLOG)
+
+**Goal:** 探索基于 KSP 在编译期自动生成 ArkUI V2 包装类，彻底消除调用鸿蒙系统底层 UI 的胶水代码。
+**Requirements:** TBD
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (promote with /gsd-review-backlog when ready)

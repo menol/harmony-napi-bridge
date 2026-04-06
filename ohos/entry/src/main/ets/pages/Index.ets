@@ -1,9 +1,9 @@
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import { UIUtils } from '@kit.ArkUI';
 import { Core, Hypium } from '@ohos/hypium';
 import hidebug from '@ohos.hidebug';
 import faultLogger from '@ohos.faultLogger';
 import khnTests from '../test/KhnTest';
+import { observeKmp, patchObserved } from '../utils/KmpObserved';
 import { DemoAbstract, IndexPresenter, IndexView, Student } from 'khn';
 import type { DemoInterface, TestInterface, User } from 'khn';
 
@@ -57,21 +57,19 @@ class IndexViewModel implements IndexView {
 
   showStudent(student: Student<string>): void {
     console.log(`[JS Callback] showStudent called with: ${JSON.stringify(student)}`)
-    this.student = student
+    patchObserved(this.student, student)
   }
 
   private present: IndexPresenter = new IndexPresenter()
-  @Trace user: User = UIUtils.makeObserved({
-    name: 'World',
-    age: 30
-  })
+  @Trace user: User = observeKmp({
 
-  @Trace student: Student<string> = UIUtils.makeObserved({
+  } as User)
+
+  @Trace student: Student<string> = observeKmp({
     name: 'World',
     age: 42,
     data: '123123123'
-
-  })
+  } as Student<string>)
 
   @Trace userName: string = 'World'
 
