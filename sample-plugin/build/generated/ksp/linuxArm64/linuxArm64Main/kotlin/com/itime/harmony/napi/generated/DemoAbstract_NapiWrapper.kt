@@ -2,6 +2,7 @@
 
 package com.itime.harmony.napi.generated
 
+import com.itime.harmony.napi.runtime.utils.launchNapiCoroutine
 import com.itime.harmony.napi.runtime.utils.toKotlinAny
 import com.itime.harmony.napi.runtime.utils.toKotlinAnyList
 import com.itime.harmony.napi.runtime.utils.toKotlinBoolean
@@ -50,6 +51,7 @@ import kotlinx.cinterop.staticCFunction
 import napi.napi_callback_info
 import napi.napi_env
 import napi.napi_get_cb_info
+import napi.napi_get_null
 import napi.napi_get_value_external
 import napi.napi_typeof
 import napi.napi_value
@@ -73,6 +75,8 @@ public fun DemoAbstract_process_wrapper(env: napi_env?, info: napi_callback_info
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in DemoAbstract_process_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -91,6 +95,8 @@ public fun DemoAbstract_sayHello_wrapper(env: napi_env?, info: napi_callback_inf
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in DemoAbstract_sayHello_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -125,7 +131,11 @@ public fun DemoAbstract_constructor(env: napi_env?, info: napi_callback_info?): 
             return@memScoped thisVar.value
         }
 
-        throw IllegalStateException("Cannot instantiate abstract class DemoAbstract from JS")
+        // For abstract classes instantiated from JS via inheritance,
+        // we don't have the Kotlin instance yet.
+        // We just return thisVar.value to let JS prototype chain initialize.
+        // The actual Kotlin method overrides must be manually registered if called.
+        return@memScoped thisVar.value
     }
 } catch (e: Throwable) {
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")

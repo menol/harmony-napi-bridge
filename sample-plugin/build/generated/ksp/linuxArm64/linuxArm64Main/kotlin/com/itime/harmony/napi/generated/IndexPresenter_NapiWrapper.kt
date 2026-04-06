@@ -2,6 +2,7 @@
 
 package com.itime.harmony.napi.generated
 
+import com.itime.harmony.napi.runtime.utils.launchNapiCoroutine
 import com.itime.harmony.napi.runtime.utils.toKotlinAny
 import com.itime.harmony.napi.runtime.utils.toKotlinAnyList
 import com.itime.harmony.napi.runtime.utils.toKotlinBoolean
@@ -50,6 +51,7 @@ import kotlinx.cinterop.staticCFunction
 import napi.napi_callback_info
 import napi.napi_env
 import napi.napi_get_cb_info
+import napi.napi_get_null
 import napi.napi_get_value_external
 import napi.napi_typeof
 import napi.napi_value
@@ -68,11 +70,13 @@ public fun IndexPresenter_attach_wrapper(env: napi_env?, info: napi_callback_inf
         napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)
         val instance = thisVar.value!!.unwrapKotlinObject<IndexPresenter>(env!!)
 
-        val arg0 = argv[0]!!.unwrapKotlinObject<com.itime.harmony.sample.IndexView>(env!!)
+        val arg0 = argv[0]!!.let { com.itime.harmony.napi.generated.IndexView_NapiProxy(env!!, it) }
         val result = instance.attach(arg0)
         null
     }
 } catch (e: Throwable) {
+    println("Error in IndexPresenter_attach_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -92,6 +96,32 @@ public fun IndexPresenter_showUser_wrapper(env: napi_env?, info: napi_callback_i
         null
     }
 } catch (e: Throwable) {
+    println("Error in IndexPresenter_showUser_wrapper: ${e.message}")
+    e.printStackTrace()
+    napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
+    null
+}
+
+public fun IndexPresenter_showStudent_wrapper(env: napi_env?, info: napi_callback_info?):
+    napi_value? = try {
+    memScoped {
+        val argc = alloc<size_tVar>()
+        argc.value = 1u
+        val argv = allocArray<napi_valueVar>(1)
+        val thisVar = alloc<napi_valueVar>()
+        napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)
+        val instance = thisVar.value!!.unwrapKotlinObject<IndexPresenter>(env!!)
+
+        val arg0 = argv[0]!!.toKotlinObject<com.itime.harmony.sample.Student<kotlin.String>>(env!!)
+        launchNapiCoroutine(env!!) {
+            val result = instance.showStudent(arg0)
+            return@launchNapiCoroutine { cbEnv -> memScoped { val nullVal = alloc<napi_valueVar>();
+    napi_get_null(cbEnv, nullVal.ptr); nullVal.value!! } }
+        }
+    }
+} catch (e: Throwable) {
+    println("Error in IndexPresenter_showStudent_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -110,6 +140,8 @@ public fun IndexPresenter_detach_wrapper(env: napi_env?, info: napi_callback_inf
         null
     }
 } catch (e: Throwable) {
+    println("Error in IndexPresenter_detach_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -150,7 +182,7 @@ public fun IndexPresenter_constructor(env: napi_env?, info: napi_callback_info?)
         val stableRef = StableRef.create(instance)
         napi_wrap(env, thisVar.value, stableRef.asCPointer(),
     staticCFunction(::IndexPresenter_finalize), null, null)
-        thisVar.value
+        return@memScoped thisVar.value
     }
 } catch (e: Throwable) {
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")

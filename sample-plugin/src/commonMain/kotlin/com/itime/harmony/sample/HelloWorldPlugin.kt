@@ -4,12 +4,14 @@ package com.itime.harmony.sample
 
 import com.itime.harmony.napi.annotations.HarmonyExport
 import com.itime.harmony.napi.annotations.HarmonyModule
+import kotlinx.coroutines.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
 
 import com.itime.harmony.napi.annotations.HarmonyExtensions
 
-@Serializable data class User(val name: String, val age: Int) {
+@Serializable
+data class User(val name: String, val age: Int) {
     @HarmonyExport
     fun getGreeting(): String {
         return "Hi, I am $name, $age years old"
@@ -20,6 +22,9 @@ import com.itime.harmony.napi.annotations.HarmonyExtensions
         return "Hi $to, I am $name"
     }
 }
+
+@Serializable
+data class Student<T>(val name: String, val age: Int,val data: T)
 
 @HarmonyExport
 fun User.getFullName(): String {
@@ -43,6 +48,9 @@ interface IndexView: BaseView {
     @HarmonyExport
     fun showUser(name: String)
 
+    @HarmonyExport
+    fun showStudent(student: Student<String>)
+
 }
 
 
@@ -57,6 +65,30 @@ class IndexPresenter {
 
     fun showUser(user: User) {
         view?.showUser(user.getFullName())
+    }
+
+    suspend fun showStudent(student: Student<String>) {
+        // 测试复杂协程调度：多次在不同线程池间切换，并在不同时机调用 JS 回调
+        
+        // 1. 刚进来时还在主线程，先通过回调通知 UI 开始加载
+        view?.showUser("Starting process for ${student.name}...")
+        
+        // 2. 切到后台线程模拟网络请求或繁重计算
+        val result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+            kotlinx.coroutines.delay(500) // 模拟耗时 0.5s
+            
+            // 3. 在后台线程中直接回调 JS！(验证我们刚才写的 NapiDispatcher 和 MainThreadRunner 是否真的生效)
+            view?.showUser("Still computing in background...")
+            
+            kotlinx.coroutines.delay(500) // 继续模拟耗时 0.5s
+            
+            // 返回处理结果
+            student.copy(name = student.name.uppercase(), age = student.age + 1)
+        }
+        
+        // 4. withContext 结束，协程回到了主线程，最后一次调用 JS 回调
+        view?.showStudent(result)
+        view?.showUser("Process finished!")
     }
 
     fun detach() {
@@ -83,15 +115,15 @@ sealed class PageState : BasePageState {
 }
 
 @Serializable
-sealed class NetworkResult<T>
+sealed class NetworkResult
 
 @Serializable
 @SerialName("Success")
-data class Success<T>(val data: T) : NetworkResult<T>()
+data class Success(val data: String) : NetworkResult()
 
 @Serializable
 @SerialName("Error")
-data class Error<T>(val message: String) : NetworkResult<T>()
+data class Error(val message: String) : NetworkResult()
 
 @HarmonyModule(name = "TestSealed")
 sealed class TestSealed<T> {
@@ -243,10 +275,31 @@ object HelloWorldPlugin {
     }
 
     @HarmonyExport
-    fun processResult(result: NetworkResult<String>): NetworkResult<String> {
+    fun processResult(result: NetworkResult): NetworkResult {
         return when (result) {
             is Success -> Success(result.data + " processed")
             is Error -> Error(result.message + " processed")
+        }
+    }
+
+    @HarmonyExport
+    suspend fun fetchDataAsync(id: String): String {
+        delay(500)
+        return "Data for $id"
+    }
+
+    @HarmonyExport
+    suspend fun executeMultipleTasksAsync(count: Int, delayMs: Int): List<String> {
+        // 使用 coroutineScope 并发执行多个耗时任务
+        return coroutineScope {
+            val deferreds = (1..count).map { i ->
+                async(Dispatchers.Default) {
+                    delay(delayMs.toLong())
+                    "Task $i completed"
+                }
+            }
+            // 等待所有任务完成，由于是并行执行，总耗时应接近单次 delayMs
+            deferreds.awaitAll()
         }
     }
 

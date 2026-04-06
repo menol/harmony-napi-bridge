@@ -76,8 +76,8 @@ kotlin {
         }
         val linuxArm64Main by getting {
             dependencies {
-                // 这里将来可以引入 Kotlinx Coroutines 供 NAPI 协程桥接使用
-                // implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+                // 引入 Kotlinx Coroutines 供 NAPI 协程桥接使用
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
             }
         }
     }

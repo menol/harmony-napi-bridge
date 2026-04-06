@@ -2,6 +2,7 @@
 
 package com.itime.harmony.napi.generated
 
+import com.itime.harmony.napi.runtime.utils.launchNapiCoroutine
 import com.itime.harmony.napi.runtime.utils.toKotlinAny
 import com.itime.harmony.napi.runtime.utils.toKotlinAnyList
 import com.itime.harmony.napi.runtime.utils.toKotlinBoolean
@@ -50,6 +51,7 @@ import kotlinx.cinterop.staticCFunction
 import napi.napi_callback_info
 import napi.napi_env
 import napi.napi_get_cb_info
+import napi.napi_get_null
 import napi.napi_get_value_external
 import napi.napi_typeof
 import napi.napi_value
@@ -72,6 +74,8 @@ public fun TestClass_fetchValue_wrapper(env: napi_env?, info: napi_callback_info
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in TestClass_fetchValue_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -90,6 +94,8 @@ public fun TestClass_increment_wrapper(env: napi_env?, info: napi_callback_info?
         null
     }
 } catch (e: Throwable) {
+    println("Error in TestClass_increment_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -130,7 +136,7 @@ public fun TestClass_constructor(env: napi_env?, info: napi_callback_info?): nap
         val stableRef = StableRef.create(instance)
         napi_wrap(env, thisVar.value, stableRef.asCPointer(), staticCFunction(::TestClass_finalize),
     null, null)
-        thisVar.value
+        return@memScoped thisVar.value
     }
 } catch (e: Throwable) {
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")

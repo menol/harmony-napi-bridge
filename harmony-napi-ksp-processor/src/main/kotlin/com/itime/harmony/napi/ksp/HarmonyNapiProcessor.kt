@@ -33,6 +33,7 @@ class HarmonyNapiProcessor(
         val isSerializable = resolved.declaration.annotations.any { it.shortName.asString() == "Serializable" }
         val isEnum = (resolved.declaration as? KSClassDeclaration)?.classKind == ClassKind.ENUM_CLASS
         val isTypeParameter = resolved.declaration is KSTypeParameter
+        val isInterface = (resolved.declaration as? KSClassDeclaration)?.classKind == ClassKind.INTERFACE
         val isSealed = (resolved.declaration as? KSClassDeclaration)?.modifiers?.contains(Modifier.SEALED) == true
         val isAbstract = (resolved.declaration as? KSClassDeclaration)?.modifiers?.contains(Modifier.ABSTRACT) == true
         val serialName = resolved.declaration.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
@@ -84,6 +85,7 @@ class HarmonyNapiProcessor(
             properties = properties,
             enumValues = enumValues,
             isTypeParameter = isTypeParameter,
+            isInterface = isInterface,
             isSealed = isSealed,
             isAbstract = isAbstract,
             sealedSubclasses = sealedSubclasses,
@@ -130,12 +132,14 @@ class HarmonyNapiProcessor(
                         )
                     }
                     val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
+                    val isSuspend = funcDecl.modifiers.contains(com.google.devtools.ksp.symbol.Modifier.SUSPEND)
                     HarmonyExportModel(
                         functionName = funcDecl.simpleName.asString(),
                         parameters = params,
                         returnType = returnType,
                         isAbstract = funcDecl.isAbstract,
-                        isExtension = false
+                        isExtension = false,
+                        isSuspend = isSuspend
                     )
                 }.toList()
 
@@ -178,12 +182,14 @@ class HarmonyNapiProcessor(
                         })
                         
                         val returnType = func.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
+                        val isSuspend = func.modifiers.contains(com.google.devtools.ksp.symbol.Modifier.SUSPEND)
                         HarmonyExportModel(
                             functionName = func.simpleName.asString(),
                             parameters = params,
                             returnType = returnType,
                             isAbstract = false,
-                            isExtension = true
+                            isExtension = true,
+                            isSuspend = isSuspend
                         )
                     }
                     
@@ -306,13 +312,15 @@ class HarmonyNapiProcessor(
                     })
 
                     val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
+                    val isSuspend = funcDecl.modifiers.contains(com.google.devtools.ksp.symbol.Modifier.SUSPEND)
 
                     HarmonyExportModel(
                         functionName = funcDecl.simpleName.asString(),
                         parameters = params,
                         returnType = returnType,
                         isAbstract = false,
-                        isExtension = true
+                        isExtension = true,
+                        isSuspend = isSuspend
                     )
                 }.toList()
 

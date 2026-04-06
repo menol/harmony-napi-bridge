@@ -5,7 +5,7 @@ plugins {
 }
 
 kotlin {
-    // 设置编译目标为鸿蒙的 linuxArm64
+    // 鸿蒙设备使用 linuxArm64 架构
     linuxArm64 {
         binaries.sharedLib {
             baseName = "sample_plugin" // 最终产出 libsample_plugin.so
@@ -27,11 +27,20 @@ kotlin {
             dependencies {
                 implementation(project(":harmony-napi-annotations"))
                 implementation(libs.kotlinx.serialization.json)
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+                implementation(libs.koin.core)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
             }
         }
         val linuxArm64Main by getting {
             dependencies {
                 implementation(project(":harmony-napi-runtime"))
+            }
+        }
+        val jvmMain by getting {
+            dependencies {
             }
         }
     }

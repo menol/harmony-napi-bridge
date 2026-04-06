@@ -28,7 +28,8 @@ data class HarmonyExportModel(
     val parameters: List<HarmonyParameterModel>,
     val returnType: HarmonyTypeModel,
     val isAbstract: Boolean = false,
-    val isExtension: Boolean = false
+    val isExtension: Boolean = false,
+    val isSuspend: Boolean = false
 )
 
 data class HarmonyParameterModel(
@@ -48,6 +49,7 @@ data class HarmonyTypeModel(
     val properties: List<HarmonyPropertyModel> = emptyList(),
     val enumValues: List<String> = emptyList(),
     val isTypeParameter: Boolean = false,
+    val isInterface: Boolean = false,
     val isSealed: Boolean = false,
     val isAbstract: Boolean = false,
     val sealedSubclasses: List<HarmonyTypeModel> = emptyList(),

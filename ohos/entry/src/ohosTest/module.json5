@@ -6,6 +6,11 @@
       "phone"
     ],
     "deliveryWithInstall": true,
-    "installationFree": false
+    "installationFree": false,
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ]
   }
 }

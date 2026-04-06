@@ -4,7 +4,7 @@ import com.itime.harmony.napi.ksp.models.HarmonyTypeModel
 
 object TypeMapper {
 
-    private fun getKotlinTypeString(typeModel: HarmonyTypeModel): String {
+    fun getKotlinTypeString(typeModel: HarmonyTypeModel): String {
         if (typeModel.isTypeParameter) return typeModel.simpleName
         val typeArgs = if (typeModel.arguments.isNotEmpty()) {
             "<${typeModel.arguments.joinToString(", ") { getKotlinTypeString(it) }}>"
@@ -36,7 +36,11 @@ object TypeMapper {
                 "toKotlin${keyType}${valueType}Map(env!!)"
             }
             else -> {
-                "unwrapKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
+                if (typeModel.isInterface) {
+                    "let { com.itime.harmony.napi.generated.${typeModel.simpleName}_NapiProxy(env!!, it) }"
+                } else {
+                    "unwrapKotlinObject<${getKotlinTypeString(typeModel)}>(env!!)"
+                }
             }
         }
     }

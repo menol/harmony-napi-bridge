@@ -2,6 +2,7 @@
 
 package com.itime.harmony.napi.generated
 
+import com.itime.harmony.napi.runtime.utils.launchNapiCoroutine
 import com.itime.harmony.napi.runtime.utils.toKotlinAny
 import com.itime.harmony.napi.runtime.utils.toKotlinAnyList
 import com.itime.harmony.napi.runtime.utils.toKotlinBoolean
@@ -50,6 +51,7 @@ import kotlinx.cinterop.staticCFunction
 import napi.napi_callback_info
 import napi.napi_env
 import napi.napi_get_cb_info
+import napi.napi_get_null
 import napi.napi_get_value_external
 import napi.napi_typeof
 import napi.napi_value
@@ -72,6 +74,8 @@ public fun HelloWorldPlugin_add_wrapper(env: napi_env?, info: napi_callback_info
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_add_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -89,6 +93,8 @@ public fun HelloWorldPlugin_greet_wrapper(env: napi_env?, info: napi_callback_in
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_greet_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -106,6 +112,8 @@ public fun HelloWorldPlugin_processList_wrapper(env: napi_env?, info: napi_callb
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processList_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -123,6 +131,8 @@ public fun HelloWorldPlugin_processMap_wrapper(env: napi_env?, info: napi_callba
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processMap_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -140,6 +150,8 @@ public fun HelloWorldPlugin_processAny_wrapper(env: napi_env?, info: napi_callba
         result.toNapiValue(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processAny_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -157,6 +169,8 @@ public fun HelloWorldPlugin_processAnyMap_wrapper(env: napi_env?, info: napi_cal
         result.toNapiValueStringAnyMap(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processAnyMap_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -174,6 +188,8 @@ public fun HelloWorldPlugin_processIntList_wrapper(env: napi_env?, info: napi_ca
         result.toNapiValueIntList(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processIntList_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -191,6 +207,8 @@ public fun HelloWorldPlugin_processDoubleList_wrapper(env: napi_env?, info: napi
         result.toNapiValueDoubleList(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processDoubleList_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -208,6 +226,8 @@ public fun HelloWorldPlugin_processBooleanList_wrapper(env: napi_env?, info: nap
         result.toNapiValueBooleanList(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processBooleanList_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -225,6 +245,8 @@ public fun HelloWorldPlugin_processStringIntMap_wrapper(env: napi_env?, info: na
         result.toNapiValueStringIntMap(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processStringIntMap_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -242,6 +264,8 @@ public fun HelloWorldPlugin_processStringDoubleMap_wrapper(env: napi_env?,
         result.toNapiValueStringDoubleMap(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processStringDoubleMap_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -259,6 +283,8 @@ public fun HelloWorldPlugin_processStringBooleanMap_wrapper(env: napi_env?,
         result.toNapiValueStringBooleanMap(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processStringBooleanMap_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -277,6 +303,8 @@ public fun HelloWorldPlugin_processUser_wrapper(env: napi_env?, info: napi_callb
         result.toNapiObject(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processUser_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -289,12 +317,56 @@ public fun HelloWorldPlugin_processResult_wrapper(env: napi_env?, info: napi_cal
         val argv = allocArray<napi_valueVar>(1)
         napi_get_cb_info(env, info, argc.ptr, argv, null, null)
 
-        val arg0 =
-    argv[0]!!.toKotlinObject<com.itime.harmony.sample.NetworkResult<kotlin.String>>(env!!)
+        val arg0 = argv[0]!!.toKotlinObject<com.itime.harmony.sample.NetworkResult>(env!!)
         val result = HelloWorldPlugin.processResult(arg0)
         result.toNapiObject(env!!)
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_processResult_wrapper: ${e.message}")
+    e.printStackTrace()
+    napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
+    null
+}
+
+public fun HelloWorldPlugin_fetchDataAsync_wrapper(env: napi_env?, info: napi_callback_info?):
+    napi_value? = try {
+    memScoped {
+        val argc = alloc<size_tVar>()
+        argc.value = 1u
+        val argv = allocArray<napi_valueVar>(1)
+        napi_get_cb_info(env, info, argc.ptr, argv, null, null)
+
+        val arg0 = argv[0]!!.toKotlinString(env!!)
+        launchNapiCoroutine(env!!) {
+            val result = HelloWorldPlugin.fetchDataAsync(arg0)
+            return@launchNapiCoroutine { cbEnv -> result.toNapiValue(cbEnv) }
+        }
+    }
+} catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_fetchDataAsync_wrapper: ${e.message}")
+    e.printStackTrace()
+    napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
+    null
+}
+
+public fun HelloWorldPlugin_executeMultipleTasksAsync_wrapper(env: napi_env?,
+    info: napi_callback_info?): napi_value? = try {
+    memScoped {
+        val argc = alloc<size_tVar>()
+        argc.value = 2u
+        val argv = allocArray<napi_valueVar>(2)
+        napi_get_cb_info(env, info, argc.ptr, argv, null, null)
+
+        val arg0 = argv[0]!!.toKotlinInt(env!!)
+        val arg1 = argv[1]!!.toKotlinInt(env!!)
+        launchNapiCoroutine(env!!) {
+            val result = HelloWorldPlugin.executeMultipleTasksAsync(arg0, arg1)
+            return@launchNapiCoroutine { cbEnv -> result.toNapiValue(cbEnv) }
+        }
+    }
+} catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_executeMultipleTasksAsync_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }
@@ -311,6 +383,8 @@ public fun HelloWorldPlugin_getTestClass_wrapper(env: napi_env?, info: napi_call
         result.toNapiWrappedObject(env!!, "TestClass")
     }
 } catch (e: Throwable) {
+    println("Error in HelloWorldPlugin_getTestClass_wrapper: ${e.message}")
+    e.printStackTrace()
     napi.napi_throw_error(env, null, e.message ?: "Unknown Kotlin exception")
     null
 }

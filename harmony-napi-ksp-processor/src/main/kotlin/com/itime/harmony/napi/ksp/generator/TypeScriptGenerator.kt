@@ -164,7 +164,8 @@ class TypeScriptGenerator(
                     module.exportFunctions.forEach { func ->
                         val params = func.parameters.joinToString(", ") { "${it.name}: ${getTsType(it.type)}" }
                         val returnType = getTsType(func.returnType)
-                        appendLine("    function ${func.functionName}($params): $returnType;")
+                        val finalReturnType = if (func.isSuspend) "Promise<$returnType>" else returnType
+                        appendLine("    function ${func.functionName}($params): $finalReturnType;")
                     }
                     appendLine("}")
                     return@forEach
@@ -202,8 +203,9 @@ class TypeScriptGenerator(
                             "${param.name}: $tsType"
                         }
                         val tsReturnType = getTsType(func.returnType)
+                        val finalReturnType = if (func.isSuspend) "Promise<$tsReturnType>" else tsReturnType
                         val abstractModifier = if (module.isAbstract && func.isAbstract) "abstract " else ""
-                        appendLine("    $abstractModifier${func.functionName}($params): $tsReturnType;")
+                        appendLine("    $abstractModifier${func.functionName}($params): $finalReturnType;")
                     }
                     appendLine("}")
                     
@@ -233,7 +235,8 @@ class TypeScriptGenerator(
                             "${param.name}: $tsType"
                         }
                         val tsReturnType = getTsType(func.returnType)
-                        appendLine("    function ${func.functionName}($params): $tsReturnType;")
+                        val finalReturnType = if (func.isSuspend) "Promise<$tsReturnType>" else tsReturnType
+                        appendLine("    function ${func.functionName}($params): $finalReturnType;")
                     }
                     appendLine("}")
                 }

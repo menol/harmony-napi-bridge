@@ -35,27 +35,34 @@ class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
             .returns(ClassName("napi", "napi_value").copy(nullable = true))
 
         val codeBlock = buildString {
-            appendLine("memScoped {")
+            appendLine("    if (env == null || exports == null) return null")
+            appendLine("    com.itime.harmony.napi.runtime.utils.initMainThreadId()")
+            appendLine("    com.itime.harmony.napi.runtime.utils.initMainThreadRunner(env!!)")
+            appendLine("    memScoped {")
             validModules.forEach { module ->
                 if (module.isFileExtension) {
                     appendLine("    val obj_${module.className} = alloc<napi_valueVar>()")
-                    appendLine("    napi_create_object(env, obj_${module.className}.ptr)")
+                    appendLine("    napi_create_object(env!!, obj_${module.className}.ptr)")
                     module.exportFunctions.forEach { func ->
                         val wrapperFuncName = "${module.className}_${func.functionName}_wrapper"
                         appendLine("    val str_${module.className}_${func.functionName} = alloc<napi_valueVar>()")
-                        appendLine("    napi_create_string_utf8(env, \"${func.functionName}\", NAPI_AUTO_LENGTH.convert(), str_${module.className}_${func.functionName}.ptr)")
+                        appendLine("    napi_create_string_utf8(env!!, \"${func.functionName}\", NAPI_AUTO_LENGTH.convert(), str_${module.className}_${func.functionName}.ptr)")
                         appendLine("    val fn_${module.className}_${func.functionName} = alloc<napi_valueVar>()")
-                        appendLine("    napi_create_function(env, \"${func.functionName}\", NAPI_AUTO_LENGTH.convert(), staticCFunction(::$wrapperFuncName), null, fn_${module.className}_${func.functionName}.ptr)")
-                        appendLine("    napi_set_property(env, obj_${module.className}.value, str_${module.className}_${func.functionName}.value, fn_${module.className}_${func.functionName}.value)")
+                        appendLine("    napi_create_function(env!!, \"${func.functionName}\", NAPI_AUTO_LENGTH.convert(), staticCFunction(::$wrapperFuncName), null, fn_${module.className}_${func.functionName}.ptr)")
+                        appendLine("    napi_set_property(env!!, obj_${module.className}.value, str_${module.className}_${func.functionName}.value, fn_${module.className}_${func.functionName}.value)")
                     }
                     appendLine("    val str_export_${module.className} = alloc<napi_valueVar>()")
-                    appendLine("    napi_create_string_utf8(env, \"${module.moduleName}\", NAPI_AUTO_LENGTH.convert(), str_export_${module.className}.ptr)")
-                    appendLine("    napi_set_property(env, exports, str_export_${module.className}.value, obj_${module.className}.value)")
+                    appendLine("    napi_create_string_utf8(env!!, \"${module.moduleName}\", NAPI_AUTO_LENGTH.convert(), str_export_${module.className}.ptr)")
+                    appendLine("    napi_set_property(env!!, exports!!, str_export_${module.className}.value, obj_${module.className}.value)")
                     appendLine()
                     return@forEach
                 }
 
                 if (!module.isObject) {
+                    if (module.isAbstract) {
+                        // For abstract classes, we might still want them to be somewhat constructable
+                        // by derived classes in JS. We pass a constructor callback, but we shouldn't block instantiation.
+                    }
                     appendLine("    // Register Class ${module.className} (${module.moduleName})")
                     appendLine("    val ${module.className}_constructorVar = alloc<napi_valueVar>()")
                     if (module.exportFunctions.isNotEmpty()) {
@@ -66,36 +73,36 @@ class InitEntryGenerator(private val codeGenerator: CodeGenerator) {
                             appendLine("    ${module.className}_descArray[$index].method = staticCFunction(::$wrapperFuncName)")
                             appendLine("    ${module.className}_descArray[$index].attributes = 0u.convert() // napi_default")
                         }
-                        appendLine("    napi_define_class(env, \"${module.moduleName}\", napi.NAPI_AUTO_LENGTH.convert(), staticCFunction(::${module.className}_constructor), null, ${module.exportFunctions.size}u.convert(), ${module.className}_descArray, ${module.className}_constructorVar.ptr)")
+                        appendLine("    napi_define_class(env!!, \"${module.moduleName}\", napi.NAPI_AUTO_LENGTH.convert(), staticCFunction(::${module.className}_constructor), null, ${module.exportFunctions.size}u.convert(), ${module.className}_descArray, ${module.className}_constructorVar.ptr)")
                     } else {
-                        appendLine("    napi_define_class(env, \"${module.moduleName}\", napi.NAPI_AUTO_LENGTH.convert(), staticCFunction(::${module.className}_constructor), null, 0u.convert(), null, ${module.className}_constructorVar.ptr)")
+                        appendLine("    napi_define_class(env!!, \"${module.moduleName}\", napi.NAPI_AUTO_LENGTH.convert(), staticCFunction(::${module.className}_constructor), null, 0u.convert(), null, ${module.className}_constructorVar.ptr)")
                     }
                     appendLine("    val ${module.className}_refVar = alloc<napi_refVar>()")
-                    appendLine("    napi_create_reference(env, ${module.className}_constructorVar.value, 1u.convert(), ${module.className}_refVar.ptr)")
+                    appendLine("    napi_create_reference(env!!, ${module.className}_constructorVar.value, 1u.convert(), ${module.className}_refVar.ptr)")
                     appendLine("    com.itime.harmony.napi.runtime.utils.ConstructorRegistry.refs[\"${module.className}\"] = ${module.className}_refVar.value!!")
-                    appendLine("    napi_set_named_property(env, exports, \"${module.moduleName}\", ${module.className}_constructorVar.value)")
+                    appendLine("    napi_set_named_property(env!!, exports!!, \"${module.moduleName}\", ${module.className}_constructorVar.value)")
                 } else {
                     appendLine("    // Register ${module.className} (${module.moduleName})")
                     appendLine("    val ${module.className}_obj = alloc<napi_valueVar>()")
-                    appendLine("    napi_create_object(env, ${module.className}_obj.ptr)")
+                    appendLine("    napi_create_object(env!!, ${module.className}_obj.ptr)")
                     appendLine()
                     
                     module.exportFunctions.forEach { func ->
                         val wrapperFuncName = "${module.className}_${func.functionName}_wrapper"
                         
-                        appendLine("    val desc_${func.functionName} = alloc<napi_property_descriptor>()")
-                        appendLine("    desc_${func.functionName}.utf8name = \"${func.functionName}\".cstr.ptr")
-                        appendLine("    desc_${func.functionName}.method = staticCFunction(::$wrapperFuncName)")
-                        appendLine("    desc_${func.functionName}.attributes = 0u.convert() // napi_default")
-                        appendLine("    napi_define_properties(env, ${module.className}_obj.value, 1u, desc_${func.functionName}.ptr)")
+                        appendLine("    val desc_${module.className}_${func.functionName} = alloc<napi_property_descriptor>()")
+                        appendLine("    desc_${module.className}_${func.functionName}.utf8name = \"${func.functionName}\".cstr.ptr")
+                        appendLine("    desc_${module.className}_${func.functionName}.method = staticCFunction(::$wrapperFuncName)")
+                        appendLine("    desc_${module.className}_${func.functionName}.attributes = 0u.convert() // napi_default")
+                        appendLine("    napi_define_properties(env!!, ${module.className}_obj.value, 1u, desc_${module.className}_${func.functionName}.ptr)")
                         appendLine()
                     }
                     
-                    appendLine("    napi_set_named_property(env, exports, \"${module.moduleName}\", ${module.className}_obj.value)")
+                    appendLine("    napi_set_named_property(env!!, exports!!, \"${module.moduleName}\", ${module.className}_obj.value)")
                 }
             }
-            appendLine("}")
-            appendLine("return exports")
+            appendLine("    }")
+            appendLine("    return exports")
         }
 
         funBuilder.addCode(codeBlock)

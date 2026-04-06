@@ -1,9 +1,10 @@
 import { hilog } from '@kit.PerformanceAnalysisKit';
+import { UIUtils } from '@kit.ArkUI';
 import { Core, Hypium } from '@ohos/hypium';
 import hidebug from '@ohos.hidebug';
 import faultLogger from '@ohos.faultLogger';
 import khnTests from '../test/KhnTest';
-import { DemoAbstract, IndexPresenter, IndexView } from 'khn';
+import { DemoAbstract, IndexPresenter, IndexView, Student } from 'khn';
 import type { DemoInterface, TestInterface, User } from 'khn';
 
 const DOMAIN = 0x0001;
@@ -53,25 +54,52 @@ class DemoAbsCall extends  DemoAbstract {
 @ObservedV2
 class IndexViewModel implements IndexView {
 
+
+  showStudent(student: Student<string>): void {
+    console.log(`[JS Callback] showStudent called with: ${JSON.stringify(student)}`)
+    this.student = student
+  }
+
   private present: IndexPresenter = new IndexPresenter()
-  @Trace user: User = {
+  @Trace user: User = UIUtils.makeObserved({
     name: 'World',
     age: 30
-  }
+  })
+
+  @Trace student: Student<string> = UIUtils.makeObserved({
+    name: 'World',
+    age: 42,
+    data: '123123123'
+
+  })
+
+  @Trace userName: string = 'World'
 
   onCreate() {
     this.present.attach(this)
   }
 
   request() {
+    hilog.info(DOMAIN, TAG, '%{public}s', 'IndexViewModel request');
+
     this.present.showUser({
-      name: 'World',
+      name: '123123',
       age: 42
+    })
+
+    this.present.showStudent({
+      name: '123123',
+      age: 42,
+      data: '123123123'
     })
   }
 
   showUser(name: string): void {
+    console.log(`[JS Callback] showUser called with: ${name}`)
+    this.userName = name
+    hilog.info(DOMAIN, TAG, '%{public}s', 'IndexViewModel '+  name);
 
+    this.user.name = name
   }
 
   onDestroy() {
@@ -81,15 +109,18 @@ class IndexViewModel implements IndexView {
 }
 
 @Entry
-@Component
+@ComponentV2
 struct Index {
-  @State logText: string = "No Tests Executed\nTap 'Run Tests' to execute the khn.har test suite.\n";
-  @State metricsText: string = 'Memory Diff: 0 KB | Time: 0 ms';
-  @State isRunning: boolean = false;
-  
+  @Local logText: string = "No Tests Executed\nTap 'Run Tests' to execute the khn.har test suite.\n";
+  @Local metricsText: string = 'Memory Diff: 0 KB | Time: 0 ms';
+  @Local isRunning: boolean = false;
+
   private testsRegistered: boolean = false;
+  private startTime: number = 0;
+  private startMem: bigint = BigInt(0);
   private demoCall = new DemoCall()
   private demoAbsCall = new DemoAbsCall()
+  @Local viewModel: IndexViewModel = new IndexViewModel()
 
 
   async aboutToAppear() {
@@ -102,6 +133,11 @@ struct Index {
     } catch (e) {
       this.appendLog(`Error querying faultLogger: ${e}`);
     }
+    this.viewModel.onCreate()
+  }
+
+  aboutToDisappear() {
+    this.viewModel.onDestroy()
   }
 
   private appendLog(message: string): void {
@@ -110,9 +146,11 @@ struct Index {
   }
 
   private runTests(): void {
+    this.viewModel.request()
+
     if (this.isRunning) return;
     this.isRunning = true;
-    
+
     this.logText = '';
     let testResult = this.demoCall.sayHello({
       name: 'World123123',
@@ -123,8 +161,8 @@ struct Index {
     this.appendLog(JSON.stringify(this.demoAbsCall.process(['asdff', 'asdf'])))
     this.appendLog('Starting tests...');
 
-    const startMem = hidebug.getNativeHeapAllocatedSize();
-    const startTime = Date.now();
+    this.startMem = hidebug.getNativeHeapAllocatedSize();
+    this.startTime = Date.now();
 
     const mockDelegator: MockDelegator = {
       addAbilityMonitor: () => {},
@@ -140,8 +178,9 @@ struct Index {
         this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
         const endMem = hidebug.getNativeHeapAllocatedSize();
         const endTime = Date.now();
-        const memDiff = endMem - startMem;
-        const timeDiff = endTime - startTime;
+        // The getNativeHeapAllocatedSize returns size in bytes (bigint), convert to KB
+        const memDiff = Number((endMem - this.startMem) / 1024n);
+        const timeDiff = endTime - this.startTime;
         this.metricsText = `Memory Diff: ${memDiff} KB | Time: ${timeDiff} ms`;
         this.isRunning = false;
         if (callback) {
@@ -166,7 +205,7 @@ struct Index {
 
   build() {
     Column({ space: 16 }) {
-      Text('khn.har 真机联调面板')
+      Text(this.viewModel.student.name + '=====khn.har 真机联调面板'+this.viewModel.user.name)
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
         .width('100%')

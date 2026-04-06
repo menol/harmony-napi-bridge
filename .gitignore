@@ -1,0 +1,38 @@
+# --- Build Output ---
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# --- Kotlin Multiplatform & Native ---
+.konan/
+*.klib
+
+# --- HarmonyOS / DevEco Studio / Hvigor ---
+.hvigor/
+oh_modules/
+.preview/
+.cxx/
+.test/
+.micro/
+.deveco/
+.clangd/
+.clang-tidy
+compile_commands.json
+
+.planning/
+.konan/
+
+# --- IDEs ---
+.idea/
+*.iml
+*.iws
+*.ipr
+local.properties
+
+# --- Logs & Temp ---
+*.log
+.DS_Store
+
+# --- Rust (if applicable) ---
+target/
