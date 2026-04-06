@@ -27,8 +27,12 @@ class TypeScriptGenerator(
                 }
             }
 
+            fun applyNullability(baseType: String, typeModel: HarmonyTypeModel): String {
+                return if (typeModel.isNullable && baseType != "void") "$baseType | null" else baseType
+            }
+
             fun getTsType(typeModel: HarmonyTypeModel): String {
-                if (typeModel.isTypeParameter) return typeModel.simpleName
+                if (typeModel.isTypeParameter) return applyNullability(typeModel.simpleName, typeModel)
                 val matchedModule = modules.find { it.className == typeModel.simpleName }
                 if (typeModel.isSerializable || typeModel.isEnum || typeModel.isSealed || matchedModule != null) {
                     val typeArgs = if (typeModel.arguments.isNotEmpty()) {
@@ -50,24 +54,45 @@ class TypeScriptGenerator(
                         ""
                     }
                     val baseName = matchedModule?.moduleName ?: typeModel.simpleName
-                    return "$prefix$baseName$typeArgs"
+                    return applyNullability("$prefix$baseName$typeArgs", typeModel)
                 }
                 return when (typeModel.simpleName) {
-                    "Double", "Int" -> "number"
-                    "String" -> "string"
-                    "Boolean" -> "boolean"
+                    "Double", "Int" -> applyNullability("number", typeModel)
+                    "String" -> applyNullability("string", typeModel)
+                    "Boolean" -> applyNullability("boolean", typeModel)
                     "Unit" -> "void"
-                    "Any" -> "unknown"
-                    "List", "Array" -> {
-                        val elementTsType = typeModel.arguments.firstOrNull()?.let { getTsType(it) } ?: "unknown"
-                        "Array<$elementTsType>"
+                    "Any" -> applyNullability("ESObject", typeModel)
+                    "List", "Array", "MutableList", "ArrayList", "Set", "MutableSet" -> {
+                        val elementTsType = typeModel.arguments.firstOrNull()?.let { getTsType(it) } ?: "ESObject"
+                        applyNullability("Array<$elementTsType>", typeModel)
                     }
-                    "Map" -> {
-                        val keyTsType = typeModel.arguments.getOrNull(0)?.let { getTsType(it) } ?: "unknown"
-                        val valueTsType = typeModel.arguments.getOrNull(1)?.let { getTsType(it) } ?: "unknown"
-                        "Record<$keyTsType, $valueTsType>"
+                    "Map", "MutableMap", "HashMap", "LinkedHashMap" -> {
+                        val keyTsType = typeModel.arguments.getOrNull(0)?.let { getTsType(it) } ?: "ESObject"
+                        val valueTsType = typeModel.arguments.getOrNull(1)?.let { getTsType(it) } ?: "ESObject"
+                        applyNullability("Record<$keyTsType, $valueTsType>", typeModel)
                     }
-                    else -> "unknown"
+                    else -> {
+                        if (typeModel.isMutable) {
+                            when (typeModel.simpleName) {
+                                "MutableList" -> {
+                                    val elementTsType = typeModel.arguments.firstOrNull()?.let { getTsType(it) } ?: "ESObject"
+                                    applyNullability("Array<$elementTsType>", typeModel)
+                                }
+                                "MutableMap" -> {
+                                    val keyTsType = typeModel.arguments.getOrNull(0)?.let { getTsType(it) } ?: "ESObject"
+                                    val valueTsType = typeModel.arguments.getOrNull(1)?.let { getTsType(it) } ?: "ESObject"
+                                    applyNullability("Record<$keyTsType, $valueTsType>", typeModel)
+                                }
+                                "MutableSet" -> {
+                                    val elementTsType = typeModel.arguments.firstOrNull()?.let { getTsType(it) } ?: "ESObject"
+                                    applyNullability("Array<$elementTsType>", typeModel)
+                                }
+                                else -> applyNullability(typeModel.simpleName, typeModel)
+                            }
+                        } else {
+                            applyNullability("ESObject", typeModel)
+                        }
+                    }
                 }
             }
 

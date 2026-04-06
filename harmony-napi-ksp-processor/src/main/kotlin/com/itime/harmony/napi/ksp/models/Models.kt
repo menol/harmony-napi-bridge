@@ -52,9 +52,11 @@ data class HarmonyTypeModel(
     val isInterface: Boolean = false,
     val isSealed: Boolean = false,
     val isAbstract: Boolean = false,
+    val isMutable: Boolean = false,
     val sealedSubclasses: List<HarmonyTypeModel> = emptyList(),
     val typeParameters: List<String> = emptyList(),
-    val serialName: String? = null
+    val serialName: String? = null,
+    val isNullable: Boolean = false
 ) {
     val hasGenerics: Boolean get() = arguments.isNotEmpty()
 }

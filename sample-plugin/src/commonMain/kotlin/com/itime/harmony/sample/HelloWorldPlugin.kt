@@ -125,6 +125,18 @@ data class Success(val data: String) : NetworkResult()
 @SerialName("Error")
 data class Error(val message: String) : NetworkResult()
 
+    @HarmonyModule(name = "DataSealed")
+@Serializable
+sealed class DataSealed {
+    @Serializable
+    @SerialName("ItemA")
+    data class ItemA(val id: Int) : DataSealed()
+
+    @Serializable
+    @SerialName("ItemB")
+    data class ItemB(val name: String) : DataSealed()
+}
+
 @HarmonyModule(name = "TestSealed")
 sealed class TestSealed<T> {
     @HarmonyExport
@@ -307,4 +319,116 @@ object HelloWorldPlugin {
     fun getTestClass(): TestClass {
         return TestClass(42)
     }
+
+    // --- Kotlin 特性测试 (Null Safety, Mutability, Collections) ---
+
+    // 1. 空安全 (Null Safety)
+    @HarmonyExport
+    fun processNullableString(name: String?): String? {
+        return name?.uppercase()
+    }
+
+    @HarmonyExport
+    fun getNullableList(returnNull: Boolean): List<String>? {
+        return if (returnNull) null else listOf("A", "B", "C")
+    }
+
+    // 2. 可变与不可变集合 (List vs MutableList, Map vs MutableMap)
+    @HarmonyExport
+    fun processMutableList(items: MutableList<String>): MutableList<String> {
+        // 在 Kotlin 侧直接修改 MutableList
+        items.add("Kotlin_Added")
+        return items
+    }
+
+    @HarmonyExport
+    fun processMutableMap(data: MutableMap<String, Int>): MutableMap<String, Int> {
+        // 在 Kotlin 侧直接修改 MutableMap
+        data["Kotlin_Key"] = 999
+        return data
+    }
+
+    // 3. var 与 val (Data Class Mutability)
+    @HarmonyExport
+    fun modifyMutableData(data: MutableData): MutableData {
+        // 只能修改 var，不能修改 val
+        data.id += 100
+        data.name = data.name + "_Modified"
+        // data.readOnlyField = "Error" // 编译错误，val 不可变
+        return data
+    }
+
+    // 4. 复杂嵌套集合 (Nested Collections)
+    // 暂不测试泛型的深度嵌套 (如 Map<String, List<...>>) 因为 NapiUtils 目前是根据具体类型显式扩展的
+
+    // 5. 接口与回调 (Interface & Callback)
+    @HarmonyExport
+    fun callTestInterface(callback: TestInterface): String {
+        return "Callback returned: " + callback.sayHello("Kotlin")
+    }
+
+    // 6. 枚举与密封类 (Enums & Sealed Classes)
+    @HarmonyExport
+    fun processDataSealed(data: DataSealed): DataSealed {
+        return when (data) {
+            is DataSealed.ItemA -> DataSealed.ItemA(data.id * 10)
+            is DataSealed.ItemB -> DataSealed.ItemB(data.name.uppercase())
+        }
+    }
+
+    // 7. 极限测试：递归数据结构 (Recursive Data Structures)
+    @HarmonyExport
+    fun processTree(node: TreeNode): TreeNode {
+        // 递归将所有节点的值转为大写，并反转子节点列表
+        val newChildren = node.children.map { processTree(it) }.reversed()
+        return TreeNode(node.value.uppercase(), newChildren)
+    }
+
+    // 8. 极限测试：多重泛型 (Extreme Generics)
+    @HarmonyExport
+    fun processTripleBox(box: TripleBox<String, Int, Boolean>): TripleBox<String, Int, Boolean> {
+        return TripleBox(box.a.reversed(), box.b * 10, !box.c)
+    }
+
+    // 9. 极限测试：异常跨端捕获 (Exception Handling)
+    @HarmonyExport
+    fun throwKotlinException(message: String): String {
+        throw IllegalArgumentException("Kotlin Exception: $message")
+    }
+
+    // 10. 极限测试：Any? 混合狂欢 (Extreme Any? / Dynamic)
+    @HarmonyExport
+    fun processExtremeAny(data: Any?): Any? {
+        return when (data) {
+            null -> "Was Null"
+            is String -> data.reversed()
+            is Int -> data * 100
+            is Double -> data * 100.0
+            is Boolean -> !data
+            is List<*> -> data.map { processExtremeAny(it) }
+            is Map<*, *> -> data.entries.associate { "Key_${it.key}" to processExtremeAny(it.value) }
+            else -> "Unsupported Type: ${data::class.simpleName}"
+        }
+    }
+
+    // 11. 极限测试：协程挂起异常 (Coroutine Exception & Rejection)
+    @HarmonyExport
+    suspend fun extremeSuspendThrow(message: String): String {
+        delay(100)
+        throw IllegalStateException("Suspend Exception: $message")
+    }
 }
+
+@Serializable
+data class TreeNode(val value: String, val children: List<TreeNode> = emptyList())
+
+@Serializable
+data class TripleBox<A, B, C>(val a: A, val b: B, val c: C)
+
+@Serializable
+data class MutableData(
+    var id: Int,
+    var name: String,
+    val readOnlyField: String = "Immutable"
+)
+

@@ -7,34 +7,41 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
-// String -> napi_value
+// String? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun String.toNapiValue(env: napi_env): napi_value {
+fun String?.toNapiValue(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val result = alloc<napi_valueVar>()
-        // cinterop 默认把 const char* 映射成了 Kotlin 的 String 类型
-        // 所以这里直接传 this@toNapiValue 即可，不需要 .cstr.ptr
         napi_create_string_utf8(env, this@toNapiValue, napi.NAPI_AUTO_LENGTH.convert(), result.ptr)
         return result.value!!
     }
 }
 
-// napi_value -> String
+// napi_value -> String?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinString(env: napi_env): String {
+fun napi_value.toKotlinString(env: napi_env): String? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinString, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+
         val lengthVar = alloc<size_tVar>()
-        // 第一次调用，传入 null 缓冲区，旨在获取字符串所需字节长度
         napi_get_value_string_utf8(env, this@toKotlinString, null, 0u.convert(), lengthVar.ptr)
         
         val length = lengthVar.value.toInt()
-        // 分配 Kotlin 原生 ByteArray
         val buffer = ByteArray(length + 1)
         
-        // 第二次调用，使用 refTo(0) 传递 CValuesRef<ByteVar>
         napi_get_value_string_utf8(env, this@toKotlinString, buffer.refTo(0), (length + 1).convert(), null)
-        
-        // 将 ByteArray 解码为 Kotlin String，舍弃末尾的 \0
         return buffer.decodeToString(endIndex = length)
     }
 }
@@ -49,19 +56,33 @@ fun Double.toNapiValue(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> Double
+// napi_value -> Double?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinDouble(env: napi_env): Double {
+fun napi_value.toKotlinDouble(env: napi_env): Double? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinDouble, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val result = alloc<DoubleVar>()
         napi_get_value_double(env, this@toKotlinDouble, result.ptr)
         return result.value
     }
 }
 
-// List<String> -> napi_value
+// List<String>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun List<String>.toNapiValue(env: napi_env): napi_value {
+fun List<String>?.toNapiValue(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val arrayVar = alloc<napi_valueVar>()
         napi_create_array_with_length(env, this@toNapiValue.size.convert(), arrayVar.ptr)
@@ -75,10 +96,17 @@ fun List<String>.toNapiValue(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> List<String>
+// napi_value -> List<String>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinStringList(env: napi_env): List<String> {
+fun napi_value.toKotlinStringList(env: napi_env): List<String>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringList, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+
         val isArray = alloc<BooleanVar>()
         napi_is_array(env, this@toKotlinStringList, isArray.ptr)
         if (!isArray.value) return emptyList()
@@ -91,15 +119,25 @@ fun napi_value.toKotlinStringList(env: napi_env): List<String> {
         for (i in 0 until length) {
             val elementVar = alloc<napi_valueVar>()
             napi_get_element(env, this@toKotlinStringList, i.convert(), elementVar.ptr)
-            list.add(elementVar.value!!.toKotlinString(env))
+            val str = elementVar.value!!.toKotlinString(env)
+            if (str != null) {
+                list.add(str)
+            }
         }
         return list
     }
 }
 
-// Map<String, String> -> napi_value
+// Map<String, String>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun Map<String, String>.toNapiValue(env: napi_env): napi_value {
+fun Map<String, String>?.toNapiValue(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val objVar = alloc<napi_valueVar>()
         napi_create_object(env, objVar.ptr)
@@ -113,10 +151,17 @@ fun Map<String, String>.toNapiValue(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> Map<String, String>
+// napi_value -> Map<String, String>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinStringStringMap(env: napi_env): Map<String, String> {
+fun napi_value.toKotlinStringStringMap(env: napi_env): Map<String, String>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringStringMap, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val map = mutableMapOf<String, String>()
         val keysVar = alloc<napi_valueVar>()
         
@@ -130,13 +175,14 @@ fun napi_value.toKotlinStringStringMap(env: napi_env): Map<String, String> {
         for (i in 0 until length) {
             val keyVar = alloc<napi_valueVar>()
             napi_get_element(env, keysArray, i.convert(), keyVar.ptr)
-            val keyStr = keyVar.value!!.toKotlinString(env)
+            val keyStr = keyVar.value!!.toKotlinString(env) ?: continue
             
             val valueVar = alloc<napi_valueVar>()
             napi_get_named_property(env, this@toKotlinStringStringMap, keyStr, valueVar.ptr)
             val valueStr = valueVar.value!!.toKotlinString(env)
-            
-            map[keyStr] = valueStr
+            if (valueStr != null) {
+                map[keyStr] = valueStr
+            }
         }
         return map
     }
@@ -152,10 +198,17 @@ fun Boolean.toNapiValue(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> Boolean
+// napi_value -> Boolean?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinBoolean(env: napi_env): Boolean {
+fun napi_value.toKotlinBoolean(env: napi_env): Boolean? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinBoolean, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val result = alloc<BooleanVar>()
         napi_get_value_bool(env, this@toKotlinBoolean, result.ptr)
         return result.value
@@ -172,10 +225,17 @@ fun Int.toNapiValue(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> Int
+// napi_value -> Int?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinInt(env: napi_env): Int {
+fun napi_value.toKotlinInt(env: napi_env): Int? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinInt, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val result = alloc<IntVar>()
         napi_get_value_int32(env, this@toKotlinInt, result.ptr)
         return result.value
@@ -184,6 +244,7 @@ fun napi_value.toKotlinInt(env: napi_env): Int {
 
 // Any? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
+@Suppress("UNCHECKED_CAST")
 fun Any?.toNapiValue(env: napi_env): napi_value {
     return when (this) {
         null -> memScoped {
@@ -197,7 +258,12 @@ fun Any?.toNapiValue(env: napi_env): napi_value {
         is Boolean -> this.toNapiValue(env)
         is List<*> -> (this as List<Any?>).toNapiValueAnyList(env)
         is Map<*, *> -> (this as Map<String, Any?>).toNapiValueStringAnyMap(env)
-        else -> throw IllegalArgumentException("Unsupported type for Any?.toNapiValue: ${this::class}")
+        else -> memScoped {
+            // Fallback to string if we don't know how to serialize it dynamically
+            val result = alloc<napi_valueVar>()
+            napi_create_string_utf8(env, this@toNapiValue.toString(), napi.NAPI_AUTO_LENGTH.convert(), result.ptr)
+            result.value!!
+        }
     }
 }
 
@@ -205,14 +271,19 @@ fun Any?.toNapiValue(env: napi_env): napi_value {
 @OptIn(ExperimentalForeignApi::class)
 fun napi_value.toKotlinAny(env: napi_env): Any? {
     memScoped {
-        val typeVar = alloc<napi_valuetype.Var>()
-        napi_typeof(env, this@toKotlinAny, typeVar.ptr)
-        return when (typeVar.value) {
-            napi_valuetype.napi_undefined, napi_valuetype.napi_null -> null
-            napi_valuetype.napi_boolean -> this@toKotlinAny.toKotlinBoolean(env)
-            napi_valuetype.napi_number -> this@toKotlinAny.toKotlinDouble(env) // JS numbers are double
-            napi_valuetype.napi_string -> this@toKotlinAny.toKotlinString(env)
-            napi_valuetype.napi_object -> {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinAny, typeVar.ptr.reinterpret())
+        
+        return when (typeVar.value.toUInt()) {
+            napi_valuetype.napi_null.value, napi_valuetype.napi_undefined.value -> null
+            napi_valuetype.napi_number.value -> {
+                // Determine if it's an int or double
+                val doubleValue = this@toKotlinAny.toKotlinDouble(env) ?: 0.0
+                if (doubleValue % 1 == 0.0) doubleValue.toInt() else doubleValue
+            }
+            napi_valuetype.napi_string.value -> this@toKotlinAny.toKotlinString(env)
+            napi_valuetype.napi_boolean.value -> this@toKotlinAny.toKotlinBoolean(env)
+            napi_valuetype.napi_object.value -> {
                 val isArray = alloc<BooleanVar>()
                 napi_is_array(env, this@toKotlinAny, isArray.ptr)
                 if (isArray.value) {
@@ -221,14 +292,22 @@ fun napi_value.toKotlinAny(env: napi_env): Any? {
                     this@toKotlinAny.toKotlinStringAnyMap(env)
                 }
             }
-            else -> throw IllegalArgumentException("Unsupported napi_valuetype: ${typeVar.value}")
+            else -> null
         }
     }
 }
 
-// List<Any?> -> napi_value
+// List<Any?>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun List<Any?>.toNapiValueAnyList(env: napi_env): napi_value {
+@Suppress("UNCHECKED_CAST")
+fun List<Any?>?.toNapiValueAnyList(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val arrayVar = alloc<napi_valueVar>()
         napi_create_array_with_length(env, this@toNapiValueAnyList.size.convert(), arrayVar.ptr)
@@ -242,10 +321,18 @@ fun List<Any?>.toNapiValueAnyList(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> List<Any?>
+// napi_value -> List<Any?>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinAnyList(env: napi_env): List<Any?> {
+@Suppress("UNCHECKED_CAST")
+fun napi_value.toKotlinAnyList(env: napi_env): List<Any?>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinAnyList, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val isArray = alloc<BooleanVar>()
         napi_is_array(env, this@toKotlinAnyList, isArray.ptr)
         if (!isArray.value) return emptyList()
@@ -264,9 +351,17 @@ fun napi_value.toKotlinAnyList(env: napi_env): List<Any?> {
     }
 }
 
-// Map<String, Any?> -> napi_value
+// Map<String, Any?>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun Map<String, Any?>.toNapiValueStringAnyMap(env: napi_env): napi_value {
+@Suppress("UNCHECKED_CAST")
+fun Map<String, Any?>?.toNapiValueStringAnyMap(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val objVar = alloc<napi_valueVar>()
         napi_create_object(env, objVar.ptr)
@@ -280,10 +375,18 @@ fun Map<String, Any?>.toNapiValueStringAnyMap(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> Map<String, Any?>
+// napi_value -> Map<String, Any?>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinStringAnyMap(env: napi_env): Map<String, Any?> {
+@Suppress("UNCHECKED_CAST")
+fun napi_value.toKotlinStringAnyMap(env: napi_env): Map<String, Any?>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringAnyMap, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val map = mutableMapOf<String, Any?>()
         val keysVar = alloc<napi_valueVar>()
         
@@ -297,7 +400,7 @@ fun napi_value.toKotlinStringAnyMap(env: napi_env): Map<String, Any?> {
         for (i in 0 until length) {
             val keyVar = alloc<napi_valueVar>()
             napi_get_element(env, keysArray, i.convert(), keyVar.ptr)
-            val keyStr = keyVar.value!!.toKotlinString(env)
+            val keyStr = keyVar.value!!.toKotlinString(env) ?: continue
             
             val valueVar = alloc<napi_valueVar>()
             napi_get_named_property(env, this@toKotlinStringAnyMap, keyStr, valueVar.ptr)
@@ -311,9 +414,16 @@ fun napi_value.toKotlinStringAnyMap(env: napi_env): Map<String, Any?> {
 
 // ---- Primitive Specific Lists and Maps ----
 
-// List<Int> -> napi_value
+// List<Int>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun List<Int>.toNapiValueIntList(env: napi_env): napi_value {
+fun List<Int>?.toNapiValueIntList(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val arrayVar = alloc<napi_valueVar>()
         napi_create_array_with_length(env, this@toNapiValueIntList.size.convert(), arrayVar.ptr)
@@ -327,10 +437,17 @@ fun List<Int>.toNapiValueIntList(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> List<Int>
+// napi_value -> List<Int>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinIntList(env: napi_env): List<Int> {
+fun napi_value.toKotlinIntList(env: napi_env): List<Int>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinIntList, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val isArray = alloc<BooleanVar>()
         napi_is_array(env, this@toKotlinIntList, isArray.ptr)
         if (!isArray.value) return emptyList()
@@ -343,15 +460,22 @@ fun napi_value.toKotlinIntList(env: napi_env): List<Int> {
         for (i in 0 until length) {
             val elementVar = alloc<napi_valueVar>()
             napi_get_element(env, this@toKotlinIntList, i.convert(), elementVar.ptr)
-            list.add(elementVar.value!!.toKotlinInt(env))
+            list.add(elementVar.value!!.toKotlinInt(env) ?: 0)
         }
         return list
     }
 }
 
-// List<Double> -> napi_value
+// List<Double>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun List<Double>.toNapiValueDoubleList(env: napi_env): napi_value {
+fun List<Double>?.toNapiValueDoubleList(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val arrayVar = alloc<napi_valueVar>()
         napi_create_array_with_length(env, this@toNapiValueDoubleList.size.convert(), arrayVar.ptr)
@@ -365,10 +489,17 @@ fun List<Double>.toNapiValueDoubleList(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> List<Double>
+// napi_value -> List<Double>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinDoubleList(env: napi_env): List<Double> {
+fun napi_value.toKotlinDoubleList(env: napi_env): List<Double>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinDoubleList, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val isArray = alloc<BooleanVar>()
         napi_is_array(env, this@toKotlinDoubleList, isArray.ptr)
         if (!isArray.value) return emptyList()
@@ -381,15 +512,22 @@ fun napi_value.toKotlinDoubleList(env: napi_env): List<Double> {
         for (i in 0 until length) {
             val elementVar = alloc<napi_valueVar>()
             napi_get_element(env, this@toKotlinDoubleList, i.convert(), elementVar.ptr)
-            list.add(elementVar.value!!.toKotlinDouble(env))
+            list.add(elementVar.value!!.toKotlinDouble(env) ?: 0.0)
         }
         return list
     }
 }
 
-// List<Boolean> -> napi_value
+// List<Boolean>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun List<Boolean>.toNapiValueBooleanList(env: napi_env): napi_value {
+fun List<Boolean>?.toNapiValueBooleanList(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val arrayVar = alloc<napi_valueVar>()
         napi_create_array_with_length(env, this@toNapiValueBooleanList.size.convert(), arrayVar.ptr)
@@ -403,10 +541,17 @@ fun List<Boolean>.toNapiValueBooleanList(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> List<Boolean>
+// napi_value -> List<Boolean>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinBooleanList(env: napi_env): List<Boolean> {
+fun napi_value.toKotlinBooleanList(env: napi_env): List<Boolean>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinBooleanList, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val isArray = alloc<BooleanVar>()
         napi_is_array(env, this@toKotlinBooleanList, isArray.ptr)
         if (!isArray.value) return emptyList()
@@ -419,15 +564,262 @@ fun napi_value.toKotlinBooleanList(env: napi_env): List<Boolean> {
         for (i in 0 until length) {
             val elementVar = alloc<napi_valueVar>()
             napi_get_element(env, this@toKotlinBooleanList, i.convert(), elementVar.ptr)
-            list.add(elementVar.value!!.toKotlinBoolean(env))
+            list.add(elementVar.value!!.toKotlinBoolean(env) ?: false)
         }
         return list
     }
 }
 
-// Map<String, Int> -> napi_value
+// --- Generic Objects, Enums and Nullables Lists / Maps ---
+
+// napi_value -> List<Enum>?
 @OptIn(ExperimentalForeignApi::class)
-fun Map<String, Int>.toNapiValueStringIntMap(env: napi_env): napi_value {
+inline fun <reified T : Enum<T>> napi_value.toKotlinEnumList(env: napi_env): List<T>? {
+    memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinEnumList, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
+        val isArray = alloc<BooleanVar>()
+        napi_is_array(env, this@toKotlinEnumList, isArray.ptr)
+        if (!isArray.value) return emptyList()
+
+        val lengthVar = alloc<uint32_tVar>()
+        napi_get_array_length(env, this@toKotlinEnumList, lengthVar.ptr)
+        val length = lengthVar.value.toInt()
+        
+        val list = mutableListOf<T>()
+        for (i in 0 until length) {
+            val elementVar = alloc<napi_valueVar>()
+            napi_get_element(env, this@toKotlinEnumList, i.convert(), elementVar.ptr)
+            val enumVal = elementVar.value!!.toKotlinEnum<T>(env)
+            if (enumVal != null) {
+                list.add(enumVal)
+            }
+        }
+        return list
+    }
+}
+
+// List<Enum>? -> napi_value
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T : Enum<T>> List<T>?.toNapiValueEnumList(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
+    memScoped {
+        val arrayVar = alloc<napi_valueVar>()
+        napi_create_array_with_length(env, this@toNapiValueEnumList.size.convert(), arrayVar.ptr)
+        val jsArray = arrayVar.value!!
+        
+        for ((index, item) in this@toNapiValueEnumList.withIndex()) {
+            val jsItem = item.toNapiString(env)
+            napi_set_element(env, jsArray, index.convert(), jsItem)
+        }
+        return jsArray
+    }
+}
+
+// napi_value -> List<Object>?
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T> napi_value.toKotlinObjectList(env: napi_env): List<T>? {
+    memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinObjectList, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
+        val isArray = alloc<BooleanVar>()
+        napi_is_array(env, this@toKotlinObjectList, isArray.ptr)
+        if (!isArray.value) return emptyList()
+
+        val lengthVar = alloc<uint32_tVar>()
+        napi_get_array_length(env, this@toKotlinObjectList, lengthVar.ptr)
+        val length = lengthVar.value.toInt()
+        
+        val list = mutableListOf<T>()
+        for (i in 0 until length) {
+            val elementVar = alloc<napi_valueVar>()
+            napi_get_element(env, this@toKotlinObjectList, i.convert(), elementVar.ptr)
+            val objVal = elementVar.value!!.toKotlinObject<T>(env)
+            if (objVal != null) {
+                list.add(objVal)
+            }
+        }
+        return list
+    }
+}
+
+// List<Object>? -> napi_value
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T> List<T>?.toNapiValueObjectList(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
+    memScoped {
+        val arrayVar = alloc<napi_valueVar>()
+        napi_create_array_with_length(env, this@toNapiValueObjectList.size.convert(), arrayVar.ptr)
+        val jsArray = arrayVar.value!!
+        
+        for ((index, item) in this@toNapiValueObjectList.withIndex()) {
+            val jsItem = item?.toNapiObject(env) ?: run {
+                val nullVar = alloc<napi_valueVar>()
+                napi_get_null(env, nullVar.ptr)
+                nullVar.value!!
+            }
+            napi_set_element(env, jsArray, index.convert(), jsItem)
+        }
+        return jsArray
+    }
+}
+
+// napi_value -> Map<String, Object>?
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T : Any> napi_value.toKotlinStringObjectMap(env: napi_env): Map<String, T>? {
+    memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringObjectMap, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
+        val map = mutableMapOf<String, T>()
+        val keysVar = alloc<napi_valueVar>()
+        
+        napi_get_property_names(env, this@toKotlinStringObjectMap, keysVar.ptr)
+        val keysArray = keysVar.value!!
+        
+        val lengthVar = alloc<uint32_tVar>()
+        napi_get_array_length(env, keysArray, lengthVar.ptr)
+        val length = lengthVar.value.toInt()
+        
+        for (i in 0 until length) {
+            val keyVar = alloc<napi_valueVar>()
+            napi_get_element(env, keysArray, i.convert(), keyVar.ptr)
+            val keyStr = keyVar.value!!.toKotlinString(env) ?: continue
+            
+            val valueVar = alloc<napi_valueVar>()
+            napi_get_named_property(env, this@toKotlinStringObjectMap, keyStr, valueVar.ptr)
+            val valueObj = valueVar.value!!.toKotlinObject<T>(env)
+            if (valueObj != null) {
+                map[keyStr] = valueObj
+            }
+        }
+        return map
+    }
+}
+
+// Map<String, Object>? -> napi_value
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T : Any> Map<String, T>?.toNapiValueStringObjectMap(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
+    memScoped {
+        val objVar = alloc<napi_valueVar>()
+        napi_create_object(env, objVar.ptr)
+        val jsObj = objVar.value!!
+        
+        for ((key, value) in this@toNapiValueStringObjectMap) {
+            val jsValue = value?.toNapiObject(env) ?: run {
+                val nullVar = alloc<napi_valueVar>()
+                napi_get_null(env, nullVar.ptr)
+                nullVar.value!!
+            }
+            napi_set_named_property(env, jsObj, key, jsValue)
+        }
+        return jsObj
+    }
+}
+
+// napi_value -> Map<String, Enum>?
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T : Enum<T>> napi_value.toKotlinStringEnumMap(env: napi_env): Map<String, T>? {
+    memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringEnumMap, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
+        val map = mutableMapOf<String, T>()
+        val keysVar = alloc<napi_valueVar>()
+        
+        napi_get_property_names(env, this@toKotlinStringEnumMap, keysVar.ptr)
+        val keysArray = keysVar.value!!
+        
+        val lengthVar = alloc<uint32_tVar>()
+        napi_get_array_length(env, keysArray, lengthVar.ptr)
+        val length = lengthVar.value.toInt()
+        
+        for (i in 0 until length) {
+            val keyVar = alloc<napi_valueVar>()
+            napi_get_element(env, keysArray, i.convert(), keyVar.ptr)
+            val keyStr = keyVar.value!!.toKotlinString(env) ?: continue
+            
+            val valueVar = alloc<napi_valueVar>()
+            napi_get_named_property(env, this@toKotlinStringEnumMap, keyStr, valueVar.ptr)
+            val valueEnum = valueVar.value!!.toKotlinEnum<T>(env)
+            if (valueEnum != null) {
+                map[keyStr] = valueEnum
+            }
+        }
+        return map
+    }
+}
+
+// Map<String, Enum>? -> napi_value
+@OptIn(ExperimentalForeignApi::class)
+inline fun <reified T : Enum<T>> Map<String, T>?.toNapiValueStringEnumMap(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
+    memScoped {
+        val objVar = alloc<napi_valueVar>()
+        napi_create_object(env, objVar.ptr)
+        val jsObj = objVar.value!!
+        
+        for ((key, value) in this@toNapiValueStringEnumMap) {
+            val jsValue = value.toNapiString(env)
+            napi_set_named_property(env, jsObj, key, jsValue)
+        }
+        return jsObj
+    }
+}
+
+// Map<String, Int>? -> napi_value
+@OptIn(ExperimentalForeignApi::class)
+fun Map<String, Int>?.toNapiValueStringIntMap(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val objVar = alloc<napi_valueVar>()
         napi_create_object(env, objVar.ptr)
@@ -441,10 +833,17 @@ fun Map<String, Int>.toNapiValueStringIntMap(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> Map<String, Int>
+// napi_value -> Map<String, Int>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinStringIntMap(env: napi_env): Map<String, Int> {
+fun napi_value.toKotlinStringIntMap(env: napi_env): Map<String, Int>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringIntMap, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val map = mutableMapOf<String, Int>()
         val keysVar = alloc<napi_valueVar>()
         
@@ -458,11 +857,11 @@ fun napi_value.toKotlinStringIntMap(env: napi_env): Map<String, Int> {
         for (i in 0 until length) {
             val keyVar = alloc<napi_valueVar>()
             napi_get_element(env, keysArray, i.convert(), keyVar.ptr)
-            val keyStr = keyVar.value!!.toKotlinString(env)
+            val keyStr = keyVar.value!!.toKotlinString(env) ?: continue
             
             val valueVar = alloc<napi_valueVar>()
             napi_get_named_property(env, this@toKotlinStringIntMap, keyStr, valueVar.ptr)
-            val valueInt = valueVar.value!!.toKotlinInt(env)
+            val valueInt = valueVar.value!!.toKotlinInt(env) ?: 0
             
             map[keyStr] = valueInt
         }
@@ -470,9 +869,16 @@ fun napi_value.toKotlinStringIntMap(env: napi_env): Map<String, Int> {
     }
 }
 
-// Map<String, Double> -> napi_value
+// Map<String, Double>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun Map<String, Double>.toNapiValueStringDoubleMap(env: napi_env): napi_value {
+fun Map<String, Double>?.toNapiValueStringDoubleMap(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val objVar = alloc<napi_valueVar>()
         napi_create_object(env, objVar.ptr)
@@ -486,10 +892,17 @@ fun Map<String, Double>.toNapiValueStringDoubleMap(env: napi_env): napi_value {
     }
 }
 
-// napi_value -> Map<String, Double>
+// napi_value -> Map<String, Double>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinStringDoubleMap(env: napi_env): Map<String, Double> {
+fun napi_value.toKotlinStringDoubleMap(env: napi_env): Map<String, Double>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringDoubleMap, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val map = mutableMapOf<String, Double>()
         val keysVar = alloc<napi_valueVar>()
         
@@ -503,11 +916,11 @@ fun napi_value.toKotlinStringDoubleMap(env: napi_env): Map<String, Double> {
         for (i in 0 until length) {
             val keyVar = alloc<napi_valueVar>()
             napi_get_element(env, keysArray, i.convert(), keyVar.ptr)
-            val keyStr = keyVar.value!!.toKotlinString(env)
+            val keyStr = keyVar.value!!.toKotlinString(env) ?: continue
             
             val valueVar = alloc<napi_valueVar>()
             napi_get_named_property(env, this@toKotlinStringDoubleMap, keyStr, valueVar.ptr)
-            val valueDouble = valueVar.value!!.toKotlinDouble(env)
+            val valueDouble = valueVar.value!!.toKotlinDouble(env) ?: 0.0
             
             map[keyStr] = valueDouble
         }
@@ -515,9 +928,16 @@ fun napi_value.toKotlinStringDoubleMap(env: napi_env): Map<String, Double> {
     }
 }
 
-// Map<String, Boolean> -> napi_value
+// Map<String, Boolean>? -> napi_value
 @OptIn(ExperimentalForeignApi::class)
-fun Map<String, Boolean>.toNapiValueStringBooleanMap(env: napi_env): napi_value {
+fun Map<String, Boolean>?.toNapiValueStringBooleanMap(env: napi_env): napi_value {
+    if (this == null) {
+        memScoped {
+            val nullVar = alloc<napi_valueVar>()
+            napi_get_null(env, nullVar.ptr)
+            return nullVar.value!!
+        }
+    }
     memScoped {
         val objVar = alloc<napi_valueVar>()
         napi_create_object(env, objVar.ptr)
@@ -531,10 +951,17 @@ fun Map<String, Boolean>.toNapiValueStringBooleanMap(env: napi_env): napi_value 
     }
 }
 
-// napi_value -> Map<String, Boolean>
+// napi_value -> Map<String, Boolean>?
 @OptIn(ExperimentalForeignApi::class)
-fun napi_value.toKotlinStringBooleanMap(env: napi_env): Map<String, Boolean> {
+fun napi_value.toKotlinStringBooleanMap(env: napi_env): Map<String, Boolean>? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinStringBooleanMap, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val map = mutableMapOf<String, Boolean>()
         val keysVar = alloc<napi_valueVar>()
         
@@ -548,11 +975,11 @@ fun napi_value.toKotlinStringBooleanMap(env: napi_env): Map<String, Boolean> {
         for (i in 0 until length) {
             val keyVar = alloc<napi_valueVar>()
             napi_get_element(env, keysArray, i.convert(), keyVar.ptr)
-            val keyStr = keyVar.value!!.toKotlinString(env)
+            val keyStr = keyVar.value!!.toKotlinString(env) ?: continue
             
             val valueVar = alloc<napi_valueVar>()
             napi_get_named_property(env, this@toKotlinStringBooleanMap, keyStr, valueVar.ptr)
-            val valueBool = valueVar.value!!.toKotlinBoolean(env)
+            val valueBool = valueVar.value!!.toKotlinBoolean(env) ?: false
             
             map[keyStr] = valueBool
         }
@@ -602,12 +1029,20 @@ fun napi_value.toJsonString(env: napi_env): String {
         val resultVar = alloc<napi_valueVar>()
         napi_call_function(env, jsonVar.value!!, stringifyVar.value!!, 1.convert(), args, resultVar.ptr)
         
-        return resultVar.value!!.toKotlinString(env)
+        return resultVar.value!!.toKotlinString(env) ?: ""
     }
 }
 
 @OptIn(ExperimentalForeignApi::class)
-inline fun <reified T> napi_value.toKotlinObject(env: napi_env): T {
+inline fun <reified T> napi_value.toKotlinObject(env: napi_env): T? {
+    memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinObject, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+    }
     val jsonStr = this.toJsonString(env)
     try {
         return Json { ignoreUnknownKeys = true }.decodeFromString<T>(jsonStr)
@@ -621,7 +1056,10 @@ inline fun <reified T> napi_value.toKotlinObject(env: napi_env): T {
 @OptIn(ExperimentalForeignApi::class)
 inline fun <reified T> T.toNapiObject(env: napi_env): napi_value {
     try {
-        val jsonStr = Json { ignoreUnknownKeys = true }.encodeToString(this)
+        val jsonStr = Json {
+            ignoreUnknownKeys = true
+            encodeDefaults = true
+        }.encodeToString(this)
         return jsonStr.toNapiObject(env)
     } catch (e: Throwable) {
         val errorMsg = "toNapiObject failed for object: $this, Error: ${e.message}"
@@ -631,7 +1069,18 @@ inline fun <reified T> T.toNapiObject(env: napi_env): napi_value {
 }
 
 @OptIn(ExperimentalForeignApi::class)
-inline fun <reified T : Enum<T>> napi_value.toKotlinEnum(env: napi_env): T = enumValueOf<T>(this.toKotlinString(env))
+inline fun <reified T : Enum<T>> napi_value.toKotlinEnum(env: napi_env): T? {
+    memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@toKotlinEnum, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+    }
+    val enumName = this.toKotlinString(env) ?: throw IllegalArgumentException("Expected string for Enum name, but got null")
+    return enumValueOf<T>(enumName)
+}
 
 @OptIn(ExperimentalForeignApi::class)
 inline fun <reified T : Enum<T>> T.toNapiString(env: napi_env): napi_value = this.name.toNapiValue(env)
@@ -664,8 +1113,15 @@ fun Any.toNapiWrappedObject(env: napi_env, className: String): napi_value {
 }
 
 @OptIn(ExperimentalForeignApi::class)
-inline fun <reified T : Any> napi_value.unwrapKotlinObject(env: napi_env): T {
+inline fun <reified T : Any> napi_value.unwrapKotlinObject(env: napi_env): T? {
     memScoped {
+        val typeVar = alloc<IntVar>()
+        napi_typeof(env, this@unwrapKotlinObject, typeVar.ptr.reinterpret())
+        val jsType = typeVar.value.toUInt()
+        if (jsType == napi_valuetype.napi_null.value || jsType == napi_valuetype.napi_undefined.value) {
+            return null
+        }
+        
         val nativeObjVar = alloc<COpaquePointerVar>()
         napi_unwrap(env, this@unwrapKotlinObject, nativeObjVar.ptr)
         val nativeObj = nativeObjVar.value 
@@ -675,3 +1131,19 @@ inline fun <reified T : Any> napi_value.unwrapKotlinObject(env: napi_env): T {
     }
 }
 
+// Exception / Error -> napi_value
+@OptIn(ExperimentalForeignApi::class)
+fun Throwable.toNapiError(env: napi_env): napi_value {
+    memScoped {
+        val codeStr = alloc<napi_valueVar>()
+        napi_create_string_utf8(env, this@toNapiError::class.simpleName ?: "Error", napi.NAPI_AUTO_LENGTH.convert(), codeStr.ptr)
+        
+        val msgStr = alloc<napi_valueVar>()
+        val msg = this@toNapiError.message ?: "Unknown Kotlin Error"
+        napi_create_string_utf8(env, msg, napi.NAPI_AUTO_LENGTH.convert(), msgStr.ptr)
+        
+        val errObj = alloc<napi_valueVar>()
+        napi_create_error(env, codeStr.value, msgStr.value, errObj.ptr)
+        return errObj.value!!
+    }
+}

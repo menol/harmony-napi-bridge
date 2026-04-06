@@ -4,6 +4,7 @@ import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
 import com.itime.harmony.napi.ksp.mapper.TypeMapper
 import com.itime.harmony.napi.ksp.models.HarmonyModuleModel
+import com.itime.harmony.napi.ksp.models.HarmonyTypeModel
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
@@ -26,7 +27,7 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
             .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "convert", "refTo", "get", "COpaquePointer", "asStableRef", "staticCFunction", "StableRef")
             .addImport("platform.posix", "size_tVar")
             .addImport("napi", "napi_env", "napi_callback_info", "napi_value", "napi_valueVar", "napi_get_cb_info", "napi_wrap", "napi_get_value_external", "napi_typeof", "napi_valuetype", "napi_get_null")
-            .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap", "unwrapKotlinObject", "toNapiWrappedObject", "launchNapiCoroutine")
+            .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap", "unwrapKotlinObject", "toNapiWrappedObject", "launchNapiCoroutine", "toKotlinEnumList", "toNapiValueEnumList", "toKotlinObjectList", "toNapiValueObjectList", "toKotlinStringObjectMap", "toNapiValueStringObjectMap", "toKotlinStringEnumMap", "toNapiValueStringEnumMap")
             .apply {
                 if (module.packageName.isNotEmpty() && !module.isFileExtension) {
                     addImport(module.packageName, module.className)
@@ -61,12 +62,10 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 appendLine("        val argv = allocArray<napi_valueVar>($paramCount)")
                 
                 if (!module.isObject && !func.isExtension) {
-                    val typeArgs = if (module.typeParameters.isNotEmpty()) {
-                        "<${module.typeParameters.joinToString(", ") { "Any?" }}>"
-                    } else ""
+                    val typeArgs = getDynamicTypeArgs(module)
                     appendLine("        val thisVar = alloc<napi_valueVar>()")
                     appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)")
-                    appendLine("        val instance = thisVar.value!!.unwrapKotlinObject<${module.className}$typeArgs>(env!!)")
+                    appendLine("        val instance = thisVar.value!!.unwrapKotlinObject<${module.className}$typeArgs>(env!!)!!")
                 } else {
                     appendLine("        napi_get_cb_info(env, info, argc.ptr, argv, null, null)")
                 }
@@ -74,8 +73,7 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
 
                 val args = mutableListOf<String>()
                 params.forEachIndexed { index, param ->
-                    val convertMethod = TypeMapper.getNapiToKotlinMethod(param.type)
-                    appendLine("        val arg$index = argv[$index]!!.$convertMethod")
+                    appendLine("        val arg$index = ${buildNapiToKotlinExpression("argv[$index]!!", param.type)}")
                     args.add("arg$index")
                 }
 
@@ -171,14 +169,10 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                     appendLine("        // Called from JS 'new'")
                     val args = mutableListOf<String>()
                     module.primaryConstructorParams.forEachIndexed { index, param ->
-                        val convertMethod = TypeMapper.getNapiToKotlinMethod(param.type)
-                        appendLine("        val arg$index = argv[$index]!!.$convertMethod")
+                        appendLine("        val arg$index = ${buildNapiToKotlinExpression("argv[$index]!!", param.type)}")
                         args.add("arg$index")
                     }
-                    val typeArgs = if (module.typeParameters.isNotEmpty()) {
-                        "<${module.typeParameters.joinToString(", ") { "Any?" }}>"
-                    } else ""
-                    appendLine("        val instance = ${module.className}$typeArgs(${args.joinToString(", ")})")
+                    appendLine("        val instance = ${module.className}(${args.joinToString(", ")})")
                     appendLine("        val stableRef = StableRef.create(instance)")
                     appendLine("        napi_wrap(env, thisVar.value, stableRef.asCPointer(), staticCFunction(::${module.className}_finalize), null, null)")
                     appendLine("        return@memScoped thisVar.value")
@@ -258,15 +252,13 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                     appendLine("                val resultVar = alloc<napi_valueVar>()")
                     appendLine("                napi_call_function(env, jsObjValue, funcVar, ${paramCount}u.convert(), argv, resultVar.ptr)")
                     if (func.returnType.simpleName != "Unit") {
-                        val toKotlinMethod = TypeMapper.getNapiToKotlinMethod(func.returnType)
-                        appendLine("                resultVar.value!!.$toKotlinMethod")
+                        appendLine("                ${buildNapiToKotlinExpression("resultVar.value!!", func.returnType)}")
                     }
                 } else {
                     appendLine("                val resultVar = alloc<napi_valueVar>()")
                     appendLine("                napi_call_function(env, jsObjValue, funcVar, 0u.convert(), null, resultVar.ptr)")
                     if (func.returnType.simpleName != "Unit") {
-                        val toKotlinMethod = TypeMapper.getNapiToKotlinMethod(func.returnType)
-                        appendLine("                resultVar.value!!.$toKotlinMethod")
+                        appendLine("                ${buildNapiToKotlinExpression("resultVar.value!!", func.returnType)}")
                     }
                 }
                 appendLine("            }")
@@ -283,5 +275,17 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
         OutputStreamWriter(file).use { writer ->
             writer.write(fileContent)
         }
+    }
+
+    private fun buildNapiToKotlinExpression(source: String, type: HarmonyTypeModel): String {
+        val expression = "$source.${TypeMapper.getNapiToKotlinMethod(type)}"
+        return if (!type.isNullable && type.simpleName != "Unit") "$expression!!" else expression
+    }
+
+    private fun getDynamicTypeArgs(module: HarmonyModuleModel): String {
+        if (module.typeParameters.isEmpty()) return ""
+        // Generated wrappers invoke generic members through a runtime-erased bridge.
+        // Using Any? keeps unbounded generic exports callable from generated code.
+        return "<${module.typeParameters.joinToString(", ") { "Any?" }}>"
     }
 }

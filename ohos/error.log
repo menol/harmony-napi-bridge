@@ -1,187 +1,1061 @@
-04-06 12:55:45.177   32223-32223   C02c11/APPSPAWN                 pid-32223             I     AppSpawnChild id 124 flags:0xc
-04-06 12:55:45.177   32223-32223   C02c02/PARAM                    pid-32223             I     [param_request.c:326]ResetParamSecurityLabel Fd:15
-04-06 12:55:45.177   32223-32223   C02d33/HitraceOption            pid-32223             I     FilterAppTrace com.wistom.myapplication 32223
-04-06 12:55:45.177   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /system/app/ArkWebCoreLegacy to /mnt/sandbox/100/com.wistom.myapplication/system/app/ArkWebCoreLegacy
-04-06 12:55:45.177   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /system/data to /mnt/sandbox/100/com.wistom.myapplication/system/data
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             I     file /mnt/sandbox/100/com.wistom.myapplication/data/service/el1/public/hosts_user/hosts already exist
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /system/etc/hosts to /mnt/sandbox/100/com.wistom.myapplication/data/service/el1/public/hosts_user/hosts
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /vendor/lib to /mnt/sandbox/100/com.wistom.myapplication/vendor/lib
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /vendor/etc/hiai to /mnt/sandbox/100/com.wistom.myapplication/vendor/etc/hiai
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /data/data/hiai to /mnt/sandbox/100/com.wistom.myapplication/data/data/hiai
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /data/app/el1/public/aot_compiler/ark_cache/com.wistom.myapplication to /mnt/sandbox/100/com.wistom.myapplication/data/storage/ark-cache
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     check dir /data/app/el1/public/aot_compiler/ark_cache/com.wistom.myapplication failed,strerror:No such file or directory
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /data/service/el1/public/themes/100/a/app to /mnt/sandbox/100/com.wistom.myapplication/data/themes/a/app
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /data/service/el1/public/themes/100/b/app to /mnt/sandbox/100/com.wistom.myapplication/data/themes/b/app
-04-06 12:55:45.178   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:13 private mount to /mnt/sandbox/100/com.wistom.myapplication/data/service/el0/public/for-all-app '524288' failed
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /chip_prod/etc/passthrough to /mnt/sandbox/100/com.wistom.myapplication/chip_prod/etc/passthrough
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /vendor/etc/vulkan to /mnt/sandbox/100/com.wistom.myapplication/vendor/etc/vulkan
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /mnt/hmdfs/100/cloud/data/com.wistom.myapplication to /mnt/sandbox/100/com.wistom.myapplication/data/storage/el2/cloud
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /vendor/etc/silk to /mnt/sandbox/100/com.wistom.myapplication/vendor/etc/silk
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /system/asan/lib64 to /mnt/sandbox/100/com.wistom.myapplication/system/asan/lib64
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /vendor/asan/lib64 to /mnt/sandbox/100/com.wistom.myapplication/vendor/asan/lib64
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /chip_prod/lib64/passthrough to /mnt/sandbox/100/com.wistom.myapplication/chip_prod/lib64/passthrough
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /data/app/el1/bundle/public/com.huawei.hmos.arkwebcorelegacy to /mnt/sandbox/100/com.wistom.myapplication/data/storage/el1/bundle/arkwebcorelegacy
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     check dir /data/app/el1/bundle/public/com.huawei.hmos.arkwebcorelegacy failed,strerror:No such file or directory
-04-06 12:55:45.179   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /system/app/ohos.global.systemres to /mnt/sandbox/100/com.wistom.myapplication/data/global/systemResources
-04-06 12:55:45.182   32223-32223   C02c11/APPSPAWN                 pid-32223             W     mount /mnt/sandbox/100/com.wistom.myapplication/mnt/storage/external time 10000 us
-04-06 12:55:45.184   32223-32223   C02c11/APPSPAWN                 pid-32223             W     errno:2 bind mount /data/preload/app to /mnt/sandbox/100/com.wistom.myapplication/data/preload/app
-04-06 12:55:45.187   32223-32223   C02c11/APPSPAWN                 pid-32223             E     [sandbox_dec.c:179]open dec file fail.
-04-06 12:55:45.203   32223-32223   C05a05/SecCompEnhanceClient     pid-32223             I     [RegisterCheckCallback]Register secComp: sessionId=3053483036, seqNum=******130.
-04-06 12:55:45.204   32223-32223   C02d0b/HICHECKER                pid-32223             I     hichecker param is empty.
-04-06 12:55:45.204   32223-32223   C04500/webview                  pid-32223             I     SelectWebcoreBeforeProcessRun: SelectWebcoreBeforeProcessRun for app com.wistom.myapplication.
-04-06 12:55:45.204   32223-32223   C04500/webview                  pid-32223             I     CalculateActiveWebEngineVersion: CalculateActiveWebEngineVersion, enforce EVERGREEN
-04-06 12:55:45.204   32223-32223   C02c11/APPSPAWN                 pid-32223             I     ClearEnvAndReturnSuccess 4
-04-06 12:55:45.204   32223-32223   C01317/AppKit                   pid-32223             I     [MAINTHD3026]mainthread start, pid:32223
-04-06 12:55:45.215   32223-32223   C01719/ffrt                     pid-32223             I     2:QueueMonitor:46 timeout:30000000 us
-04-06 12:55:45.215   32223-32223   C01317/AppKit                   pid-32223             I     [MAINTHD420]attach
-04-06 12:55:45.249   32223-32309   C01317/AppKit                   pid-32223             I     [MAINTHD814]ScheduleLaunchAbility called, ability EntryAbility, type is 1.
-04-06 12:55:45.386   32223-32223   C03900/ACE_UIContent            pid-32223             I     [69]AceForwardCompatibility [com.wistom.myapplication] force:1 newpipe:1
-04-06 12:55:45.411   32223-32223   C01317/AppKit                   pid-32223             I     [MAINTHD1735]SmartGC: process is start. enable warm startup SmartGC: 0
-04-06 12:55:45.411   32223-32223   C03f00/ArkCompiler              pid-32223             I     [ecmascript] asmint: 1, aot: 0, jit: 1, baseline jit: 0, bundle name: com.wistom.myapplication
-04-06 12:55:45.411   32223-32223   C03f00/ArkCompiler              pid-32223             I     [ecmascript] multi-thread check enabled: 0
-04-06 12:55:45.411   32223-32223   C03f00/ArkCompiler              pid-32223             I     [pgo] reset pgo profiler, pgo profiler is disabled
-04-06 12:55:45.412   32223-32351   C01719/ffrt                     pid-32223             W     3:operator():110 [1531955592] set priority warn ret[1] eno[0]
-04-06 12:55:45.412   32223-32223   C03f00/ArkCompiler              pid-32223             I     [gc] SmartGC: startup GC restrain, phase 1 threshold: local 448MB, shared 355MB; phase 2 threshold: local 112MB, shared 145MB
-04-06 12:55:45.413   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32352 apply qos failed, errno = 4
-04-06 12:55:45.413   32223-32223   C03301/LIBUV                    pid-32223             I     init:3824
-04-06 12:55:45.413   32223-32223   C03301/LIBUV                    pid-32223             I     init:3824, backend_fd:24
-04-06 12:55:45.413   32223-32223   C03301/LIBUV                    pid-32223             I     open:3824, pipefd[0]:27
-04-06 12:55:45.413   32223-32223   C03f00/ArkCompiler              pid-32223             I     [ecmascript] can not find aot file
-04-06 12:55:45.413   32223-32223   C03f00/ArkCompiler              pid-32223             I     [ecmascript] ModuleSnapshotInterface::Deserialize: /data/storage/system_optimize/ark_startup_cache/ is not exists
-04-06 12:55:45.413   32223-32223   C01e00/GLOBAL_I18N              pid-32223             I     RegisterIntl: Replace buildin Intl Success.
-04-06 12:55:45.414   32223-32223   C03f00/ArkCompiler              pid-32223             I     StartServer, componentName = <private>
-04-06 12:55:45.414   32223-32223   C01321/JsRuntime                pid-32223             W     [CSM162]not Connected
-04-06 12:55:45.414   32223-32223   C03f00/ArkCompiler              pid-32223             I     [ecmascript] JSNApi::NotifyDebugMode, tid = 32223, debugApp = 1, isDebugMode = 0, instanceId = 0
-04-06 12:55:45.415   32223-32223   C03f00/ArkCompiler              pid-32223             I     [compiler] __jit_debug_register_code() is called.
-04-06 12:55:45.415   32223-32223   C03f00/ArkCompiler              pid-32223             I     [compiler] success to register stub.an to debugger.
-04-06 12:55:45.420   32223-32350   C01317/AppKit                   pid-32223             I     [DRH395]File existed. dir: /data/storage/el2/base/cache/rawheap
-04-06 12:55:45.420   32223-32350   C01317/AppKit                   pid-32223             I     [DRH375]success to AclSetAccess, path: /data/storage/el2/base/cache/rawheap
-04-06 12:55:45.423   32223-32223   C01e00/ResourceManager          pid-32223             W     update userId, currentUserId_= 0, userId= 100
-04-06 12:55:45.423   32223-32223   C01e00/ResourceManager          pid-32223             E     LoadThemesRes failed, userId = 100, bundleName = com.wistom.myapplication
-04-06 12:55:45.424   32223-32367   C01653/NativePreferences        pid-32223             W     LoadFromDisk: The settingXml /***/el1/***/i18*** load failed.
-04-06 12:55:45.424   32223-32223   C01317/AppKit                   pid-32223             W     [MAINTHD4072]reason Error loading shared library /system/lib64/liblayered_parameters_manager.z.so: No such file or directoryn
-04-06 12:55:45.424   32223-32223   C01301/Ability                  pid-32223             W     [resource_config_helper183]invalid source:
-04-06 12:55:45.424   32223-32223   C01301/Ability                  pid-32223             W     [resource_config_helper183]invalid source:
-04-06 12:55:45.424   32223-32223   C01317/AppKit                   pid-32223             I     [application_cleaner94]ClearTempData
-04-06 12:55:45.427   32223-32223   C01317/AppKit                   pid-32223             I     [js_ability_stage189]AbilityStage::LoadModule
-04-06 12:55:45.427   32223-32223   C01317/AppKit                   pid-32223             W     [js_ability_stage932]null stage
-04-06 12:55:45.427   32223-32223   C01317/AppKit                   pid-32223             W     [js_ability_stage232]Not found AbilityStage.js
-04-06 12:55:45.430   32223-32223   C01332/UIAbility                pid-32223             I     [JUA348]called
-04-06 12:55:45.430   32223-32354   C03f00/ArkCompiler              pid-32223             W     [ecmascript] set label failed! level: s1, file: /data/storage/ark-profile/rt_entry.ap
-04-06 12:55:45.430   32223-32354   C03f00/ArkCompiler              pid-32223             I     [pgo] will save profiler to file /data/storage/ark-profile/rt_entry.ap
-04-06 12:55:45.430   32223-32223   C03f00/ArkCompiler              pid-32223             I     [ecmascript] start to execute module buffer with secure memory: /data/storage/el1/bundle/entry/ets/entryability/EntryAbility.abc
-04-06 12:55:45.430   32223-32223   C03f00/ArkCompiler              pid-32223             E     [TID 007ddf] E/pandafile: Can not open xpm proc file, do not check secure memory anymore.
-04-06 12:55:45.430   32223-32223   C03f00/ArkCompiler              pid-32223             E     [common] Can not open xpm proc file, do not check secure memory anymore.
-04-06 12:55:45.431   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32354 apply qos failed, errno = 4
-04-06 12:55:45.436   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32355 apply qos failed, errno = 4
-04-06 12:55:45.439   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32353 apply qos failed, errno = 4
-04-06 12:55:45.442   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32354 apply qos failed, errno = 4
-04-06 12:55:45.445   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32355 apply qos failed, errno = 4
-04-06 12:55:45.447   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32353 apply qos failed, errno = 4
-04-06 12:55:45.447   32223-32223   C01320/JsEnv                    pid-32223             I     [js_environment290]timing: 16
-04-06 12:55:45.447   32223-32223   C01320/JSENV                    pid-32223             I     Callee constructor is OK string
-04-06 12:55:45.447   32223-32223   C01320/JSENV                    pid-32223             I     Ability::constructor callee is object [object Object]
-04-06 12:55:45.448   32223-32223   C01332/UIAbility                pid-32223             I     [JUA393]End
-04-06 12:55:45.448   32223-32223   C01332/UIAbility                pid-32223             I     [ui_ability_thread169]Lifecycle:Attach
-04-06 12:55:45.450   32223-32223   C01317/AppKit                   pid-32223             I     [MAINTHD2670]called
-04-06 12:55:45.450   32223-32223   C03f00/ArkCompiler              pid-32223             I     [gc] app is not inBackground
-04-06 12:55:45.451   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32354 apply qos failed, errno = 4
-04-06 12:55:45.461   32223-32357   C02c03/PARAM_WATCHER            pid-32223             I     [watcher_manager_kits.cpp:176]Add watcher keyPrefix persist.hdc.jdwp remoteWatcherId 147 success
-04-06 12:55:45.483   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32355 apply qos failed, errno = 4
-04-06 12:55:45.486   32223-32223   C01707/CONCUR                   pid-32223             E     [Interface] task 32353 apply qos failed, errno = 4
-04-06 12:55:45.487   32223-32308   C01332/UIAbility                pid-32223             I     [ui_ability_thread317]name:EntryAbility,targeState:5,isNewWant:0
-04-06 12:55:45.495   32223-32223   C01332/UIAbility                pid-32223             I     [ui_ability_thread236]Lifecycle:name EntryAbility
-04-06 12:55:45.495   32223-32223   C04201/DMS                      pid-32223             I     AddDisplayIdFromAms: abilityToken and display[0] has been added.
-04-06 12:55:45.552   32223-32223   C01332/UIAbility                pid-32223             I     [JUA1853]JsUIAbility call js, name: onCreate
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             I     [ohos_application1111]current 2, pre 0
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             W     [ohos_application1140]fontSize empty
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             I     [ohos_application1171]current 2, pre 0
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             W     [ohos_application1175]language empty
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             W     [ohos_application1194]language and locale empty
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             I     [ohos_application287]configuration_: {"0#const.build.characteristics":"phone","0#input.pointer.device":"true","0#ohos.app.fontSizeScale":"nonFollowSystem","0#ohos.application.densitydpi":"xxxldpi","0#ohos.application.direction":"vertical","0#ohos.application.displayid":"0","0#ohos.system.colorMode":"light","0#ohos.system.colorMode.isSetByApp":"isSetByApp","0#ohos.system.fontSizeScale":"1.0","0#ohos.system.fontWeightScale":"1.0","0#ohos.system.hour":"false","0#ohos.system.language":"zh-Hans-CN","0#ohos.system.locale":"zh-Hans-CN"}, config: {"0#ohos.system.colorMode":"light","0#ohos.system.colorMode.isSetByApp":"isSetByApp"}
-04-06 12:55:45.552   32223-32223   C04217/WMSAttribute             pid-32223             E     UpdateConfigurationSyncForAll: root is null
-04-06 12:55:45.552   32223-32223   C01332/UIAbility                pid-32223             I     [JUA1853]JsUIAbility call js, name: onConfigurationUpdated
-04-06 12:55:45.552   32223-32223   C01332/UIAbility                pid-32223             I     [JUA1898]end, name: onConfigurationUpdated, time: 0
-04-06 12:55:45.552   32223-32223   C01332/UIAbility                pid-32223             I     [JUA1853]JsUIAbility call js, name: onConfigurationUpdate
-04-06 12:55:45.552   32223-32223   C01332/UIAbility                pid-32223             I     [JUA1898]end, name: onConfigurationUpdate, time: 0
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             W     [js_ability_stage819]Not found AbilityStage.js
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             W     [js_ability_stage819]Not found AbilityStage.js
-04-06 12:55:45.552   32223-32223   C01317/AppKit                   pid-32223             I     [ohos_application311]ignoreWindowContext size 0
-04-06 12:55:45.552   32223-32223   C04217/WMSAttribute             pid-32223             E     UpdateConfigurationForAll: root is null
-04-06 12:55:45.552   32223-32223   A00000/testTag                  pid-32223             I     Ability onCreate
-04-06 12:55:45.552   32223-32223   C01332/UIAbility                pid-32223             I     [JUA1898]end, name: onCreate, time: 0
-04-06 12:55:45.552   32223-32223   C01332/UIAbility                pid-32223             E     [ui_ability_impl305]hasSaveData_: false
-04-06 12:55:45.557   32223-32223   C01332/UIAbility                pid-32223             W     [JUA1088]formatRegex: []
-04-06 12:55:45.557   32223-32223   C04202/WMSMain                  pid-32223             I     Init: WindowScene with window session!
-04-06 12:55:45.557   32223-32223   C04202/WMSMain                  pid-32223             I     Init: set isModuleAbilityHookEnd
-04-06 12:55:45.557   32223-32223   C04204/WMSScb                   pid-32223             I     RS multi-instance enabled: 1, deviceType phone
-04-06 12:55:45.557   32223-32223   C01406/OHOS::RS                 pid-32223             I     multi-instance, create RSUIContextManager, isMultiInstanceOpen_ 1
-04-06 12:55:45.557   32223-32223   C04204/WMSScb                   pid-32223             I     InitRSUIDirector: Create RSUIDirector: RSUIDirector's RSUIContext [token: 138396731179009, tid: 32223], rsUIContext: RSUIContext is null
-04-06 12:55:45.558   32223-32223   C01406/OHOS::RS                 pid-32223             I     RSLogManager init log flag: 0x0(0)
-04-06 12:55:45.558   32223-32223   C01406/OHOS::RS                 pid-32223             I     RSFrameRateLinker::Create id: 138396731179008
-04-06 12:55:45.558   32223-32223   C04202/WMSMain                  pid-32223             I     VsyncStation: id 138396731179010 created
-04-06 12:55:45.558   32223-32223   C04200/WindowSceneSessionImpl   pid-32223             I     WindowSceneSessionImpl: [WMSCom] Constructor myapplication0
-04-06 12:55:45.558   32223-32223   C04200/WMS                      pid-32223             E     SetWindowType: permission denied!
-04-06 12:55:45.558   32223-32223   C0420a/WMSLife                  pid-32223             I     Create: Window Create name:myapplication0, state:0, mode:0
-04-06 12:55:45.558   32223-32223   C0420a/WMSLife                  pid-32223             I     Create: SetIsAbilityHookOff 0
-04-06 12:55:45.558   32223-32223   C0420a/WMSLife                  pid-32223             W     IsWindowSessionInvalid: already destroyed or not created! id: 0 state_: 0
-04-06 12:55:45.558   32223-32223   C04200/WindowSceneSessionImpl   pid-32223             W     AdjustWindowAnimationFlag: session invalid!
-04-06 12:55:45.558   32223-32223   C04200/WindowSceneSessionImpl   pid-32223             I     Remove window flag WINDOW_FLAG_SHOW_WHEN_LOCKED
-04-06 12:55:45.561   32223-32223   C0420a/WMSLife                  pid-32223             I     Connect: in
-04-06 12:55:45.561   32223-32308   C04208/WMSLayout                pid-32223             I     NotifyAppHookWindowInfoUpdated: in
-04-06 12:55:45.569   32223-32308   C04208/WMSLayout                pid-32223             I     SetAppHookWindowInfo: Id:0, preHookWindowInfo:[enableHookWindow: false, widthHookRatio: 1.000000], newHookWindowInfo:[enableHookWindow: false, widthHookRatio: 1.000000]
-04-06 12:55:45.569   32223-32308   C0421d/WMSRotation              pid-32223             I     SetCurrentRotation: currentRotation: 0
-04-06 12:55:45.569   32223-32308   C04208/WMSLayout                pid-32223             I     UpdateRect: id:0 name:myapplication0 rect:[0 0 0 0]->[0 0 1316 2832] reason:0 displayId:0
-04-06 12:55:45.569   32223-32308   C04208/WMSLayout                pid-32223             W     NotifySingleHandTransformChange: id:0, uiContent is nullptr
-04-06 12:55:45.569   32223-32223   C04208/WMSLayout                pid-32223             I     Connect: updateRect when connect.preRect:[0,0,1316,2832]rect:[0,0,1316,2832]
-04-06 12:55:45.569   32223-32223   C0420a/WMSLife                  pid-32223             I     Connect: Window Connect [name:myapplication0, id:66, type:1], ret:0
-04-06 12:55:45.570   32223-32223   C04208/WMSLayout                pid-32223             I     NotifyWindowStatusChange: id:66, windowMode:1, windowStatus:1, lastWindowStatus:0, skipRedundantWindowStatusNotifications:0
-04-06 12:55:45.570   32223-32223   C04208/WMSLayout                pid-32223             I     SetConfigWindowLimitsVP: id:66, windowLimits:[0 0 0 0 0.000000 0.000000 1.000000]
-04-06 12:55:45.571   32223-32223   C04208/WMSLayout                com.wisto...lication  I     GetSystemSizeLimits: min[1120,840] max[6720,6720] configMax:1920 vpr:3.500000
-04-06 12:55:45.572   32223-32223   C0421a/WMSLayoutPc              com.wisto...lication  I     GetSupportedWindowModesConfiguration: winId: 66, windowModeSupportType: 15
-04-06 12:55:45.572   32223-32223   C0420f/WMSRecover               com.wisto...lication  I     RegisterSessionRecoverCallbackFunc: persistentId=66
-04-06 12:55:45.572   32223-32223   C04217/WMSAttribute             com.wisto...lication  I     UpdateDefaultStatusBarColor: win=66, appColor=light
-04-06 12:55:45.572   32223-32223   C04209/WMSImms                  com.wisto...lication  I     SetSpecificBarProperty: win [66 myapplication0] type 2108 1 ffffff ff000000 0 4
-04-06 12:55:45.573   32223-32223   C04200/WMS                      com.wisto...lication  I     IsMainHandlerAvailable: id:66, isAvailable:1
-04-06 12:55:45.573   32223-32223   C04200/WMS                      com.wisto...lication  I     IsMainHandlerAvailable: id:66, isAvailable:1
-04-06 12:55:45.573   32223-32223   C02800/InputManagerImpl         com.wisto...lication  I     [][SetWindowInputEventConsumer:364] enter
-04-06 12:55:45.592   32223-32223   C02800/MMIClient                com.wisto...lication  I     [][OnConnected:267] Connection to server succeeded, fd:38
-04-06 12:55:45.592   32223-32223   C02800/MMIClient                com.wisto...lication  I     [][AddFdListener:166] Server was listening
-04-06 12:55:45.592   32223-32223   C02800/MMIClient                com.wisto...lication  I     [][StartEventRunner:127] reuse current event handler, thread name:
-04-06 12:55:45.592   32223-32223   C02800/MMIClient                com.wisto...lication  I     [][StartEventRunner:130] File fd is in listening
-04-06 12:55:45.592   32223-32223   C02800/InputManagerImpl         com.wisto...lication  I     [][SetWindowInputEventConsumer] leave
-04-06 12:55:45.592   32223-32223   C0420c/WMSEvent                 com.wisto...lication  I     AddInputWindow: SetWindowInputEventConsumer success, wid:66
-04-06 12:55:45.592   32223-32223   C0420c/WMSEvent                 com.wisto...lication  I     LoadGameController: in
-04-06 12:55:45.593   32223-32223   C04732/GameController           com.wisto...lication  I     [(RegisterEntryModule:24)]begin load gamecontroller_event
-04-06 12:55:45.593   32223-32223   C04732/GameController           com.wisto...lication  I     [(StartInputToTouch:55)]Begin StartInputToTouch
-04-06 12:55:45.593   32223-32223   C0420c/WMSEvent                 com.wisto...lication  I     LoadGameController: dlopen GameController success
-04-06 12:55:45.593   32223-32223   C04217/WMSAttribute             com.wisto...lication  I     ConnectServer: start connect
-04-06 12:55:45.593   32223-32223   C04217/WMSAttribute             com.wisto...lication  I     ConnectServer: end connect
-04-06 12:55:45.593   32223-32223   C04217/WMSAttribute             com.wisto...lication  W     RegisterGetWMSWindowListCallback: callback has registered
-04-06 12:55:45.593   32223-32223   C04217/WMSAttribute             com.wisto...lication  I     RegisterGetWMSWindowListCallback: winId: 66
-04-06 12:55:45.593   32223-32223   C04217/WMSAttribute             com.wisto...lication  I     UpdateColorMode: winId: 66, colorMode: light
-04-06 12:55:45.593   32223-32223   C04217/WMSAttribute             com.wisto...lication  I     UpdateColorMode: winId: 66, colorMode: light, hasDarkRes: 1
-04-06 12:55:45.593   32223-32223   C0421c/WMSCompat                com.wisto...lication  I     SetPcAppInpadSpecificSystemBarInvisible: isPcAppInpadSpecificSystemBarInvisible: 0
-04-06 12:55:45.593   32223-32223   C0421c/WMSCompat                com.wisto...lication  I     SetPcAppInpadOrientationLandscape: isPcAppInpadOrientationLandscape: 0
-04-06 12:55:45.593   32223-32223   C04200/WMS                      com.wisto...lication  E     singleton_container.cpp GetSingleton: cant get OHOS::Rosen::WindowInfoReporter
-04-06 12:55:45.593   32223-32223   C01332/UIAbility                com.wisto...lication  I     [JUA1853]JsUIAbility call js, name: onWindowStageCreate
-04-06 12:55:45.593   32223-32223   A00000/testTag                  com.wisto...lication  I     Ability onWindowStageCreate
-04-06 12:55:45.593   32223-32223   C04200/JsWindowStage            com.wisto...lication  I     LoadContent: [NAPI]
-04-06 12:55:45.594   32223-32405   C04732/GameController           com.wisto...lication  I     [(GetSelfBundleName:49)]The current bundleName [com.wistom.myapplication]. version [1.0.0]
-04-06 12:55:45.594   32223-32405   C04732/GameController           com.wisto...lication  I     [(IsCommonApp:87)]The [com.wistom.myapplication] is a common app.
-04-06 12:55:45.594   32223-32223   C01332/UIAbility                com.wisto...lication  I     [JUA1898]end, name: onWindowStageCreate, time: 1
-04-06 12:55:45.594   32223-32405   C04732/GameController           com.wisto...lication  W     [(ReadJsonFromFile:200)]realpath failed for [/data/service/el1/public/for-all-app/gamecontroller_server/game_support_key_mapping.json]
-04-06 12:55:45.594   32223-32405   C04732/GameController           com.wisto...lication  I     [(DoAsyncTask:69)]The app does not support input-to-touch feature.
-04-06 12:55:45.594   32223-32223   C01332/UIAbility                com.wisto...lication  I     [JUA1853]JsUIAbility call js, name: onWillForeground
-04-06 12:55:45.594   32223-32223   C01332/UIAbility                com.wisto...lication  I     [JUA1898]end, name: onWillForeground, time: 0
-04-06 12:55:45.594   32223-32223   C04202/WMSMain                  com.wisto...lication  I     GoForeground: reason: 4
-04-06 12:55:45.594   32223-32223   C0420a/WMSLife                  com.wisto...lication  I     Show: Window show [name: myapplication0, id: 66, type: 1], reason: 4, state:1, requestState:1
-04-06 12:55:45.594   32223-32223   C04208/WMSLayout                com.wisto...lication  I     GetSystemSizeLimits: min[1120,840] max[6720,6720] configMax:1920 vpr:3.500000
-04-06 12:55:45.594   32223-32223   C04208/WMSLayout                com.wisto...lication  I     UpdateNewSize: fullscreen or compatible mode could not update new size, Id: 66
-04-06 12:55:45.594   32223-32223   C04217/WMSAttribute             com.wisto...lication  I     IsSystemDensityChanged: windowId: 66, lastDensity: -1.000000, currDensity: 3.500000
-04-06 12:55:45.594   32223-32223   C04200/WindowSessionImpl        com.wisto...lication  W     UpdateViewportConfig: uiContent is null!
-04-06 12:55:45.595   32223-32223   C01332/UIAbility                com.wisto...lication  I     [ui_ability_impl430]wnd call, AfterForeground
-04-06 12:55:45.595   32223-32223   C0420a/WMSLife                  com.wisto...lication  W     GetAttachStateSyncResult: lifecycleCallback is null
-04-06 12:55:45.595   32223-32223   C01406/OHOS::RS                 com.wisto...lication  I     RSFrameRateLinker::Create id: 138396731179009
-04-06 12:55:45.597   32223-32223   C01706/rtg_interface            com.wisto...lication  I     rtg fOpen fail, errno = 2(No such file or directory)
-04-06 12:55:45.597   32223-32223   C01706/RsFrameReportExt         com.wisto...lication  I     RsFra
+04-06 15:46:40.160   3320-3320     A00000/testTag                  com.wisto...lication  I     Ability onCreate
+04-06 15:46:40.202   3320-3320     A00000/testTag                  com.wisto...lication  I     Ability onWindowStageCreate
+04-06 15:46:40.216   3320-3320     A00000/testTag                  com.wisto...lication  I     Ability onForeground
+04-06 15:46:40.253   3320-3320     A00000/testTag                  com.wisto...lication  I     Succeeded in loading the content.
+04-06 15:46:40.403   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     Crash Detected: Signal:SIGABRT(SI_TKILL)@0x01317b6200007ee1 from:32481:20020066\n in com.wistom.myapplication
+04-06 15:46:41.444   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     IndexViewModel request
+04-06 15:46:41.445   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [JS Callback] showUser called with: 123123 (42)
+04-06 15:46:41.445   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     IndexViewModel 123123 (42)
+04-06 15:46:41.446   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     World123123
+04-06 15:46:41.446   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     Hello, World123123!
+04-06 15:46:41.446   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     ["ASDFF","ASDF"]
+04-06 15:46:41.446   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     Starting tests...
+04-06 15:46:41.446   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]parameters:{}
+04-06 15:46:41.446   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]filter params:0
+04-06 15:46:41.446   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.447   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]stress length : 1
+04-06 15:46:41.450   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [JS Callback] showUser called with: Starting process for 123123...
+04-06 15:46:41.450   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     IndexViewModel Starting process for 123123...
+04-06 15:46:41.457   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium] rootSuite:{"description":"","childSuites":[{"description":"KhnNapiTests","childSuites":[],"specs":[{"description":"should add two numbers","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should greet with name","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should process list","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should process map","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should process specific primitive lists","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should process specific primitive maps","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should process data classes and enums","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should process sealed classes and discriminated unions","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should handle complex coroutines scheduling and background callbacks","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should support async executing multiple tasks concurrently","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should support Koin dependency injection","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should inject ArkTS storage into Kotlin via Koin","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should use Ktor with custom Engine calling ArkTS HTTP","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test Kotlin extension functions","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test Kotlin Null Safety","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test Kotlin Mutability (MutableList and MutableMap)","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test Kotlin var vs val in Data Classes","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test passing Interface as callback","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test deeply nested Sealed Classes (Discriminated Unions)","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test extreme recursive data structures (Tree)","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test extreme multi-generics (TripleBox)","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test extreme exception capturing across boundary","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test extreme Any? (Dynamic) mixing madness","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""},{"description":"should test extreme suspend coroutine promise rejection","fi":0,"duration":0,"startTime":0,"isExecuted":false,"isSkip":false,"skipReason":"","expectMsg":""}],"beforeAll":[],"afterAll":[],"beforeItSpecified":{},"afterItSpecified":{},"beforeEach":[],"afterEach":[],"
+04-06 15:46:41.457   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][start] start run suites
+04-06 15:46:41.457   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][suite start]KhnNapiTests
+                                                                                               OHOS_REPORT_SUM: 24
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+04-06 15:46:41.457   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_SUM: 24
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+04-06 15:46:41.457   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]KhnNapiTests suiteStart print success
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should add two numbers'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=1
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should add two numbers
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=1
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should add two numbers
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should add two numbers specStart start print success
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should add two numbers ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=1
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should add two numbers
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=1
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.458   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.458   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should add two numbers
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should add two numbers specDone end print success
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should greet with name'
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=2
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should greet with name
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should greet with name specStart start print success
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should greet with name ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=2
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should greet with name
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.458   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=2
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.459   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.459   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should greet with name
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should greet with name specDone end print success
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should process list'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=3
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process list
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=3
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should process list
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process list specStart start print success
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should process list ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=3
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process list
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=3
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.459   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.459   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should process list
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process list specDone end print success
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should process map'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=4
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process map
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=4
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should process map
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process map specStart start print success
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should process map ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=4
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process map
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=4
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.459   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.459   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should process map
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process map specDone end print success
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should process specific primitive lists'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=5
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process specific primitive lists
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=5
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should process specific primitive lists
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.459   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process specific primitive lists specStart start print success
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should process specific primitive lists ; consuming 1ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=5
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process specific primitive lists
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=5
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.460   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.460   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should process specific primitive lists
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process specific primitive lists specDone end print success
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should process specific primitive maps'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=6
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process specific primitive maps
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=6
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should process specific primitive maps
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.460   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process specific primitive maps specStart start print success
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should process specific primitive maps ; consuming 1ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=6
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process specific primitive maps
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=6
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.461   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.461   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should process specific primitive maps
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process specific primitive maps specDone end print success
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should process data classes and enums'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=7
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process data classes and enums
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=7
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should process data classes and enums
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process data classes and enums specStart start print success
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should process data classes and enums ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=7
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process data classes and enums
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=7
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.461   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.461   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should process data classes and enums
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process data classes and enums specDone end print success
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should process sealed classes and discriminated unions'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=8
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process sealed classes and discriminated unions
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=8
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should process sealed classes and discriminated unions
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.461   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process sealed classes and discriminated unions specStart start print success
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should process sealed classes and discriminated unions ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=8
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should process sealed classes and discriminated unions
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=8
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.462   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:41.462   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should process sealed classes and discriminated unions
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should process sealed classes and discriminated unions specDone end print success
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should handle complex coroutines scheduling and background callbacks'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=9
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should handle complex coroutines scheduling and background callbacks
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=9
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should handle complex coroutines scheduling and background callbacks
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should handle complex coroutines scheduling and background callbacks specStart start print success
+04-06 15:46:41.462   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Test Callback] showUser: Starting process for Alice...
+04-06 15:46:41.953   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [JS Callback] showUser called with: Still computing in background...
+04-06 15:46:41.953   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     IndexViewModel Still computing in background...
+04-06 15:46:41.962   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Test Callback] showUser: Still computing in background...
+04-06 15:46:42.455   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [JS Callback] showStudent called with: {"name":"123123","age":43,"data":"123123123"}
+04-06 15:46:42.455   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [JS Callback] showUser called with: Process finished!
+04-06 15:46:42.455   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     IndexViewModel Process finished!
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Test Callback] showStudent: ALICE
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Test Callback] showUser: Process finished!
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should handle complex coroutines scheduling and background callbacks ; consuming 1002ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=9
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should handle complex coroutines scheduling and background callbacks
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1002
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=9
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:42.464   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:42.464   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should handle complex coroutines scheduling and background callbacks
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1002
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should handle complex coroutines scheduling and background callbacks specDone end print success
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should support async executing multiple tasks concurrently'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=10
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should support async executing multiple tasks concurrently
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=10
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should support async executing multiple tasks concurrently
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:42.464   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should support async executing multiple tasks concurrently specStart start print success
+04-06 15:46:43.467   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Concurrent Test] Executed 5 tasks in 1002 ms
+04-06 15:46:43.467   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should support async executing multiple tasks concurrently ; consuming 1003ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=10
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should support async executing multiple tasks concurrently
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1003
+04-06 15:46:43.467   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=10
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:43.467   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:43.467   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:43.467   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:43.467   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should support async executing multiple tasks concurrently
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1003
+04-06 15:46:43.467   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should support async executing multiple tasks concurrently specDone end print success
+04-06 15:46:43.467   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should support Koin dependency injection'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=11
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should support Koin dependency injection
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=11
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should support Koin dependency injection
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should support Koin dependency injection specStart start print success
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Koin Test] Result: Hello HarmonyOS Developer, injected by Koin!
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should support Koin dependency injection ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=11
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should support Koin dependency injection
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=11
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:43.468   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:43.468   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should support Koin dependency injection
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should support Koin dependency injection specDone end print success
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should inject ArkTS storage into Kotlin via Koin'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=12
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should inject ArkTS storage into Kotlin via Koin
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=12
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should inject ArkTS storage into Kotlin via Koin
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:43.468   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should inject ArkTS storage into Kotlin via Koin specStart start print success
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [ArkTS Storage] Kotlin requested to save: theme = Dark Mode from Kotlin
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [ArkTS Storage] Kotlin requested to get: theme, returning: Dark Mode from Kotlin
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should inject ArkTS storage into Kotlin via Koin ; consuming 3ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=12
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should inject ArkTS storage into Kotlin via Koin
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=3
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=12
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:43.471   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:43.471   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should inject ArkTS storage into Kotlin via Koin
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=3
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should inject ArkTS storage into Kotlin via Koin specDone end print success
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should use Ktor with custom Engine calling ArkTS HTTP'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=13
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should use Ktor with custom Engine calling ArkTS HTTP
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=13
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should use Ktor with custom Engine calling ArkTS HTTP
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should use Ktor with custom Engine calling ArkTS HTTP specStart start print success
+04-06 15:46:43.471   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Ktor Test] Starting API fetch for user 1 (Success Case)...
+04-06 15:46:43.479   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [ArkTS HttpFetcher] Real network request from Ktor Engine: GET https://jsonplaceholder.typicode.com/users/1
+04-06 15:46:44.175   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [ArkTS HttpFetcher] Request success: req_1, status: 200
+04-06 15:46:44.176   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Ktor Test] Fetch complete in 705ms. Response:
+                                                                                               Status: 200, Body: {
+                                                                                                 "id": 1,
+                                                                                                 "name": "Leanne Graham",
+                                                                                                 "username": "Bret",
+                                                                                                 "email": "Sincere@april.biz",
+                                                                                                 "address": {
+                                                                                                   "street": "Kulas Light",
+                                                                                                   "suite": "Apt. 556",
+                                                                                                   "city": "Gwenborough",
+                                                                                                   "zipcode": "92998-3874",
+                                                                                                   "geo": {
+                                                                                                     "lat": "-37.3159",
+                                                                                                     "lng": "81.1496"
+                                                                                                   }
+                                                                                                 },
+                                                                                                 "phone": "1-770-736-8031 x56442",
+                                                                                                 "website": "hildegard.org",
+                                                                                                 "company": {
+                                                                                                   "name": "Romaguera-Crona",
+                                                                                                   "catchPhrase": "Multi-layered client-server neural-net",
+                                                                                                   "bs": "harness real-time e-markets"
+                                                                                                 }
+                                                                                               }
+04-06 15:46:44.177   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Ktor Test] Starting API fetch for invalid user (404 Case)...
+04-06 15:46:44.178   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [ArkTS HttpFetcher] Real network request from Ktor Engine: GET https://jsonplaceholder.typicode.com/users/invalid_user_id_123
+04-06 15:46:44.294   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [ArkTS HttpFetcher] Request success: req_2, status: 404
+04-06 15:46:44.295   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Ktor Test] 404 Fetch complete. Response:
+                                                                                               Status: 404, Body: {}
+04-06 15:46:44.296   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Ktor Test] Starting API fetch for invalid host (Network Error Case)...
+04-06 15:46:44.296   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [ArkTS HttpFetcher] Real network request from Ktor Engine: GET https://invalid.domain.that.does.not.exist.com
+04-06 15:46:44.887   3320-3320     A03d00/JSAPP                    com.wisto...lication  E     [ArkTS HttpFetcher] Request failed: req_3, error: {"code":2300999,"message":"Unknown Other Error"}
+04-06 15:46:44.888   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Ktor Test] Expected network error caught: Unknown Other Error
+04-06 15:46:44.888   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should use Ktor with custom Engine calling ArkTS HTTP ; consuming 1417ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=13
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should use Ktor with custom Engine calling ArkTS HTTP
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1417
+04-06 15:46:44.888   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=13
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.888   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.888   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.888   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.888   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should use Ktor with custom Engine calling ArkTS HTTP
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1417
+04-06 15:46:44.888   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should use Ktor with custom Engine calling ArkTS HTTP specDone end print success
+04-06 15:46:44.888   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test Kotlin extension functions'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=14
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin extension functions
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=14
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test Kotlin extension functions
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin extension functions specStart start print success
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test Kotlin extension functions ; consuming 1ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=14
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin extension functions
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=14
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.889   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.889   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test Kotlin extension functions
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin extension functions specDone end print success
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test Kotlin Null Safety'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=15
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin Null Safety
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=15
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test Kotlin Null Safety
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin Null Safety specStart start print success
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test Kotlin Null Safety ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=15
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin Null Safety
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=15
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.889   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.889   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test Kotlin Null Safety
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin Null Safety specDone end print success
+04-06 15:46:44.889   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test Kotlin Mutability (MutableList and MutableMap)'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=16
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin Mutability (MutableList and MutableMap)
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=16
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test Kotlin Mutability (MutableList and MutableMap)
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin Mutability (MutableList and MutableMap) specStart start print success
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test Kotlin Mutability (MutableList and MutableMap) ; consuming 1ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=16
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin Mutability (MutableList and MutableMap)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=16
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.890   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.890   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test Kotlin Mutability (MutableList and MutableMap)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin Mutability (MutableList and MutableMap) specDone end print success
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test Kotlin var vs val in Data Classes'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=17
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin var vs val in Data Classes
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=17
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test Kotlin var vs val in Data Classes
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin var vs val in Data Classes specStart start print success
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  E     [Hypium]stack:    at AssertException @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:72:9)
+                                                                                                   at anonymous @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:1107:37)
+                                                                                                   at anonymous entry (entry/src/main/ets/test/KhnTest.ets:312:36)
+                                                                                                   at anonymous @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:87:19)
+                                                                                                   at getFuncWithArgsZero @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:79:12)
+                                                                                                   at processedFunc @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:158:24)
+                                                                                                   at asyncRun @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:989:24)
+                                                                                                   at asyncRunSpecs @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:697:32)
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  E     [Hypium]stack end
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][fail]should test Kotlin var vs val in Data Classes ; consuming 0ms
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][failDetail]expect undefined equals Immutable
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=17
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stack=    at AssertException @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:72:9)
+                                                                                                   at anonymous @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:1107:37)
+                                                                                                   at anonymous entry (entry/src/main/ets/test/KhnTest.ets:312:36)
+                                                                                                   at anonymous @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:87:19)
+                                                                                                   at getFuncWithArgsZero @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:79:12)
+                                                                                                   at processedFunc @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:158:24)
+                                                                                                   at asyncRun @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:989:24)
+                                                                                                   at asyncRunSpecs @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:697:32)
+                                                                                               OHOS_REPORT_STATUS: stream=Error in should test Kotlin var vs val in Data Classes, expect undefined equals Immutable
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin var vs val in Data Classes
+                                                                                               OHOS_REPORT_STATUS_CODE: -2
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.890   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=17
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.891   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stack=    at AssertException @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:72:9)
+                                                                                                   at anonymous @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:1107:37)
+                                                                                                   at anonymous entry (entry/src/main/ets/test/KhnTest.ets:312:36)
+                                                                                                   at anonymous @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:87:19)
+                                                                                                   at getFuncWithArgsZero @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:79:12)
+                                                                                                   at processedFunc @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:158:24)
+                                                                                                   at asyncRun @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:989:24)
+                                                                                                   at asyncRunSpecs @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:697:32)
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.891   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=Error in should test Kotlin var vs val in Data Classes, expect undefined equals Immutable
+                                                                                               OHOS_REPORT_STATUS: test=should test Kotlin var vs val in Data Classes
+                                                                                               OHOS_REPORT_STATUS_CODE: -2
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test Kotlin var vs val in Data Classes specDone end print success
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test passing Interface as callback'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=18
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test passing Interface as callback
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=18
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test passing Interface as callback
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test passing Interface as callback specStart start print success
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test passing Interface as callback ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=18
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test passing Interface as callback
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=18
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.891   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.891   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test passing Interface as callback
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test passing Interface as callback specDone end print success
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test deeply nested Sealed Classes (Discriminated Unions)'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=19
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test deeply nested Sealed Classes (Discriminated Unions)
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=19
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test deeply nested Sealed Classes (Discriminated Unions)
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test deeply nested Sealed Classes (Discriminated Unions) specStart start print success
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test deeply nested Sealed Classes (Discriminated Unions) ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=19
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test deeply nested Sealed Classes (Discriminated Unions)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=19
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.891   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.891   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test deeply nested Sealed Classes (Discriminated Unions)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test deeply nested Sealed Classes (Discriminated Unions) specDone end print success
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test extreme recursive data structures (Tree)'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=20
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme recursive data structures (Tree)
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=20
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test extreme recursive data structures (Tree)
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.891   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme recursive data structures (Tree) specStart start print success
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test extreme recursive data structures (Tree) ; consuming 1ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=20
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme recursive data structures (Tree)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=20
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.892   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.892   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test extreme recursive data structures (Tree)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme recursive data structures (Tree) specDone end print success
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test extreme multi-generics (TripleBox)'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=21
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme multi-generics (TripleBox)
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=21
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test extreme multi-generics (TripleBox)
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme multi-generics (TripleBox) specStart start print success
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test extreme multi-generics (TripleBox) ; consuming 0ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=21
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme multi-generics (TripleBox)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=21
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.892   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.892   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test extreme multi-generics (TripleBox)
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=0
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme multi-generics (TripleBox) specDone end print success
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test extreme exception capturing across boundary'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=22
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme exception capturing across boundary
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=22
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test extreme exception capturing across boundary
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.892   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme exception capturing across boundary specStart start print success
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test extreme exception capturing across boundary ; consuming 1ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=22
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme exception capturing across boundary
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=22
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.893   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.893   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test extreme exception capturing across boundary
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme exception capturing across boundary specDone end print success
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test extreme Any? (Dynamic) mixing madness'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=23
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme Any? (Dynamic) mixing madness
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=23
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test extreme Any? (Dynamic) mixing madness
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.893   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme Any? (Dynamic) mixing madness specStart start print success
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test extreme Any? (Dynamic) mixing madness ; consuming 1ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=23
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme Any? (Dynamic) mixing madness
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=23
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.894   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:44.894   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test extreme Any? (Dynamic) mixing madness
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=1
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme Any? (Dynamic) mixing madness specDone end print success
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]start running case 'should test extreme suspend coroutine promise rejection'
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=24
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme suspend coroutine promise rejection
+                                                                                               OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=24
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+                                                                                                 OHOS_REPORT_STATUS: stream=
+                                                                                                 OHOS_REPORT_STATUS: test=should test extreme suspend coroutine promise rejection
+                                                                                                 OHOS_REPORT_STATUS_CODE: 1
+04-06 15:46:44.894   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme suspend coroutine promise rejection specStart start print success
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][pass]should test extreme suspend coroutine promise rejection ; consuming 111ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: current=24
+                                                                                               OHOS_REPORT_STATUS: id=JS
+                                                                                               OHOS_REPORT_STATUS: numtests=24
+                                                                                               OHOS_REPORT_STATUS: stream=
+                                                                                               OHOS_REPORT_STATUS: test=should test extreme suspend coroutine promise rejection
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=111
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: current=24
+                                                                                                 OHOS_REPORT_STATUS: id=JS
+                                                                                                 OHOS_REPORT_STATUS: numtests=24
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:45.005   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: stream=
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+04-06 15:46:45.005   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     OHOS_REPORT_STATUS: test=should test extreme suspend coroutine promise rejection
+                                                                                               OHOS_REPORT_STATUS_CODE: 0
+                                                                                               OHOS_REPORT_STATUS: consuming=111
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]should test extreme suspend coroutine promise rejection specDone end print success
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [suite end] KhnNapiTests consuming 3543 ms
+                                                                                               OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                               OHOS_REPORT_STATUS: suiteconsuming=3543
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_STATUS: class=KhnNapiTests
+                                                                                                 OHOS_REPORT_STATUS: suiteconsuming=3543
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]KhnNapiTests suiteDone print success
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]total cases:24;failure 1,error 0,pass 23; consuming 3543ms
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium][end] run suites end
+                                                                                               OHOS_REPORT_RESULT: stream=Tests run: 24, Failure: 1, Error: 0, Pass: 23, Ignore: 0
+                                                                                               OHOS_REPORT_CODE: -1
+                                                                                               OHOS_REPORT_STATUS: taskconsuming=3543
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]printSync called ...
+                                                                                                 OHOS_REPORT_RESULT: stream=Tests run: 24, Failure: 1, Error: 0, Pass: 23, Ignore: 0
+                                                                                                 OHOS_REPORT_CODE: -1
+                                                                                                 OHOS_REPORT_STATUS: taskconsuming=3543
+04-06 15:46:45.005   3320-3320     A03d00/JSAPP                    com.wisto...lication  I     [Hypium]report print success
+04-06 15:46:45.005   3320-3320     A00001/KhnDemo                  com.wisto...lication  I     Test Finished: your test finished!!! (Code: 0)
+04-06 15:47:07.127   3320-3432     C02d10/HiViewRemoteService      com.wisto...lication  I     GetHiViewRemoteService: refresh remote service instance.
+04-06 15:47:07.129   3320-3320     C03f00/ArkCompiler              com.wisto...lication  I     [gc] IdleGCTrigger: trigger full gc
+04-06 15:47:07.136   3320-3320     C03f00/ArkCompiler              com.wisto...lication  I     [gc] IdleGCTrigger: trigger shared full gc
+04-06 15:47:07.138   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3428 apply qos failed, errno = 4
+04-06 15:47:07.140   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3429 apply qos failed, errno = 4
+04-06 15:47:07.142   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3430 apply qos failed, errno = 4
+04-06 15:47:07.144   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3431 apply qos failed, errno = 4
+04-06 15:47:07.149   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3428 apply qos failed, errno = 4
+04-06 15:47:07.151   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3429 apply qos failed, errno = 4
+04-06 15:47:07.152   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3430 apply qos failed, errno = 4
+04-06 15:47:07.154   3320-3428     C01707/CONCUR                   com.wisto...lication  E     [Interface] task 3431 apply qos failed, errno = 4
+04-06 15:47:10.312   3320-3427     C01719/ffrt                     com.wisto...lication  W     5:RecordTimeoutTask:323 appevent_refresh|9|2|0|SUB|2026-04-06 15:46:40.312|PND|30|1
+04-06 15:47:10.312   3320-3427     C01719/ffrt                     com.wisto...lication  W     6:RecordTimeoutTask:323 appevent_refresh|8|2|0|CRB|2026-04-06 15:46:40.313|EXE|30|1
+04-06 15:47:10.322   3320-3427     C01719/ffrt                     com.wisto...lication  W     7:RecordTimeoutTask:323 InitProcessor|7|2|0|WRS|2026-04-06 15:46:40.322|FIN|30|1

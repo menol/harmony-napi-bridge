@@ -23,10 +23,30 @@ export interface User {
     age: number;
 }
 
+export interface MutableData {
+    id: number;
+    name: string;
+    readOnlyField: string;
+}
+
+export interface TreeNode {
+    value: string;
+    children: Array<TreeNode>;
+}
+
+export interface TreeNode {
+}
+
+export interface TripleBox<A, B, C> {
+    a: A;
+    b: B;
+    c: C;
+}
+
 export interface ArkTsHttpRequest {
     url: string;
     method: string;
-    body: string;
+    body: string | null;
 }
 
 export interface BasePageState {
@@ -60,6 +80,18 @@ export namespace PageState {
         data: T;
     }
 }
+export interface DataSealed {
+}
+export namespace DataSealed {
+    export interface ItemA extends DataSealed {
+        type: "ItemA";
+        id: number;
+    }
+    export interface ItemB extends DataSealed {
+        type: "ItemB";
+        name: string;
+    }
+}
 export interface TestSealed<T> {
     process(item: T): T;
 }
@@ -87,8 +119,8 @@ export declare namespace hello_world_plugin {
     function greet(name: string): string;
     function processList(items: Array<string>): Array<string>;
     function processMap(data: Record<string, string>): Record<string, string>;
-    function processAny(value: unknown): unknown;
-    function processAnyMap(data: Record<string, unknown>): Record<string, unknown>;
+    function processAny(value: ESObject | null): ESObject | null;
+    function processAnyMap(data: Record<string, ESObject | null>): Record<string, ESObject | null>;
     function processIntList(items: Array<number>): Array<number>;
     function processDoubleList(items: Array<number>): Array<number>;
     function processBooleanList(items: Array<boolean>): Array<boolean>;
@@ -100,11 +132,23 @@ export declare namespace hello_world_plugin {
     function fetchDataAsync(id: string): Promise<string>;
     function executeMultipleTasksAsync(count: number, delayMs: number): Promise<Array<string>>;
     function getTestClass(): TestClass;
+    function processNullableString(name: string | null): string | null;
+    function getNullableList(returnNull: boolean): Array<string> | null;
+    function processMutableList(items: Array<string>): Array<string>;
+    function processMutableMap(data: Record<string, number>): Record<string, number>;
+    function modifyMutableData(data: MutableData): MutableData;
+    function callTestInterface(callback: TestInterface): string;
+    function processDataSealed(data: DataSealed): DataSealed;
+    function processTree(node: TreeNode): TreeNode;
+    function processTripleBox(box: TripleBox<string, number, boolean>): TripleBox<string, number, boolean>;
+    function throwKotlinException(message: string): string;
+    function processExtremeAny(data: ESObject | null): ESObject | null;
+    function extremeSuspendThrow(message: string): Promise<string>;
 }
 export declare namespace koin_plugin {
     function initKoin(): void;
     function getGreeting(name: string): string;
-    function getKoin(): unknown;
+    function getKoin(): ESObject;
 }
 export interface ArkTsHttpFetcher {
     fetch(requestId: string, request: ArkTsHttpRequest): void;
@@ -123,7 +167,7 @@ export interface KeyValueStorage {
 export declare namespace storage_plugin {
     function initArkTsStorage(storageImpl: KeyValueStorage): void;
     function testStorageRoundTrip(): string;
-    function getKoin(): unknown;
+    function getKoin(): ESObject;
 }
 export declare namespace UserUtilsV2 {
     function getFullName(receiver: User): string;

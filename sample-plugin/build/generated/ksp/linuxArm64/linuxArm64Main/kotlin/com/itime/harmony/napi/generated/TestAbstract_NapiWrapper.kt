@@ -10,15 +10,19 @@ import com.itime.harmony.napi.runtime.utils.toKotlinBooleanList
 import com.itime.harmony.napi.runtime.utils.toKotlinDouble
 import com.itime.harmony.napi.runtime.utils.toKotlinDoubleList
 import com.itime.harmony.napi.runtime.utils.toKotlinEnum
+import com.itime.harmony.napi.runtime.utils.toKotlinEnumList
 import com.itime.harmony.napi.runtime.utils.toKotlinInt
 import com.itime.harmony.napi.runtime.utils.toKotlinIntList
 import com.itime.harmony.napi.runtime.utils.toKotlinObject
+import com.itime.harmony.napi.runtime.utils.toKotlinObjectList
 import com.itime.harmony.napi.runtime.utils.toKotlinString
 import com.itime.harmony.napi.runtime.utils.toKotlinStringAnyMap
 import com.itime.harmony.napi.runtime.utils.toKotlinStringBooleanMap
 import com.itime.harmony.napi.runtime.utils.toKotlinStringDoubleMap
+import com.itime.harmony.napi.runtime.utils.toKotlinStringEnumMap
 import com.itime.harmony.napi.runtime.utils.toKotlinStringIntMap
 import com.itime.harmony.napi.runtime.utils.toKotlinStringList
+import com.itime.harmony.napi.runtime.utils.toKotlinStringObjectMap
 import com.itime.harmony.napi.runtime.utils.toKotlinStringStringMap
 import com.itime.harmony.napi.runtime.utils.toNapiObject
 import com.itime.harmony.napi.runtime.utils.toNapiString
@@ -26,11 +30,15 @@ import com.itime.harmony.napi.runtime.utils.toNapiValue
 import com.itime.harmony.napi.runtime.utils.toNapiValueAnyList
 import com.itime.harmony.napi.runtime.utils.toNapiValueBooleanList
 import com.itime.harmony.napi.runtime.utils.toNapiValueDoubleList
+import com.itime.harmony.napi.runtime.utils.toNapiValueEnumList
 import com.itime.harmony.napi.runtime.utils.toNapiValueIntList
+import com.itime.harmony.napi.runtime.utils.toNapiValueObjectList
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringAnyMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringBooleanMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringDoubleMap
+import com.itime.harmony.napi.runtime.utils.toNapiValueStringEnumMap
 import com.itime.harmony.napi.runtime.utils.toNapiValueStringIntMap
+import com.itime.harmony.napi.runtime.utils.toNapiValueStringObjectMap
 import com.itime.harmony.napi.runtime.utils.toNapiWrappedObject
 import com.itime.harmony.napi.runtime.utils.unwrapKotlinObject
 import com.itime.harmony.sample.TestAbstract
@@ -68,9 +76,9 @@ public fun TestAbstract_process_wrapper(env: napi_env?, info: napi_callback_info
         val argv = allocArray<napi_valueVar>(1)
         val thisVar = alloc<napi_valueVar>()
         napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)
-        val instance = thisVar.value!!.unwrapKotlinObject<TestAbstract<Any?>>(env!!)
+        val instance = thisVar.value!!.unwrapKotlinObject<TestAbstract<Any?>>(env!!)!!
 
-        val arg0 = argv[0]!!.toKotlinAny(env!!)
+        val arg0 = argv[0]!!.toKotlinAny(env!!)!!
         val result = instance.process(arg0)
         result.toNapiValue(env!!)
     }
@@ -89,7 +97,7 @@ public fun TestAbstract_sayHello_wrapper(env: napi_env?, info: napi_callback_inf
         val argv = allocArray<napi_valueVar>(0)
         val thisVar = alloc<napi_valueVar>()
         napi_get_cb_info(env, info, argc.ptr, argv, thisVar.ptr, null)
-        val instance = thisVar.value!!.unwrapKotlinObject<TestAbstract<Any?>>(env!!)
+        val instance = thisVar.value!!.unwrapKotlinObject<TestAbstract<Any?>>(env!!)!!
 
         val result = instance.sayHello()
         result.toNapiValue(env!!)

@@ -255,6 +255,102 @@ public fun InitGeneratedWrappers(env: napi_env?, exports: napi_value?): napi_val
       napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
       desc_HelloWorldPlugin_getTestClass.ptr)
 
+      val desc_HelloWorldPlugin_processNullableString = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_processNullableString.utf8name = "processNullableString".cstr.ptr
+      desc_HelloWorldPlugin_processNullableString.method =
+      staticCFunction(::HelloWorldPlugin_processNullableString_wrapper)
+      desc_HelloWorldPlugin_processNullableString.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_processNullableString.ptr)
+
+      val desc_HelloWorldPlugin_getNullableList = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_getNullableList.utf8name = "getNullableList".cstr.ptr
+      desc_HelloWorldPlugin_getNullableList.method =
+      staticCFunction(::HelloWorldPlugin_getNullableList_wrapper)
+      desc_HelloWorldPlugin_getNullableList.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_getNullableList.ptr)
+
+      val desc_HelloWorldPlugin_processMutableList = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_processMutableList.utf8name = "processMutableList".cstr.ptr
+      desc_HelloWorldPlugin_processMutableList.method =
+      staticCFunction(::HelloWorldPlugin_processMutableList_wrapper)
+      desc_HelloWorldPlugin_processMutableList.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_processMutableList.ptr)
+
+      val desc_HelloWorldPlugin_processMutableMap = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_processMutableMap.utf8name = "processMutableMap".cstr.ptr
+      desc_HelloWorldPlugin_processMutableMap.method =
+      staticCFunction(::HelloWorldPlugin_processMutableMap_wrapper)
+      desc_HelloWorldPlugin_processMutableMap.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_processMutableMap.ptr)
+
+      val desc_HelloWorldPlugin_modifyMutableData = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_modifyMutableData.utf8name = "modifyMutableData".cstr.ptr
+      desc_HelloWorldPlugin_modifyMutableData.method =
+      staticCFunction(::HelloWorldPlugin_modifyMutableData_wrapper)
+      desc_HelloWorldPlugin_modifyMutableData.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_modifyMutableData.ptr)
+
+      val desc_HelloWorldPlugin_callTestInterface = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_callTestInterface.utf8name = "callTestInterface".cstr.ptr
+      desc_HelloWorldPlugin_callTestInterface.method =
+      staticCFunction(::HelloWorldPlugin_callTestInterface_wrapper)
+      desc_HelloWorldPlugin_callTestInterface.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_callTestInterface.ptr)
+
+      val desc_HelloWorldPlugin_processDataSealed = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_processDataSealed.utf8name = "processDataSealed".cstr.ptr
+      desc_HelloWorldPlugin_processDataSealed.method =
+      staticCFunction(::HelloWorldPlugin_processDataSealed_wrapper)
+      desc_HelloWorldPlugin_processDataSealed.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_processDataSealed.ptr)
+
+      val desc_HelloWorldPlugin_processTree = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_processTree.utf8name = "processTree".cstr.ptr
+      desc_HelloWorldPlugin_processTree.method =
+      staticCFunction(::HelloWorldPlugin_processTree_wrapper)
+      desc_HelloWorldPlugin_processTree.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_processTree.ptr)
+
+      val desc_HelloWorldPlugin_processTripleBox = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_processTripleBox.utf8name = "processTripleBox".cstr.ptr
+      desc_HelloWorldPlugin_processTripleBox.method =
+      staticCFunction(::HelloWorldPlugin_processTripleBox_wrapper)
+      desc_HelloWorldPlugin_processTripleBox.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_processTripleBox.ptr)
+
+      val desc_HelloWorldPlugin_throwKotlinException = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_throwKotlinException.utf8name = "throwKotlinException".cstr.ptr
+      desc_HelloWorldPlugin_throwKotlinException.method =
+      staticCFunction(::HelloWorldPlugin_throwKotlinException_wrapper)
+      desc_HelloWorldPlugin_throwKotlinException.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_throwKotlinException.ptr)
+
+      val desc_HelloWorldPlugin_processExtremeAny = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_processExtremeAny.utf8name = "processExtremeAny".cstr.ptr
+      desc_HelloWorldPlugin_processExtremeAny.method =
+      staticCFunction(::HelloWorldPlugin_processExtremeAny_wrapper)
+      desc_HelloWorldPlugin_processExtremeAny.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_processExtremeAny.ptr)
+
+      val desc_HelloWorldPlugin_extremeSuspendThrow = alloc<napi_property_descriptor>()
+      desc_HelloWorldPlugin_extremeSuspendThrow.utf8name = "extremeSuspendThrow".cstr.ptr
+      desc_HelloWorldPlugin_extremeSuspendThrow.method =
+      staticCFunction(::HelloWorldPlugin_extremeSuspendThrow_wrapper)
+      desc_HelloWorldPlugin_extremeSuspendThrow.attributes = 0u.convert() // napi_default
+      napi_define_properties(env!!, HelloWorldPlugin_obj.value, 1u,
+      desc_HelloWorldPlugin_extremeSuspendThrow.ptr)
+
       napi_set_named_property(env!!, exports!!, "hello_world_plugin", HelloWorldPlugin_obj.value)
       // Register KoinPlugin (koin_plugin)
       val KoinPlugin_obj = alloc<napi_valueVar>()

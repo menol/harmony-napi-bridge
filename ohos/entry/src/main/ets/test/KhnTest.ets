@@ -1,7 +1,12 @@
 import { describe, it, expect } from '@ohos/hypium';
 import http from '@ohos.net.http';
-import { hello_world_plugin, koin_plugin, storage_plugin, ktor_plugin, IndexPresenter, Student, KeyValueStorage, ArkTsHttpFetcher, ArkTsHttpRequest } from 'khn';
-import type { Role, NetworkResult } from 'khn';
+import { hello_world_plugin, koin_plugin, storage_plugin, ktor_plugin, IndexPresenter, Student, KeyValueStorage, ArkTsHttpFetcher, ArkTsHttpRequest,
+  User,
+  TreeNode,
+  MutableData,
+  TripleBox} from 'khn';
+import type { Role, NetworkResult, TestInterface, DataSealed } from 'khn';
+import { UserUtilsV2 } from 'khn/src/main/ets/components/LogicKn';
 
 export default function khnTests() {
   describe('KhnNapiTests', () => {
@@ -248,6 +253,152 @@ export default function khnTests() {
       } catch (e) {
         console.log(`[Ktor Test] Expected network error caught: ${e.message}`);
         expect(e.message.length > 0).assertTrue();
+      }
+    });
+
+    it('should test Kotlin extension functions', 0, () => {
+      const user = { name: "Bob", age: 25 } as User;
+      const fullName = UserUtilsV2.getFullName(user);
+      expect(fullName).assertEqual("Bob (25)");
+    });
+
+    it('should test Kotlin Null Safety', 0, () => {
+      // Test returning null
+      const nullResult = hello_world_plugin.processNullableString(null);
+      // We expect the Kotlin string to be converted correctly
+      // Note: sometimes TS assertNull might have issues if NAPI null is returned differently, 
+      // let's assert using strict equality
+      expect(nullResult === null || nullResult === undefined).assertTrue();
+
+      // Test returning non-null
+      const strResult = hello_world_plugin.processNullableString("hello");
+      expect(strResult).assertEqual("HELLO");
+
+      // Test returning nullable list
+      const listNull = hello_world_plugin.getNullableList(true);
+      expect(listNull === null || listNull === undefined).assertTrue();
+
+      const listNotNull = hello_world_plugin.getNullableList(false);
+      expect(listNotNull !== null).assertTrue();
+      expect(listNotNull?.length).assertEqual(3);
+    });
+
+    it('should test Kotlin Mutability (MutableList and MutableMap)', 0, () => {
+      // List
+      const inputList = ["A", "B"];
+      const modifiedList = hello_world_plugin.processMutableList(inputList);
+      expect(modifiedList.length).assertEqual(3);
+      expect(modifiedList[2]).assertEqual("Kotlin_Added");
+
+      // Map
+      const inputMap: Record<string, number> = { "A": 1 };
+      const modifiedMap = hello_world_plugin.processMutableMap(inputMap);
+      expect(modifiedMap["A"]).assertEqual(1);
+      expect(modifiedMap["Kotlin_Key"]).assertEqual(999);
+    });
+
+    it('should test Kotlin var vs val in Data Classes', 0, () => {
+      const initialData = {
+        id: 1,
+        name: "Test"
+        // 故意不传 readOnlyField，测试 Kotlin 数据类的默认参数反序列化
+      } as MutableData;
+
+      const result = hello_world_plugin.modifyMutableData(initialData);
+      // var fields modified
+      expect(result.id).assertEqual(101);
+      expect(result.name).assertEqual("Test_Modified");
+      // val field unchanged / fallback to default
+      expect(result.readOnlyField).assertEqual("Immutable");
+    });
+
+    it('should test passing Interface as callback', 0, () => {
+      const callback: TestInterface = {
+        sayHello: (name: string) => {
+          return `Hello ${name} from ArkTS`;
+        }
+      };
+      
+      const result = hello_world_plugin.callTestInterface(callback);
+      expect(result).assertEqual("Callback returned: Hello Kotlin from ArkTS");
+    });
+
+    it('should test deeply nested Sealed Classes (Discriminated Unions)', 0, () => {
+      const itemA: DataSealed.ItemA = { type: "ItemA", id: 5 };
+      const resA = hello_world_plugin.processDataSealed(itemA) as DataSealed.ItemA;
+      expect(resA.type).assertEqual("ItemA");
+      expect((resA as DataSealed.ItemA).id).assertEqual(50);
+
+      const itemB: DataSealed.ItemB = { type: "ItemB", name: "test" };
+      const resB = hello_world_plugin.processDataSealed(itemB) as DataSealed.ItemB;
+      expect(resB.type).assertEqual("ItemB");
+      expect((resB as DataSealed.ItemB).name).assertEqual("TEST");
+    });
+
+    it('should test extreme recursive data structures (Tree)', 0, () => {
+      const root = {
+        value: "root",
+        children: [
+          { value: "child1", children: [] },
+          { value: "child2", children: [
+            { value: "grandchild", children: [] }
+          ] }
+        ]
+      } as TreeNode;
+
+      const result = hello_world_plugin.processTree(root);
+      expect(result.value).assertEqual("ROOT");
+      expect(result.children.length).assertEqual(2);
+      // Because we reversed children in processTree:
+      expect(result.children[0].value).assertEqual("CHILD2");
+      expect(result.children[0].children[0].value).assertEqual("GRANDCHILD");
+      expect(result.children[1].value).assertEqual("CHILD1");
+    });
+
+    it('should test extreme multi-generics (TripleBox)', 0, () => {
+      const input = { a: "hello", b: 42, c: true } as TripleBox<string, number, boolean>;
+      const result = hello_world_plugin.processTripleBox(input);
+      expect(result.a).assertEqual("olleh");
+      expect(result.b).assertEqual(420);
+      expect(result.c).assertEqual(false);
+    });
+
+    it('should test extreme exception capturing across boundary', 0, () => {
+      try {
+        hello_world_plugin.throwKotlinException("Test Error");
+        expect(false).assertTrue(); // Should not reach here
+      } catch (err) {
+        expect(err.message).assertContain("Kotlin Exception: Test Error");
+      }
+    });
+
+    it('should test extreme Any? (Dynamic) mixing madness', 0, () => {
+      const mixedData: ESObject = {
+        "a_null": null,
+        "a_string": "abc",
+        "a_num": 5,
+        "a_bool": true,
+        "a_list": [1, false, "xy"],
+        "a_map": { "inner": 10 } as Record<string, number>,
+      };
+
+      const result: ESObject = hello_world_plugin.processExtremeAny(mixedData);
+      expect(result["Key_a_null"]).assertEqual("Was Null");
+      expect(result["Key_a_string"]).assertEqual("cba");
+      expect(result["Key_a_num"]).assertEqual(500); // 5 * 100
+      expect(result["Key_a_bool"]).assertEqual(false);
+      expect(result["Key_a_list"][0]).assertEqual(100);
+      expect(result["Key_a_list"][1]).assertEqual(true);
+      expect(result["Key_a_list"][2]).assertEqual("yx");
+      expect(result["Key_a_map"]["Key_inner"]).assertEqual(1000);
+    });
+
+    it('should test extreme suspend coroutine promise rejection', 0, async () => {
+      try {
+        await hello_world_plugin.extremeSuspendThrow("Async Error");
+        expect(false).assertTrue(); // Should not reach here
+      } catch (err) {
+        expect(err.message).assertContain("Suspend Exception: Async Error");
       }
     });
   });

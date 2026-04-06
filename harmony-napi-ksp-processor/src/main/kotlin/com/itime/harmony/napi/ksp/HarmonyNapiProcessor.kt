@@ -23,13 +23,28 @@ class HarmonyNapiProcessor(
 
     private var isGenerated = false
 
-    private fun resolveType(typeRef: KSTypeReference): HarmonyTypeModel {
+    private fun resolveType(typeRef: KSTypeReference, visited: MutableSet<String> = mutableSetOf()): HarmonyTypeModel {
         val resolved = typeRef.resolve()
-        val simpleName = resolved.declaration.simpleName.asString()
-        val arguments = resolved.arguments.mapNotNull { arg ->
-            arg.type?.let { resolveType(it) }
-        }
         val qualifiedName = resolved.declaration.qualifiedName?.asString() ?: ""
+        val simpleName = resolved.declaration.simpleName.asString()
+        
+        // Break infinite recursion for recursive data structures
+        if (qualifiedName.isNotEmpty() && visited.contains(qualifiedName)) {
+            return HarmonyTypeModel(
+                simpleName = simpleName,
+                qualifiedName = qualifiedName,
+                isSerializable = resolved.declaration.annotations.any { it.shortName.asString() == "Serializable" },
+                isNullable = resolved.isMarkedNullable
+            )
+        }
+        
+        if (qualifiedName.isNotEmpty()) {
+            visited.add(qualifiedName)
+        }
+
+        val arguments = resolved.arguments.mapNotNull { arg ->
+            arg.type?.let { resolveType(it, visited) }
+        }
         val isSerializable = resolved.declaration.annotations.any { it.shortName.asString() == "Serializable" }
         val isEnum = (resolved.declaration as? KSClassDeclaration)?.classKind == ClassKind.ENUM_CLASS
         val isTypeParameter = resolved.declaration is KSTypeParameter
@@ -38,6 +53,12 @@ class HarmonyNapiProcessor(
         val isAbstract = (resolved.declaration as? KSClassDeclaration)?.modifiers?.contains(Modifier.ABSTRACT) == true
         val serialName = resolved.declaration.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
             ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
+        
+        // === FIXED: Also treat built-in kotlin.collections.MutableList and MutableMap as isMutable ===
+        val isMutable = qualifiedName == "kotlin.collections.MutableList" || qualifiedName == "kotlin.collections.MutableMap" || qualifiedName == "kotlin.collections.MutableSet"
+        
+        val isNullable = resolved.isMarkedNullable
+
         val typeParameters = (resolved.declaration as? KSClassDeclaration)?.typeParameters?.map { it.name.asString() } ?: emptyList()
         val sealedSubclasses = (resolved.declaration as? KSClassDeclaration)?.getSealedSubclasses()?.map { subclass ->
             val subSimpleName = subclass.simpleName.asString()
@@ -47,9 +68,15 @@ class HarmonyNapiProcessor(
             val subSerialName = subclass.annotations.firstOrNull { it.shortName.asString() == "SerialName" }
                 ?.arguments?.firstOrNull { it.name?.asString() == "value" }?.value as? String
             val subTypeParams = subclass.typeParameters.map { it.name.asString() }
+            
+            val subVisited = visited.toMutableSet()
+            if (subQualifiedName.isNotEmpty()) {
+                subVisited.add(subQualifiedName)
+            }
+            
             val subProps = if (subIsSerializable) {
                 subclass.getDeclaredProperties()
-                    .map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type)) }
+                    .map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type, subVisited)) }
                     .toList()
             } else emptyList()
             HarmonyTypeModel(
@@ -57,15 +84,16 @@ class HarmonyNapiProcessor(
                 qualifiedName = subQualifiedName,
                 isSerializable = subIsSerializable,
                 isAbstract = subIsAbstract,
-                properties = subProps,
-                typeParameters = subTypeParams,
-                serialName = subSerialName
-            )
+            properties = subProps,
+            typeParameters = subTypeParams,
+            serialName = subSerialName,
+            isNullable = isNullable
+        )
         }?.toList() ?: emptyList()
 
         val properties = if (isSerializable) {
             (resolved.declaration as? KSClassDeclaration)?.getDeclaredProperties()
-                ?.map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type)) }
+                ?.map { HarmonyPropertyModel(it.simpleName.asString(), resolveType(it.type, visited)) }
                 ?.toList() ?: emptyList()
         } else emptyList()
         val enumValues = if (isEnum) {
@@ -75,11 +103,16 @@ class HarmonyNapiProcessor(
                 ?.map { it.simpleName.asString() }
                 ?.toList() ?: emptyList()
         } else emptyList()
+        
+        if (qualifiedName.isNotEmpty()) {
+            visited.remove(qualifiedName)
+        }
 
         return HarmonyTypeModel(
             simpleName = simpleName,
             arguments = arguments,
             qualifiedName = qualifiedName,
+            packageName = resolved.declaration.packageName.asString(),
             isSerializable = isSerializable,
             isEnum = isEnum,
             properties = properties,
@@ -88,9 +121,11 @@ class HarmonyNapiProcessor(
             isInterface = isInterface,
             isSealed = isSealed,
             isAbstract = isAbstract,
+            isMutable = isMutable,
             sealedSubclasses = sealedSubclasses,
             typeParameters = typeParameters,
-            serialName = serialName
+            serialName = serialName,
+            isNullable = isNullable
         )
     }
 
@@ -131,7 +166,7 @@ class HarmonyNapiProcessor(
                             type = resolveType(param.type)
                         )
                     }
-                    val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
+                    val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit", isNullable = false)
                     val isSuspend = funcDecl.modifiers.contains(com.google.devtools.ksp.symbol.Modifier.SUSPEND)
                     HarmonyExportModel(
                         functionName = funcDecl.simpleName.asString(),
@@ -158,9 +193,9 @@ class HarmonyNapiProcessor(
                         val isHarmonyExport = funcDecl.annotations.any { ann -> ann.shortName.asString() == "HarmonyExport" }
                         val isAnyMethod = funcDecl.simpleName.asString() in listOf("equals", "hashCode", "toString", "<init>", "copy", "component1", "component2", "component3", "component4", "component5")
                         val isPublic = funcDecl.isPublic()
-                        val isAbstract = funcDecl.isAbstract
+                        val isAbstractMethod = funcDecl.isAbstract
                         val isExtension = funcDecl.extensionReceiver != null
-                        !isAbstract && !isExtension && (isHarmonyExport || (!isAnyMethod && isPublic))
+                        !isAbstractMethod && !isExtension && (isHarmonyExport || (!isAnyMethod && isPublic))
                     }
                 if (dataClassMethods.iterator().hasNext()) {
                     val extensionFunctions = dataClassMethods.map { func ->
@@ -170,7 +205,8 @@ class HarmonyNapiProcessor(
                                 type = HarmonyTypeModel(
                                     simpleName = classDecl.simpleName.asString(),
                                     qualifiedName = classDecl.qualifiedName?.asString() ?: "",
-                                    packageName = classDecl.packageName.asString()
+                                    packageName = classDecl.packageName.asString(),
+                                    isNullable = false
                                 )
                             )
                         )
@@ -181,7 +217,7 @@ class HarmonyNapiProcessor(
                             )
                         })
                         
-                        val returnType = func.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
+                        val returnType = func.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit", isNullable = false)
                         val isSuspend = func.modifiers.contains(com.google.devtools.ksp.symbol.Modifier.SUSPEND)
                         HarmonyExportModel(
                             functionName = func.simpleName.asString(),
@@ -311,7 +347,7 @@ class HarmonyNapiProcessor(
                         )
                     })
 
-                    val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit")
+                    val returnType = funcDecl.returnType?.let { resolveType(it) } ?: HarmonyTypeModel("Unit", isNullable = false)
                     val isSuspend = funcDecl.modifiers.contains(com.google.devtools.ksp.symbol.Modifier.SUSPEND)
 
                     HarmonyExportModel(
