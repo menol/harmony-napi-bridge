@@ -43,7 +43,7 @@ class DemoCall implements DemoInterface<User> {
 }
 
 
-class DemoAbsCall extends  DemoAbstract {
+class DemoAbsCall extends DemoAbstract {
 
   process(item: string[]): string[] {
     return item.map(item => item.toUpperCase());
@@ -57,13 +57,13 @@ class IndexViewModel implements IndexView {
 
   showStudent(student: Student<string>): void {
     console.log(`[JS Callback] showStudent called with: ${JSON.stringify(student)}`)
+    // 规范写法：使用 patchObserved 保持深层响应式代理对象的引用不变，仅更新内部字段
     patchObserved(this.student, student)
   }
 
   private present: IndexPresenter = new IndexPresenter()
-  @Trace user: User = observeKmp({
-
-  } as User)
+  // 规范写法：初始化时使用 observeKmp 将普通对象转换为深层响应式对象
+  @Trace user: User = observeKmp({} as User)
 
   @Trace student: Student<string> = observeKmp({
     name: 'World',
