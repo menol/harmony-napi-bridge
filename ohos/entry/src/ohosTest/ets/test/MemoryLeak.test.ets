@@ -28,6 +28,9 @@ export default function memoryLeakTest() {
       if (typeof gc === 'function') {
         gc();
       }
+
+      // Allow some time for Kotlin/Native background GC and NAPI finalizers to complete
+      await new Promise<void>(resolve => setTimeout(resolve, 500));
       
       const finalMemory = Number(hidebug.getNativeHeapAllocatedSize());
       const diff = finalMemory - initialMemory;
