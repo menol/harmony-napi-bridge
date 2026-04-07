@@ -211,8 +211,17 @@ struct Index {
         print: (msg: string) => { this.appendLog(msg); },
         printSync: (msg: string) => { this.appendLog(msg); },
         executeShellCommand: (cmd: string, timeout: number, callback: Function) => { callback(null, { stdResult: '' }); },
-        finishTest: (msg: string, code: number, callback: Function) => {
+        finishTest: async (msg: string, code: number, callback: Function) => {
           this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
+          
+          // Force GC to free JS wrappers, triggering NAPI finalizers
+          if (typeof gc === 'function') {
+            gc();
+          }
+          
+          // Wait for Kotlin/Native background GC to complete cleanup
+          await new Promise<void>(resolve => setTimeout(resolve, 800));
+
           const endMem = hidebug.getNativeHeapAllocatedSize();
           const endTime = Date.now();
           const memDiff = Number((endMem - this.startMem) / 1024n);
