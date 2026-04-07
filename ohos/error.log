@@ -1,425 +1,169 @@
 Device info:HUAWEI MatePad Pro
 Build info:PCE-W30 6.0.0.130(SP8C00E130R1P5)
-Fingerprint:476ac131fd3ea6293778adf9bd4d9ed69aa054de87fd8ecb768ac0af075cd257
+Fingerprint:c25fbecba859d028945e5a5568b0ce5f6eb57ebe8a97d8aa4a1ac15994666b99
 Module name:com.wistom.myapplication
 Version:1.0.0
 VersionCode:1000000
 PreInstalled:No
 Foreground:Yes
-Pid:56164
+Pid:64898
 Uid:20020191
-Process life time:15s
-Process Memory(kB): 175024(Rss)
-Device Memory(kB): Total 12113240, Free 412052, Available 5396480
-Reason:APP_INPUT_BLOCK
-appfreeze: com.wistom.myapplication APP_INPUT_BLOCK at 20260407143743
+Process life time:57s
+Process Memory(kB): 161468(Rss)
+Device Memory(kB): Total 12113240, Free 688964, Available 5371904
+Reason:THREAD_BLOCK_6S
+appfreeze: com.wistom.myapplication THREAD_BLOCK_6S at 20260407154550
 DisplayPowerInfo:powerState:AWAKE
 Page switch history:
-  14:37:29.154 :enters foreground
+  15:44:55.177 :enters foreground
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 DOMAIN:AAFWK
-STRINGID:APP_INPUT_BLOCK
-TIMESTAMP:2026/04/07-14:37:43:32
-PID:56164
+STRINGID:THREAD_BLOCK_6S
+TIMESTAMP:2026/04/07-15:45:50:524
+PID:64898
 UID:20020191
 PACKAGE_NAME:com.wistom.myapplication
 PROCESS_NAME:com.wistom.myapplication
 *******************************************
-start time: 2026/04/07-14:37:43:045
+start time: 2026/04/07-15:45:47:381
 DOMAIN = AAFWK
-EVENTNAME = APP_INPUT_BLOCK
-TIMESTAMP = 2026/04/07-14:37:43:32
-PID = 56164
+EVENTNAME = THREAD_BLOCK_3S
+TIMESTAMP = 2026/04/07-15:45:47:369
+PID = 64898
 UID = 20020191
-TID = 56164
+TID = 64898
 PACKAGE_NAME = com.wistom.myapplication
 PROCESS_NAME = com.wistom.myapplication
-eventLog_action = ffrt,t:input,t,cmd:c,cmd:cci,cmd:m,cmd:dam,tr,k:SysRqFile,hot,sli
+eventLog_action = ffrt,t,GpuStack,cmd:m,hot
 eventLog_interval = 10
 MSG =
-Fault time:2026/04/07-14:37:42
-User input does not respond!
+Fault time:2026/04/07-15:45:47
+App main thread is not response!
 
-Main handler dump start time: 2026-04-07 14:37:42.659
+Main handler dump start time: 2026-04-07 15:45:47.097
 mainHandler dump is:
- EventHandler dump begin curTime: 2026-04-07 14:37:42.659
- Event runner (Thread name = , Thread ID = 56164) is running
- Current Running: start at 2026-04-07 14:37:37.438, Event { send thread = 56164, send time = 2026-04-07 14:37:32.438, handle time = 2026-04-07 14:37:37.438, trigger time = 2026-04-07 14:37:37.438, task name = uv_timer_task, caller = [ohos_loop_handler.cpp(OnTriggered:72)] }
+ EventHandler dump begin curTime: 2026-04-07 15:45:47.097
+ Event runner (Thread name = , Thread ID = 64898) is running
+ Current Running: start at 2026-04-07 15:45:41.847, Event { send thread = 64898, send time = 2026-04-07 15:45:41.801, handle time = 2026-04-07 15:45:41.847, trigger time = 2026-04-07 15:45:41.847, task name = uv_timer_task, caller = [ohos_loop_handler.cpp(OnTriggered:72)] }
  History event queue information:
- No. 0 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.340, handle time = 2026-05-27 07:40:24.634, trigger time = 2026-04-07 14:37:37.340, completeTime time = 2026-04-07 14:37:37.341, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 1 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.291, handle time = 2026-04-07 14:37:37.342, trigger time = 2026-04-07 14:37:37.342, completeTime time = 2026-04-07 14:37:37.342, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 2 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.348, handle time = 2026-05-27 07:40:24.642, trigger time = 2026-04-07 14:37:37.348, completeTime time = 2026-04-07 14:37:37.350, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 3 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.299, handle time = 2026-04-07 14:37:37.350, trigger time = 2026-04-07 14:37:37.351, completeTime time = 2026-04-07 14:37:37.351, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 4 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.356, handle time = 2026-05-27 07:40:24.650, trigger time = 2026-04-07 14:37:37.356, completeTime time = 2026-04-07 14:37:37.358, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 5 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.307, handle time = 2026-04-07 14:37:37.358, trigger time = 2026-04-07 14:37:37.359, completeTime time = 2026-04-07 14:37:37.359, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 6 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.365, handle time = 2026-05-27 07:40:24.659, trigger time = 2026-04-07 14:37:37.365, completeTime time = 2026-04-07 14:37:37.366, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 7 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.315, handle time = 2026-04-07 14:37:37.366, trigger time = 2026-04-07 14:37:37.367, completeTime time = 2026-04-07 14:37:37.367, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 8 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.373, handle time = 2026-05-27 07:40:24.667, trigger time = 2026-04-07 14:37:37.373, completeTime time = 2026-04-07 14:37:37.374, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 9 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.323, handle time = 2026-04-07 14:37:37.374, trigger time = 2026-04-07 14:37:37.375, completeTime time = 2026-04-07 14:37:37.375, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 10 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.381, handle time = 2026-05-27 07:40:24.675, trigger time = 2026-04-07 14:37:37.381, completeTime time = 2026-04-07 14:37:37.383, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 11 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.332, handle time = 2026-04-07 14:37:37.383, trigger time = 2026-04-07 14:37:37.384, completeTime time = 2026-04-07 14:37:37.384, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 12 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.390, handle time = 2026-05-27 07:40:24.684, trigger time = 2026-04-07 14:37:37.390, completeTime time = 2026-04-07 14:37:37.391, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 13 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.340, handle time = 2026-04-07 14:37:37.391, trigger time = 2026-04-07 14:37:37.391, completeTime time = 2026-04-07 14:37:37.391, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 14 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.398, handle time = 2026-05-27 07:40:24.692, trigger time = 2026-04-07 14:37:37.398, completeTime time = 2026-04-07 14:37:37.399, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 15 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.349, handle time = 2026-04-07 14:37:37.400, trigger time = 2026-04-07 14:37:37.401, completeTime time = 2026-04-07 14:37:37.401, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 16 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.406, handle time = 2026-05-27 07:40:24.700, trigger time = 2026-04-07 14:37:37.406, completeTime time = 2026-04-07 14:37:37.408, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 17 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.357, handle time = 2026-04-07 14:37:37.408, trigger time = 2026-04-07 14:37:37.408, completeTime time = 2026-04-07 14:37:37.408, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 18 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.415, handle time = 2026-05-27 07:40:24.709, trigger time = 2026-04-07 14:37:37.415, completeTime time = 2026-04-07 14:37:37.416, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 19 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.365, handle time = 2026-04-07 14:37:37.416, trigger time = 2026-04-07 14:37:37.416, completeTime time = 2026-04-07 14:37:37.416, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 20 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.423, handle time = 2026-05-27 07:40:24.717, trigger time = 2026-04-07 14:37:37.423, completeTime time = 2026-04-07 14:37:37.424, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 21 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.373, handle time = 2026-04-07 14:37:37.424, trigger time = 2026-04-07 14:37:37.424, completeTime time = 2026-04-07 14:37:37.424, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 22 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.431, handle time = 2026-05-27 07:40:24.725, trigger time = 2026-04-07 14:37:37.431, completeTime time = 2026-04-07 14:37:37.433, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 23 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.382, handle time = 2026-04-07 14:37:37.433, trigger time = 2026-04-07 14:37:37.433, completeTime time = 2026-04-07 14:37:37.433, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 24 : Event { send thread = 56164, send time = 2026-04-07 14:37:32.438, handle time = 2026-04-07 14:37:37.438, trigger time = 2026-04-07 14:37:37.438, completeTime time = , priority = Low, task name = uv_timer_task, caller = [ohos_loop_handler.cpp(OnTriggered:72)] }
- No. 25 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.257, handle time = 2026-04-07 14:37:37.308, trigger time = 2026-04-07 14:37:37.309, completeTime time = 2026-04-07 14:37:37.309, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 26 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.315, handle time = 2026-05-27 07:40:24.609, trigger time = 2026-04-07 14:37:37.315, completeTime time = 2026-04-07 14:37:37.316, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 27 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.265, handle time = 2026-04-07 14:37:37.316, trigger time = 2026-04-07 14:37:37.317, completeTime time = 2026-04-07 14:37:37.317, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 28 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.323, handle time = 2026-05-27 07:40:24.617, trigger time = 2026-04-07 14:37:37.323, completeTime time = 2026-04-07 14:37:37.324, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 29 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.273, handle time = 2026-04-07 14:37:37.324, trigger time = 2026-04-07 14:37:37.325, completeTime time = 2026-04-07 14:37:37.325, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No. 30 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.331, handle time = 2026-05-27 07:40:24.625, trigger time = 2026-04-07 14:37:37.331, completeTime time = 2026-04-07 14:37:37.333, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
- No. 31 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.282, handle time = 2026-04-07 14:37:37.333, trigger time = 2026-04-07 14:37:37.333, completeTime time = 2026-04-07 14:37:37.333, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
+ No. 0 : Event { send thread = 64979, send time = 2026-04-07 15:45:14.095, handle time = 2026-04-07 15:45:14.095, trigger time = 2026-04-07 15:45:14.095, completeTime time = 2026-04-07 15:45:14.095, priority = VIP, task name = ArkUIUpdateBrightness, caller = [watchdog.cpp(Timer:253)] }
+ No. 1 : Event { send thread = 65515, send time = 2026-04-07 15:45:12.139, handle time = 2026-04-07 15:45:12.139, trigger time = 2026-04-07 15:45:14.095, completeTime time = 2026-04-07 15:45:14.095, priority = IDEL, task name = uv_io_cb, caller = [ohos_js_environment_impl.cpp(PostTaskToHandler:70)] }
+ No. 2 : Event { send thread = 64979, send time = 2026-04-07 15:45:17.094, handle time = 2026-04-07 15:45:17.094, trigger time = 2026-04-07 15:45:17.095, completeTime time = 2026-04-07 15:45:17.095, priority = VIP, task name = ArkUIUpdateSessionViewportConfig, caller = [watchdog.cpp(Timer:253)] }
+ No. 3 : Event { send thread = 64979, send time = 2026-04-07 15:45:20.095, handle time = 2026-04-07 15:45:20.095, trigger time = 2026-04-07 15:45:20.095, completeTime time = 2026-04-07 15:45:20.095, priority = VIP, task name = ArkUIFrontendActive, caller = [watchdog.cpp(Timer:253)] }
+ No. 4 : Event { send thread = 64979, send time = 2026-04-07 15:45:23.095, handle time = 2026-04-07 15:45:23.095, trigger time = 2026-04-07 15:45:23.095, completeTime time = 2026-04-07 15:45:23.095, priority = VIP, task name = ArkUIWindowFocus, caller = [watchdog.cpp(Timer:253)] }
+ No. 5 : Event { send thread = 807, send time = 2026-04-07 15:45:23.146, handle time = 2026-04-07 15:45:23.146, trigger time = 2026-04-07 15:45:23.147, completeTime time = 2026-04-07 15:45:23.147, priority = Immediate, task name = ARKTS_IDLE_NOTIFY, caller = [ark_idle_monitor.cpp(CheckIntervalIdle:431)] }
+ No. 6 : Event { send thread = 64979, send time = 2026-04-07 15:45:26.095, handle time = 2026-04-07 15:45:26.095, trigger time = 2026-04-07 15:45:26.095, completeTime time = 2026-04-07 15:45:26.095, priority = VIP, task name = ArkUIFrontendActive, caller = [watchdog.cpp(Timer:253)] }
+ No. 7 : Event { send thread = 64979, send time = 2026-04-07 15:45:29.095, handle time = 2026-04-07 15:45:29.095, trigger time = 2026-04-07 15:45:29.096, completeTime time = 2026-04-07 15:45:29.096, priority = VIP, task name = ArkUIWindowActivate, caller = [watchdog.cpp(Timer:253)] }
+ No. 8 : Event { send thread = 64979, send time = 2026-04-07 15:45:32.095, handle time = 2026-04-07 15:45:32.095, trigger time = 2026-04-07 15:45:32.095, completeTime time = 2026-04-07 15:45:32.095, priority = VIP, task name = uv_io_cb, caller = [watchdog.cpp(Timer:253)] }
+ No. 9 : Event { send thread = 64979, send time = 2026-04-07 15:45:35.094, handle time = 2026-04-07 15:45:35.094, trigger time = 2026-04-07 15:45:35.095, completeTime time = 2026-04-07 15:45:35.095, priority = VIP, task name = ArkUISetWindowScale, caller = [watchdog.cpp(Timer:253)] }
+ No. 10 : Event { send thread = 1236, send time = 2026-04-07 15:45:35.145, handle time = 2026-04-07 15:45:35.145, trigger time = 2026-04-07 15:45:35.145, completeTime time = 2026-04-07 15:45:35.146, priority = Immediate, task name = ARKTS_IDLE_NOTIFY, caller = [ark_idle_monitor.cpp(CheckIntervalIdle:431)] }
+ No. 11 : Event { send thread = 64979, send time = 2026-04-07 15:45:38.095, handle time = 2026-04-07 15:45:38.095, trigger time = 2026-04-07 15:45:38.095, completeTime time = 2026-04-07 15:45:38.095, priority = VIP, task name = ArkUIUpdateOriginAvoidAreaAndExecuteKeyboardAvoid, caller = [watchdog.cpp(Timer:253)] }
+ No. 12 : Event { send thread = 64979, send time = 2026-04-07 15:45:41.095, handle time = 2026-04-07 15:45:41.095, trigger time = 2026-04-07 15:45:41.095, completeTime time = 2026-04-07 15:45:41.096, priority = VIP, task name = ArkUIWindowRectChange, caller = [watchdog.cpp(Timer:253)] }
+ No. 13 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.770, handle time = 2026-04-07 15:45:41.770, trigger time = 2026-04-07 15:45:41.770, completeTime time = 2026-04-07 15:45:41.779, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 14 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.773, handle time = 2026-04-07 15:45:41.773, trigger time = 2026-04-07 15:45:41.779, completeTime time = 2026-04-07 15:45:41.779, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 15 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.775, handle time = 2026-04-07 15:45:41.775, trigger time = 2026-04-07 15:45:41.779, completeTime time = 2026-04-07 15:45:41.779, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 16 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.776, handle time = 2026-04-07 15:45:41.776, trigger time = 2026-04-07 15:45:41.779, completeTime time = 2026-04-07 15:45:41.779, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 17 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.779, handle time = 2026-04-07 15:45:41.779, trigger time = 2026-04-07 15:45:41.779, completeTime time = 2026-04-07 15:45:41.779, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 18 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.779, handle time = 2026-05-27 08:48:29.073, trigger time = 2026-04-07 15:45:41.779, completeTime time = 2026-04-07 15:45:41.780, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
+ No. 19 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.784, handle time = 2026-04-07 15:45:41.784, trigger time = 2026-04-07 15:45:41.785, completeTime time = 2026-04-07 15:45:41.785, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 20 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.786, handle time = 2026-05-27 08:48:29.080, trigger time = 2026-04-07 15:45:41.786, completeTime time = 2026-04-07 15:45:41.786, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
+ No. 21 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.787, handle time = 2026-04-07 15:45:41.787, trigger time = 2026-04-07 15:45:41.788, completeTime time = 2026-04-07 15:45:41.788, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 22 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.793, handle time = 2026-04-07 15:45:41.793, trigger time = 2026-04-07 15:45:41.793, completeTime time = 2026-04-07 15:45:41.793, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 23 : Event { send thread = 64990, send time = 2026-04-07 15:45:41.795, handle time = 2026-04-07 15:45:41.795, trigger time = 2026-04-07 15:45:41.795, completeTime time = 2026-04-07 15:45:41.799, priority = VIP, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
+ No. 24 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.799, handle time = 2026-05-27 08:48:29.093, trigger time = 2026-04-07 15:45:41.799, completeTime time = 2026-04-07 15:45:41.802, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
+ No. 25 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.799, handle time = 2026-04-07 15:45:41.799, trigger time = 2026-04-07 15:45:41.802, completeTime time = 2026-04-07 15:45:41.802, priority = High, task name = uvLoopTask, caller = [event_queue.cpp(HandleFileDescriptorEvent:277)] }
+ No. 26 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.803, handle time = 2026-05-27 08:48:29.097, trigger time = 2026-04-07 15:45:41.803, completeTime time = 2026-04-07 15:45:41.804, priority = VIP, task name = vSyncTask, caller = [event_queue.cpp(PostTaskForVsync:199)] }
+ No. 27 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.778, handle time = 2026-04-07 15:45:41.829, trigger time = 2026-04-07 15:45:41.830, completeTime time = 2026-04-07 15:45:41.830, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
+ No. 28 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.780, handle time = 2026-04-07 15:45:41.831, trigger time = 2026-04-07 15:45:41.832, completeTime time = 2026-04-07 15:45:41.832, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
+ No. 29 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.787, handle time = 2026-04-07 15:45:41.838, trigger time = 2026-04-07 15:45:41.838, completeTime time = 2026-04-07 15:45:41.838, priority = Low, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
+ No. 30 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.802, handle time = 2026-04-07 15:45:41.848, trigger time = 2026-04-07 15:45:41.848, completeTime time = , priority = Low, task name = uv_timer_task, caller = [ohos_loop_handler.cpp(OnTriggered:72)] }
+ No. 31 : Event { send thread = 65006, send time = 2026-04-07 15:45:12.123, handle time = 2026-04-07 15:45:12.123, trigger time = 2026-04-07 15:45:12.124, completeTime time = 2026-04-07 15:45:12.139, priority = Immediate, task name = ARKTS_IDLE_COMPRESS, caller = [ark_idle_monitor.cpp(NotifyMainThreadTryCompressGC:256)] }
  VIP priority event queue information:
- No.1 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.635, handle time = 2026-04-07 14:37:37.635, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.2 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.636, handle time = 2026-04-07 14:37:37.636, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.3 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.641, handle time = 2026-04-07 14:37:37.641, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.4 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.647, handle time = 2026-04-07 14:37:37.647, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.5 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.652, handle time = 2026-04-07 14:37:37.652, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.6 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.657, handle time = 2026-04-07 14:37:37.657, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.7 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.662, handle time = 2026-04-07 14:37:37.662, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.8 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.668, handle time = 2026-04-07 14:37:37.668, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.9 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.674, handle time = 2026-04-07 14:37:37.674, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.10 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.680, handle time = 2026-04-07 14:37:37.680, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.11 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.687, handle time = 2026-04-07 14:37:37.687, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.12 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.692, handle time = 2026-04-07 14:37:37.692, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.13 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.697, handle time = 2026-04-07 14:37:37.697, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.14 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.702, handle time = 2026-04-07 14:37:37.702, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.15 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.708, handle time = 2026-04-07 14:37:37.708, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.16 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.714, handle time = 2026-04-07 14:37:37.714, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.17 : Event { send thread = 56239, send time = 2026-04-07 14:37:37.719, handle time = 2026-04-07 14:37:37.719, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.18 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.109, handle time = 2026-04-07 14:37:38.109, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.19 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.110, handle time = 2026-04-07 14:37:38.110, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.20 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.111, handle time = 2026-04-07 14:37:38.111, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.21 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.117, handle time = 2026-04-07 14:37:38.117, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.22 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.119, handle time = 2026-04-07 14:37:38.119, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.23 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.125, handle time = 2026-04-07 14:37:38.125, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.24 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.132, handle time = 2026-04-07 14:37:38.132, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.25 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.137, handle time = 2026-04-07 14:37:38.137, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.26 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.145, handle time = 2026-04-07 14:37:38.145, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.27 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.150, handle time = 2026-04-07 14:37:38.150, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.28 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.155, handle time = 2026-04-07 14:37:38.155, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.29 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.161, handle time = 2026-04-07 14:37:38.161, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.30 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.167, handle time = 2026-04-07 14:37:38.167, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.31 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.173, handle time = 2026-04-07 14:37:38.173, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.32 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.177, handle time = 2026-04-07 14:37:38.177, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.33 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.183, handle time = 2026-04-07 14:37:38.183, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.34 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.186, handle time = 2026-04-07 14:37:38.186, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.35 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.192, handle time = 2026-04-07 14:37:38.192, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.36 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.197, handle time = 2026-04-07 14:37:38.197, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.37 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.204, handle time = 2026-04-07 14:37:38.204, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.38 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.209, handle time = 2026-04-07 14:37:38.209, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.39 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.480, handle time = 2026-04-07 14:37:38.480, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.40 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.483, handle time = 2026-04-07 14:37:38.483, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.41 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.486, handle time = 2026-04-07 14:37:38.486, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.42 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.492, handle time = 2026-04-07 14:37:38.492, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.43 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.501, handle time = 2026-04-07 14:37:38.501, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.44 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.507, handle time = 2026-04-07 14:37:38.507, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.45 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.512, handle time = 2026-04-07 14:37:38.512, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.46 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.518, handle time = 2026-04-07 14:37:38.518, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.47 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.523, handle time = 2026-04-07 14:37:38.523, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.48 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.529, handle time = 2026-04-07 14:37:38.529, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.49 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.534, handle time = 2026-04-07 14:37:38.534, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.50 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.540, handle time = 2026-04-07 14:37:38.540, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.51 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.546, handle time = 2026-04-07 14:37:38.546, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.52 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.551, handle time = 2026-04-07 14:37:38.551, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.53 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.554, handle time = 2026-04-07 14:37:38.554, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.54 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.560, handle time = 2026-04-07 14:37:38.560, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.55 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.568, handle time = 2026-04-07 14:37:38.568, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.56 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.574, handle time = 2026-04-07 14:37:38.574, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.57 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.578, handle time = 2026-04-07 14:37:38.578, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.58 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.584, handle time = 2026-04-07 14:37:38.584, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.59 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.591, handle time = 2026-04-07 14:37:38.591, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.60 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.596, handle time = 2026-04-07 14:37:38.596, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.61 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.602, handle time = 2026-04-07 14:37:38.602, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.62 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.607, handle time = 2026-04-07 14:37:38.607, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.63 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.612, handle time = 2026-04-07 14:37:38.612, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.64 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.867, handle time = 2026-04-07 14:37:38.867, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.65 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.868, handle time = 2026-04-07 14:37:38.868, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.66 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.869, handle time = 2026-04-07 14:37:38.869, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.67 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.874, handle time = 2026-04-07 14:37:38.874, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.68 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.877, handle time = 2026-04-07 14:37:38.877, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.69 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.883, handle time = 2026-04-07 14:37:38.883, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.70 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.889, handle time = 2026-04-07 14:37:38.889, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.71 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.894, handle time = 2026-04-07 14:37:38.894, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.72 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.899, handle time = 2026-04-07 14:37:38.899, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.73 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.905, handle time = 2026-04-07 14:37:38.905, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.74 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.912, handle time = 2026-04-07 14:37:38.912, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.75 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.917, handle time = 2026-04-07 14:37:38.917, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.76 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.922, handle time = 2026-04-07 14:37:38.922, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.77 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.928, handle time = 2026-04-07 14:37:38.928, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.78 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.933, handle time = 2026-04-07 14:37:38.933, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.79 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.939, handle time = 2026-04-07 14:37:38.939, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.80 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.943, handle time = 2026-04-07 14:37:38.943, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.81 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.951, handle time = 2026-04-07 14:37:38.951, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.82 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.955, handle time = 2026-04-07 14:37:38.955, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.83 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.961, handle time = 2026-04-07 14:37:38.961, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.84 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.967, handle time = 2026-04-07 14:37:38.967, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.85 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.973, handle time = 2026-04-07 14:37:38.973, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.86 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.978, handle time = 2026-04-07 14:37:38.978, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.87 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.984, handle time = 2026-04-07 14:37:38.984, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.88 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.989, handle time = 2026-04-07 14:37:38.989, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.89 : Event { send thread = 56239, send time = 2026-04-07 14:37:38.995, handle time = 2026-04-07 14:37:38.995, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.90 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.003, handle time = 2026-04-07 14:37:39.003, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.91 : Event { send thread = 56226, send time = 2026-04-07 14:37:39.064, handle time = 2026-04-07 14:37:39.064, id = 1, caller = [watchdog.cpp(Timer:253)] }
- No.92 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.169, handle time = 2026-04-07 14:37:39.169, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.93 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.172, handle time = 2026-04-07 14:37:39.172, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.94 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.176, handle time = 2026-04-07 14:37:39.176, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.95 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.181, handle time = 2026-04-07 14:37:39.181, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.96 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.188, handle time = 2026-04-07 14:37:39.188, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.97 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.193, handle time = 2026-04-07 14:37:39.193, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.98 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.200, handle time = 2026-04-07 14:37:39.200, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.99 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.206, handle time = 2026-04-07 14:37:39.206, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.100 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.211, handle time = 2026-04-07 14:37:39.211, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.101 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.217, handle time = 2026-04-07 14:37:39.217, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.102 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.222, handle time = 2026-04-07 14:37:39.222, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.103 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.228, handle time = 2026-04-07 14:37:39.228, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.104 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.233, handle time = 2026-04-07 14:37:39.233, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.105 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.238, handle time = 2026-04-07 14:37:39.238, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.106 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.243, handle time = 2026-04-07 14:37:39.243, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.107 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.250, handle time = 2026-04-07 14:37:39.250, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.108 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.256, handle time = 2026-04-07 14:37:39.256, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.109 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.262, handle time = 2026-04-07 14:37:39.262, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.110 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.265, handle time = 2026-04-07 14:37:39.265, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.111 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.270, handle time = 2026-04-07 14:37:39.270, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.112 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.278, handle time = 2026-04-07 14:37:39.278, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.113 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.283, handle time = 2026-04-07 14:37:39.283, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.114 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.289, handle time = 2026-04-07 14:37:39.289, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.115 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.295, handle time = 2026-04-07 14:37:39.295, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.116 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.301, handle time = 2026-04-07 14:37:39.301, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.117 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.306, handle time = 2026-04-07 14:37:39.306, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.118 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.313, handle time = 2026-04-07 14:37:39.313, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.119 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.456, handle time = 2026-04-07 14:37:39.456, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.120 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.457, handle time = 2026-04-07 14:37:39.457, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.121 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.458, handle time = 2026-04-07 14:37:39.458, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.122 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.462, handle time = 2026-04-07 14:37:39.462, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.123 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.465, handle time = 2026-04-07 14:37:39.465, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.124 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.471, handle time = 2026-04-07 14:37:39.471, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.125 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.478, handle time = 2026-04-07 14:37:39.478, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.126 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.483, handle time = 2026-04-07 14:37:39.483, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.127 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.489, handle time = 2026-04-07 14:37:39.489, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.128 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.495, handle time = 2026-04-07 14:37:39.495, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.129 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.498, handle time = 2026-04-07 14:37:39.498, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.130 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.504, handle time = 2026-04-07 14:37:39.504, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.131 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.511, handle time = 2026-04-07 14:37:39.511, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.132 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.516, handle time = 2026-04-07 14:37:39.516, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.133 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.521, handle time = 2026-04-07 14:37:39.521, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.134 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.527, handle time = 2026-04-07 14:37:39.527, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.135 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.532, handle time = 2026-04-07 14:37:39.532, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.136 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.538, handle time = 2026-04-07 14:37:39.538, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.137 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.542, handle time = 2026-04-07 14:37:39.542, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.138 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.548, handle time = 2026-04-07 14:37:39.548, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.139 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.554, handle time = 2026-04-07 14:37:39.554, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.140 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.559, handle time = 2026-04-07 14:37:39.559, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.141 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.564, handle time = 2026-04-07 14:37:39.564, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.142 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.570, handle time = 2026-04-07 14:37:39.570, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.143 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.576, handle time = 2026-04-07 14:37:39.576, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.144 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.812, handle time = 2026-04-07 14:37:39.812, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.145 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.813, handle time = 2026-04-07 14:37:39.813, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.146 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.813, handle time = 2026-04-07 14:37:39.813, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.147 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.819, handle time = 2026-04-07 14:37:39.819, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.148 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.821, handle time = 2026-04-07 14:37:39.821, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.149 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.828, handle time = 2026-04-07 14:37:39.828, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.150 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.832, handle time = 2026-04-07 14:37:39.832, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.151 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.838, handle time = 2026-04-07 14:37:39.838, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.152 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.843, handle time = 2026-04-07 14:37:39.843, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.153 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.848, handle time = 2026-04-07 14:37:39.848, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.154 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.856, handle time = 2026-04-07 14:37:39.856, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.155 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.861, handle time = 2026-04-07 14:37:39.861, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.156 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.866, handle time = 2026-04-07 14:37:39.866, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.157 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.873, handle time = 2026-04-07 14:37:39.873, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.158 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.878, handle time = 2026-04-07 14:37:39.878, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.159 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.883, handle time = 2026-04-07 14:37:39.883, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.160 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.888, handle time = 2026-04-07 14:37:39.888, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.161 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.894, handle time = 2026-04-07 14:37:39.894, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.162 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.900, handle time = 2026-04-07 14:37:39.900, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.163 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.907, handle time = 2026-04-07 14:37:39.907, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.164 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.910, handle time = 2026-04-07 14:37:39.910, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.165 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.915, handle time = 2026-04-07 14:37:39.915, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.166 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.919, handle time = 2026-04-07 14:37:39.919, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.167 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.925, handle time = 2026-04-07 14:37:39.925, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.168 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.930, handle time = 2026-04-07 14:37:39.930, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.169 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.937, handle time = 2026-04-07 14:37:39.937, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.170 : Event { send thread = 56239, send time = 2026-04-07 14:37:39.941, handle time = 2026-04-07 14:37:39.941, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.171 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.198, handle time = 2026-04-07 14:37:40.198, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.172 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.202, handle time = 2026-04-07 14:37:40.202, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.173 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.208, handle time = 2026-04-07 14:37:40.208, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.174 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.210, handle time = 2026-04-07 14:37:40.210, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.175 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.216, handle time = 2026-04-07 14:37:40.216, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.176 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.220, handle time = 2026-04-07 14:37:40.220, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.177 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.226, handle time = 2026-04-07 14:37:40.226, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.178 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.233, handle time = 2026-04-07 14:37:40.233, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.179 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.238, handle time = 2026-04-07 14:37:40.238, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.180 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.242, handle time = 2026-04-07 14:37:40.242, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.181 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.248, handle time = 2026-04-07 14:37:40.248, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.182 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.255, handle time = 2026-04-07 14:37:40.255, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.183 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.261, handle time = 2026-04-07 14:37:40.261, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.184 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.266, handle time = 2026-04-07 14:37:40.266, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.185 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.273, handle time = 2026-04-07 14:37:40.273, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.186 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.277, handle time = 2026-04-07 14:37:40.277, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.187 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.283, handle time = 2026-04-07 14:37:40.283, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.188 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.287, handle time = 2026-04-07 14:37:40.287, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.189 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.293, handle time = 2026-04-07 14:37:40.293, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.190 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.299, handle time = 2026-04-07 14:37:40.299, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.191 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.305, handle time = 2026-04-07 14:37:40.305, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.192 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.310, handle time = 2026-04-07 14:37:40.310, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.193 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.317, handle time = 2026-04-07 14:37:40.317, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.194 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.323, handle time = 2026-04-07 14:37:40.323, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.195 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.328, handle time = 2026-04-07 14:37:40.328, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.196 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.334, handle time = 2026-04-07 14:37:40.334, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.197 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.338, handle time = 2026-04-07 14:37:40.338, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.198 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.344, handle time = 2026-04-07 14:37:40.344, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.199 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.350, handle time = 2026-04-07 14:37:40.350, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.200 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.355, handle time = 2026-04-07 14:37:40.355, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.201 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.577, handle time = 2026-04-07 14:37:40.577, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.202 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.578, handle time = 2026-04-07 14:37:40.578, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.203 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.580, handle time = 2026-04-07 14:37:40.580, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.204 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.586, handle time = 2026-04-07 14:37:40.586, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.205 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.589, handle time = 2026-04-07 14:37:40.589, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.206 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.595, handle time = 2026-04-07 14:37:40.595, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.207 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.599, handle time = 2026-04-07 14:37:40.599, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.208 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.605, handle time = 2026-04-07 14:37:40.605, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.209 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.609, handle time = 2026-04-07 14:37:40.609, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.210 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.615, handle time = 2026-04-07 14:37:40.615, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.211 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.620, handle time = 2026-04-07 14:37:40.620, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.212 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.625, handle time = 2026-04-07 14:37:40.626, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.213 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.633, handle time = 2026-04-07 14:37:40.633, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.214 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.639, handle time = 2026-04-07 14:37:40.639, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.215 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.643, handle time = 2026-04-07 14:37:40.643, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.216 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.649, handle time = 2026-04-07 14:37:40.649, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.217 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.656, handle time = 2026-04-07 14:37:40.656, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.218 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.662, handle time = 2026-04-07 14:37:40.662, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.219 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.665, handle time = 2026-04-07 14:37:40.665, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.220 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.670, handle time = 2026-04-07 14:37:40.670, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.221 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.678, handle time = 2026-04-07 14:37:40.678, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.222 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.684, handle time = 2026-04-07 14:37:40.684, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.223 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.689, handle time = 2026-04-07 14:37:40.689, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.224 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.694, handle time = 2026-04-07 14:37:40.694, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.225 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.701, handle time = 2026-04-07 14:37:40.701, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.226 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.954, handle time = 2026-04-07 14:37:40.954, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.227 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.957, handle time = 2026-04-07 14:37:40.957, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.228 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.958, handle time = 2026-04-07 14:37:40.958, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.229 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.962, handle time = 2026-04-07 14:37:40.962, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.230 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.966, handle time = 2026-04-07 14:37:40.966, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.231 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.971, handle time = 2026-04-07 14:37:40.971, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.232 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.977, handle time = 2026-04-07 14:37:40.977, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.233 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.983, handle time = 2026-04-07 14:37:40.983, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.234 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.990, handle time = 2026-04-07 14:37:40.990, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.235 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.995, handle time = 2026-04-07 14:37:40.995, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.236 : Event { send thread = 56239, send time = 2026-04-07 14:37:40.998, handle time = 2026-04-07 14:37:40.998, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.237 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.004, handle time = 2026-04-07 14:37:41.004, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.238 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.011, handle time = 2026-04-07 14:37:41.011, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.239 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.017, handle time = 2026-04-07 14:37:41.017, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.240 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.022, handle time = 2026-04-07 14:37:41.022, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.241 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.028, handle time = 2026-04-07 14:37:41.028, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.242 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.034, handle time = 2026-04-07 14:37:41.034, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.243 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.040, handle time = 2026-04-07 14:37:41.040, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.244 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.044, handle time = 2026-04-07 14:37:41.044, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.245 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.050, handle time = 2026-04-07 14:37:41.050, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.246 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.056, handle time = 2026-04-07 14:37:41.056, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.247 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.062, handle time = 2026-04-07 14:37:41.062, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.248 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.067, handle time = 2026-04-07 14:37:41.067, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.249 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.073, handle time = 2026-04-07 14:37:41.073, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.250 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.078, handle time = 2026-04-07 14:37:41.078, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.251 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.085, handle time = 2026-04-07 14:37:41.085, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.252 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.090, handle time = 2026-04-07 14:37:41.090, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.253 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.244, handle time = 2026-04-07 14:37:41.244, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.254 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.244, handle time = 2026-04-07 14:37:41.244, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.255 : Event { send thread = 56239, send time = 2026-04-07 14:37:41.246, handle time = 2026-04-07 14:37:41.246, task name = MMITask, caller = [deamon_io_waiter.cpp(HandleFileDescriptorEvent:209)] }
- No.256 : Event { send thread = 56226, send time = 2026-04-07 14:37:42.066, handle time = 2026-04-07 14:37:42.066, id = 1, caller = [watchdog.cpp(Timer:253)] }
- Total size of VIP events : 256
+ No.1 : Event { send thread = 64979, send time = 2026-04-07 15:45:44.096, handle time = 2026-04-07 15:45:44.096, id = 1, caller = [watchdog.cpp(Timer:253)] }
+ No.2 : Event { send thread = 64979, send time = 2026-04-07 15:45:47.097, handle time = 2026-04-07 15:45:47.097, id = 1, caller = [watchdog.cpp(Timer:253)] }
+ Total size of VIP events : 2
  Immediate priority event queue information:
  Total size of Immediate events : 0
  High priority event queue information:
- Total size of High events : 0
+ No.1 : Event { send thread = 64997, send time = 2026-04-07 15:45:41.873, handle time = 2026-04-07 15:45:41.873, task name = ArkUIRosenWindowRenderServiceTask, caller = [task_runner_adapter_impl.cpp(PostTask:33)] }
+ No.2 : Event { send thread = 64997, send time = 2026-04-07 15:45:41.896, handle time = 2026-04-07 15:45:41.896, task name = ArkUIRosenWindowRenderServiceTask, caller = [task_runner_adapter_impl.cpp(PostTask:33)] }
+ Total size of High events : 2
  Low priority event queue information:
- No.1 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.390, handle time = 2026-04-07 14:37:37.441, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.2 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.399, handle time = 2026-04-07 14:37:37.450, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.3 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.407, handle time = 2026-04-07 14:37:37.458, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.4 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.415, handle time = 2026-04-07 14:37:37.466, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.5 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.424, handle time = 2026-04-07 14:37:37.475, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.6 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.432, handle time = 2026-04-07 14:37:37.483, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.7 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.223, handle time = 2026-04-07 14:37:37.623, task name = ArkUIScrollDragInterval, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.8 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.432, handle time = 2026-04-07 14:37:37.932, task name = ArkUIVsyncTimeoutCheck, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- No.9 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.432, handle time = 2026-04-07 14:37:38.032, task name = vsync_time_out_task_241222543212545, caller = [vsync_station.cpp(RequestVsync:148)] }
- No.10 : Event { send thread = 56164, send time = 2026-04-07 14:37:37.432, handle time = 2026-04-07 14:37:40.432, task name = ArkUIVsyncTimeoutCheck, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
- Total size of Low events : 10
+ No.1 : Event { send thread = 64898, send time = 2026-04-07 15:45:41.799, handle time = 2026-04-07 15:45:41.850, task name = ArkUIIdleTask, caller = [task_runner_adapter_impl.cpp(PostDelayedTask:44)] }
+ Total size of Low events : 1
  Idle priority event queue information:
  Total size of Idle events : 0
- Total event size : 266
-Main handler dump end time: 2026-04-07 14:37:42.661
+ Total event size : 5
+Main handler dump end time: 2026-04-07 15:45:47.098
 
-Catche stack trace start time: 2026-04-07 14:37:42.703
+Catche stack trace start time: 2026-04-07 15:45:47.142
 
-Tid:56164, Name:m.myapplication
+Tid:64898, Name:m.myapplication
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 000000000031b8e8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(std::condition_variable::wait(std::unique_lock<std::mutex>&)+12)(edc095c021e98109)
-#03 pc 00000000002ee148 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#04 pc 00000000002eb404 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#05 pc 00000000002ed95c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#06 pc 00000000002ecb8c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#07 pc 00000000002b6544 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#08 pc 0000000000049dd4 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+224)(a93d026c44e3195191f900740bdf5209)
-#09 pc 0000000000e29880 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
-#10 pc 000000000045f7c8 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleCallthis2Imm8V8V8V8StwCopy+392)
-#11 at anonymous entry (entry/src/main/ets/test/KhnTest.ets:121:48)
-#12 at anonymous @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:87:19)
-#13 pc 0000000000490b68 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::InterpreterAssembly::Execute(panda::ecmascript::EcmaRuntimeCallInfo*)+324)(21782dbe9931db56f33c16d62cf2bd1b)
-#14 pc 00000000002fc124 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::builtins::BuiltinsPromise::PromiseConstructor(panda::ecmascript::EcmaRuntimeCallInfo*)+560)(21782dbe9931db56f33c16d62cf2bd1b)
-#15 pc 0000000000e2aaec /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallNewAndDispatchNative+136)
-#16 pc 000000000044f69c /system/lib64/module/arkcompiler/stub.an(BCStub_HandleNewobjrangeImm8Imm8V8StwCopy+844)
-#17 at getFuncWithArgsZero @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:79:12)
-#18 at processedFunc @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:158:24)
-#19 at asyncRun @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:989:24)
-#20 at asyncRunSpecs @ohos/hypium (oh_modules/.ohpm/@ohos+hypium@1.0.24/oh_modules/@ohos/hypium/src/main/service.js:697:32)
-#21 pc 000000000049103c /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::InterpreterAssembly::GeneratorReEnterInterpreter(panda::ecmascript::JSThread*, panda::ecmascript::JSHandle<panda::ecmascript::GeneratorContext>)+252)(21782dbe9931db56f33c16d62cf2bd1b)
-#22 pc 00000000004d2eb0 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::EcmaInterpreter::GeneratorReEnterInterpreter(panda::ecmascript::JSThread*, panda::ecmascript::JSHandle<panda::ecmascript::GeneratorContext>)+256)(21782dbe9931db56f33c16d62cf2bd1b)
-#23 pc 000000000047bc9c /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::GeneratorHelper::Next(panda::ecmascript::JSThread*, panda::ecmascript::JSHandle<panda::ecmascript::GeneratorContext> const&, panda::ecmascript::JSTaggedValue)+252)(21782dbe9931db56f33c16d62cf2bd1b)
-#24 pc 000000000058e304 /system/lib64/platformsdk/libark_jsruntime.so(21782dbe9931db56f33c16d62cf2bd1b)
-#25 pc 0000000000303c44 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::builtins::BuiltinsPromiseHandler::AsyncAwaitFulfilled(panda::ecmascript::EcmaRuntimeCallInfo*)+128)(21782dbe9931db56f33c16d62cf2bd1b)
-#26 pc 0000000000e294c0 /system/lib64/module/arkcompiler/stub.an(RTStub_AsmInterpreterEntry+296)
-#27 pc 0000000000e293d4 /system/lib64/module/arkcompiler/stub.an(RTStub_AsmInterpreterEntry+60)
-#28 pc 0000000000490b68 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::InterpreterAssembly::Execute(panda::ecmascript::EcmaRuntimeCallInfo*)+324)(21782dbe9931db56f33c16d62cf2bd1b)
-#29 pc 0000000000306214 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::builtins::BuiltinsPromiseJob::PromiseReactionJob(panda::ecmascript::EcmaRuntimeCallInfo*)+476)(21782dbe9931db56f33c16d62cf2bd1b)
-#30 pc 0000000000e294c0 /system/lib64/module/arkcompiler/stub.an(RTStub_AsmInterpreterEntry+296)
-#31 pc 0000000000e293d4 /system/lib64/module/arkcompiler/stub.an(RTStub_AsmInterpreterEntry+60)
-#32 pc 0000000000490b68 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::InterpreterAssembly::Execute(panda::ecmascript::EcmaRuntimeCallInfo*)+324)(21782dbe9931db56f33c16d62cf2bd1b)
-#33 pc 000000000050c900 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::job::PendingJob::ExecutePendingJob(panda::ecmascript::JSHandle<panda::ecmascript::job::PendingJob> const&, panda::ecmascript::JSThread*)+384)(21782dbe9931db56f33c16d62cf2bd1b)
-#34 pc 000000000050c328 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::job::MicroJobQueue::ExecutePendingJob(panda::ecmascript::JSThread*, panda::ecmascript::JSHandle<panda::ecmascript::job::MicroJobQueue>)+640)(21782dbe9931db56f33c16d62cf2bd1b)
-#35 pc 000000000046b194 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::EcmaVM::ExecutePromisePendingJob()+96)(21782dbe9931db56f33c16d62cf2bd1b)
-#36 pc 000000000077ef7c /system/lib64/platformsdk/libark_jsruntime.so(panda::FunctionRef::CallForNapi(panda::ecmascript::EcmaVM const*, panda::JSValueRef*, panda::JSValueRef* const*, int)+484)(21782dbe9931db56f33c16d62cf2bd1b)
-#37 pc 0000000000069650 /system/lib64/platformsdk/libace_napi.z.so(napi_call_function+340)(a93d026c44e3195191f900740bdf5209)
-#38 pc 000000000000afa0 /system/lib64/platformsdk/libtimer.z.so(OHOS::JsSysModule::Timer::TimerCallback(uv_timer_s*) (.cfi)+500)(2ab2f815f5f9d71987b1f2ba0ca5adf6)
-#39 pc 0000000000014e84 /system/lib64/platformsdk/libuv.so(uv__run_timers+44)(3d443961f8f9cf7edd13da2eed007af5)
-#40 pc 00000000000189b8 /system/lib64/platformsdk/libuv.so(uv_run+276)(3d443961f8f9cf7edd13da2eed007af5)
-#41 pc 00000000000a14f0 /system/lib64/platformsdk/libruntime.z.so(OHOS::AbilityRuntime::OHOSLoopHandler::OnTriggered()+232)(b1dbe6fc3fb429671ffa773e158f32ed)
-#42 pc 00000000000a1b50 /system/lib64/platformsdk/libruntime.z.so(std::__h::__function::__func<OHOS::AbilityRuntime::OHOSLoopHandler::OnTriggered()::$_0, std::__h::allocator<OHOS::AbilityRuntime::OHOSLoopHandler::OnTriggered()::$_0>, void ()>::operator()() (.9efded9864dc55830f61b3b92d59beab)+52)(b1dbe6fc3fb429671ffa773e158f32ed)
-#43 pc 000000000001c194 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::EventHandler::DistributeEvent(std::__h::unique_ptr<OHOS::AppExecFwk::InnerEvent, void (*)(OHOS::AppExecFwk::InnerEvent*)> const&)+1052)(319c330cd8b0c89a5f6c91f8e41f4c20)
-#44 pc 000000000002ff70 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl::ExecuteEventHandler(std::__h::unique_ptr<OHOS::AppExecFwk::InnerEvent, void (*)(OHOS::AppExecFwk::InnerEvent*)>&)+348)(319c330cd8b0c89a5f6c91f8e41f4c20)
-#45 pc 000000000002f824 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl::Run()+916)(319c330cd8b0c89a5f6c91f8e41f4c20)
-#46 pc 0000000000032a3c /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::EventRunner::Run()+540)(319c330cd8b0c89a5f6c91f8e41f4c20)
-#47 pc 00000000000d76cc /system/lib64/platformsdk/libappkit_native.z.so(OHOS::AppExecFwk::MainThread::Start()+416)(3a04a0c026559d1fc328e5084c042420)
-#48 pc 000000000000598c /system/lib64/appspawn/appspawn/libappspawn_ace.z.so(RunChildProcessor(AppSpawnContent*, AppSpawnClient*)+720)(e084ecd2ad545ceceb5489271248b40f)
-#49 pc 000000000000c570 /system/bin/appspawn(AppSpawnChild+384)(8dba535e8c3c6eee6733bec57048dad7)
-#50 pc 0000000000017da0 /system/bin/appspawn(ProcessSpawnReqMsg+3508)(8dba535e8c3c6eee6733bec57048dad7)
-#51 pc 0000000000015404 /system/bin/appspawn(OnReceiveRequest+812)(8dba535e8c3c6eee6733bec57048dad7)
-#52 pc 000000000001790c /system/lib64/chipset-sdk-sp/libbegetutil.z.so(HandleRecvMsg_+344)(717679af705b4fd647080717d67061fe)
-#53 pc 0000000000017398 /system/lib64/chipset-sdk-sp/libbegetutil.z.so(HandleStreamEvent_+192)(717679af705b4fd647080717d67061fe)
-#54 pc 0000000000014a28 /system/lib64/chipset-sdk-sp/libbegetutil.z.so(ProcessEvent+88)(717679af705b4fd647080717d67061fe)
-#55 pc 00000000000145e8 /system/lib64/chipset-sdk-sp/libbegetutil.z.so(RunLoop_+496)(717679af705b4fd647080717d67061fe)
-#56 pc 0000000000012650 /system/bin/appspawn(AppSpawnRun+224)(8dba535e8c3c6eee6733bec57048dad7)
-#57 pc 000000000000fdd0 /system/bin/appspawn(main+1016)(8dba535e8c3c6eee6733bec57048dad7)
-#58 pc 00000000000a97b0 /system/lib/ld-musl-aarch64.so.1(libc_start_main_stage2+84)(74af18f25df370c42380f0e9415a82a2)
-Tid:56252, Name:OS_IPC_4_56252
+#02 pc 000000000031bdc8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(std::condition_variable::wait(std::unique_lock<std::mutex>&)+12)(6b4b81f267826583)
+#03 pc 00000000002eb84c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#04 pc 00000000002edd1c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#05 pc 00000000002ecf4c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#06 pc 00000000002f9964 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#07 pc 00000000002228f4 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#08 pc 00000000002fffe0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#09 pc 0000000000222578 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#10 pc 00000000002fffe0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#11 pc 0000000000222628 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#12 pc 00000000001fc058 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#13 pc 0000000000228c80 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#14 pc 00000000002a7da0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#15 pc 00000000002b3f00 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#16 pc 0000000000049dd4 /system/lib64/platformsdk/libace_napi.z.so(panda::JSValueRef ArkNativeFunctionCallBack<true>(panda::JsiRuntimeCallInfo*)+224)(a93d026c44e3195191f900740bdf5209)
+#17 pc 0000000000e29880 /system/lib64/module/arkcompiler/stub.an(RTStub_PushCallArgsAndDispatchNative+40)
+#18 pc 000000000045f448 /system/lib64/module/arkcompiler/stub.an(BCStub_HandleCallthis1Imm8V8V8StwCopy+384)
+#19 at request entry (entry/src/main/ets/pages/Index.ets:86:18)
+#20 at anonymous entry (entry/src/main/ets/pages/Index.ets:190:22)
+#21 pc 0000000000490b68 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::InterpreterAssembly::Execute(panda::ecmascript::EcmaRuntimeCallInfo*)+324)(21782dbe9931db56f33c16d62cf2bd1b)
+#22 pc 000000000077f1e8 /system/lib64/platformsdk/libark_jsruntime.so(panda::FunctionRef::CallForNapi(panda::ecmascript::EcmaVM const*, panda::JSValueRef*, panda::JSValueRef* const*, int)+1104)(21782dbe9931db56f33c16d62cf2bd1b)
+#23 pc 0000000000069650 /system/lib64/platformsdk/libace_napi.z.so(napi_call_function+340)(a93d026c44e3195191f900740bdf5209)
+#24 pc 000000000000afa0 /system/lib64/platformsdk/libtimer.z.so(OHOS::JsSysModule::Timer::TimerCallback(uv_timer_s*) (.cfi)+500)(2ab2f815f5f9d71987b1f2ba0ca5adf6)
+#25 pc 0000000000014e84 /system/lib64/platformsdk/libuv.so(uv__run_timers+44)(3d443961f8f9cf7edd13da2eed007af5)
+#26 pc 00000000000189b8 /system/lib64/platformsdk/libuv.so(uv_run+276)(3d443961f8f9cf7edd13da2eed007af5)
+#27 pc 00000000000a14f0 /system/lib64/platformsdk/libruntime.z.so(OHOS::AbilityRuntime::OHOSLoopHandler::OnTriggered()+232)(b1dbe6fc3fb429671ffa773e158f32ed)
+#28 pc 00000000000a1b50 /system/lib64/platformsdk/libruntime.z.so(std::__h::__function::__func<OHOS::AbilityRuntime::OHOSLoopHandler::OnTriggered()::$_0, std::__h::allocator<OHOS::AbilityRuntime::OHOSLoopHandler::OnTriggered()::$_0>, void ()>::operator()() (.9efded9864dc55830f61b3b92d59beab)+52)(b1dbe6fc3fb429671ffa773e158f32ed)
+#29 pc 000000000001c194 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::EventHandler::DistributeEvent(std::__h::unique_ptr<OHOS::AppExecFwk::InnerEvent, void (*)(OHOS::AppExecFwk::InnerEvent*)> const&)+1052)(319c330cd8b0c89a5f6c91f8e41f4c20)
+#30 pc 000000000002ff70 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl::ExecuteEventHandler(std::__h::unique_ptr<OHOS::AppExecFwk::InnerEvent, void (*)(OHOS::AppExecFwk::InnerEvent*)>&)+348)(319c330cd8b0c89a5f6c91f8e41f4c20)
+#31 pc 000000000002f824 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl::Run()+916)(319c330cd8b0c89a5f6c91f8e41f4c20)
+#32 pc 0000000000032a3c /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::EventRunner::Run()+540)(319c330cd8b0c89a5f6c91f8e41f4c20)
+#33 pc 00000000000d76cc /system/lib64/platformsdk/libappkit_native.z.so(OHOS::AppExecFwk::MainThread::Start()+416)(3a04a0c026559d1fc328e5084c042420)
+#34 pc 000000000000598c /system/lib64/appspawn/appspawn/libappspawn_ace.z.so(RunChildProcessor(AppSpawnContent*, AppSpawnClient*)+720)(e084ecd2ad545ceceb5489271248b40f)
+#35 pc 000000000000c570 /system/bin/appspawn(AppSpawnChild+384)(8dba535e8c3c6eee6733bec57048dad7)
+#36 pc 0000000000017da0 /system/bin/appspawn(ProcessSpawnReqMsg+3508)(8dba535e8c3c6eee6733bec57048dad7)
+#37 pc 0000000000015404 /system/bin/appspawn(OnReceiveRequest+812)(8dba535e8c3c6eee6733bec57048dad7)
+#38 pc 000000000001790c /system/lib64/chipset-sdk-sp/libbegetutil.z.so(HandleRecvMsg_+344)(717679af705b4fd647080717d67061fe)
+#39 pc 0000000000017398 /system/lib64/chipset-sdk-sp/libbegetutil.z.so(HandleStreamEvent_+192)(717679af705b4fd647080717d67061fe)
+#40 pc 0000000000014a28 /system/lib64/chipset-sdk-sp/libbegetutil.z.so(ProcessEvent+88)(717679af705b4fd647080717d67061fe)
+#41 pc 00000000000145e8 /system/lib64/chipset-sdk-sp/libbegetutil.z.so(RunLoop_+496)(717679af705b4fd647080717d67061fe)
+#42 pc 0000000000012650 /system/bin/appspawn(AppSpawnRun+224)(8dba535e8c3c6eee6733bec57048dad7)
+#43 pc 000000000000fdd0 /system/bin/appspawn(main+1016)(8dba535e8c3c6eee6733bec57048dad7)
+#44 pc 00000000000a97b0 /system/lib/ld-musl-aarch64.so.1(libc_start_main_stage2+84)(74af18f25df370c42380f0e9415a82a2)
+Tid:1742, Name:OS_FFRT_3_7
+#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
+#01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
+#02 pc 00000000000780f4 /system/lib64/ndk/libffrt.so(ffrt::SExecuteUnit::WorkerIdleAction(ffrt::CPUWorker*)+384)(fe3b6bf339af13630da2fcc992de0fee)
+#03 pc 00000000000629b8 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::WorkerLooper(ffrt::CPUWorker*)+196)(fe3b6bf339af13630da2fcc992de0fee)
+#04 pc 0000000000062634 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::Dispatch(ffrt::CPUWorker*)+180)(fe3b6bf339af13630da2fcc992de0fee)
+#05 pc 0000000000062324 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::WrapDispatch(void*)+52)(fe3b6bf339af13630da2fcc992de0fee)
+#06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
+Tid:1544, Name:m.myapplication
+#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
+#01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
+#02 pc 000000000031bdc8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(std::condition_variable::wait(std::unique_lock<std::mutex>&)+12)(6b4b81f267826583)
+#03 pc 00000000002ee508 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#04 pc 00000000002eb7c4 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#05 pc 00000000002edd1c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#06 pc 00000000002ecf4c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#07 pc 00000000002f7824 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#08 pc 00000000002f7358 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#09 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
+Tid:64977, Name:OS_IPC_0_64977
 #00 pc 000000000018b288 /system/lib/ld-musl-aarch64.so.1(ioctl+164)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 000000000000f7a4 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+112)(81764db4a1a0baf81d398e8da890bddb)
 #02 pc 0000000000074920 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(f8be0ec6a060348ced1ff6956d266074)
@@ -427,7 +171,7 @@ Tid:56252, Name:OS_IPC_4_56252
 #04 pc 0000000000077358 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::JoinThread(bool)+84)(f8be0ec6a060348ced1ff6956d266074)
 #05 pc 000000000006c940 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCWorkThread::ThreadHandler(void*)+1084)(f8be0ec6a060348ced1ff6956d266074)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56224, Name:OS_IPC_0_56224
+Tid:64978, Name:OS_IPC_1_64978
 #00 pc 000000000018b288 /system/lib/ld-musl-aarch64.so.1(ioctl+164)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 000000000000f7a4 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+112)(81764db4a1a0baf81d398e8da890bddb)
 #02 pc 0000000000074920 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(f8be0ec6a060348ced1ff6956d266074)
@@ -435,22 +179,14 @@ Tid:56224, Name:OS_IPC_0_56224
 #04 pc 0000000000077358 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::JoinThread(bool)+84)(f8be0ec6a060348ced1ff6956d266074)
 #05 pc 000000000006c940 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCWorkThread::ThreadHandler(void*)+1084)(f8be0ec6a060348ced1ff6956d266074)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56225, Name:OS_IPC_1_56225
-#00 pc 000000000018b288 /system/lib/ld-musl-aarch64.so.1(ioctl+164)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 000000000000f7a4 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+112)(81764db4a1a0baf81d398e8da890bddb)
-#02 pc 0000000000074920 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(f8be0ec6a060348ced1ff6956d266074)
-#03 pc 0000000000074ce8 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::StartWorkLoop()+100)(f8be0ec6a060348ced1ff6956d266074)
-#04 pc 0000000000077358 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::JoinThread(bool)+84)(f8be0ec6a060348ced1ff6956d266074)
-#05 pc 000000000006c940 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCWorkThread::ThreadHandler(void*)+1084)(f8be0ec6a060348ced1ff6956d266074)
-#06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56226, Name:OS_DfxWatchdog
+Tid:64979, Name:OS_DfxWatchdog
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
 #02 pc 0000000000018774 /system/lib64/chipset-sdk-sp/libhicollie.z.so(std::__h::cv_status std::__h::condition_variable::wait_for<long long, std::__h::ratio<1l, 1000l>>(std::__h::unique_lock<std::__h::mutex>&, std::__h::chrono::duration<long long, std::__h::ratio<1l, 1000l>> const&)+260)(2bb185861220cd7fde2e682e7f3ad401)
 #03 pc 0000000000018460 /system/lib64/chipset-sdk-sp/libhicollie.z.so(OHOS::HiviewDFX::WatchdogInner::Start()+548)(2bb185861220cd7fde2e682e7f3ad401)
 #04 pc 00000000000227bc /system/lib64/chipset-sdk-sp/libhicollie.z.so(void* std::__h::__thread_proxy[abi:v15004]<std::__h::tuple<std::__h::unique_ptr<std::__h::__thread_struct, std::__h::default_delete<std::__h::__thread_struct>>, bool (OHOS::HiviewDFX::WatchdogInner::*)(), OHOS::HiviewDFX::WatchdogInner*>>(void*)+64)(2bb185861220cd7fde2e682e7f3ad401)
 #05 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56227, Name:OS_IPC_2_56227
+Tid:64980, Name:OS_IPC_2_64980
 #00 pc 000000000018b288 /system/lib/ld-musl-aarch64.so.1(ioctl+164)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 000000000000f7a4 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+112)(81764db4a1a0baf81d398e8da890bddb)
 #02 pc 0000000000074920 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(f8be0ec6a060348ced1ff6956d266074)
@@ -458,18 +194,18 @@ Tid:56227, Name:OS_IPC_2_56227
 #04 pc 0000000000077358 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::JoinThread(bool)+84)(f8be0ec6a060348ced1ff6956d266074)
 #05 pc 000000000006c940 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCWorkThread::ThreadHandler(void*)+1084)(f8be0ec6a060348ced1ff6956d266074)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56229, Name:OS_FFRT_Delay
+Tid:64982, Name:OS_FFRT_Delay
 #00 pc 000000000016b338 /system/lib/ld-musl-aarch64.so.1(epoll_wait+84)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000000a0190 /system/lib64/ndk/libffrt.so(void* std::__h::__thread_proxy[abi:v15004]<std::__h::tuple<std::__h::unique_ptr<std::__h::__thread_struct, std::__h::default_delete<std::__h::__thread_struct>>, ffrt::DelayedWorker::ThreadInit()::$_0>>(void*)+808)(fe3b6bf339af13630da2fcc992de0fee)
 #02 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56230, Name:OS_GC_Thread
+Tid:64983, Name:OS_GC_Thread
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
 #02 pc 0000000000855548 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::DaemonThread::PopTask()+64)(21782dbe9931db56f33c16d62cf2bd1b)
 #03 pc 0000000000855488 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::DaemonThread::Run()+180)(21782dbe9931db56f33c16d62cf2bd1b)
 #04 pc 0000000000855820 /system/lib64/platformsdk/libark_jsruntime.so(void* std::__h::__thread_proxy[abi:v15004]<std::__h::tuple<std::__h::unique_ptr<std::__h::__thread_struct, std::__h::default_delete<std::__h::__thread_struct>>, panda::ecmascript::DaemonThread::StartRunning()::$_0>>(void*)+40)(21782dbe9931db56f33c16d62cf2bd1b)
 #05 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56231, Name:OS_GC_Thread
+Tid:64984, Name:OS_GC_Thread
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
 #02 pc 00000000000c4984 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::condition_variable::wait(std::__h::unique_lock<std::__h::mutex>&)+32)(4c257fafd66f57a4f1f873163a520100e191a256)
@@ -477,7 +213,7 @@ Tid:56231, Name:OS_GC_Thread
 #04 pc 00000000008a793c /system/lib64/platformsdk/libark_jsruntime.so(common::Runner::Run(unsigned int)+140)(21782dbe9931db56f33c16d62cf2bd1b)
 #05 pc 00000000008a7a24 /system/lib64/platformsdk/libark_jsruntime.so(21782dbe9931db56f33c16d62cf2bd1b)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56232, Name:OS_GC_Thread
+Tid:64985, Name:OS_GC_Thread
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
 #02 pc 00000000000c4984 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::condition_variable::wait(std::__h::unique_lock<std::__h::mutex>&)+32)(4c257fafd66f57a4f1f873163a520100e191a256)
@@ -485,7 +221,7 @@ Tid:56232, Name:OS_GC_Thread
 #04 pc 00000000008a793c /system/lib64/platformsdk/libark_jsruntime.so(common::Runner::Run(unsigned int)+140)(21782dbe9931db56f33c16d62cf2bd1b)
 #05 pc 00000000008a7a24 /system/lib64/platformsdk/libark_jsruntime.so(21782dbe9931db56f33c16d62cf2bd1b)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56233, Name:OS_GC_Thread
+Tid:64986, Name:OS_GC_Thread
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
 #02 pc 00000000000c4984 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::condition_variable::wait(std::__h::unique_lock<std::__h::mutex>&)+32)(4c257fafd66f57a4f1f873163a520100e191a256)
@@ -493,7 +229,7 @@ Tid:56233, Name:OS_GC_Thread
 #04 pc 00000000008a793c /system/lib64/platformsdk/libark_jsruntime.so(common::Runner::Run(unsigned int)+140)(21782dbe9931db56f33c16d62cf2bd1b)
 #05 pc 00000000008a7a24 /system/lib64/platformsdk/libark_jsruntime.so(21782dbe9931db56f33c16d62cf2bd1b)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56234, Name:OS_GC_Thread
+Tid:64987, Name:OS_GC_Thread
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
 #02 pc 00000000000c4984 /system/lib64/chipset-sdk-sp/libc++.so(std::__h::condition_variable::wait(std::__h::unique_lock<std::__h::mutex>&)+32)(4c257fafd66f57a4f1f873163a520100e191a256)
@@ -501,41 +237,18 @@ Tid:56234, Name:OS_GC_Thread
 #04 pc 00000000008a793c /system/lib64/platformsdk/libark_jsruntime.so(common::Runner::Run(unsigned int)+140)(21782dbe9931db56f33c16d62cf2bd1b)
 #05 pc 00000000008a7a24 /system/lib64/platformsdk/libark_jsruntime.so(21782dbe9931db56f33c16d62cf2bd1b)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56236, Name:OS_FFRT_3_0
-#00 pc 00000000000ad780 /system/lib/ld-musl-aarch64.so.1(je_tcache_bin_flush_small+332)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 00000000000b80f4 /system/lib/ld-musl-aarch64.so.1(free_default+1396)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 000000000001e894 /system/lib64/chipset-sdk-sp/libunwinder.z.so(OHOS::HiviewDFX::DfxMap::~DfxMap()+248)(8ddb9c3b8eda1c86f72d32dd0360dfd3)
-#03 pc 00000000000207d4 /system/lib64/chipset-sdk-sp/libunwinder.z.so(std::__h::__shared_ptr_emplace<OHOS::HiviewDFX::DfxMaps, std::__h::allocator<OHOS::HiviewDFX::DfxMaps>>::__on_zero_shared()+124)(8ddb9c3b8eda1c86f72d32dd0360dfd3)
-#04 pc 000000000002fc78 /system/lib64/chipset-sdk-sp/libunwinder.z.so(OHOS::HiviewDFX::Unwinder::Impl::~Impl()+656)(8ddb9c3b8eda1c86f72d32dd0360dfd3)
-#05 pc 0000000000009840 /system/lib64/chipset-sdk-sp/libbacktrace_local.so(std::__h::__shared_ptr_emplace<OHOS::HiviewDFX::Unwinder, std::__h::allocator<OHOS::HiviewDFX::Unwinder>>::__on_zero_shared()+76)(d498e37dcdfd4a60e6d61aec83f3146d)
-#06 pc 00000000000095f8 /system/lib64/chipset-sdk-sp/libbacktrace_local.so(OHOS::HiviewDFX::GetBacktraceStringByTidWithMix(std::__h::basic_string<char, std::__h::char_traits<char>, std::__h::allocator<char>>&, int, unsigned long, bool, unsigned long, bool)+1032)(d498e37dcdfd4a60e6d61aec83f3146d)
-#07 pc 0000000000187538 /system/lib64/platformsdk/libappkit_native.z.so(OHOS::AppExecFwk::AppfreezeInner::ChangeFaultDateInfo(OHOS::AppExecFwk::FaultData&, std::__h::basic_string<char, std::__h::char_traits<char>, std::__h::allocator<char>> const&)+268)(3a04a0c026559d1fc328e5084c042420)
-#08 pc 0000000000189680 /system/lib64/platformsdk/libappkit_native.z.so(OHOS::AppExecFwk::AppfreezeInner::AcquireStack(OHOS::AppExecFwk::FaultData const&, bool)+1160)(3a04a0c026559d1fc328e5084c042420)
-#09 pc 000000000018bdf4 /system/lib64/platformsdk/libappkit_native.z.so(3a04a0c026559d1fc328e5084c042420)
-#10 pc 000000000000d318 /system/lib64/libtask_handler_wrap.z.so(da9c9589c40d6148b1c42e709f4c2357)
-#11 pc 000000000007dedc /system/lib64/ndk/libffrt.so(ffrt::QueueHandler::Dispatch(ffrt::QueueTask*)+292)(fe3b6bf339af13630da2fcc992de0fee)
-#12 pc 00000000000b1a74 /system/lib64/ndk/libffrt.so(ffrt::QueueTask::Execute()+92)(fe3b6bf339af13630da2fcc992de0fee)
-#13 pc 000000000005f960 /system/lib64/ndk/libffrt.so(CoStartEntry(void*)+36)(fe3b6bf339af13630da2fcc992de0fee)
-Tid:56237, Name:OS_hdcRegister
+Tid:64989, Name:OS_hdcRegister
 #00 pc 000000000016b338 /system/lib/ld-musl-aarch64.so.1(epoll_wait+84)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000000057d8 /system/lib64/platformsdk/libhdc_register.z.so(Hdc::HdcJdwpSimulator::ReadFromJdwp()+220)(e0560b782a32e519fd839e9b7d287c0f)
 #02 pc 0000000000005ec8 /system/lib64/platformsdk/libhdc_register.z.so(Hdc::HdcJdwpSimulator::Connect()+244)(e0560b782a32e519fd839e9b7d287c0f)
 #03 pc 00000000000044b4 /system/lib64/platformsdk/libhdc_register.z.so(Hdc::HdcConnectRun(void*)+532)(e0560b782a32e519fd839e9b7d287c0f)
 #04 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56239, Name:OS_EVENT_POLL
+Tid:64990, Name:OS_EVENT_POLL
 #00 pc 000000000016b338 /system/lib/ld-musl-aarch64.so.1(epoll_wait+84)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000000154d4 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::DeamonIoWaiter::EpollWaitFor()+460)(319c330cd8b0c89a5f6c91f8e41f4c20)
 #02 pc 000000000001579c /system/lib64/chipset-sdk-sp/libeventhandler.z.so(319c330cd8b0c89a5f6c91f8e41f4c20)
 #03 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56249, Name:OS_IPC_3_56249
-#00 pc 000000000018b288 /system/lib/ld-musl-aarch64.so.1(ioctl+164)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 000000000000f7a4 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+112)(81764db4a1a0baf81d398e8da890bddb)
-#02 pc 0000000000074920 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(f8be0ec6a060348ced1ff6956d266074)
-#03 pc 0000000000074ce8 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::StartWorkLoop()+100)(f8be0ec6a060348ced1ff6956d266074)
-#04 pc 0000000000077358 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::JoinThread(bool)+84)(f8be0ec6a060348ced1ff6956d266074)
-#05 pc 000000000006c940 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCWorkThread::ThreadHandler(void*)+1084)(f8be0ec6a060348ced1ff6956d266074)
-#06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56251, Name:OS_MainDisplayS
+Tid:64996, Name:OS_MainDisplayS
 #00 pc 000000000016b338 /system/lib/ld-musl-aarch64.so.1(epoll_wait+84)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000000192fc /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::EpollIoWaiter::WaitFor(std::__h::unique_lock<std::__h::mutex>&, long, bool)+232)(319c330cd8b0c89a5f6c91f8e41f4c20)
 #02 pc 00000000000212d4 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::EventQueue::WaitUntilLocked(std::__h::chrono::time_point<std::__h::chrono::steady_clock, std::__h::chrono::duration<long long, std::__h::ratio<1l, 1000000000l>>> const&, std::__h::unique_lock<std::__h::mutex>&, bool)+152)(319c330cd8b0c89a5f6c91f8e41f4c20)
@@ -544,177 +257,208 @@ Tid:56251, Name:OS_MainDisplayS
 #05 pc 0000000000030c70 /system/lib64/chipset-sdk-sp/libeventhandler.z.so(OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl::ThreadMain(std::__h::weak_ptr<OHOS::AppExecFwk::(anonymous namespace)::EventRunnerImpl> const&) (.cfi)+208)(319c330cd8b0c89a5f6c91f8e41f4c20)
 #06 pc 000000000003116c /system/lib64/chipset-sdk-sp/libeventhandler.z.so(319c330cd8b0c89a5f6c91f8e41f4c20)
 #07 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56263, Name:OS_FFRT_3_1
-#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 00000000000780f4 /system/lib64/ndk/libffrt.so(ffrt::SExecuteUnit::WorkerIdleAction(ffrt::CPUWorker*)+384)(fe3b6bf339af13630da2fcc992de0fee)
-#03 pc 00000000000629b8 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::WorkerLooper(ffrt::CPUWorker*)+196)(fe3b6bf339af13630da2fcc992de0fee)
-#04 pc 0000000000062634 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::Dispatch(ffrt::CPUWorker*)+180)(fe3b6bf339af13630da2fcc992de0fee)
-#05 pc 0000000000062324 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::WrapDispatch(void*)+52)(fe3b6bf339af13630da2fcc992de0fee)
+Tid:64997, Name:OS_IPC_3_64997
+#00 pc 000000000018b288 /system/lib/ld-musl-aarch64.so.1(ioctl+164)(74af18f25df370c42380f0e9415a82a2)
+#01 pc 000000000000f7a4 /system/lib64/chipset-sdk-sp/libipc_common.z.so(OHOS::BinderConnector::WriteBinder(unsigned long, void*)+112)(81764db4a1a0baf81d398e8da890bddb)
+#02 pc 0000000000074920 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::TransactWithDriver(bool)+284)(f8be0ec6a060348ced1ff6956d266074)
+#03 pc 0000000000074ce8 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::StartWorkLoop()+100)(f8be0ec6a060348ced1ff6956d266074)
+#04 pc 0000000000077358 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::BinderInvoker::JoinThread(bool)+84)(f8be0ec6a060348ced1ff6956d266074)
+#05 pc 000000000006c940 /system/lib64/chipset-sdk-sp/libipc_single.z.so(OHOS::IPCWorkThread::ThreadHandler(void*)+1084)(f8be0ec6a060348ced1ff6956d266074)
 #06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56265, Name:OS_FFRT_3_2
+Tid:65008, Name:GC Timer thread
 #00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
 #01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 00000000000780f4 /system/lib64/ndk/libffrt.so(ffrt::SExecuteUnit::WorkerIdleAction(ffrt::CPUWorker*)+384)(fe3b6bf339af13630da2fcc992de0fee)
-#03 pc 00000000000629b8 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::WorkerLooper(ffrt::CPUWorker*)+196)(fe3b6bf339af13630da2fcc992de0fee)
-#04 pc 0000000000062634 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::Dispatch(ffrt::CPUWorker*)+180)(fe3b6bf339af13630da2fcc992de0fee)
-#05 pc 0000000000062324 /system/lib64/ndk/libffrt.so(ffrt::CPUWorker::WrapDispatch(void*)+52)(fe3b6bf339af13630da2fcc992de0fee)
-#06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56268, Name:GC Timer thread
-#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 00000000002eae78 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#03 pc 00000000002eb108 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#04 pc 0000000000323248 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
+#02 pc 00000000002eb238 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#03 pc 00000000002eb4c8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#04 pc 0000000000323728 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
 #05 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56269, Name:Main GC thread
-#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 000000000031b8e8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(std::condition_variable::wait(std::unique_lock<std::mutex>&)+12)(edc095c021e98109)
-#03 pc 00000000002ee148 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#04 pc 00000000002ef2e8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#05 pc 00000000002f1fa0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#06 pc 0000000000323248 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#07 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56277, Name:TaskExecutorRDB
-#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 000000000005550c /system/lib64/platformsdk/libnative_rdb.z.so(b4bacee058209de9883bc1c9bbc3f627)
-#03 pc 0000000000054f7c /system/lib64/platformsdk/libnative_rdb.z.so(OHOS::PriorityQueue<OHOS::Executor::InnerTask, std::__h::chrono::time_point<std::__h::chrono::steady_clock, std::__h::chrono::duration<long long, std::__h::ratio<1l, 1000000000l>>>, unsigned long>::Pop()+116)(b4bacee058209de9883bc1c9bbc3f627)
-#04 pc 0000000000054ccc /system/lib64/platformsdk/libnative_rdb.z.so(OHOS::Executor::Run()+364)(b4bacee058209de9883bc1c9bbc3f627)
-#05 pc 0000000000054ac8 /system/lib64/platformsdk/libnative_rdb.z.so(b4bacee058209de9883bc1c9bbc3f627)
-#06 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56344, Name:m.myapplication
-#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 00000000001d2e78 /system/lib/ld-musl-aarch64.so.1(__pthread_mutex_timedlock_inner+548)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 00000000001cf270 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+996)(74af18f25df370c42380f0e9415a82a2)
-#03 pc 000000000031b8e8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(std::condition_variable::wait(std::unique_lock<std::mutex>&)+12)(edc095c021e98109)
-#04 pc 00000000002eb3d0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#05 pc 00000000002ed95c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#06 pc 00000000002ed4a4 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#07 pc 00000000001fd850 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#08 pc 00000000001ff7dc /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#09 pc 00000000001ffcd4 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#10 pc 0000000000224e20 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#11 pc 00000000001654b0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#12 pc 00000000002f7d1c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#13 pc 00000000002f6fd4 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#14 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
-Tid:56345, Name:m.myapplication
-#00 pc 00000000001cce68 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+156)(74af18f25df370c42380f0e9415a82a2)
-#01 pc 00000000001cef38 /system/lib/ld-musl-aarch64.so.1(pthread_cond_timedwait+172)(74af18f25df370c42380f0e9415a82a2)
-#02 pc 000000000031b8e8 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(std::condition_variable::wait(std::unique_lock<std::mutex>&)+12)(edc095c021e98109)
-#03 pc 00000000002ee148 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#04 pc 00000000002eb404 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#05 pc 00000000002ed95c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#06 pc 00000000002ecb8c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#07 pc 00000000002f853c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#08 pc 00000000002f9f3c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#09 pc 0000000000222f64 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#10 pc 000000000022644c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#11 pc 00000000001654b0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#12 pc 00000000002f7d1c /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#13 pc 00000000002f6fd4 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(edc095c021e98109)
-#14 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
+Tid:65009, Name:Main GC thread
+#00 pc 00000000001afdc8 /system/lib/ld-musl-aarch64.so.1(sched_yield+44)(74af18f25df370c42380f0e9415a82a2)
+#01 pc 00000000002ef6b0 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#02 pc 00000000002f2360 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#03 pc 0000000000323728 /data/storage/el1/bundle/libs/arm64/libsample_plugin.so(6b4b81f267826583)
+#04 pc 00000000001d1658 /system/lib/ld-musl-aarch64.so.1(start+240)(74af18f25df370c42380f0e9415a82a2)
 
-Catche stack trace end time: 2026-04-07 14:37:42.997
+Catche stack trace end time: 2026-04-07 15:45:47.344
 
 
-PeerBinderCatcher -- pid==56164
+PeerBinderCatcher -- pid==64898
 
 BinderCatcher --
 
-async	716:55759 to 40567:0 code 384 wait:14.362761456 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
-async	716:55759 to 40305:0 code 384 wait:14.362786456 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
-async	965:1090 to 32885:0 code 2 wait:1082.789830564 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 3 wait:1078.541493586 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 3 wait:1078.515399315 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 0 wait:1077.151309211 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 1 wait:1077.151220669 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 2 wait:1077.151158690 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 1 wait:1077.143129003 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 2 wait:1076.267177961 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 3 wait:991.75682662 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 3 wait:991.59201932 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 0 wait:989.698075370 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 1 wait:989.698011828 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 2 wait:989.697942037 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 1 wait:989.512727974 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	965:1090 to 32885:0 code 2 wait:988.74359225 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
-async	716:55759 to 32877:0 code 384 wait:14.362871873 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
-async	716:55759 to 32724:0 code 384 wait:14.362905206 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
-async	716:55759 to 9386:0 code 384 wait:14.363018227 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
-	3150:34941 to 1336:1361 code 3 wait:1842.909878886 s frz_state:3,  ns:-1:-1 to -1:-1, debug:3150:34941 to 1336:1361, active_code:0, active_thread=0, pending_async_proc=0
-	1538:2337 to 1327:1389 code 17 wait:0.3121354 s frz_state:3,  ns:-1:-1 to -1:-1, debug:1538:2337 to 1327:1389, active_code:0, active_thread=0, pending_async_proc=0
+async	716:55759 to 40567:0 code 384 wait:4098.695161353 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:57933 to 40567:0 code 384 wait:3961.278375437 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:57933 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:57933 to 40567:0 code 384 wait:3961.277949395 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:57933 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:59775 to 40567:0 code 384 wait:3768.711423904 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:59775 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:59775 to 40567:0 code 384 wait:3768.709181195 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:59775 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:61641 to 40567:0 code 384 wait:3660.203676004 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:61641 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:61641 to 40567:0 code 384 wait:3660.203408295 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:61641 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:9118 to 40567:0 code 384 wait:2527.252955343 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:9118 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:9118 to 40567:0 code 384 wait:2527.252362114 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:9118 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:22047 to 40567:0 code 384 wait:1862.655764820 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:22047 to 40567:0 code 384 wait:1862.655255445 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 40567:0 code 384 wait:1465.614765401 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 40567:0 code 384 wait:1465.614410714 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 40567:0 code 384 wait:1298.726713343 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 40567:0 code 384 wait:1298.726315427 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 40567:0 code 384 wait:52.751290096 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 40567:0 code 384 wait:52.749890617 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 40567:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:55759 to 40305:0 code 384 wait:4098.695186353 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:57933 to 40305:0 code 384 wait:3961.278416583 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:57933 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:57933 to 40305:0 code 384 wait:3961.277981166 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:57933 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:59775 to 40305:0 code 384 wait:3768.711458800 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:59775 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:59775 to 40305:0 code 384 wait:3768.710967654 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:59775 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:61641 to 40305:0 code 384 wait:3660.203709858 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:61641 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:61641 to 40305:0 code 384 wait:3660.203429129 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:61641 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:9118 to 40305:0 code 384 wait:2527.253020968 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:9118 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:9118 to 40305:0 code 384 wait:2527.252411072 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:9118 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:22047 to 40305:0 code 384 wait:1862.655809090 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:22047 to 40305:0 code 384 wait:1862.655292424 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 40305:0 code 384 wait:1465.614801859 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 40305:0 code 384 wait:1465.614437276 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 40305:0 code 384 wait:1298.726751364 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 40305:0 code 384 wait:1298.726346677 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 40305:0 code 384 wait:52.751388533 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 40305:0 code 384 wait:52.749984887 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	1575:55764 to 40305:0 code 2 wait:3961.185776479 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:55764 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:50972 to 40305:0 code 2 wait:3768.623668695 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:50972 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:59803 to 40305:0 code 2 wait:3660.83183816 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:59803 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:59804 to 40305:0 code 2 wait:2527.160229302 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:59804 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:18885 to 40305:0 code 2 wait:1862.274514820 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:18885 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:28680 to 40305:0 code 2 wait:1465.528386234 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:28680 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:23774 to 40305:0 code 2 wait:1298.592627406 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:23774 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:46254 to 40305:0 code 2 wait:52.672923950 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:46254 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:64508 to 40305:0 code 2 wait:34.226758328 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:64508 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:46254 to 40305:0 code 2 wait:34.225747911 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:46254 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:64508 to 40305:0 code 2 wait:34.224969265 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:64508 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:46254 to 40305:0 code 2 wait:34.92816661 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:46254 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:64508 to 40305:0 code 2 wait:34.89505724 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:64508 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:64508 to 40305:0 code 2 wait:33.781021349 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:64508 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:36597 to 40305:0 code 2 wait:32.781438016 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:36597 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:46254 to 40305:0 code 2 wait:32.764044266 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:46254 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:31498 to 40305:0 code 2 wait:32.763130203 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:31498 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:36597 to 40305:0 code 2 wait:32.761025516 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:36597 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:64508 to 40305:0 code 2 wait:32.759687495 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:64508 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:46254 to 40305:0 code 2 wait:32.439573953 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:46254 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	1575:31498 to 40305:0 code 2 wait:32.436562495 s frz_state:2,  ns:-1:-1 to -1:-1, debug:1575:31498 to 40305:0, active_code:-1, active_thread=0, pending_async_proc=1575
+async	965:1090 to 32885:0 code 2 wait:5167.122230461 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 3 wait:5162.873893483 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 3 wait:5162.847799212 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 0 wait:5161.483709108 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 1 wait:5161.483620566 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 2 wait:5161.483558587 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 1 wait:5161.475528900 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 2 wait:5160.599577858 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 3 wait:5075.408082559 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 3 wait:5075.391601829 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 0 wait:5074.30475267 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 1 wait:5074.30411725 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 2 wait:5074.30341934 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 1 wait:5073.845127871 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	965:1090 to 32885:0 code 2 wait:5072.406759122 s frz_state:2,  ns:-1:-1 to -1:-1, debug:965:1090 to 32885:0, active_code:-1, active_thread=0, pending_async_proc=965
+async	716:22047 to 32877:0 code 384 wait:1862.655479403 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 32877:0 code 384 wait:1465.614901339 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 32877:0 code 384 wait:1465.614504984 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 32877:0 code 384 wait:1298.726835739 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 32877:0 code 384 wait:1298.726433656 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 32877:0 code 384 wait:52.751627596 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 32877:0 code 384 wait:52.750585408 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 32877:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:22047 to 32724:0 code 384 wait:1862.655507007 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 32724:0 code 384 wait:1465.614936755 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 32724:0 code 384 wait:1465.614535714 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 32724:0 code 384 wait:1298.726872197 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 32724:0 code 384 wait:1298.726474281 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 32724:0 code 384 wait:52.752150512 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 32724:0 code 384 wait:52.750642700 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 32724:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:55759 to 9386:0 code 384 wait:4098.695418124 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:55759 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:57933 to 9386:0 code 384 wait:3961.278708770 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:57933 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:57933 to 9386:0 code 384 wait:3961.278167624 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:57933 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:59775 to 9386:0 code 384 wait:3768.711672341 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:59775 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:59775 to 9386:0 code 384 wait:3768.711160883 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:59775 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:61641 to 9386:0 code 384 wait:3660.203898400 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:61641 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:61641 to 9386:0 code 384 wait:3660.203540066 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:61641 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:9118 to 9386:0 code 384 wait:2527.253413677 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:9118 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:9118 to 9386:0 code 384 wait:2527.252663156 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:9118 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:22047 to 9386:0 code 384 wait:1862.656052320 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:22047 to 9386:0 code 384 wait:1862.655558570 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:22047 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 9386:0 code 384 wait:1465.615028422 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:28695 to 9386:0 code 384 wait:1465.614592484 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:28695 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 9386:0 code 384 wait:1298.726957093 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:32457 to 9386:0 code 384 wait:1298.726531052 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:32457 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 9386:0 code 384 wait:52.752355721 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+async	716:64541 to 9386:0 code 384 wait:52.750763012 s frz_state:2,  ns:-1:-1 to -1:-1, debug:716:64541 to 9386:0, active_code:-1, active_thread=0, pending_async_proc=716
+	3150:34941 to 1336:1361 code 3 wait:5927.242278783 s frz_state:3,  ns:-1:-1 to -1:-1, debug:3150:34941 to 1336:1361, active_code:0, active_thread=0, pending_async_proc=0
+	3150:34942 to 1336:32810 code 7 wait:2945.110055279 s frz_state:3,  ns:-1:-1 to -1:-1, debug:3150:34942 to 1336:32810, active_code:0, active_thread=0, pending_async_proc=0
 
 pid	context		request	started	max	ready	free_async_space
-56223	binder	0	3	16	4	520192
-56164	binder	0	5	16	6	520192
-56088	binder	0	1	16	3	520192
-56076	binder	0	1	16	3	520192
-55977	binder	0	2	16	4	520192
-55939	binder	0	2	16	4	520192
-55633	binder	0	1	1	3	520192
+65458	binder	0	1	16	2	520192
+65387	binder	0	1	16	2	520192
+65352	binder	0	1	16	3	520192
+64898	binder	0	3	16	4	520192
+64792	binder	0	2	16	4	520192
+64697	binder	0	1	16	3	520192
+64657	binder	0	2	16	4	520192
+51783	binder	0	1	1	3	520192
 50474	binder	0	0	16	2	520192
 48244	binder	0	0	32	2	520192
 48241	binder	0	0	16	2	520192
 47918	binder	0	1	16	3	520192
-47914	binder	0	1	16	3	520192
+47914	binder	0	0	16	2	520192
 47877	binder	0	0	16	2	520192
-40567	binder	0	2	16	0	519648
-40305	binder	0	16	16	0	519408
-35079	binder	0	0	16	2	520192
+40567	binder	0	2	16	0	515296
+40305	binder	0	16	16	0	510176
+35079	binder	0	2	16	4	520192
 32928	binder	0	2	16	3	520192
 32885	binder	0	2	16	0	514488
-32877	binder	0	6	16	0	519648
+32877	binder	0	9	16	0	518016
 32822	binder	0	2	16	3	520192
-32724	binder	0	6	16	0	519648
+32724	binder	0	10	16	0	518016
 32139	binder	0	0	16	2	520192
 30852	binder	0	0	16	1	520192
 19797	binder	0	0	16	2	520192
 13992	binder	0	16	16	0	520192
 12983	binder	0	0	32	2	520192
-12962	binder	0	1	16	3	520192
-10709	binder	0	1	16	2	520192
-9386	binder	0	4	16	0	519648
-3287	binder	0	0	16	1	520192
+12962	binder	0	3	16	5	520192
+10709	binder	0	2	16	3	520192
+9386	binder	0	4	16	0	515296
+3287	binder	0	2	16	3	520192
 7784	binder	0	0	16	2	520192
-6966	binder	0	3	16	4	520192
-6548	binder	0	0	16	2	520192
-6469	binder	0	3	16	4	520192
-6085	binder	0	2	32	4	520192
+6966	binder	0	4	16	5	520192
+6548	binder	0	3	16	5	520192
+6469	binder	0	4	16	5	520192
+6085	binder	0	3	32	5	520192
 5931	binder	0	16	16	0	520192
-5653	binder	0	1	16	2	520192
-5541	binder	0	2	16	3	520192
+5653	binder	0	2	16	3	520192
+5541	binder	0	3	16	4	520192
 4937	binder	0	0	32	2	520192
-4882	binder	0	3	16	4	520192
+4882	binder	0	5	16	6	520192
 4801	binder	0	0	16	2	520192
-4205	binder	0	0	16	2	520192
+4205	binder	0	1	16	3	520192
 3798	binder	0	1	16	2	520192
 3336	binder	0	0	16	2	520192
 3248	binder	0	16	16	0	520192
 3207	binder	0	16	16	0	520192
 3150	binder	0	1	16	2	520192
-3091	binder	0	2	16	3	520192
+3091	binder	0	3	16	4	520192
 3027	binder	0	16	16	0	520192
-3020	binder	0	6	16	7	520192
+3020	binder	0	16	16	17	520192
 2925	binder	0	1	16	3	520192
-2928	binder	0	5	16	6	520192
+2928	binder	0	6	16	7	520192
 2816	binder	0	1	16	2	520192
-2792	binder	0	1	32	3	520192
-2661	binder	0	4	16	6	520192
-2358	binder	0	0	16	1	520192
+2792	binder	0	2	32	4	520192
+2661	binder	0	3	16	5	520192
+2358	binder	0	2	16	3	520192
 2146	binder	0	0	16	2	520192
-1716	binder	0	0	16	1	520192
-1714	binder	0	0	16	1	520192
+1716	binder	0	2	16	3	520192
+1714	binder	0	1	16	2	520192
 959	binder	0	0	16	1	520192
-1575	binder	0	7	16	9	520192
+1575	binder	0	8	16	10	520192
 1531	binder	0	0	16	2	520192
-1538	binder	0	4	16	5	520192
+1538	binder	0	6	16	7	520192
 1273	binder	0	3	16	5	520192
-1618	binder	0	3	16	5	520192
+1618	binder	0	4	16	6	520192
 1606	binder	0	0	16	2	520192
-1614	binder	0	1	16	3	520192
+1614	binder	0	2	16	4	520192
 1610	binder	0	2	16	4	520192
 1576	binder	0	0	16	2	520192
 1607	binder	0	0	16	2	520192
@@ -724,42 +468,42 @@ pid	context		request	started	max	ready	free_async_space
 1602	binder	0	0	16	2	520192
 1617	binder	0	2	16	4	520192
 1604	binder	0	0	16	2	520192
-1574	binder	0	1	16	3	520192
+1574	binder	0	0	16	2	520192
 1539	binder	0	0	16	2	520192
 1577	binder	0	1	16	3	520192
 1502	binder	0	0	16	2	520192
 1535	binder	0	1	16	3	520192
-1537	binder	0	4	16	6	520192
-1516	binder	0	0	16	2	520192
+1537	binder	0	3	16	5	520192
+1516	binder	0	1	16	3	520192
 1462	binder	0	2	16	4	520192
 1490	binder	0	0	16	2	520192
 1427	binder	0	0	64	2	520192
-1461	binder	0	2	16	4	520192
+1461	binder	0	3	16	5	520192
 1364	binder	0	0	16	2	520192
 1421	binder	0	0	16	2	520192
 1411	binder	0	2	16	4	520192
 1423	binder	0	0	16	2	520192
 1422	binder	0	0	16	1	520192
-1408	binder	0	6	32	8	520192
-1430	binder	0	7	16	9	520192
+1408	binder	0	5	32	7	520192
+1430	binder	0	9	16	11	520192
 1429	binder	0	3	16	5	520192
 1410	binder	0	2	16	4	520192
 1399	binder	0	0	16	2	520192
-1393	binder	0	0	4	2	520192
+1393	binder	0	1	4	3	520192
 1349	binder	0	0	16	2	520192
-1351	binder	0	10	16	11	520192
+1351	binder	0	9	16	10	520192
 1338	binder	0	1	16	2	520192
-1327	binder	0	2	16	2	520192
+1327	binder	0	2	16	3	520192
 1341	binder	0	0	16	1	520192
-1342	binder	0	0	16	1	520192
+1342	binder	0	1	16	2	520192
 1321	binder	0	1	16	2	520192
-1336	binder	0	1	16	1	520192
+1336	binder	0	2	16	1	520192
 1322	binder	0	3	16	4	520192
-1315	binder	0	0	16	1	520192
+1315	binder	0	2	16	3	520192
 1309	binder	0	2	16	3	520192
 1306	binder	0	0	16	1	520192
 1303	binder	0	2	16	3	520192
-1279	binder	0	0	16	1	520192
+1279	binder	0	2	16	3	520192
 1296	binder	0	0	16	1	520192
 1283	binder	0	0	16	1	520192
 1289	binder	0	0	16	1	520192
@@ -769,39 +513,39 @@ pid	context		request	started	max	ready	free_async_space
 1263	binder	0	2	16	3	520192
 1271	binder	0	0	16	1	520192
 1268	binder	0	0	16	1	520192
-1270	binder	0	1	16	2	520192
+1270	binder	0	2	16	3	520192
 1269	binder	0	0	16	1	520192
 1262	binder	0	0	16	1	520192
 1261	binder	0	0	16	1	520192
-1232	binder	0	2	16	4	520192
-1178	binder	0	1	16	3	520192
-1124	binder	0	2	16	4	520192
+1232	binder	0	1	16	3	520192
+1178	binder	0	2	16	4	520192
+1124	binder	0	3	16	5	520192
 1099	binder	0	0	16	2	520192
-1074	binder	0	4	16	6	520192
+1074	binder	0	5	16	7	520192
 1007	binder	0	0	16	2	520192
-1004	binder	0	1	16	3	520192
-938	binder	0	4	10	6	520192
+1004	binder	0	2	16	4	520192
+938	binder	0	2	10	4	520192
 951	binder	0	0	16	1	520192
-965	binder	0	3	16	5	520192
-960	binder	0	3	16	5	520192
+965	binder	0	4	16	6	520192
+960	binder	0	4	16	6	520192
 919	binder	0	0	16	2	520192
-886	binder	0	4	16	6	520192
+886	binder	0	3	16	5	520192
 884	binder	0	3	16	5	520192
-823	binder	0	2	16	4	520192
-818	binder	0	2	16	4	520192
+823	binder	0	3	16	5	520192
+818	binder	0	3	16	5	520192
 801	binder	0	2	16	4	520192
 798	binder	0	1	16	3	520192
 751	binder	0	0	16	2	520192
 733	binder	0	2	16	4	520192
-717	binder	0	1	16	3	520192
+717	binder	0	2	16	4	520192
 716	binder	0	3	16	5	520192
-599	binder	0	6	16	7	520192
+599	binder	0	7	16	8	520192
 594	binder	0	0	16	2	520192
 609	binder	0	0	16	2	520192
-595	binder	0	5	16	7	520192
-597	binder	0	1	16	3	520192
-593	binder	0	0	16	2	520192
-592	binder	0	1	16	2	520192
+595	binder	0	6	16	8	520192
+597	binder	0	2	16	4	520192
+593	binder	0	1	16	3	520192
+592	binder	0	3	16	4	520192
 556	binder	0	0	16	1	520192
 PeerBinder pids is empty
 Binder catcher stacktrace, type is async, pid : 9386

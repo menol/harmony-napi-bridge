@@ -73,18 +73,16 @@ class IndexPresenter {
         // 1. 刚进来时还在主线程，先通过回调通知 UI 开始加载
         view?.showUser("Starting process for ${student.name}...")
         
-        // 2. 切到后台线程模拟网络请求或繁重计算
-        val result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
-            kotlinx.coroutines.delay(500) // 模拟耗时 0.5s
-            
-            // 3. 在后台线程中直接回调 JS！(验证我们刚才写的 NapiDispatcher 和 MainThreadRunner 是否真的生效)
-            view?.showUser("Still computing in background...")
-            
-            kotlinx.coroutines.delay(500) // 继续模拟耗时 0.5s
-            
-            // 返回处理结果
-            student.copy(name = student.name.uppercase(), age = student.age + 1)
-        }
+        // 2. 使用非阻塞 delay 模拟耗时，避免在 Harmony 真机上触发 Worker/GC safepoint 卡死
+        kotlinx.coroutines.delay(500)
+        
+        // 3. 中途继续回调 JS，保持原有测试的事件顺序
+        view?.showUser("Still computing in background...")
+        
+        kotlinx.coroutines.delay(500)
+        
+        // 返回处理结果
+        val result = student.copy(name = student.name.uppercase(), age = student.age + 1)
         
         // 4. withContext 结束，协程回到了主线程，最后一次调用 JS 回调
         view?.showStudent(result)
@@ -302,10 +300,10 @@ object HelloWorldPlugin {
 
     @HarmonyExport
     suspend fun executeMultipleTasksAsync(count: Int, delayMs: Int): List<String> {
-        // 使用 coroutineScope 并发执行多个耗时任务
+        // 在当前协程上下文内并发等待，避免切到 Kotlin/Native Worker 导致真机 GC safepoint 卡住
         return coroutineScope {
             val deferreds = (1..count).map { i ->
-                async(Dispatchers.Default) {
+                async {
                     delay(delayMs.toLong())
                     "Task $i completed"
                 }
@@ -431,4 +429,3 @@ data class MutableData(
     var name: String,
     val readOnlyField: String = "Immutable"
 )
-

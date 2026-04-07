@@ -45,6 +45,7 @@ import com.itime.harmony.sample.DemoAbstract
 import kotlin.OptIn
 import kotlinx.cinterop.COpaquePointer
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.LongVar
 import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.`get`
 import kotlinx.cinterop.`value`
@@ -56,6 +57,7 @@ import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.refTo
 import kotlinx.cinterop.staticCFunction
+import napi.napi_adjust_external_memory
 import napi.napi_callback_info
 import napi.napi_env
 import napi.napi_get_cb_info
@@ -115,6 +117,12 @@ public fun DemoAbstract_finalize(
   hint: COpaquePointer?,
 ) {
   data?.asStableRef<Any>()?.dispose()
+  if (env != null) {
+      memScoped {
+          val adjustedValue = alloc<LongVar>()
+          napi_adjust_external_memory(env, -8192L, adjustedValue.ptr)
+      }
+  }
 }
 
 public fun DemoAbstract_constructor(env: napi_env?, info: napi_callback_info?): napi_value? = try {
@@ -136,6 +144,8 @@ public fun DemoAbstract_constructor(env: napi_env?, info: napi_callback_info?): 
             napi_get_value_external(env, argv[0], externalPtr.ptr)
             napi_wrap(env, thisVar.value, externalPtr.value,
     staticCFunction(::DemoAbstract_finalize), null, null)
+            val adjustedValue = alloc<LongVar>()
+            napi_adjust_external_memory(env, 8192L, adjustedValue.ptr)
             return@memScoped thisVar.value
         }
 

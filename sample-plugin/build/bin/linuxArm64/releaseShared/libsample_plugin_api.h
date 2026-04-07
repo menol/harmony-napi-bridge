@@ -65,6 +65,9 @@ typedef struct {
 } libsample_plugin_kref_kotlin_ULong;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
+} libsample_plugin_kref_org_koin_core_module_Module;
+typedef struct {
+  libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_napi_generated_ArkTsHttpFetcher_NapiProxy;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
@@ -87,9 +90,6 @@ typedef struct {
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_napi_generated_TestInterface_NapiProxy;
-typedef struct {
-  libsample_plugin_KNativePtr pinned;
-} libsample_plugin_kref_org_koin_core_module_Module;
 typedef struct {
   libsample_plugin_KNativePtr pinned;
 } libsample_plugin_kref_com_itime_harmony_sample_User;
@@ -881,6 +881,10 @@ typedef struct {
           } harmony;
         } itime;
       } com;
+      libsample_plugin_kref_org_koin_core_module_Module (*get_m1)();
+      void (*test)();
+      void (*test2)();
+      void (*test3)();
     } root;
   } kotlin;
 } libsample_plugin_ExportedSymbols;

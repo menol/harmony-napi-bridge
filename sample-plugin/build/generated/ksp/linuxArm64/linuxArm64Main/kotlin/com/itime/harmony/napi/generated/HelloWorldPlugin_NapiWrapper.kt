@@ -45,6 +45,7 @@ import com.itime.harmony.sample.HelloWorldPlugin
 import kotlin.OptIn
 import kotlinx.cinterop.COpaquePointer
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.LongVar
 import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.`get`
 import kotlinx.cinterop.`value`
@@ -56,6 +57,7 @@ import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.refTo
 import kotlinx.cinterop.staticCFunction
+import napi.napi_adjust_external_memory
 import napi.napi_callback_info
 import napi.napi_env
 import napi.napi_get_cb_info

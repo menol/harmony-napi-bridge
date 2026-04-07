@@ -5,6 +5,8 @@ import com.itime.harmony.napi.annotations.HarmonyModule
 import org.koin.core.component.KoinComponent
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
+import org.koin.core.context.unloadKoinModules
+import org.koin.mp.KoinPlatformTools
 import org.koin.dsl.module
 
 // 1. 定义一个由 ArkTS 侧实现的存储接口
@@ -15,6 +17,26 @@ interface KeyValueStorage {
     
     @HarmonyExport
     fun getString(key: String): String
+}
+
+private object CurrentArkTsStorage : KeyValueStorage {
+    private var delegateRef: KeyValueStorage? = null
+
+    fun update(storage: KeyValueStorage) {
+        delegateRef = storage
+    }
+
+    override fun saveString(key: String, value: String) {
+        requireDelegate().saveString(key, value)
+    }
+
+    override fun getString(key: String): String {
+        return requireDelegate().getString(key)
+    }
+
+    private fun requireDelegate(): KeyValueStorage {
+        return delegateRef ?: error("ArkTS storage not initialized. Call initArkTsStorage first.")
+    }
 }
 
 // 2. Kotlin 侧的业务逻辑类，它依赖于 KeyValueStorage 接口（不知道具体实现是啥）
@@ -28,22 +50,24 @@ class SettingsRepository(private val storage: KeyValueStorage) {
     }
 }
 
+private val storageModule = module {
+    // Keep a stable Koin singleton and swap the ArkTS delegate behind it between test runs.
+    single<KeyValueStorage> { CurrentArkTsStorage }
+    single { SettingsRepository(get()) }
+}
+
 // 3. 供 ArkTS 调用的入口插件
 @HarmonyModule(name = "storage_plugin")
 object StoragePlugin : KoinComponent {
 
     @HarmonyExport
     fun initArkTsStorage(storageImpl: KeyValueStorage) {
-        val storageModule = module {
-            // 将 ArkTS 传进来的 JS 代理对象，作为单例注入到 Koin 容器中
-            single<KeyValueStorage> { storageImpl }
-            single { SettingsRepository(get()) }
-        }
-        
-        // 健壮性处理：如果 Koin 尚未启动则启动，如果已启动则动态加载 Module
-        try {
+        CurrentArkTsStorage.update(storageImpl)
+
+        if (KoinPlatformTools.defaultContext().getOrNull() == null) {
             startKoin { modules(storageModule) }
-        } catch (e: Throwable) {
+        } else {
+            unloadKoinModules(storageModule)
             loadKoinModules(storageModule)
         }
     }

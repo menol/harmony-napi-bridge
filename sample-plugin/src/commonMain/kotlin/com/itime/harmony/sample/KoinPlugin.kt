@@ -4,8 +4,10 @@ import com.itime.harmony.napi.annotations.HarmonyExport
 import com.itime.harmony.napi.annotations.HarmonyModule
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import org.koin.core.context.startKoin
 import org.koin.core.context.loadKoinModules
+import org.koin.core.context.startKoin
+import org.koin.core.context.unloadKoinModules
+import org.koin.mp.KoinPlatformTools
 import org.koin.dsl.module
 
 // 1. Define a service interface and implementation
@@ -33,12 +35,12 @@ object KoinPlugin : KoinComponent {
 
     @HarmonyExport
     fun initKoin() {
-        try {
+        if (KoinPlatformTools.defaultContext().getOrNull() == null) {
             startKoin {
                 modules(appModule)
             }
-        } catch (e: Throwable) {
-            // Already started, just load modules
+        } else {
+            unloadKoinModules(appModule)
             loadKoinModules(appModule)
         }
     }

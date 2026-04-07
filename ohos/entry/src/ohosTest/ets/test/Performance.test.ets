@@ -13,7 +13,7 @@ export default function performanceTest() {
             hello_world_plugin.add(i + j, i + j);
           }
         }
-        await new Promise<void>(resolve => setTimeout(resolve, 0));
+        await new Promise<void>(resolve => setTimeout(resolve, 10));
       }
       const end = Date.now();
       const duration = end - start;
@@ -32,7 +32,7 @@ export default function performanceTest() {
             tc.increment();
           }
         }
-        await new Promise<void>(resolve => setTimeout(resolve, 0));
+        await new Promise<void>(resolve => setTimeout(resolve, 10));
       }
       const end = Date.now();
       const duration = end - start;

@@ -35,6 +35,20 @@ interface ArkTsHttpFetcher {
     fun fetch(requestId: String, request: ArkTsHttpRequest)
 }
 
+private object CurrentArkTsFetcher : ArkTsHttpFetcher {
+    private var delegateRef: ArkTsHttpFetcher? = null
+
+    fun update(fetcher: ArkTsHttpFetcher) {
+        delegateRef = fetcher
+    }
+
+    override fun fetch(requestId: String, request: ArkTsHttpRequest) {
+        val delegate = delegateRef
+            ?: error("ArkTS fetcher not initialized. Call initKtor first.")
+        delegate.fetch(requestId, request)
+    }
+}
+
 class ArkTsEngineConfig : HttpClientEngineConfig()
 
 // 2. 自定义 HttpClientEngineBase，将 Ktor 请求委托给 ArkTsHttpFetcher
@@ -100,39 +114,46 @@ class ArkTsEngine(
 object KtorPlugin {
     
     private var httpClient: HttpClient? = null
-    private val counter = kotlin.concurrent.AtomicInt(0)
+    private var counter = 0
     
     // 暴露给内部引擎使用
-    internal val pendingRequestsRef = kotlin.concurrent.AtomicReference<Map<String, CompletableDeferred<ArkTsHttpResponse>>>(emptyMap())
+    internal var pendingRequestsRef: Map<String, CompletableDeferred<ArkTsHttpResponse>> = emptyMap()
     
-    internal fun addPendingRequest(id: String, deferred: CompletableDeferred<ArkTsHttpResponse>) {
-        while (true) {
-            val old = pendingRequestsRef.value
-            val new = old + (id to deferred)
-            if (pendingRequestsRef.compareAndSet(old, new)) break
-        }
+    internal fun addPendingRequest(requestId: String, deferred: CompletableDeferred<ArkTsHttpResponse>) {
+        pendingRequestsRef = pendingRequestsRef + (requestId to deferred)
     }
-    
-    internal fun removePendingRequest(id: String): CompletableDeferred<ArkTsHttpResponse>? {
-        var result: CompletableDeferred<ArkTsHttpResponse>? = null
-        while (true) {
-            val old = pendingRequestsRef.value
-            if (!old.containsKey(id)) return null
-            result = old[id]
-            val new = old - id
-            if (pendingRequestsRef.compareAndSet(old, new)) break
-        }
-        return result
+
+    internal fun removePendingRequest(requestId: String): CompletableDeferred<ArkTsHttpResponse>? {
+        val deferred = pendingRequestsRef[requestId]
+        pendingRequestsRef = pendingRequestsRef - requestId
+        return deferred
     }
     
     internal fun generateRequestId(): String {
-        return "req_${counter.addAndGet(1)}"
+        counter++
+        return "req_$counter"
     }
     
+    @OptIn(DelicateCoroutinesApi::class)
     @HarmonyExport
     fun initKtor(fetcher: ArkTsHttpFetcher) {
-        httpClient = HttpClient(ArkTsEngine(fetcher)) {
+        CurrentArkTsFetcher.update(fetcher)
+
+        val oldClient = httpClient
+        httpClient = HttpClient(ArkTsEngine(CurrentArkTsFetcher)) {
             // 可以配置 json 等等
+        }
+        
+        if (oldClient != null) {
+            // Ktor HttpClient.close() 可能会在 Kotlin/Native 主线程阻塞等待所有协程完成
+            // 导致 NapiDispatcher 事件循环卡死 (THREAD_BLOCK_6S)，因此我们异步关闭它
+            GlobalScope.launch(Dispatchers.Default) {
+                try {
+                    oldClient.close()
+                } catch (e: Throwable) {
+                    // Ignore exceptions during close
+                }
+            }
         }
     }
     

@@ -18,7 +18,7 @@ export default function memoryLeakTest() {
           }
         }
         // Yield the event loop to prevent ANR
-        await new Promise<void>(resolve => setTimeout(resolve, 0));
+        await new Promise<void>(resolve => setTimeout(resolve, 10));
       }
       
       // Force Garbage Collection to ensure unreferenced objects are freed
