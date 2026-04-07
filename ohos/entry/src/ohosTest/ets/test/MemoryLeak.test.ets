@@ -4,14 +4,21 @@ import { TestClass } from 'khn';
 
 export default function memoryLeakTest() {
   describe('MemoryLeakTest', () => {
-    it('should not leak memory after many object creations', 0, () => {
+    it('should not leak memory after many object creations', 0, async () => {
       const iterations = 10000;
+      const chunkSize = 1000;
       const initialMemory = Number(hidebug.getNativeHeapAllocatedSize());
       
-      for (let i = 0; i < iterations; i++) {
-        let tc = new TestClass(i);
-        tc.increment();
-        tc = null as any;
+      for (let i = 0; i < iterations; i += chunkSize) {
+        for (let j = 0; j < chunkSize; j++) {
+          if (i + j < iterations) {
+            let tc = new TestClass(i + j);
+            tc.increment();
+            tc = null as any;
+          }
+        }
+        // Yield the event loop to prevent ANR
+        await new Promise<void>(resolve => setTimeout(resolve, 0));
       }
       
       // Force Garbage Collection to ensure unreferenced objects are freed
