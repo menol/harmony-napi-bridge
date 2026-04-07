@@ -1,27 +1,30 @@
-export function observeKmp<T extends Object>(value: T): T {
-  // @ts-ignore - UIUtils is available in ArkUI
-  return UIUtils.makeObserved(value) as T;
+import { UIUtils } from '@kit.ArkUI';
+
+export function observeKmp<T extends object>(value: T): T {
+  return UIUtils.makeObserved(value);
 }
 
-export function patchObserved<T extends Object>(target: T, next: T): void {
-  if (!target || !next) return;
+export function patchObserved<T extends object>(target: T, next: T): void {
+  if (!target || !next) {
+    return;
+  }
   
-  const targetRecord = target as Record<string, Object>;
-  const nextRecord = next as Record<string, Object>;
+  const targetRecord = target as Record<string, Object | null | undefined>;
+  const nextRecord = next as Record<string, Object | null | undefined>;
   
-  for (const key in nextRecord) {
-    if (Object.prototype.hasOwnProperty.call(nextRecord, key)) {
-      const currentValue = targetRecord[key];
-      const nextValue = nextRecord[key];
-      
-      const isObjectLike = (val: unknown): boolean => val !== null && typeof val === 'object';
-      const isArrayLike = (val: unknown): boolean => Array.isArray(val);
-      
-      if (isObjectLike(currentValue) && isObjectLike(nextValue) && !isArrayLike(currentValue) && !isArrayLike(nextValue)) {
-        patchObserved(currentValue as Object, nextValue as Object);
-      } else {
-        targetRecord[key] = nextValue;
-      }
+  const keys = Object.keys(nextRecord);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const currentValue = targetRecord[key];
+    const nextValue = nextRecord[key];
+    
+    const isCurrentObject = currentValue !== null && typeof currentValue === 'object' && !Array.isArray(currentValue);
+    const isNextObject = nextValue !== null && typeof nextValue === 'object' && !Array.isArray(nextValue);
+    
+    if (isCurrentObject && isNextObject) {
+      patchObserved(currentValue as object, nextValue as object);
+    } else {
+      targetRecord[key] = nextValue;
     }
   }
 }
