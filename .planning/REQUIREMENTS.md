@@ -50,10 +50,13 @@
 | **TEST-04** | Phase 2 | Not Started |
 | **AUTO-01** | Phase 3 | Not Started |
 | **AUTO-02** | Phase 3 | Not Started |
+| **ADV-01** | Phase 4 | Completed |
+| **ADV-02** | Phase 4 | Completed |
 
 **Coverage:**
 - v1 requirements: 9 total
-- Mapped to phases: 9
+- v2 requirements: 2 total
+- Mapped to phases: 11
 - Unmapped: 0 ✅
 
 ---
