@@ -215,10 +215,20 @@ struct Index {
           this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
           
           // Force GC to free JS wrappers, triggering NAPI finalizers
-          if (typeof gc === 'function') {
-            gc();
+          // Note: globalThis.gc is not available in strict ArkTS component context by default.
+          // We use the ArkTools internal API if available, otherwise fallback.
+          try {
+            const globalObj = globalThis as Record<string, Object>;
+            const arkTools = globalObj['ArkTools'] as Record<string, Function>;
+            if (arkTools && typeof arkTools.forceFullGC === 'function') {
+              arkTools.forceFullGC();
+            } else if (typeof globalObj['gc'] === 'function') {
+              globalObj['gc']();
+            }
+          } catch (e) {
+            hilog.error(DOMAIN, TAG, 'Failed to invoke GC: %{public}s', JSON.stringify(e));
           }
-          
+
           // Wait for Kotlin/Native background GC to complete cleanup
           await new Promise<void>(resolve => setTimeout(resolve, 800));
 
