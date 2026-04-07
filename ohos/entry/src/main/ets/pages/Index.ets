@@ -57,12 +57,10 @@ class IndexViewModel implements IndexView {
 
   showStudent(student: Student<string>): void {
     console.log(`[JS Callback] showStudent called with: ${JSON.stringify(student)}`)
-    // 规范写法：使用 patchObserved 保持深层响应式代理对象的引用不变，仅更新内部字段
     patchObserved(this.student, student)
   }
 
   private present: IndexPresenter = new IndexPresenter()
-  // 规范写法：初始化时使用 observeKmp 将普通对象转换为深层响应式对象
   @Trace user: User = observeKmp({} as User)
 
   @Trace student: Student<string> = observeKmp({
@@ -109,9 +107,14 @@ class IndexViewModel implements IndexView {
 @Entry
 @ComponentV2
 struct Index {
-  @Local logText: string = "No Tests Executed\nTap 'Run Tests' to execute the khn.har test suite.\n";
-  @Local metricsText: string = 'Memory Diff: 0 KB | Time: 0 ms';
+  @Local logText: string = "";
+  @Local metricsText: string = 'Memory: -- KB | Time: -- ms';
   @Local isRunning: boolean = false;
+  
+  // Dashboard Status
+  @Local testStatus: 'WAITING' | 'RUNNING' | 'PASSED' | 'FAILED' = 'WAITING';
+  @Local passCount: number = 0;
+  @Local failCount: number = 0;
 
   private testsRegistered: boolean = false;
   private startTime: number = 0;
@@ -141,6 +144,18 @@ struct Index {
   private appendLog(message: string): void {
     this.logText += message + '\n';
     hilog.info(DOMAIN, TAG, '%{public}s', message);
+
+    // Simple Hypium log parser for beginner-friendly dashboard
+    if (message.includes('OHOS REPORT')) {
+      const passMatch = message.match(/"passes"\s*:\s*(\d+)/);
+      const failMatch = message.match(/"fails"\s*:\s*(\d+)/);
+      if (passMatch) {
+        this.passCount = parseInt(passMatch[1], 10);
+      }
+      if (failMatch) {
+        this.failCount = parseInt(failMatch[1], 10);
+      }
+    }
   }
 
   private runTests(): void {
@@ -148,8 +163,13 @@ struct Index {
 
     if (this.isRunning) return;
     this.isRunning = true;
-
+    
+    // Reset Status
+    this.testStatus = 'RUNNING';
+    this.passCount = 0;
+    this.failCount = 0;
     this.logText = '';
+    
     let testResult = this.demoCall.sayHello({
       name: 'World123123',
       age: 42
@@ -176,10 +196,19 @@ struct Index {
         this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
         const endMem = hidebug.getNativeHeapAllocatedSize();
         const endTime = Date.now();
-        // The getNativeHeapAllocatedSize returns size in bytes (bigint), convert to KB
         const memDiff = Number((endMem - this.startMem) / 1024n);
         const timeDiff = endTime - this.startTime;
         this.metricsText = `Memory Diff: ${memDiff} KB | Time: ${timeDiff} ms`;
+        
+        // Update Test Status Banner
+        if (this.failCount > 0 || code !== 0) {
+           this.testStatus = 'FAILED';
+        } else if (this.passCount > 0) {
+           this.testStatus = 'PASSED';
+        } else {
+           this.testStatus = 'WAITING'; 
+        }
+        
         this.isRunning = false;
         if (callback) {
           callback();
@@ -196,24 +225,56 @@ struct Index {
       this.testsRegistered = true;
       Hypium.hypiumTest(mockDelegator, mockArguments, khnTests);
     } else {
-      // Re-running tests in Hypium requires execute() since suites are already registered
       Core.getInstance().execute(mockDelegator);
     }
   }
 
   build() {
     Column({ space: 16 }) {
-      Text(this.viewModel.student.name + '=====khn.har 真机联调面板'+this.viewModel.user.name)
+      
+      // Dashboard Header
+      Text('KMP/NAPI Test Dashboard')
         .fontSize(24)
         .fontWeight(FontWeight.Bold)
         .width('100%')
         .textAlign(TextAlign.Start)
 
-      Text(this.metricsText)
-        .fontSize(14)
-        .fontColor('#666666')
+      // Status Card (Beginner Friendly)
+      Column({ space: 8 }) {
+        Text(this.testStatus === 'WAITING' ? 'Ready to Test 🚥' :
+             this.testStatus === 'RUNNING' ? 'Running Tests... 🏃' :
+             this.testStatus === 'PASSED' ? 'All Tests Passed! ✅' : 'Tests Failed ❌')
+          .fontSize(20)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(this.testStatus === 'PASSED' ? '#00C853' :
+                     this.testStatus === 'FAILED' ? '#E84026' :
+                     this.testStatus === 'RUNNING' ? '#007DFF' : '#333333')
+        
+        Row({ space: 20 }) {
+          Text(`Passed: ${this.passCount}`)
+            .fontColor('#00C853')
+            .fontWeight(FontWeight.Medium)
+            .fontSize(16)
+          Text(`Failed: ${this.failCount}`)
+            .fontColor('#E84026')
+            .fontWeight(FontWeight.Medium)
+            .fontSize(16)
+        }
         .width('100%')
+        .justifyContent(FlexAlign.Start)
 
+        Text(this.metricsText)
+          .fontSize(12)
+          .fontColor('#666666')
+          .width('100%')
+          .margin({ top: 4 })
+      }
+      .width('100%')
+      .padding(16)
+      .backgroundColor('#F1F3F5')
+      .borderRadius(12)
+
+      // Controls
       Row({ space: 12 }) {
         Button('Run Tests')
           .backgroundColor('#007DFF')
@@ -225,7 +286,10 @@ struct Index {
           .backgroundColor('#E84026')
           .onClick(() => {
             this.logText = '';
-            this.metricsText = 'Memory Diff: 0 KB | Time: 0 ms';
+            this.metricsText = 'Memory: -- KB | Time: -- ms';
+            this.testStatus = 'WAITING';
+            this.passCount = 0;
+            this.failCount = 0;
           })
           .enabled(!this.isRunning)
           .layoutWeight(1)
@@ -236,22 +300,31 @@ struct Index {
         .strokeWidth(1)
         .color('#D9D9D9')
 
+      // Raw Logs (Scrollable)
+      Text('Execution Logs:')
+        .fontSize(14)
+        .fontWeight(FontWeight.Medium)
+        .width('100%')
+
       Scroll() {
         Column() {
           Text(this.logText)
             .fontSize(12)
+            .fontFamily('HarmonyOS Sans')
             .width('100%')
             .padding(8)
         }
         .width('100%')
-        .backgroundColor('#F1F3F5')
+        .backgroundColor('#F8F9FA')
         .alignItems(HorizontalAlign.Start)
       }
       .width('100%')
       .layoutWeight(1)
+      .borderRadius(8)
     }
     .width('100%')
     .height('100%')
     .padding(16)
+    .backgroundColor('#FFFFFF')
   }
 }
