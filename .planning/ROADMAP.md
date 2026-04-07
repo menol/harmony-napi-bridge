@@ -114,6 +114,7 @@ Plans:
 
 Plans:
 - [x] 12: Auto-generate ArkTS Index.ets exports
+
 ### Phase 13: 支持普通 Class 的导出 (Support normal class export)
 
 **Goal:** Support exporting normal Kotlin classes to ArkTS, handling direct JS instantiation (`new Class()`) vs Kotlin returned instances via `napi_external` wrapping, mapping primary constructor parameters, and updating TS definitions.
@@ -125,6 +126,18 @@ Plans:
 - [x] 13: Update Domain Models and `NapiUtils.kt` to handle normal classes and `napi_external` pointers
 - [x] 13: Update KSP generators (InitEntry, KotlinWrapper, TypeScript) for normal class lifecycle
 - [x] 13: Implement end-to-end testing for normal classes in HelloWorldPlugin
+
+### Phase 14: KMP 状态管理与 Flow 跨端支持 (ArkUI V2 响应式集成)
+
+**Goal:** Provide seamless reactivity support for KMP Data Classes and `StateFlow` by bridging them with ArkUI V2's `@ObservedV2` and `@Trace`.
+**Requirements:** TBD
+**Depends on:** Phase 13
+**Plans:** 0 plans
+
+Plans:
+- [ ] 14: Support Kotlin `Flow`/`StateFlow` as return types and generate thread-safe JS callbacks (`napi_threadsafe_function`).
+- [ ] 14: Provide Kotlin annotations (e.g., `@HarmonyObservable`) to trigger KSP generation of ArkTS `.ets` classes equipped with `@ObservedV2` and `@Trace`.
+- [ ] 14: Implement `updateFrom()` or `Object.assign` deep-proxy logic in generated ArkTS classes to allow precise partial updates without breaking UI reactivity.
 
 ## Backlog
 

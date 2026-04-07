@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Milestone complete
-last_updated: "2026-04-05T17:31:03.122Z"
+status: Executing Phase 04
+last_updated: "2026-04-07T05:06:54.789Z"
 progress:
-  total_phases: 13
-  completed_phases: 4
-  total_plans: 5
-  completed_plans: 7
+  total_phases: 15
+  completed_phases: 5
+  total_plans: 6
+  completed_plans: 8
   percent: 100
 ---
 
@@ -53,3 +53,8 @@ progress:
 - Phase 11 planned.
 - Phase 9 added: 支持抽象类的导出
 - Phase 13 executed and verified.
+
+### Decisions (Phase 04-1)
+- Used 10,000 iterations for performance benchmarks to avoid timeouts or excessive flakiness while keeping enough volume.
+- Used 2MB threshold for memory leak test instead of 50MB to catch smaller leaks.
+
