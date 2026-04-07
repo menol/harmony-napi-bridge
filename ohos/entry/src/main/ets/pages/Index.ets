@@ -141,12 +141,29 @@ struct Index {
     this.viewModel.onDestroy()
   }
 
+  private pendingLogs: string = '';
+  private logUpdateTimer: number = -1;
+
   private appendLog(message: string): void {
-    this.logText += message + '\n';
     hilog.info(DOMAIN, TAG, '%{public}s', message);
 
+    // Accumulate logs in memory
+    this.pendingLogs += message + '\n';
+    
+    // Keep only the last 10000 characters to prevent Text component layout from freezing the UI
+    if (this.pendingLogs.length > 10000) {
+      this.pendingLogs = this.pendingLogs.substring(this.pendingLogs.length - 10000);
+    }
+
+    // Debounce UI updates to prevent layout thrashing and ANR
+    if (this.logUpdateTimer === -1) {
+      this.logUpdateTimer = setTimeout(() => {
+        this.logText = this.pendingLogs;
+        this.logUpdateTimer = -1;
+      }, 100);
+    }
+
     // Simple Hypium log parser for beginner-friendly dashboard
-    // Check if message itself contains passes/fails
     const passMatch = message.match(/(?:^|\b)["']?passes["']?\s*[:=]\s*(\d+)/i) || message.match(/(?:^|\b)pass(?:ed)?\s*[:=]\s*(\d+)/i);
     const failMatch = message.match(/(?:^|\b)["']?fails["']?\s*[:=]\s*(\d+)/i) || message.match(/(?:^|\b)fail(?:ed)?\s*[:=]\s*(\d+)/i);
     if (passMatch) {
@@ -166,6 +183,7 @@ struct Index {
     this.passCount = 0;
     this.failCount = 0;
     this.logText = '';
+    this.pendingLogs = '';
     
     // Asynchronous call wrapper to ensure UI renders the 'RUNNING' state before blocking operations
     setTimeout(() => {
@@ -288,6 +306,7 @@ struct Index {
           .backgroundColor('#E84026')
           .onClick(() => {
             this.logText = '';
+            this.pendingLogs = '';
             this.metricsText = 'Memory: -- KB | Time: -- ms';
             this.testStatus = 'WAITING';
             this.passCount = 0;
