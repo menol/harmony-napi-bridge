@@ -20,9 +20,9 @@ tech-stack:
 key-files:
   created: []
   modified:
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt
-    - harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt
+    - harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt
 
 key-decisions:
   - Extract primary constructor parameters for generating NAPI wrapper constructors.
@@ -64,9 +64,9 @@ Each task was committed atomically:
 2. **Task 13-02: Refactor NapiUtils for object wrapping and external constructors** - `c300136a` (refactor)
 
 ## Files Created/Modified
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt` - Added `isObject` and `primaryConstructorParams`.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt` - Extracted `isObject` and constructor parameters.
-- `harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` - Updated `toNapiWrappedObject` to pass `napi_external`.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt` - Added `isObject` and `primaryConstructorParams`.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt` - Extracted `isObject` and constructor parameters.
+- `harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` - Updated `toNapiWrappedObject` to pass `napi_external`.
 
 ## Decisions Made
 - Delegated the wrapping responsibility to NAPI constructor callbacks via `napi_external`, ensuring no duplicate object instantiation or wrapper conflicts.

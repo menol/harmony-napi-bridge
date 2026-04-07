@@ -2,7 +2,7 @@
 wave: 3
 depends_on: ["13-03", "13-04", "13-05"]
 files_modified:
-  - "sample-plugin/src/linuxArm64Main/kotlin/com/itime/harmony/napi/plugin/HelloWorldPlugin.kt"
+  - "sample-plugin/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/plugin/HelloWorldPlugin.kt"
   - "ohos/entry/src/ohosTest/ets/test/NapiWrapper.test.ets"
 autonomous: true
 ---
@@ -31,7 +31,7 @@ Validate the end-to-end functionality of normal class export by creating a norma
   <id>13-06</id>
   <description>Create test cases for normal classes</description>
   <read_first>
-    - sample-plugin/src/linuxArm64Main/kotlin/com/itime/harmony/napi/plugin/HelloWorldPlugin.kt
+    - sample-plugin/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/plugin/HelloWorldPlugin.kt
     - ohos/entry/src/ohosTest/ets/test/NapiWrapper.test.ets
   </read_first>
   <action>
@@ -43,7 +43,7 @@ Validate the end-to-end functionality of normal class export by creating a norma
     3. Getting an existing instance from Kotlin (`HelloWorldPlugin.getTestClass()`) and verifying its methods work.
   </action>
   <acceptance_criteria>
-    - `grep -q "class TestClass" sample-plugin/src/linuxArm64Main/kotlin/com/itime/harmony/napi/plugin/HelloWorldPlugin.kt`
+    - `grep -q "class TestClass" sample-plugin/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/plugin/HelloWorldPlugin.kt`
     - `grep -q "new TestClass" ohos/entry/src/ohosTest/ets/test/NapiWrapper.test.ets`
     - The `ohosTest` test suite passes.
   </acceptance_criteria>

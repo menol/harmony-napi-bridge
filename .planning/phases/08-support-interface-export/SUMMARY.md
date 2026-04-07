@@ -22,12 +22,12 @@ tech-stack:
 key-files:
   created: []
   modified: 
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt
 
 key-decisions:
   - "Skip generating C-interop wrapper functions and NAPI module registration for interfaces since they don't have static implementations."
@@ -72,13 +72,13 @@ Each task was committed atomically:
 4. **Test: verify generic interface support** - `3fb0be0e` (test)
 
 ## Files Created/Modified
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt` - Added `isInterface` and `typeParameters` to `HarmonyModuleModel` and `isTypeParameter` to `HarmonyTypeModel`.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt` - Extracted interface and type parameter properties.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Skipped generating wrappers for interfaces.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt` - Filtered out interfaces from NAPI module registration.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` - Modified to generate TS interfaces (with generics) for Kotlin interfaces.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt` - Returns simple name for type parameters to keep generic definitions intact.
-- `sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt` - Added `DemoInterface<T>` to verify generation.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt` - Added `isInterface` and `typeParameters` to `HarmonyModuleModel` and `isTypeParameter` to `HarmonyTypeModel`.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt` - Extracted interface and type parameter properties.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Skipped generating wrappers for interfaces.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt` - Filtered out interfaces from NAPI module registration.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` - Modified to generate TS interfaces (with generics) for Kotlin interfaces.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt` - Returns simple name for type parameters to keep generic definitions intact.
+- `sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt` - Added `DemoInterface<T>` to verify generation.
 
 ## Decisions Made
 - Skipped C++ wrapper logic for interfaces because they don't have concrete implementations to expose natively; only their TS definitions matter for ArkTS/JS interop callbacks or abstractions.

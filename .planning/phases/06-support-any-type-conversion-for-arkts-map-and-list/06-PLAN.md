@@ -2,9 +2,9 @@
 wave: 1
 depends_on: []
 files_modified:
-  - harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+  - harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
 autonomous: true
 ---
 
@@ -25,7 +25,7 @@ Support dynamic `Any` type conversion for ArkTS `Map` and `List` by adding missi
   <task id="napi-utils-extensions" wave="1">
     <description>Add missing NAPI type conversion methods to NapiUtils.kt</description>
     <read_first>
-      <file>harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt</file>
+      <file>harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt</file>
     </read_first>
     <action>
       Implement the following extension functions in NapiUtils.kt:
@@ -41,23 +41,23 @@ Support dynamic `Any` type conversion for ArkTS `Map` and `List` by adding missi
       10. `fun napi_value.toKotlinStringAnyMap(env: napi_env): Map<String, Any?>`
     </action>
     <acceptance_criteria>
-      - `grep -q "fun Boolean.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun napi_value.toKotlinBoolean" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun Int.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun napi_value.toKotlinInt" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun Any?.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun napi_value.toKotlinAny" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun List<Any?>.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun napi_value.toKotlinAnyList" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun Map<String, Any?>.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
-      - `grep -q "fun napi_value.toKotlinStringAnyMap" harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun Boolean.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun napi_value.toKotlinBoolean" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun Int.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun napi_value.toKotlinInt" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun Any?.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun napi_value.toKotlinAny" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun List<Any?>.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun napi_value.toKotlinAnyList" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun Map<String, Any?>.toNapiValue" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
+      - `grep -q "fun napi_value.toKotlinStringAnyMap" harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` returns 0
     </acceptance_criteria>
   </task>
 
   <task id="update-type-mapper" wave="2" depends_on="napi-utils-extensions">
     <description>Update TypeMapper.kt to handle Any and Int types correctly</description>
     <read_first>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt</file>
     </read_first>
     <action>
       Update `getNapiToKotlinMethod` in `TypeMapper.kt` to:
@@ -68,29 +68,29 @@ Support dynamic `Any` type conversion for ArkTS `Map` and `List` by adding missi
       - Add `"Any"` to the first case so it becomes `"Double", "Int", "String", "Boolean", "Any" -> "toNapiValue(env!!)"`
     </action>
     <acceptance_criteria>
-      - `grep -q '"Int" -> "toKotlinInt(env!!)"' harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
-      - `grep -q '"Any" -> "toKotlinAny(env!!)"' harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
-      - `grep -q '"Any" -> "toNapiValue(env!!)"' harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
+      - `grep -q '"Int" -> "toKotlinInt(env!!)"' harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
+      - `grep -q '"Any" -> "toKotlinAny(env!!)"' harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
+      - `grep -q '"Any" -> "toNapiValue(env!!)"' harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
     </acceptance_criteria>
   </task>
 
   <task id="update-wrapper-generator" wave="2" depends_on="napi-utils-extensions">
     <description>Update KotlinWrapperGenerator.kt imports</description>
     <read_first>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt</file>
     </read_first>
     <action>
-      In `KotlinWrapperGenerator.kt`, update the `.addImport` call for `com.itime.harmony.napi.runtime.utils` to include:
+      In `KotlinWrapperGenerator.kt`, update the `.addImport` call for `com.realtech.harmony.napi.runtime.utils` to include:
       `"toKotlinInt", "toKotlinBoolean", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap"`
       
       The full line should look like:
-      `.addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap")`
+      `.addImport("com.realtech.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap")`
     </action>
     <acceptance_criteria>
-      - `grep -q 'toKotlinInt' harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
-      - `grep -q 'toKotlinAny' harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
-      - `grep -q 'toKotlinAnyList' harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
-      - `grep -q 'toKotlinStringAnyMap' harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
+      - `grep -q 'toKotlinInt' harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
+      - `grep -q 'toKotlinAny' harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
+      - `grep -q 'toKotlinAnyList' harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
+      - `grep -q 'toKotlinStringAnyMap' harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
     </acceptance_criteria>
   </task>
 </tasks>

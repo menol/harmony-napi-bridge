@@ -2,12 +2,12 @@
 wave: 1
 depends_on: []
 files_modified:
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt"
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt"
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt"
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt"
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt"
-  - "sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt"
+  - "sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt"
 autonomous: true
 ---
 
@@ -37,7 +37,7 @@ Support exporting Kotlin sealed classes (with generics) to TypeScript definition
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt
 </read_first>
 <action>
 Update `Models.kt` to include sealed class metadata and generics support.
@@ -56,7 +56,7 @@ Update `Models.kt` to include sealed class metadata and generics support.
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt
 </read_first>
 <action>
 Update `HarmonyNapiProcessor.kt` to extract sealed modifiers, sealed subclasses, type parameters, and `@SerialName` annotations.
@@ -69,14 +69,14 @@ Update `HarmonyNapiProcessor.kt` to extract sealed modifiers, sealed subclasses,
 <acceptance_criteria>
 - `resolveType` extracts `isSealed`, `serialName`, `typeParameters`, and `sealedSubclasses`.
 - `process` sets `isSealed` on `HarmonyModuleModel`.
-- `grep "getSealedSubclasses" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns a match.
+- `grep "getSealedSubclasses" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns a match.
 </acceptance_criteria>
 </task>
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt
 </read_first>
 <action>
 Update code generators to skip generating NAPI bindings for sealed classes.
@@ -84,14 +84,14 @@ Update code generators to skip generating NAPI bindings for sealed classes.
 - In `InitEntryGenerator.kt`, change the filter condition to: `val validModules = modules.filter { !it.isInterface && !it.isAbstract && !it.isSealed }`.
 </action>
 <acceptance_criteria>
-- `grep "module.isSealed" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns a match.
-- `grep "!it.isSealed" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt` returns a match.
+- `grep "module.isSealed" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns a match.
+- `grep "!it.isSealed" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt` returns a match.
 </acceptance_criteria>
 </task>
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
 </read_first>
 <action>
 Update `TypeScriptGenerator.kt` to handle TS declarations for sealed classes and generics.
@@ -102,14 +102,14 @@ Update `TypeScriptGenerator.kt` to handle TS declarations for sealed classes and
   - If a normal serializable class is a subclass of a sealed class, inject a `type` property using its `serialName` or `qualifiedName`.
 </action>
 <acceptance_criteria>
-- `grep "export type" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` returns a match.
-- `grep "type:" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` returns a match for the discriminator.
+- `grep "export type" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` returns a match.
+- `grep "type:" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` returns a match for the discriminator.
 </acceptance_criteria>
 </task>
 
 <task>
 <read_first>
-- sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt
+- sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt
 </read_first>
 <action>
 Add test cases for generic sealed classes to `HelloWorldPlugin.kt`.
@@ -118,7 +118,7 @@ Add test cases for generic sealed classes to `HelloWorldPlugin.kt`.
 - Add an `@HarmonyExport` function in `HelloWorldPlugin` that accepts and returns `NetworkResult<String>`.
 </action>
 <acceptance_criteria>
-- `grep "sealed class NetworkResult" sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt` returns a match.
-- `grep "sealed class TestSealed" sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt` returns a match.
+- `grep "sealed class NetworkResult" sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt` returns a match.
+- `grep "sealed class TestSealed" sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt` returns a match.
 </acceptance_criteria>
 </task>

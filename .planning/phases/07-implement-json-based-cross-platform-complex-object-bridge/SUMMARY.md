@@ -25,13 +25,13 @@ key-files:
     - gradle/libs.versions.toml
     - harmony-napi-runtime/build.gradle.kts
     - sample-plugin/build.gradle.kts
-    - harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
-    - sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt
+    - harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+    - sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt
     - ohos/entry/src/main/ets/test/KhnTest.ets
 
 key-decisions:
@@ -76,13 +76,13 @@ Terminal was disposed during execution, so files were modified correctly but git
 - `gradle/libs.versions.toml` - Added kotlinx-serialization-json
 - `harmony-napi-runtime/build.gradle.kts` - Applied serialization plugin and dependency
 - `sample-plugin/build.gradle.kts` - Applied serialization plugin and dependency
-- `harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` - Added JSON bridge extensions
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt` - Updated models for properties and enums
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt` - Extracted properties and enum values
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt` - Routed Serializable and Enums to JSON methods
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` - Generated TS interfaces and enums
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Added JSON imports
-- `sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt` - Added User and Role
+- `harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` - Added JSON bridge extensions
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt` - Updated models for properties and enums
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt` - Extracted properties and enum values
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt` - Routed Serializable and Enums to JSON methods
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` - Generated TS interfaces and enums
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Added JSON imports
+- `sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt` - Added User and Role
 - `ohos/entry/src/main/ets/test/KhnTest.ets` - Added data class and enum tests
 
 ## Decisions Made

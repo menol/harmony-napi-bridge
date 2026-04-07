@@ -2,9 +2,9 @@
 wave: 2
 depends_on: ["13-01", "13-02"]
 files_modified:
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt"
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt"
-  - "harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt"
+  - "harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt"
 autonomous: true
 ---
 
@@ -34,7 +34,7 @@ Update KSP generators to generate NAPI wrapper code, initialization code, and Ty
   <id>13-03</id>
   <description>Refactor KotlinWrapperGenerator for normal classes</description>
   <read_first>
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
   </read_first>
   <action>
     Update `KotlinWrapperGenerator.kt` to generate constructor wrappers and instance methods for normal classes (`isObject == false`).
@@ -44,9 +44,9 @@ Update KSP generators to generate NAPI wrapper code, initialization code, and Ty
     For instance methods, extract the `instance` from `thisVar` using `unwrapKotlinObject` (same as abstract classes) and invoke methods on `instance` instead of making static calls on `module.className`.
   </action>
   <acceptance_criteria>
-    - `grep -q "napi_external" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt`
-    - `grep -q "napi_wrap" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt`
-    - `grep -q "unwrapKotlinObject" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt`
+    - `grep -q "napi_external" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt`
+    - `grep -q "napi_wrap" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt`
+    - `grep -q "unwrapKotlinObject" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt`
   </acceptance_criteria>
 </task>
 
@@ -54,14 +54,14 @@ Update KSP generators to generate NAPI wrapper code, initialization code, and Ty
   <id>13-04</id>
   <description>Update InitEntryGenerator for normal classes</description>
   <read_first>
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt
   </read_first>
   <action>
     Update `InitEntryGenerator.kt` to use `napi_define_class` and `ConstructorRegistry.refs.put` for normal classes (`isObject == false`), similar to what is currently done for abstract classes.
     Ensure `napi_create_object` and `napi_define_properties` are strictly limited to `isObject == true` (singletons).
   </action>
   <acceptance_criteria>
-    - `grep -q "isObject" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt`
+    - `grep -q "isObject" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt`
     - Code correctly differentiates between object and non-object for `napi_define_class` vs `napi_create_object`.
   </acceptance_criteria>
 </task>
@@ -70,7 +70,7 @@ Update KSP generators to generate NAPI wrapper code, initialization code, and Ty
   <id>13-05</id>
   <description>Update TypeScriptGenerator for normal classes</description>
   <read_first>
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
   </read_first>
   <action>
     Update `TypeScriptGenerator.kt` to output `export declare class` instead of `export declare namespace` for normal classes (`isObject == false`).
@@ -79,8 +79,8 @@ Update KSP generators to generate NAPI wrapper code, initialization code, and Ty
     Keep `export declare namespace` exclusively for `isObject == true` singletons.
   </action>
   <acceptance_criteria>
-    - `grep -q "export declare class" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt`
-    - `grep -q "constructor" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt`
+    - `grep -q "export declare class" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt`
+    - `grep -q "constructor" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt`
   </acceptance_criteria>
 </task>
 <threat_model>

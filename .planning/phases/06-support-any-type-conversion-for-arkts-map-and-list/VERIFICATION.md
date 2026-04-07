@@ -12,7 +12,7 @@
 ## Must-Haves Verification
 | Must-Have | Status | Notes |
 |-----------|--------|-------|
-| `NapiUtils.kt` must support `Any`, `Boolean`, `Int`, `List<Any?>`, and `Map<String, Any?>` to `napi_value` and vice versa. | ✅ | Implemented in `harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt`. Includes dynamic type resolution using `napi_typeof` and `when` block. |
+| `NapiUtils.kt` must support `Any`, `Boolean`, `Int`, `List<Any?>`, and `Map<String, Any?>` to `napi_value` and vice versa. | ✅ | Implemented in `harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt`. Includes dynamic type resolution using `napi_typeof` and `when` block. |
 | `TypeMapper.kt` must map `Any` to `toKotlinAny(env!!)` and `toNapiValue(env!!)`. | ✅ | Implemented in `TypeMapper.kt` inside `getNapiToKotlinMethod` and `getKotlinToNapiMethod`. |
 | `TypeMapper.kt` must correctly map `Int` to `toKotlinInt(env!!)`. | ✅ | Replaced `toKotlinDouble` fallback for `Int` with `toKotlinInt` in `TypeMapper.kt`. |
 | `KotlinWrapperGenerator.kt` must import all required `toKotlin*` methods. | ✅ | Imports updated in `KotlinWrapperGenerator.kt` to include `toKotlinInt`, `toKotlinBoolean`, `toKotlinAny`, `toKotlinAnyList`, and `toKotlinStringAnyMap`. |

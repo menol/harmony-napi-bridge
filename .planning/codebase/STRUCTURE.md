@@ -19,9 +19,9 @@
 - **`DESIGN.md`**: Detailed architectural and design documentation outlining the bridging framework's goals and implementation.
 
 ## Key Locations
-- **`sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt`**: Example of how a developer writes pure Kotlin business logic.
+- **`sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt`**: Example of how a developer writes pure Kotlin business logic.
 - **`ohos/khn/src/main/cpp/napi_init.cpp`**: The C++ entry point that registers the N-API module and delegates initialization to the Kotlin-generated wrappers.
-- **`harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt`**: The core engine that orchestrates the code generation.
+- **`harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt`**: The core engine that orchestrates the code generation.
 
 ## Naming Conventions
 - **Generated CInterop wrappers**: End with `_wrapper` (e.g., `HelloWorldPlugin_add_wrapper`).

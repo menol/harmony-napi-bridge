@@ -22,9 +22,9 @@ tech-stack:
 key-files:
   created: []
   modified: 
-    - harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+    - harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
 
 key-decisions:
   - "Mapped Kotlin Any to napi_value by recursively resolving its type at runtime using when block"
@@ -70,9 +70,9 @@ Due to the environment terminal constraints (code:5999 terminal is disposed), gi
 **Plan metadata:** (commit pending) (docs: complete plan)
 
 ## Files Created/Modified
-- `harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt` - Added type conversions for Any, Boolean, Int, and Collections of Any.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt` - Fixed mapping for Int and added Any mapping.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Updated wrapper imports to include the newly added NAPI utility functions.
+- `harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt` - Added type conversions for Any, Boolean, Int, and Collections of Any.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt` - Fixed mapping for Int and added Any mapping.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Updated wrapper imports to include the newly added NAPI utility functions.
 
 ## Decisions Made
 - Used `alloc<napi_valuetype.Var>()` for `napi_typeof` calls to accurately retrieve the JS value type and determine how to convert it to Kotlin `Any?`.

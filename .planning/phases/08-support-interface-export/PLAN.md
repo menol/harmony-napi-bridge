@@ -2,12 +2,12 @@
 wave: 1
 depends_on: []
 files_modified:
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt
 autonomous: true
 requirements: []
 ---
@@ -29,7 +29,7 @@ Support applying `@HarmonyModule` to a Kotlin `interface` (including generic int
   <task id="update-models" wave="1">
     <description>Update KSP Models to support interface tracking</description>
     <read_first>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt</file>
     </read_first>
     <action>
       In `Models.kt`:
@@ -37,16 +37,16 @@ Support applying `@HarmonyModule` to a Kotlin `interface` (including generic int
       2. Update `HarmonyTypeModel` to add `val isTypeParameter: Boolean = false`.
     </action>
     <acceptance_criteria>
-      - `grep -q "val isInterface: Boolean" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt` returns 0
-      - `grep -q "val typeParameters: List<String>" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt` returns 0
-      - `grep -q "val isTypeParameter: Boolean" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/models/Models.kt` returns 0
+      - `grep -q "val isInterface: Boolean" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt` returns 0
+      - `grep -q "val typeParameters: List<String>" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt` returns 0
+      - `grep -q "val isTypeParameter: Boolean" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/models/Models.kt` returns 0
     </acceptance_criteria>
   </task>
 
   <task id="update-processor" wave="2" depends_on="update-models">
     <description>Update KSP Processor to detect interfaces and type parameters</description>
     <read_first>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt</file>
     </read_first>
     <action>
       In `HarmonyNapiProcessor.kt`:
@@ -56,19 +56,19 @@ Support applying `@HarmonyModule` to a Kotlin `interface` (including generic int
       4. Pass `isInterface` and `typeParameters` to `HarmonyModuleModel`.
     </action>
     <acceptance_criteria>
-      - `grep -q "isTypeParameter = resolved.declaration is KSTypeParameter" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns 0
-      - `grep -q "isInterface = classDecl.classKind == ClassKind.INTERFACE" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns 0
-      - `grep -q "typeParameters =" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns 0
+      - `grep -q "isTypeParameter = resolved.declaration is KSTypeParameter" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns 0
+      - `grep -q "isInterface = classDecl.classKind == ClassKind.INTERFACE" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns 0
+      - `grep -q "typeParameters =" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/HarmonyNapiProcessor.kt` returns 0
     </acceptance_criteria>
   </task>
 
   <task id="update-generators" wave="3" depends_on="update-processor">
     <description>Update generators to handle interfaces correctly</description>
     <read_first>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt</file>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt</file>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt</file>
-      <file>harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt</file>
+      <file>harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt</file>
     </read_first>
     <action>
       1. In `KotlinWrapperGenerator.kt`, add `if (module.isInterface) return` at the beginning of `generate`.
@@ -77,10 +77,10 @@ Support applying `@HarmonyModule` to a Kotlin `interface` (including generic int
       4. In `TypeMapper.kt`, inside `getTsType`, add `if (typeModel.isTypeParameter) return typeModel.simpleName`.
     </action>
     <acceptance_criteria>
-      - `grep -q "if (module.isInterface) return" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
-      - `grep -q "modules.filter { \!it.isInterface }" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt` returns 0
-      - `grep -q "export interface \${module.moduleName}" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` returns 0
-      - `grep -q "if (typeModel.isTypeParameter) return typeModel.simpleName" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
+      - `grep -q "if (module.isInterface) return" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` returns 0
+      - `grep -q "modules.filter { \!it.isInterface }" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt` returns 0
+      - `grep -q "export interface \${module.moduleName}" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` returns 0
+      - `grep -q "if (typeModel.isTypeParameter) return typeModel.simpleName" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt` returns 0
     </acceptance_criteria>
   </task>
 </tasks>

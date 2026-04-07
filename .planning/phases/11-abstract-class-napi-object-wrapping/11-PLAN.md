@@ -2,11 +2,11 @@
 wave: 1
 depends_on: []
 files_modified:
-  - harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+  - harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
 autonomous: true
 ---
 
@@ -37,7 +37,7 @@ Support exporting Kotlin abstract classes with generics to TypeScript abstract c
 
 <task>
 <read_first>
-- harmony-napi-runtime/src/linuxArm64Main/kotlin/com/itime/harmony/napi/runtime/utils/NapiUtils.kt
+- harmony-napi-runtime/src/linuxArm64Main/kotlin/com.realtech/harmony/napi/runtime/utils/NapiUtils.kt
 </read_first>
 <action>
 Add `ConstructorRegistry` object to `NapiUtils.kt` to store `napi_ref` values:
@@ -58,7 +58,7 @@ Add `unwrapKotlinObject` extension to `napi_value` that uses `napi_unwrap` to re
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
 </read_first>
 <action>
 Update `KotlinWrapperGenerator.kt`:
@@ -79,7 +79,7 @@ Update `KotlinWrapperGenerator.kt`:
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt
 </read_first>
 <action>
 Update `InitEntryGenerator.kt`:
@@ -88,7 +88,7 @@ Update `InitEntryGenerator.kt`:
    - Create property descriptors for each method.
    - Use `napi_define_class` to create the JS class constructor, passing the generated constructor wrapper.
    - Use `napi_create_reference` to store the class constructor in a `napi_ref` with ref count 1.
-   - Store the ref in `com.itime.harmony.napi.runtime.utils.ConstructorRegistry.refs["${module.className}"] = refVar.value!!`
+   - Store the ref in `com.realtech.harmony.napi.runtime.utils.ConstructorRegistry.refs["${module.className}"] = refVar.value!!`
    - Set the constructor on the `exports` object using `napi_set_named_property` so it is exported.
 </action>
 <acceptance_criteria>
@@ -100,7 +100,7 @@ Update `InitEntryGenerator.kt`:
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/mapper/TypeMapper.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/mapper/TypeMapper.kt
 </read_first>
 <action>
 Update `TypeMapper.kt`:
@@ -114,7 +114,7 @@ Update `TypeMapper.kt`:
 
 <task>
 <read_first>
-- harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+- harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
 </read_first>
 <action>
 Update `TypeScriptGenerator.kt`:

@@ -2,7 +2,7 @@
 wave: 1
 depends_on: []
 files_modified:
-  - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+  - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
   - deploy_to_ohos.sh
   - ohos/khn/Index.ets
 autonomous: true
@@ -24,7 +24,7 @@ Automate the generation of an `ets` file containing the exports for ArkTS and se
   <id>1</id>
   <title>Update TypeScriptGenerator.kt to generate GeneratedExports.ets</title>
   <read_first>
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
     - .planning/phases/12-arkts-index-auto-generate-arkts-index-ets-exports/12-RESEARCH.md
   </read_first>
   <action>
@@ -41,8 +41,8 @@ Automate the generation of an `ets` file containing the exports for ArkTS and se
     If the file already implements this (e.g. from previous manual steps), verify it exactly matches the logic.
   </action>
   <acceptance_criteria>
-    - `grep "val etsContent = buildString {" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` must find a match.
-    - `grep "GeneratedExports" harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` must find a match.
+    - `grep "val etsContent = buildString {" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` must find a match.
+    - `grep "GeneratedExports" harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` must find a match.
   </acceptance_criteria>
 </task>
 

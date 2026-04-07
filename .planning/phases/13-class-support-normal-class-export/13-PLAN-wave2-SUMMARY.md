@@ -22,9 +22,9 @@ tech-stack:
 key-files:
   created: []
   modified: 
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt
-    - harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt
+    - harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt
 
 key-decisions:
   - "Utilized `napi_valuetype` check in the constructor wrapper to distinguish JS `new` invocations from Kotlin object passing via `napi_external`."
@@ -68,9 +68,9 @@ Each task was committed atomically:
 3. **Task 13-05: Update TypeScriptGenerator for normal classes** - `04b0a6b` (feat)
 
 ## Files Created/Modified
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Added constructor wrapper generation logic handling JS args and `napi_external`.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/InitEntryGenerator.kt` - Switched to `napi_define_class` for normal classes.
-- `harmony-napi-ksp-processor/src/main/kotlin/com/itime/harmony/napi/ksp/generator/TypeScriptGenerator.kt` - Emitted TS classes and constructors instead of namespaces.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/KotlinWrapperGenerator.kt` - Added constructor wrapper generation logic handling JS args and `napi_external`.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/InitEntryGenerator.kt` - Switched to `napi_define_class` for normal classes.
+- `harmony-napi-ksp-processor/src/main/kotlin/com.realtech/harmony/napi/ksp/generator/TypeScriptGenerator.kt` - Emitted TS classes and constructors instead of namespaces.
 
 ## Decisions Made
 - Generated a `disposeStableRef` callback locally within `KotlinWrapperGenerator.kt` for use in `napi_wrap`'s finalizer, avoiding manual memory leaks.

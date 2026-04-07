@@ -47,7 +47,7 @@ Add the following functions:
   - Generate corresponding `interface` blocks in `Index.d.ts` alongside the module declarations.
 
 ### 5. Verification
-- Create a `@Serializable data class User` and `enum class Role` in `sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt`.
+- Create a `@Serializable data class User` and `enum class Role` in `sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt`.
 - Export a function `processUser(user: User, role: Role): User`.
 - Verify that `HelloWorldPlugin_NapiWrapper.kt` generates correct inline calls and `Index.d.ts` contains the `User` interface.
 - Run `./hvigorw assembleHar` in the `ohos` module to ensure the C++ and Kotlin/Native code compiles successfully without linker or type errors.

@@ -13780,7 +13780,7 @@ Arguments = [
 	-Xshort-module-name=sample-plugin
 	-target
 	linux_arm64
-	-Xcommon-sources=/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt
+	-Xcommon-sources=/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt
 	-language-version
 	1.9
 	-Xmulti-platform
@@ -13813,7 +13813,7 @@ Arguments = [
 	plugin:com.google.devtools.ksp.symbol-processing:mapAnnotationArgumentsInJava=false
 	-P
 	plugin:com.google.devtools.ksp.symbol-processing:apclasspath=/Users/api/Desktop/itime-rust/harmony-napi-bridge/harmony-napi-ksp-processor/build/libs/harmony-napi-ksp-processor.jar:/Users/api/Desktop/itime-rust/harmony-napi-bridge/harmony-napi-annotations/build/libs/harmony-napi-annotations-jvm.jar:/Users/api/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-ksp/1.16.0/dfa5e81ec09dcc4f20edf187d0ca2b15c75f117a/kotlinpoet-ksp-1.16.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-jvm/1.16.0/2df03e8b2afdb98dda7b6b0753cd5d9b12b40031/kotlinpoet-jvm-1.16.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/com.google.devtools.ksp/symbol-processing-api/1.9.24-1.0.20/3d899943719423930b113797921654efdd96d4af/symbol-processing-api-1.9.24-1.0.20.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.9.0/e000bd084353d84c9e888f6fb341dc1f5b79d948/kotlin-stdlib-jdk8-1.9.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.9.22/761ab33cf85f03a3a24595e1b92639d82e7a9564/kotlin-reflect-1.9.22.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.9.0/f320478990d05e0cfaadd74f9619fd6027adbf37/kotlin-stdlib-jdk7-1.9.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar
-	/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt
+	/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt
 	-Xkonan-data-dir=/Users/api/Desktop/itime-rust/harmony-napi-bridge/.konan
 ]
 Transformed arguments = [
@@ -13842,7 +13842,7 @@ Transformed arguments = [
 	-Xshort-module-name=sample-plugin
 	-target
 	linux_arm64
-	-Xcommon-sources=/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt
+	-Xcommon-sources=/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt
 	-language-version
 	1.9
 	-Xmulti-platform
@@ -13875,7 +13875,7 @@ Transformed arguments = [
 	plugin:com.google.devtools.ksp.symbol-processing:mapAnnotationArgumentsInJava=false
 	-P
 	plugin:com.google.devtools.ksp.symbol-processing:apclasspath=/Users/api/Desktop/itime-rust/harmony-napi-bridge/harmony-napi-ksp-processor/build/libs/harmony-napi-ksp-processor.jar:/Users/api/Desktop/itime-rust/harmony-napi-bridge/harmony-napi-annotations/build/libs/harmony-napi-annotations-jvm.jar:/Users/api/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-ksp/1.16.0/dfa5e81ec09dcc4f20edf187d0ca2b15c75f117a/kotlinpoet-ksp-1.16.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-jvm/1.16.0/2df03e8b2afdb98dda7b6b0753cd5d9b12b40031/kotlinpoet-jvm-1.16.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/com.google.devtools.ksp/symbol-processing-api/1.9.24-1.0.20/3d899943719423930b113797921654efdd96d4af/symbol-processing-api-1.9.24-1.0.20.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.9.0/e000bd084353d84c9e888f6fb341dc1f5b79d948/kotlin-stdlib-jdk8-1.9.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.9.22/761ab33cf85f03a3a24595e1b92639d82e7a9564/kotlin-reflect-1.9.22.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.9.0/f320478990d05e0cfaadd74f9619fd6027adbf37/kotlin-stdlib-jdk7-1.9.0.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/Users/api/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar
-	/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com/itime/harmony/sample/HelloWorldPlugin.kt
+	/Users/api/Desktop/itime-rust/harmony-napi-bridge/sample-plugin/src/commonMain/kotlin/com.realtech/harmony/sample/HelloWorldPlugin.kt
 	-Xkonan-data-dir=/Users/api/Desktop/itime-rust/harmony-napi-bridge/.konan
 ]
 2026-04-06T01:09:31.976+0800 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Execute compile for :sample-plugin:kspKotlinLinuxArm64' completed
