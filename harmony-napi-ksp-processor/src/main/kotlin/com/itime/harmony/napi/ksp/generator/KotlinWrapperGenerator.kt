@@ -24,9 +24,9 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
         val fileName = "${module.className}_NapiWrapper"
 
         val fileBuilder = FileSpec.builder(packageName, fileName)
-            .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "convert", "refTo", "get", "COpaquePointer", "asStableRef", "staticCFunction", "StableRef")
+            .addImport("kotlinx.cinterop", "alloc", "allocArray", "memScoped", "ptr", "value", "ExperimentalForeignApi", "convert", "refTo", "get", "COpaquePointer", "asStableRef", "staticCFunction", "StableRef", "LongVar")
             .addImport("platform.posix", "size_tVar")
-            .addImport("napi", "napi_env", "napi_callback_info", "napi_value", "napi_valueVar", "napi_get_cb_info", "napi_wrap", "napi_get_value_external", "napi_typeof", "napi_valuetype", "napi_get_null")
+            .addImport("napi", "napi_env", "napi_callback_info", "napi_value", "napi_valueVar", "napi_get_cb_info", "napi_wrap", "napi_get_value_external", "napi_typeof", "napi_valuetype", "napi_get_null", "napi_adjust_external_memory")
             .addImport("com.itime.harmony.napi.runtime.utils", "toNapiValue", "toKotlinDouble", "toKotlinInt", "toKotlinBoolean", "toKotlinString", "toKotlinStringList", "toKotlinStringStringMap", "toKotlinAny", "toKotlinAnyList", "toKotlinStringAnyMap", "toKotlinIntList", "toKotlinDoubleList", "toKotlinBooleanList", "toKotlinStringIntMap", "toKotlinStringDoubleMap", "toKotlinStringBooleanMap", "toKotlinObject", "toNapiObject", "toKotlinEnum", "toNapiString", "toNapiValueIntList", "toNapiValueDoubleList", "toNapiValueBooleanList", "toNapiValueStringIntMap", "toNapiValueStringDoubleMap", "toNapiValueStringBooleanMap", "toNapiValueAnyList", "toNapiValueStringAnyMap", "unwrapKotlinObject", "toNapiWrappedObject", "launchNapiCoroutine", "toKotlinEnumList", "toNapiValueEnumList", "toKotlinObjectList", "toNapiValueObjectList", "toKotlinStringObjectMap", "toNapiValueStringObjectMap", "toKotlinStringEnumMap", "toNapiValueStringEnumMap")
             .apply {
                 if (module.packageName.isNotEmpty() && !module.isFileExtension) {
@@ -128,7 +128,16 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 .addParameter("data", ClassName("kotlinx.cinterop", "COpaquePointer").copy(nullable = true))
                 .addParameter("hint", ClassName("kotlinx.cinterop", "COpaquePointer").copy(nullable = true))
                 .returns(Unit::class)
-                .addCode("data?.asStableRef<Any>()?.dispose()\n")
+                .addCode("""
+                    data?.asStableRef<Any>()?.dispose()
+                    if (env != null) {
+                        memScoped {
+                            val adjustedValue = alloc<LongVar>()
+                            napi_adjust_external_memory(env, -8192L, adjustedValue.ptr)
+                        }
+                    }
+                    
+                """.trimIndent())
             fileBuilder.addFunction(finalizeBuilder.build())
 
             val constructorBuilder = FunSpec.builder("${module.className}_constructor")
@@ -156,6 +165,8 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                 appendLine("            val externalPtr = alloc<kotlinx.cinterop.COpaquePointerVar>()")
                 appendLine("            napi_get_value_external(env, argv[0], externalPtr.ptr)")
                 appendLine("            napi_wrap(env, thisVar.value, externalPtr.value, staticCFunction(::${module.className}_finalize), null, null)")
+                appendLine("            val adjustedValue = alloc<LongVar>()")
+                appendLine("            napi_adjust_external_memory(env, 8192L, adjustedValue.ptr)")
                 appendLine("            return@memScoped thisVar.value")
                 appendLine("        }")
                 appendLine()
@@ -175,6 +186,8 @@ class KotlinWrapperGenerator(private val codeGenerator: CodeGenerator) {
                     appendLine("        val instance = ${module.className}(${args.joinToString(", ")})")
                     appendLine("        val stableRef = StableRef.create(instance)")
                     appendLine("        napi_wrap(env, thisVar.value, stableRef.asCPointer(), staticCFunction(::${module.className}_finalize), null, null)")
+                    appendLine("        val adjustedValue = alloc<LongVar>()")
+                    appendLine("        napi_adjust_external_memory(env, 8192L, adjustedValue.ptr)")
                     appendLine("        return@memScoped thisVar.value")
                 }
                 appendLine("    }")
