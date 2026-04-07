@@ -7,7 +7,10 @@
       },
       {
         "MODULE_NAME": "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b",
-        "API_TYPE": "stageMode"
+        "API_TYPE": "stageMode",
+        "INCREMENTAL_TASKS": {
+          "BUILD_NATIVE_WITH_CMAKE": true
+        }
       }
     ],
     "NATIVE_COMPILER": "BiSheng",
@@ -19,7 +22,28 @@
     "IS_DAEMON": true,
     "IS_PARALLEL": true,
     "IS_HVIGORFILE_TYPE_CHECK": false,
-    "TASK_TIME": {},
+    "TASK_TIME": {
+      "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
+        "CreateModuleInfo": 262292,
+        "PreCheckSyscap": 75916,
+        "ProcessIntegratedHsp": 143458,
+        "SyscapTransform": 1038125,
+        "ConfigureCmake": 73916,
+        "BuildNativeWithCmake": 74292,
+        "ProcessStartupConfig": 536334,
+        "BuildJS": 398333,
+        "BuildNativeWithNinja": 141375,
+        "ProcessCompiledResources": 153917,
+        "PackingCheck": 1132000,
+        "CollectDebugSymbol": 160125,
+        "assembleHap": 59041
+      },
+      "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
+        "ConfigureCmake": 17719459,
+        "BuildNativeWithCmake": 6954334,
+        "BuildNativeWithNinja": 21965000
+      }
+    },
     "APIS": [
       "getHvigorConfig",
       "getRootNodeDescriptor",
@@ -41,19 +65,7 @@
       "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "TOTAL_TIME": 116742416,
-    "BUILD_ID": "202604071407571640",
-    "ERROR_MESSAGE": [
-      {
-        "CODE": "00303214",
-        "MESSAGE": "The type of target device does not match the device type configured by module: %s.\nRequired device type:%s, current module device type:%s",
-        "SOLUTIONS": [
-          "Make sure the deviceTypes field set in module.json5 under src/main of the module directory contains the required type.",
-          "Make sure the device types specified under target in the build-profile.json5 file of the module directory contain the required one.",
-          "Check whether the hvigorfile.ts or hvigorconfig.ts file contains any code that may change the module deviceTypes settings."
-        ],
-        "TIMESTAMP": "1775542077278"
-      }
-    ]
+    "TOTAL_TIME": 153789875,
+    "BUILD_ID": "202604071443178800"
   }
 }

@@ -1,4 +1,4 @@
-import { describe, it, expect } from '@ohos/hypium';
+import { describe, it, expect, beforeEach } from '@ohos/hypium';
 import http from '@ohos.net.http';
 import { hello_world_plugin, koin_plugin, storage_plugin, ktor_plugin, IndexPresenter, Student, KeyValueStorage, ArkTsHttpFetcher, ArkTsHttpRequest,
   User,
@@ -10,6 +10,12 @@ import { UserUtilsV2 } from 'khn/src/main/ets/components/LogicKn';
 
 export default function khnTests() {
   describe('KhnNapiTests', () => {
+    
+    beforeEach(async () => {
+      // Yield to the event loop to prevent UI freezing and ANR (APP_INPUT_BLOCK)
+      await new Promise<void>(resolve => setTimeout(resolve, 10));
+    });
+
     it('should add two numbers', 0, () => {
       const result = hello_world_plugin.add(12, 30);
       expect(result).assertEqual(42);

@@ -146,21 +146,18 @@ struct Index {
     hilog.info(DOMAIN, TAG, '%{public}s', message);
 
     // Simple Hypium log parser for beginner-friendly dashboard
-    if (message.includes('OHOS REPORT')) {
-      const passMatch = message.match(/"passes"\s*:\s*(\d+)/);
-      const failMatch = message.match(/"fails"\s*:\s*(\d+)/);
-      if (passMatch) {
-        this.passCount = parseInt(passMatch[1], 10);
-      }
-      if (failMatch) {
-        this.failCount = parseInt(failMatch[1], 10);
-      }
+    // Check if message itself contains passes/fails
+    const passMatch = message.match(/(?:^|\b)["']?passes["']?\s*[:=]\s*(\d+)/i) || message.match(/(?:^|\b)pass(?:ed)?\s*[:=]\s*(\d+)/i);
+    const failMatch = message.match(/(?:^|\b)["']?fails["']?\s*[:=]\s*(\d+)/i) || message.match(/(?:^|\b)fail(?:ed)?\s*[:=]\s*(\d+)/i);
+    if (passMatch) {
+      this.passCount = parseInt(passMatch[1], 10);
+    }
+    if (failMatch) {
+      this.failCount = parseInt(failMatch[1], 10);
     }
   }
 
   private runTests(): void {
-    this.viewModel.request()
-
     if (this.isRunning) return;
     this.isRunning = true;
     
@@ -170,63 +167,68 @@ struct Index {
     this.failCount = 0;
     this.logText = '';
     
-    let testResult = this.demoCall.sayHello({
-      name: 'World123123',
-      age: 42
-    })
+    // Asynchronous call wrapper to ensure UI renders the 'RUNNING' state before blocking operations
+    setTimeout(() => {
+      this.viewModel.request()
 
-    this.appendLog(testResult)
-    this.appendLog(JSON.stringify(this.demoAbsCall.process(['asdff', 'asdf'])))
-    this.appendLog('Starting tests...');
+      let testResult = this.demoCall.sayHello({
+        name: 'World123123',
+        age: 42
+      })
 
-    this.startMem = hidebug.getNativeHeapAllocatedSize();
-    this.startTime = Date.now();
+      this.appendLog(testResult)
+      this.appendLog(JSON.stringify(this.demoAbsCall.process(['asdff', 'asdf'])))
+      this.appendLog('Starting tests...');
 
-    const mockDelegator: MockDelegator = {
-      addAbilityMonitor: () => {},
-      removeAbilityMonitor: () => {},
-      waitAbilityMonitor: () => Promise.resolve(),
-      getAppContext: () => null,
-      getAbilityState: () => 0,
-      getCurrentTopAbility: () => Promise.resolve(null),
-      print: (msg: string) => { this.appendLog(msg); },
-      printSync: (msg: string) => { this.appendLog(msg); },
-      executeShellCommand: (cmd: string, timeout: number, callback: Function) => { callback(null, { stdResult: '' }); },
-      finishTest: (msg: string, code: number, callback: Function) => {
-        this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
-        const endMem = hidebug.getNativeHeapAllocatedSize();
-        const endTime = Date.now();
-        const memDiff = Number((endMem - this.startMem) / 1024n);
-        const timeDiff = endTime - this.startTime;
-        this.metricsText = `Memory Diff: ${memDiff} KB | Time: ${timeDiff} ms`;
-        
-        // Update Test Status Banner
-        if (this.failCount > 0 || code !== 0) {
-           this.testStatus = 'FAILED';
-        } else if (this.passCount > 0) {
-           this.testStatus = 'PASSED';
-        } else {
-           this.testStatus = 'WAITING'; 
+      this.startMem = hidebug.getNativeHeapAllocatedSize();
+      this.startTime = Date.now();
+
+      const mockDelegator: MockDelegator = {
+        addAbilityMonitor: () => {},
+        removeAbilityMonitor: () => {},
+        waitAbilityMonitor: () => Promise.resolve(),
+        getAppContext: () => null,
+        getAbilityState: () => 0,
+        getCurrentTopAbility: () => Promise.resolve(null),
+        print: (msg: string) => { this.appendLog(msg); },
+        printSync: (msg: string) => { this.appendLog(msg); },
+        executeShellCommand: (cmd: string, timeout: number, callback: Function) => { callback(null, { stdResult: '' }); },
+        finishTest: (msg: string, code: number, callback: Function) => {
+          this.appendLog(`Test Finished: ${msg} (Code: ${code})`);
+          const endMem = hidebug.getNativeHeapAllocatedSize();
+          const endTime = Date.now();
+          const memDiff = Number((endMem - this.startMem) / 1024n);
+          const timeDiff = endTime - this.startTime;
+          this.metricsText = `Memory Diff: ${memDiff} KB | Time: ${timeDiff} ms`;
+          
+          // Update Test Status Banner
+          if (this.failCount > 0 || code !== 0) {
+             this.testStatus = 'FAILED';
+          } else if (this.passCount > 0) {
+             this.testStatus = 'PASSED';
+          } else {
+             this.testStatus = 'WAITING'; 
+          }
+          
+          this.isRunning = false;
+          if (callback) {
+            callback();
+          }
         }
-        
-        this.isRunning = false;
-        if (callback) {
-          callback();
-        }
+      };
+
+      const mockArguments: MockArguments = {
+        bundleName: 'com.example.harmony_napi_bridge',
+        parameters: {}
+      };
+
+      if (!this.testsRegistered) {
+        this.testsRegistered = true;
+        Hypium.hypiumTest(mockDelegator, mockArguments, khnTests);
+      } else {
+        Core.getInstance().execute(mockDelegator);
       }
-    };
-
-    const mockArguments: MockArguments = {
-      bundleName: 'com.example.harmony_napi_bridge',
-      parameters: {}
-    };
-
-    if (!this.testsRegistered) {
-      this.testsRegistered = true;
-      Hypium.hypiumTest(mockDelegator, mockArguments, khnTests);
-    } else {
-      Core.getInstance().execute(mockDelegator);
-    }
+    }, 50); // Small delay to let the UI thread breathe and render the loading state
   }
 
   build() {
