@@ -3,17 +3,11 @@
     "MODULES": [
       {
         "MODULE_NAME": "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf",
-        "API_TYPE": "stageMode",
-        "INCREMENTAL_TASKS": {
-          "COMPILE_ARKTS": true
-        }
+        "API_TYPE": "stageMode"
       },
       {
         "MODULE_NAME": "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b",
-        "API_TYPE": "stageMode",
-        "INCREMENTAL_TASKS": {
-          "BUILD_NATIVE_WITH_CMAKE": true
-        }
+        "API_TYPE": "stageMode"
       }
     ],
     "NATIVE_COMPILER": "BiSheng",
@@ -25,31 +19,7 @@
     "IS_DAEMON": true,
     "IS_PARALLEL": true,
     "IS_HVIGORFILE_TYPE_CHECK": false,
-    "TASK_TIME": {
-      "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
-        "CreateModuleInfo": 155916,
-        "PreCheckSyscap": 80250,
-        "ProcessIntegratedHsp": 272709,
-        "SyscapTransform": 634791,
-        "ConfigureCmake": 85042,
-        "BuildNativeWithCmake": 73917,
-        "ProcessStartupConfig": 289792,
-        "BuildJS": 425750,
-        "BuildNativeWithNinja": 133625,
-        "CompileArkTS": 306025292,
-        "ProcessCompiledResources": 202875,
-        "PackageHap": 45593000,
-        "PackingCheck": 1352625,
-        "SignHap": 480250,
-        "CollectDebugSymbol": 217917,
-        "assembleHap": 75958
-      },
-      "791613f2f64ec876ee123bd04961a4554c2b5b7631b64f4ee727ad703d05e17b": {
-        "ConfigureCmake": 12478666,
-        "BuildNativeWithCmake": 2936833,
-        "BuildNativeWithNinja": 20521125
-      }
-    },
+    "TASK_TIME": {},
     "APIS": [
       "getHvigorConfig",
       "getRootNodeDescriptor",
@@ -68,11 +38,22 @@
       "getParameter",
       "getProductName",
       "nodesEvaluated",
-      "getCommandEntryTask",
-      "getStartParams"
+      "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "TOTAL_TIME": 476118584,
-    "BUILD_ID": "202604061613566010"
+    "TOTAL_TIME": 116742416,
+    "BUILD_ID": "202604071407571640",
+    "ERROR_MESSAGE": [
+      {
+        "CODE": "00303214",
+        "MESSAGE": "The type of target device does not match the device type configured by module: %s.\nRequired device type:%s, current module device type:%s",
+        "SOLUTIONS": [
+          "Make sure the deviceTypes field set in module.json5 under src/main of the module directory contains the required type.",
+          "Make sure the device types specified under target in the build-profile.json5 file of the module directory contain the required one.",
+          "Check whether the hvigorfile.ts or hvigorconfig.ts file contains any code that may change the module deviceTypes settings."
+        ],
+        "TIMESTAMP": "1775542077278"
+      }
+    ]
   }
 }

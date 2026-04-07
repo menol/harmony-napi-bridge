@@ -271,7 +271,21 @@
     ],
     "PROFILE_OPT": {
       "app": {
-        "signingConfigs": [],
+        "signingConfigs": [
+          {
+            "name": "default",
+            "type": "HarmonyOS",
+            "material": {
+              "certpath": "/Users/api/.ohos/config/default_ohos_9fm5ebow3DyAP-JoxM73DeRs2DS4DrCcBgdzgdIqhHc=.cer",
+              "keyAlias": "debugKey",
+              "keyPassword": "0000001B1111D28916BB545BB763C83A1DF3F17F4C303904F2AB22810F05975370FB47B8A7773DB34CC41C",
+              "profile": "/Users/api/.ohos/config/default_ohos_9fm5ebow3DyAP-JoxM73DeRs2DS4DrCcBgdzgdIqhHc=.p7b",
+              "signAlg": "SHA256withECDSA",
+              "storeFile": "/Users/api/.ohos/config/default_ohos_9fm5ebow3DyAP-JoxM73DeRs2DS4DrCcBgdzgdIqhHc=.p12",
+              "storePassword": "0000001B13CFEC2E9E3FE3762FB4F20C87086D9850A3C868C4218E66186E0673468DF9F5E213F241F10103"
+            }
+          }
+        ],
         "products": [
           {
             "name": "default",
